@@ -1,0 +1,238 @@
+#include Base.obd
+
+[SYSTEM]
+ShapeDir = ..\shape
+SoundDir = sound
+SpriteDir = ..\shape
+BgPath = \testBG.SHP
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 4194304
+MaxSize = 67108864
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+
+;--------------------------------------------------------------------------
+
+#define SP_EVENT_ACT_WAIT		0x00000001	// 進入待机動作
+#define SP_EVENT_ACT_FADEOUT	0x00000002	// 淡出移除
+#define SP_EVENT_ACT_REMOVE		0x00000003	// 立即移除
+#define SP_EVENT_ACT_ATTACK		0x00000004	// 攻擊
+#define SP_EVENT_ACT_FINISHED	0x00000005	// 結尾
+#define SP_EVENT_ACT_CHECK		0x00000006	// 中間斷點
+
+;--------------------------------------------------------------------------
+
+
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define SP_CLASS_TEST                           0x00000002	//SP_CLASS_TEST
+#define SP_CLASS_SFBase                         0x00000003	//SP_CLASS_SFBase
+#define SP_CLASS_SFSHIP                         0x00000004
+#define SP_CLASS_SFEVENTPLACE                   0x00000005
+
+#define SP_CLASS_SFCITYANNEX                    0x0000000a
+#define SP_CLASS_SFCITYSMOKE                    0x0000000b
+#define SP_CLASS_SFCITYFIRE                     0x0000000c
+
+
+#define SP_CLASS_SFCITY                         0x00002002	//城市
+#define SP_CLASS_SFARMY                         0x00002003	//武將
+#define SP_CLASS_SFTENT                         0x00002004	//營帳
+#define SP_CLASS_SFTOWER                        0x00002005	//塔
+#define SP_CLASS_SFHARBOR                       0x00002006	//港口
+#define SP_CLASS_SFBRIDGE                       0x00002007	//橋樑
+#define SP_CLASS_SFFORT                         0x00002008	//關卡
+#define SP_CLASS_SFOBJECT                       0x00002009	//物件
+#define SP_CLASS_SFPATCH                        0x0000200a	//修補
+
+#define SP_CLASS_SFARMYEVENT                    0x00003003	//陸事件
+#define SP_CLASS_SFSHIPEVENT                    0x00003004	//水事件
+
+
+
+
+#define SP_ATTRIB_001                           0x00040000	//SP_ATTRIB_001
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//混色
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//加色
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//減色
+#define SP_ATTRIB_OUTLINE                       0x00000010	//外框
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash效果
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke效果
+#define SP_ATTRIB_WATER                         0x00000080	//Water效果
+#define SP_ATTRIB_SINGLE                        0x00000100	//單色
+#define SP_ATTRIB_GLASS                         0x00000200	//玻璃色
+#define SP_ATTRIB_GRAY                          0x00000400	//灰階
+#define SP_ATTRIB_TABLE                         0x00001000	//表格
+#define SP_ATTRIB_BIAS                          0x00002000	//換色
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+[SP_CLASS]
+Name = SP_CLASS_TEST
+Value = 0x00000002
+Comment = SP_CLASS_TEST
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_SFCITY
+Value = 0x00002002
+Comment = SP_CLASS_SFCITY
+
+;=============================================================
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_001
+Value = 0x00040000
+Comment = SP_ATTRIB_001
+
+;=============================================================
+
+[OBJECT]
+Name = NULL
+Sequence = 1
+Space = 0, 0, 0
+Process = SP_CLASS_BASE
+Directory = \
+Sprite = Wait, null
+
+[OBJECT]
+Name = 一般游標
+Sequence = 2
+Space = 0, 0, 0
+Process = SP_CLASS_BASE
+Directory = \Cursor\
+Sprite = Wait, a10001, #8, a10002, a10003, a10004, a10005, a10006, a10007, a10008
+
+//----------------------------------------------------
+
+[OBJECT]
+Name = 一般游標 Normal
+Sequence = 3
+Space = 0, 0, 0
+Process = SP_CLASS_SFBase
+Directory = \Cursor\
+Sprite = Wait, 011, #20
+Sprite = Down, 012, #20
+Sprite = Die, 012, #60, 012, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 一般游標 Walkable
+Sequence = 4
+Space = 0, 0, 0
+Process = SP_CLASS_SFBase
+Directory = \Cursor\
+Sprite = Wait, 021, #20, 022, 023
+Sprite = Down, 024, #20
+Sprite = Die, 024, #60, 024, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]2004/10/14 11:16上午
+Name = 一般游標 NonWalkable
+Sequence = 5
+Space = 0, 0, 0
+Process = SP_CLASS_SFBase
+Directory = \Cursor\
+Sprite = Wait, 031, #20
+Sprite = Down, 032, #20
+Sprite = Die, 032, #60, 032, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 一般游標 Enterinto
+Sequence = 6
+Space = 0, 0, 0
+Process = SP_CLASS_SFBase
+Directory = \Cursor\
+Sprite = Wait, 041, #20, 042
+Sprite = Down, 043, #20
+Sprite = Die, 043, #60, 043, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 一般游標 EnterBattle
+Sequence = 7
+Space = 0, 0, 0
+Process = SP_CLASS_SFBase
+Directory = \Cursor\
+Sprite = Wait, 051, #20, 052
+Sprite = Down, 053, #20
+Sprite = Die, 053, #60, 053, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 一般游標 EnterFollow
+Sequence = 8
+Space = 0, 0, 0
+Process = SP_CLASS_SFBase
+Directory = \Cursor\
+Sprite = Wait, 061, #20, 062, 063
+Sprite = Down, 064, #20
+Sprite = Die, 064, #60, 064, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 一般游標 ?
+Sequence = 9
+Space = 0, 0, 0
+Process = SP_CLASS_SFBase
+Directory = \Cursor\
+Sprite = Wait, 071, #20, 072
+Sprite = Down, 073, #20
+Sprite = Die, 073, #60, 073, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 一般游標
+Sequence = 10
+Space = 0, 0, 0
+Process = SP_CLASS_SFBase
+Directory = \Cursor\
+Sprite = Wait, 081
+Sprite = Down, 081, #20
+Sprite = Die, null, #60, null, @SP_EVENT_ACT_FADEOUT
+
+//----------------------------------------------------
+
+[OBJECT]
+Name = 冒煙
+Sequence = 90
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = SP_CLASS_SFCITYSMOKE
+Directory = \BF\Magic\smoke
+Sprite = Wait, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013
+
+
+[OBJECT]
+Name = 爆炸
+Sequence = 100
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = SP_CLASS_SFBase
+Directory = \Menu\bom
+Sprite = Wait, sbomo001, #5, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait1, Null, #2, sbomo001, #5, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait2, Null, #4, sbomo001, #5, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait3, Null, #6, sbomo001, #5, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait4, Null, #8, sbomo001, #5, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait5, sbomo001, #4, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait6, Null, #2, sbomo001, #4, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait7, Null, #4, sbomo001, #4, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait8, Null, #6, sbomo001, #4, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = Wait9, Null, #8, sbomo001, #4, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 測試大地圖八方向圖形樣本
+Sequence = 101
+Space = 0,0,0
+Process = SP_CLASS_BASE
+Directory = \SFArmyTest\000
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*

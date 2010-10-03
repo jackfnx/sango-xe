@@ -1,0 +1,182 @@
+[SYSTEM]
+ShapeDir = shape
+SoundDir = sound
+SpriteDir = shape
+BgPath = \testBG.SHP
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 4194304
+MaxSize = 67108864
+
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define SP_CLASS_TEST                           0x00000002	//SP_CLASS_TEST
+#define SP_CLASS_SFBase                         0x00000003	//SP_CLASS_SFBase
+#define SP_CLASS_SFSHIP                         0x00000004
+#define SP_CLASS_SFEVENTPLACE                   0x00000005
+
+
+#define SP_CLASS_SFCITY                         0x00002002	//城市
+#define SP_CLASS_SFARMY                         0x00002003	//武將
+#define SP_CLASS_SFTENT                         0x00002004	//營帳
+#define SP_CLASS_SFTOWER                        0x00002005	//塔
+#define SP_CLASS_SFHARBOR                       0x00002006	//港口
+#define SP_CLASS_SFBRIDGE                       0x00002007	//橋樑
+#define SP_CLASS_SFFORT                         0x00002008	//關卡
+#define SP_CLASS_SFOBJECT                       0x00002009	//物件
+#define SP_CLASS_SFPATCH                        0x0000200a	//修補
+
+
+#define SP_ATTRIB_001                           0x00040000	//SP_ATTRIB_001
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//混色
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//加色
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//減色
+#define SP_ATTRIB_OUTLINE                       0x00000010	//外框
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash效果
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke效果
+#define SP_ATTRIB_WATER                         0x00000080	//Water效果
+#define SP_ATTRIB_SINGLE                        0x00000100	//單色
+#define SP_ATTRIB_GLASS                         0x00000200	//玻璃色
+#define SP_ATTRIB_GRAY                          0x00000400	//灰階
+#define SP_ATTRIB_TABLE                         0x00001000	//表格
+#define SP_ATTRIB_BIAS                          0x00002000	//換色
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+[SP_CLASS]
+Name = SP_CLASS_TEST
+Value = 0x00000002
+Comment = SP_CLASS_TEST
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_SFCITY
+Value = 0x00002002
+Comment = SP_CLASS_SFCITY
+
+;=============================================================
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_001
+Value = 0x00040000
+Comment = SP_ATTRIB_001
+
+;=============================================================
+
+[OBJECT]
+Name = TEST_city
+Sequence = 1006
+Space = 0, 0, 0
+Flags = 
+Process = SP_CLASS_SFCITY
+Directory = \test\SFBuilding
+Sprite = Wait,    city-01
+Sprite = Size000, city-01
+Sprite = Size001, city-02
+Sprite = Size002, city-03
+Sprite = Size010, city-04
+Sprite = Size011, city-05
+Sprite = Size012, city-06
+Sprite = Size020, city-07
+Sprite = Size021, city-08
+Sprite = Size022, city-09
+Sprite = Size100, city-11
+Sprite = Size101, city-12
+Sprite = Size102, city-13
+Sprite = Size110, city-14
+Sprite = Size111, city-15
+Sprite = Size112, city-16
+Sprite = Size120, city-17
+Sprite = Size121, city-18
+Sprite = Size122, city-19
+Sprite = JPSize000, JPCity-11
+Sprite = JPSize001, JPCity-12
+Sprite = JPSize002, JPCity-13
+Sprite = JPSize010, JPCity-14
+Sprite = JPSize011, JPCity-15
+Sprite = JPSize012, JPCity-16
+Sprite = JPSize020, JPCity-17
+Sprite = JPSize021, JPCity-18
+Sprite = JPSize022, JPCity-19
+Sprite = JPSize100, JPCity-01
+Sprite = JPSize101, JPCity-02
+Sprite = JPSize102, JPCity-03
+Sprite = JPSize110, JPCity-04
+Sprite = JPSize111, JPCity-05
+Sprite = JPSize112, JPCity-06
+Sprite = JPSize120, JPCity-07
+Sprite = JPSize121, JPCity-08
+Sprite = JPSize122, JPCity-09
+
+[OBJECT]
+Name = TEST_Fort
+Sequence = 1009
+Space = 0, 0, 0
+Flags = 
+Process = SP_CLASS_SFFORT
+Directory = \test\SFBuilding
+Sprite = Wait,    Fort-07.SHP
+
+[OBJECT]
+Name = TEST_army
+Sequence = 1011
+Space = 0, 0, 0
+Flags = 
+Process = SP_CLASS_SFARMY
+Directory = \test\SFGeneral\001
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+Sprite = Fight, A011*, #6, A021*, A031*, A041*, A051*, A061*, A071*, A081*
+Sprite = Lose, L011*, #6, L021*, L031*, L041*, L051*, L061*, L071*, L081*, L081*, @SP_EVENT_ACT_FADEOUT
+Sprite = Win, V011*, #6, V021*, V031*, V041*, V051*, V041*, V031*, V041*, V051*, V041*, V031*, V041*, V051*, V041*, V031*, V021*, V011*, V011*, @SP_EVENT_ACT_WAIT
+Sprite = ShipWait, ShipW011*, #12, ShipW031*, ShipW041*, ShipW051*, ShipW061*, ShipW071*
+Sprite = ShipWalk, ShipW011*, #10, ShipW031*, ShipW041*, ShipW051*, ShipW061*, ShipW071*
+Sprite = ShipFight, ShipW011*, #6, ShipW031*, ShipW041*, ShipW051*, ShipW061*, ShipW071*
+Sprite = ShipLose, ShipL011*, #6, ShipL021*, ShipL031*, ShipL041*, ShipL051*, ShipL061*, ShipL071*, ShipL071*, @SP_EVENT_ACT_FADEOUT
+Sprite = ShipWin, ShipW011*, #10, ShipW031*, ShipW041*, ShipW051*, ShipW061*, ShipW071*
+Sprite = ShipEWait, ShipEW011*, #12, ShipEW031*, ShipEW041*, ShipEW051*, ShipEW061*, ShipEW071*
+Sprite = ShipEWalk, ShipEW011*, #10, ShipEW031*, ShipEW041*, ShipEW051*, ShipEW061*, ShipEW071*
+Sprite = ShipEFight, ShipEW011*, #6, ShipEW031*, ShipEW041*, ShipEW051*, ShipEW061*, ShipEW071*
+Sprite = ShipELose, ShipEL011*, #6, ShipEL021*, ShipEL031*, ShipEL041*, ShipEL051*, ShipEL061*, ShipEL071*, ShipEL071*, @SP_EVENT_ACT_FADEOUT
+Sprite = ShipEWin, ShipEW011*, #10, ShipEW031*, ShipEW041*, ShipEW051*, ShipEW061*, ShipEW071*
+
+[OBJECT]
+Name = TEST_tower
+Sequence = 1020
+Space = 0, 0, 0
+Flags = 
+Process = SP_CLASS_SFTOWER
+Directory = \test\SFBuilding
+Sprite = Wait, tower-01
+
+[OBJECT]
+Name = TEST_Harbor
+Sequence = 1022
+Space = 0, 0, 0
+Flags = 
+Process = SP_CLASS_SFHARBOR
+Directory = \test\SFBuilding
+Sprite = Wait, harbor03-01
+
+[OBJECT]
+Name = TEST_Ship
+Sequence = 1024
+Space = 0, 0, 0
+Flags = 
+Process = SP_CLASS_SFSHIP
+Directory = \test\SFShip\001
+Sprite = Wait, W011*, #9999
+Sprite = Walk, W011*, #9999

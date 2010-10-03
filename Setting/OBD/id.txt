@@ -1,0 +1,65 @@
+SFBase  (OK)  
+        1     - 1000  
+
+SFTest  (OK)
+        1000  - 2000
+
+SFObject (OK)
+        10000 - 25000
+        
+SFObject (OK)
+        25000 - 28000
+
+BFBase  (OK)
+        28000 - 30000        
+
+BFMagic (OK)
+        30000 - 35000
+        
+BFObject  (OK)
+        35000 - 40000       
+    
+BFTest  (OK)
+        60000 - 61000
+        
+BFHorse (OK)
+        61000 - 62000
+
+BFWeapon (OK)
+        62000 - 63000
+
+BFGen   (OK)
+        63000 - 64000
+                
+BFWeaponLight (OK)
+        64000 - 65000
+
+BFSoldier (OK)
+        70000 - 71000
+        
+BFSpec  (OK)   
+        80000 - 81000
+        
+BFEvent (OK)
+        81000 - 82000        
+                
+        
+
+        
+
+        
+SFGen   (OK)
+        90000 - 91000                
+        
+SFShip  (OK)
+        91000 - 92000                        
+
+SFEvent (OK)
+        92000 - 94000                                
+        
+
+        
+
+
+
+

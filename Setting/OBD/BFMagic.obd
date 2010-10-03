@@ -1,0 +1,4997 @@
+[SYSTEM]
+ShapeDir = ..\shape
+SoundDir = sound
+SpriteDir = ..\shape
+BgPath = \testBG.SHP
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 4194304
+MaxSize = 67108864
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+;--------------------------------------------------------------------------
+
+#define SP_EVENT_ACT_WAIT		0x00000001	// 進入待机動作
+#define SP_EVENT_ACT_FADEOUT	0x00000002	// 淡出移除
+#define SP_EVENT_ACT_REMOVE		0x00000003	// 立即移除
+#define SP_EVENT_ACT_ATTACK		0x00000004	// 攻擊
+#define SP_EVENT_ACT_FINISHED	0x00000005	// 結尾
+#define SP_EVENT_ACT_CHECK		0x00000006	// 中間斷點
+
+;--------------------------------------------------------------------------
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define BF_CLASS_BFBase                         0x00000002	//BF_CLASS_BFBase
+#define BF_CLASS_BFObject                       0x00000003	//BF_CLASS_BFObject
+#define BF_CLASS_BFHorse                        0x00000004	//BF_CLASS_BFHorse
+#define BF_CLASS_BFWeapon                       0x00000005	//BF_CLASS_BFWeapon
+#define BF_CLASS_BFGeneral                      0x00000006	//BF_CLASS_BFGeneral
+#define BF_CLASS_BFSoldier                      0x00000007	//BF_CLASS_BFSoldier
+#define BF_CLASS_BFMagic                        0x00000008	//BF_CLASS_BFMagic
+#define BF_CLASS_BFSpecial                      0x00000009	//BF_CLASS_BFSpecial
+
+;--------------------------------------------------------------------------
+
+#define SP_ATTRIB_001                           0x00040000	//SP_ATTRIB_001
+
+;--------------------------------------------------------------------------
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//混色
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//加色
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//減色
+#define SP_ATTRIB_OUTLINE                       0x00000010	//外框
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash效果
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke效果
+#define SP_ATTRIB_WATER                         0x00000080	//Water效果
+#define SP_ATTRIB_SINGLE                        0x00000100	//單色
+#define SP_ATTRIB_GLASS                         0x00000200	//玻璃色
+#define SP_ATTRIB_GRAY                          0x00000400	//灰階
+#define SP_ATTRIB_TABLE                         0x00001000	//表格
+#define SP_ATTRIB_BIAS                          0x00002000	//換色
+
+;===================================================================================
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_WAIT
+Value = 0x00000001
+Comment = 進入待机動作
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_FADEOUT
+Value = 0x00000002
+Comment = 淡出移除
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_REMOVE
+Value = 0x00000003
+Comment = 立即移除
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_ATTACK
+Value = 0x00000004
+Comment = 攻擊
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+[SP_CLASS]
+Name = BF_CLASS_BFBase
+Value = 0x00000002
+Comment = BF_CLASS_BFBase
+
+[SP_CLASS]
+Name = BF_CLASS_BFObject
+Value = 0x00000003
+Comment = BF_CLASS_BFObject
+
+[SP_CLASS]
+Name = BF_CLASS_BFHorse
+Value = 0x00000004
+Comment = BF_CLASS_BFHorse
+
+[SP_CLASS]
+Name = BF_CLASS_BFWeapon
+Value = 0x00000005
+Comment = BF_CLASS_BFWeapon
+
+[SP_CLASS]
+Name = BF_CLASS_BFGeneral
+Value = 0x00000006
+Comment = BF_CLASS_BFGeneral
+
+[SP_CLASS]
+Name = BF_CLASS_BFSoldier
+Value = 0x00000007
+Comment = BF_CLASS_BFSoldier
+
+[SP_CLASS]
+Name = BF_CLASS_BFMagic
+Value = 0x00000008
+Comment = BF_CLASS_BFMagic
+
+[SP_CLASS]
+Name = BF_CLASS_BFSpecial
+Value = 0x00000009
+Comment = BF_CLASS_BFSpecial
+
+;=============================================================
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_001
+Value = 0x00040000
+Comment = SP_ATTRIB_001
+
+;=============================================================
+
+[OBJECT]
+Name = 長弓兵 red
+Sequence = 30000
+Space = 0, 0, 0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\010
+Sprite = Wait, Rstandby01, #6, Rstandby02, Rstandby03, Rstandby04, Rstandby03, Rstandby02
+Sprite = Shoot, Rshoot01, #8, Rshoot02, Rshoot03, Rshoot04, Rshoot04, @SP_EVENT_ACT_ATTACK, Rshoot05, #999
+
+[OBJECT]
+Name = 長弓兵 blue
+Sequence = 30001
+Space = 0, 0, 0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\010
+Sprite = Wait, Bstandby01, #6, Bstandby02, Bstandby03, Bstandby04, Bstandby03, Bstandby02
+Sprite = Shoot, Bshoot01, #8, Bshoot02, Bshoot03, Bshoot04, Bshoot04, @SP_EVENT_ACT_ATTACK, Bshoot05, #999
+
+[OBJECT]
+Name = 火 空中
+Sequence = 30002
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fire
+Sprite = Wait, FIR0002, #4, FIR0003, FIR0004, FIR0005, FIR0006, FIR0007, @SP_EVENT_ACT_ATTACK
+Sprite = loop, FIR0008, #4, FIR0009, FIR0010, FIR0011, FIR0018, FIR0023, FIR0024
+Sprite = end, FIR0025, #4, FIR0026, FIR0027, FIR0028, FIR0029, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 箭
+Sequence = 30003
+Space = 0, 0, 0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\arrow
+Sprite = Wait, null
+Sprite = up, arrowUp
+Sprite = down, arrowDown
+Sprite = down2, arrowDown2
+Sprite = down3, arrowDown3
+Sprite = down4, arrowDown4
+Sprite = b1, B_Arrow01
+Sprite = b2, B_Arrow02
+Sprite = b3, B_Arrow03
+Sprite = b4, B_Arrow04
+Sprite = b5, B_Arrow05
+Sprite = b6, B_Arrow06
+Sprite = b7, B_Arrow07
+Sprite = b8, B_Arrow08
+Sprite = b9, B_Arrow09
+Sprite = fly, arrow
+Sprite = shadow, shadow
+; 弓兵 箭 17
+Sprite = SF1, B10001
+Sprite = SF2, B10002
+Sprite = SF3, B10003
+Sprite = SF4, B10004
+Sprite = SF5, B10005
+Sprite = SF6, B10006
+Sprite = SF7, B10007
+Sprite = SF8, B10008
+Sprite = SF9, B10009
+Sprite = SFGnd, B_Arrow09, #2, B_Arrow08, #999
+; 弩兵 箭 27
+Sprite = Bolt, BOLT
+Sprite = BoltM, BOLT03, #5, BOLT02, BOLT01, @SP_EVENT_ACT_FADEOUT, BOLT08, BOLT07, BOLT06, BOLT05, BOLT04
+; 近衛兵 飛刀 29
+Sprite = FlyCutter, G20007
+Sprite = FlyCutterM, G20012, #3, G20011, G20010, @SP_EVENT_ACT_FADEOUT, G20009, G20008, G20007, G20006, G20005, G20004, G20003, G20002, G20001
+; 暗箭傷人 黑箭
+Sprite = BlackArrow, BlackArrow
+;近衛兵 飛刀 32
+Sprite = FlyDagger, G2W10000
+Sprite = FlyDaggerM, G2W10015, #3, G2W10014, G2W10013, G2W10012, G2W10011, G2W10010, @SP_EVENT_ACT_FADEOUT, G2W10009, G2W10008, G2W10007, G2W10006, G2W10005, G2W10004, G2W10003, G2W10002, G2W10001
+Sprite = FlyDaggerRU, G2W10016
+Sprite = FlyDaggerRD, G2W10017
+
+
+[OBJECT]
+Name = 火 斜跑
+Sequence = 30004
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fire2
+Sprite = Wait, null
+Sprite = up, sf01, #6, sf02, sf03, sf04, sf05
+Sprite = down, sf06, #6, sf07, sf08, sf09, sf10
+
+[OBJECT]
+Name = null shape
+Sequence = 30005
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \
+Sprite = Wait, null
+
+[OBJECT]
+Name = 箭插地著火
+Sequence = 30006
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fire3
+Sprite = Wait, null
+Sprite = fire, f1, #6, f2, f3
+Sprite = fireD, f4, #6, f5, f6
+
+[OBJECT]
+Name = 拒馬
+Sequence = 30007
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\001
+Sprite = Wait, GJCB0001
+Sprite = die, GJCB0002, #10, GJCB0003, GJCB0004, GJCB0005, GJCB0006, GJCB0007, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 煙 加色
+Sequence = 30008
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\smoke
+Sprite = Wait, null
+Sprite = white, smoke
+Sprite = y, smoke_y
+Sprite = y2, smoke_y2
+Sprite = blue, smoke_y
+Sprite = smoke2, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = smoke3, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013,#999
+
+[OBJECT]
+Name = 煙 減色
+Sequence = 30009
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\smoke
+Sprite = Wait, null
+Sprite = black, smoke
+Sprite = y, smoke_y
+Sprite = y2, smoke_y2
+Sprite = smoke2, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 火柱
+Sequence = 30010
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fire4
+Sprite = Wait, ma35001, #2, ma35002, ma35003, ma35004, ma35005, ma35006, ma35007, ma35008, ma35009, ma35010, @SP_EVENT_ACT_ATTACK
+Sprite = loop, ma35011, #5, ma35012, ma35013, ma35014, ma35015, ma35016, ma35017, ma35018, ma35019, ma35020, ma35021, ma35022
+Sprite = end, ma35023, #4, ma35024, ma35025, ma35026, ma35027, ma35028, ma35029, ma35030, ma35031, ma35032, ma35033, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 龍捲風
+Sequence = 30011
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\tornado
+;Sprite = Wait, A0010, #4, A0011, A0012, A0013, A0014, A0015, A0016, A0017, A0018, A0019
+Sprite = Wait, null
+Sprite = tornado21, A0020, #4, A0021, A0022, A0023, A0024, A0025, A0026, A0027, A0028, A0029
+Sprite = tornado22, A0022, #4, A0023, A0024, A0025, A0026, A0027, A0028, A0029, A0020, A0021
+Sprite = tornado23, A0024, #4, A0025, A0026, A0027, A0028, A0029, A0020, A0021, A0022, A0023
+Sprite = tornado24, A0026, #4, A0027, A0028, A0029, A0020, A0021, A0022, A0023, A0024, A0025
+Sprite = tornado25, A0028, #4, A0029, A0020, A0021, A0022, A0023, A0024, A0025, A0026, A0027
+;Sprite = tornado3, A0030, #4, A0031, A0032, A0033, A0034, A0035, A0036, A0037, A0038, A0039
+
+[OBJECT]
+Name = 石塊
+Sequence = 30012
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\stone
+Sprite = Wait, null
+Sprite = stone1, stone1
+Sprite = stone2, stone2
+Sprite = stone3, stone3
+Sprite = stone4, stone4
+
+[OBJECT]
+Name = 突石
+Sequence = 30013
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\040
+Sprite = Wait, obj0001, #4, obj0002, obj0003, obj0004, obj0005, #999
+Sprite = updown, obj0001, #16, obj0002, obj0003, obj0004, #30, obj0005, #8, obj0004, obj0003, obj0002, obj0001, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 石塊 滾動 大
+Sequence = 30014
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\stone2
+Sprite = Wait, obj0006, #4, obj0007, obj0008, obj0009, obj0010
+Sprite = roll2, obj0007, #4, obj0008, obj0009, obj0010, obj0006
+Sprite = roll3, obj0008, #4, obj0009, obj0010, obj0006, obj0007
+Sprite = roll4, obj0009, #4, obj0010, obj0006, obj0007, obj0008
+Sprite = roll5, obj0010, #4, obj0006, obj0007, obj0008, obj0009
+
+[OBJECT]
+Name = 影子
+Sequence = 30015
+Space = 0,0,0
+Flags = SP_ATTRIB_MIXER
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\shadow
+Sprite = Wait, small
+Sprite = big, big
+
+[OBJECT]
+Name = 旋燈
+Sequence = 30016
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\070
+Sprite = Wait, a0001, #6, a0002
+
+[OBJECT]
+Name = 八面火 浮雷
+Sequence = 30017
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\067
+Sprite = Wait, a0001, #6, a0002
+
+[OBJECT]
+Name = 分身斬
+Sequence = 30018
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\122
+Sprite = Wait, a0001, #8, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010
+Sprite = Wait2, a0008, #8, a0009, a0010, a0001, a0002, a0003, a0004, a0005, a0006, a0007
+Sprite = clone1, b0007, #8, b0008, b0009, b0010, b0001, b0002, b0003, b0004, b0005, b0006
+Sprite = clone2, b0006, #8, b0007, b0008, b0009, b0010, b0001, b0002, b0003, b0004, b0005
+Sprite = clone3, b0005, #8, b0006, b0007, b0008, b0009, b0010, b0001, b0002, b0003, b0004
+Sprite = clone4, b0004, #8, b0005, b0006, b0007, b0008, b0009, b0010, b0001, b0002, b0003
+Sprite = clone5, b0003, #8, b0004, b0005, b0006, b0007, b0008, b0009, b0010, b0001, b0002
+Sprite = clone6, b0002, #8, b0003, b0004, b0005, b0006, b0007, b0008, b0009, b0010, b0001
+Sprite = clone7, b0001, #8, b0002, b0003, b0004, b0005, b0006, b0007, b0008, b0009, b0010
+
+[OBJECT]
+Name = 半月斬
+Sequence = 30019
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\113
+Sprite = Wait, Wave1, #4, Wave2, Wave3, Wave2
+
+[OBJECT]
+Name = 三聖華斬
+Sequence = 30020
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\116
+Sprite = Wait, w1, #2, w2, w3, w4, w5, w6, w7, w6, w5, w4, w3, w2
+Sprite = ball, b1, #4, b2
+
+[OBJECT]
+Name = 雷
+Sequence = 30021
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\052
+Sprite = Wait, null
+Sprite = t1, thunder1
+Sprite = t2, thunder2
+Sprite = t3, thunder3
+Sprite = bom, bom1, #4, bom2, bom3, bom4, bom5, #999
+Sprite = ball, ball1, #4, ball2, ball3, ball4, ball3, ball2
+Sprite = g1, Gthunder1
+Sprite = g2, Gthunder2
+Sprite = g3, Gthunder3
+Sprite = gbom, gbom1, #4, gbom2, gbom3, gbom4, gbom5, #999
+Sprite = gball, Gball1, #4, Gball2, Gball3, Gball4, Gball3, Gball2
+
+[OBJECT]
+Name = 光點
+Sequence = 30022
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\dot
+Sprite = Wait, null
+;以下次序不可移動
+Sprite = purple2, purple
+
+Sprite = red, red_01, #1, red_02, red_03, red_04, red_05, red_06, red_05, red_04, red_03, red_02
+Sprite = green, green_01, #1, green_02, green_03, green_04, green_05, green_06, green_05, green_04, green_03, green_02
+Sprite = white, white01, #1, white02, white03, white04, white05, white06, white05, white04, white03, white02
+Sprite = purple, purple01, #1, purple02, purple03, purple04, purple05, purple06, purple05, purple04, purple03, purple02
+Sprite = orange, orange01, #1, orange02, orange03, orange04, orange05, orange06, orange05, orange04, orange03, orange02
+Sprite = blue, blue01, #1, blue02, blue03, blue04, blue05, blue06, blue05, blue04, blue03, blue02
+Sprite = cyan, cyan01, #1, cyan02, cyan03, cyan04, cyan05, cyan06, cyan05, cyan04, cyan03, cyan02
+
+Sprite = cyan2, cyan
+Sprite = blue2, blue
+Sprite = gold, gold
+
+[OBJECT]
+Name = 光圈
+Sequence = 30023
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic
+Sprite = Wait, null
+Sprite = circle, circle
+Sprite = gcircle, Gcircle
+
+[OBJECT]
+Name = 雷 五雷襲
+Sequence = 30024
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\055
+Sprite = Wait, null
+Sprite = t1, a1
+Sprite = t2, a2
+Sprite = t3, a3
+Sprite = t4, a4
+Sprite = t5, a5
+Sprite = g1, g1
+Sprite = g2, g2
+Sprite = g3, g3
+Sprite = g4, g4
+Sprite = g5, g5
+
+[OBJECT]
+Name = 雷球 五雷襲
+Sequence = 30025
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\057
+Sprite = Wait, null
+Sprite = ball, e1, #4, e2, e3, e4
+Sprite = ball2, e2, #4, e3, e4, e1
+Sprite = ball3, e3, #4, e4, e1, e2
+Sprite = ball4, e4, #4, e1, e2, e3
+Sprite = gball, g1, #4, g2, g3, g4
+Sprite = gball2, g2, #4, g3, g4, g1
+Sprite = gball3, g3, #4, g4, g1, g2
+Sprite = gball4, g4, #4, g1, g2, g3
+
+[OBJECT]
+Name = 心劍
+Sequence = 30026
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\073
+Sprite = Wait, A0001**
+
+[OBJECT]
+Name = 心劍 影子
+Sequence = 30027
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\073
+Sprite = Wait, B0001**
+
+[OBJECT]
+Name = 劍輪斬 劍
+Sequence = 30028
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\076
+Sprite = Wait, A0005
+Sprite = spin, A0006, #2, A0007, A0008, A0001, A0002, A0003, A0004, A0005
+Sprite = restore, A0001, #8, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0001, A0002, A0003, A0004, @SP_EVENT_ACT_ATTACK
+Sprite = Fast, A0006, #1, A0007, A0008, A0001, A0002, A0003, A0004, A0005
+Sprite = HitGnd01, h0001
+Sprite = HitGnd02, h0002
+Sprite = HitGnd03, h0003
+Sprite = HitGnd04, h0004
+
+
+[OBJECT]
+Name = 血霧
+Sequence = 30029
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\blood
+Sprite = Wait, null
+
+Sprite = red, red01, #4, red02, red03, red04, red05, red06, red07, red08, red09, red010, red011, red012, red013, @SP_EVENT_ACT_REMOVE
+Sprite = red2, red01, #5, red02, red03, red04, red05, red06, red07, red08, red09, red010, red011, red012, red013, @SP_EVENT_ACT_REMOVE
+Sprite = red3, red01, #6, red02, red03, red04, red05, red06, red07, red08, red09, red010, red011, red012, red013, @SP_EVENT_ACT_REMOVE
+
+Sprite = yellow, yellow01, #4, yellow02, yellow03, yellow04, yellow05, yellow06, yellow07, yellow08, yellow09, yellow010, yellow011, yellow012, yellow013, @SP_EVENT_ACT_REMOVE
+Sprite = yellow2, yellow01, #5, yellow02, yellow03, yellow04, yellow05, yellow06, yellow07, yellow08, yellow09, yellow010, yellow011, yellow012, yellow013, @SP_EVENT_ACT_REMOVE
+Sprite = yellow3, yellow01, #6, yellow02, yellow03, yellow04, yellow05, yellow06, yellow07, yellow08, yellow09, yellow010, yellow011, yellow012, yellow013, @SP_EVENT_ACT_REMOVE
+
+Sprite = green, green01, #4, green02, green03, green04, green05, green06, green07, green08, green09, green010, green011, green012, green013, @SP_EVENT_ACT_REMOVE
+Sprite = green2, green01, #5, green02, green03, green04, green05, green06, green07, green08, green09, green010, green011, green012, green013, @SP_EVENT_ACT_REMOVE
+Sprite = green3, green01, #6, green02, green03, green04, green05, green06, green07, green08, green09, green010, green011, green012, green013, @SP_EVENT_ACT_REMOVE
+
+Sprite = purple, purple01, #4, purple02, purple03, purple04, purple05, purple06, purple07, purple08, purple09, purple010, purple011, purple012, purple013, @SP_EVENT_ACT_REMOVE
+Sprite = purple2, purple01, #5, purple02, purple03, purple04, purple05, purple06, purple07, purple08, purple09, purple010, purple011, purple012, purple013, @SP_EVENT_ACT_REMOVE
+Sprite = purple3, purple01, #6, purple02, purple03, purple04, purple05, purple06, purple07, purple08, purple09, purple010, purple011, purple012, purple013, @SP_EVENT_ACT_REMOVE
+
+Sprite = blue, blue01, #4, blue02, blue03, blue04, blue05, blue06, blue07, blue08, blue09, blue010, blue011, blue012, blue013, @SP_EVENT_ACT_REMOVE
+Sprite = blue2, blue01, #5, blue02, blue03, blue04, blue05, blue06, blue07, blue08, blue09, blue010, blue011, blue012, blue013, @SP_EVENT_ACT_REMOVE
+Sprite = blue3, blue01, #6, blue02, blue03, blue04, blue05, blue06, blue07, blue08, blue09, blue010, blue011, blue012, blue013, @SP_EVENT_ACT_REMOVE
+
+Sprite = gray, gray01, #4, gray02, gray03, gray04, gray05, gray06, gray07, gray08, gray09, gray010, gray011, gray012, gray013, @SP_EVENT_ACT_REMOVE
+Sprite = gray2, gray01, #5, gray02, gray03, gray04, gray05, gray06, gray07, gray08, gray09, gray010, gray011, gray012, gray013, @SP_EVENT_ACT_REMOVE
+Sprite = gray3, gray01, #6, gray02, gray03, gray04, gray05, gray06, gray07, gray08, gray09, gray010, gray011, gray012, gray013, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 劍輪斬 劍 影子
+Sequence = 30030
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\076
+Sprite = Wait, C0005
+Sprite = spin, C0006, #2, C0007, C0008, C0001, C0002, C0003, C0004, C0005
+Sprite = restore, C0001, #8, C0002, C0003, C0004, C0005, C0006, C0007, C0008, C0001, C0002, C0003, C0004, @SP_EVENT_ACT_ATTACK
+Sprite = Fast, C0006, #1, C0007, C0008, C0001, C0002, C0003, C0004, C0005
+Sprite = HitGnd01, C0001
+Sprite = HitGnd02, C0006
+Sprite = HitGnd03, C0007
+Sprite = HitGnd04, C0008
+
+[OBJECT]
+Name = 劍輪斬 劍光
+Sequence = 30031
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\076
+Sprite = Wait, null
+Sprite = spin, B0006, #2, B0007, B0008, B0001, B0002, B0003, B0004, B0005
+Sprite = restore, null, @SP_EVENT_ACT_ATTACK
+Sprite = Fast, B0006, #1, B0007, B0008, B0001, B0002, B0003, B0004, B0005
+
+[OBJECT]
+Name = 地泉
+Sequence = 30032
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\028
+Sprite = Wait, A0001, #1, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0009, @SP_EVENT_ACT_ATTACK
+Sprite = loop, A0010, #1, A0011, A0012, A0013, A0014, A0015, A0016, A0017, A0018, A0019
+Sprite = end, A0020, #3, A0021, A0022, A0023, A0024, A0025, A0026, A0027, @SP_EVENT_ACT_REMOVE
+Sprite = base, base1, #5, base2, base3, base4
+
+[OBJECT]
+Name = 小石子 轉動
+Sequence = 30033
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\stone3
+Sprite = Wait, s01, #4, s02, s03, s04, s05, s06, s07, s08
+Sprite = stone2, s11, #4, s12, s13, s14, s15
+
+[OBJECT]
+Name = 地矛刺
+Sequence = 30034
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\031
+Sprite = Wait, ws-0001, #2, ws-0002, ws-0003, ws-0004, ws-0005, #999
+Sprite = over, ws-0004, #2, ws-0003, ws-0002, ws-0001, NULL, #999
+
+[OBJECT]
+Name = 黑洞 底圖
+Sequence = 30035
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\105
+Sprite = Wait, Back
+
+[OBJECT]
+Name = 黑洞 漩渦
+Sequence = 30036
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\105
+Sprite = Wait, A0001, #4, A0002, A0003, A0004, A0005, A0006, A0007, A0008
+Sprite = circle2, B0001, #4, B0002, B0003, B0004, B0005, B0006, B0007, B0008, B0009, B0010, B0011, B0012, B0013, B0014, B0015, B0016
+Sprite = circle3, C0001, #4, C0002, C0003, C0004, C0005, C0006, C0007, C0008, C0009, C0010, C0011, C0012, C0013, C0014, C0015, C0016, C0017, C0018, C0019, C0020, C0021, C0022, C0023, C0024, C0025, C0026, C0027, C0028, C0029, C0030, C0031, C0032
+Sprite = thunder, D0001, #2, D0002, D0003, D0004, D0005, D0006, D0007, D0008, D0009, D0010, D0011, D0012, D0013, D0014, D0015, D0016, D0017, D0018, D0019, D0020, D0021, D0022, D0023, D0024, D0025, D0026, D0027, D0028, D0029, D0030, D0031, D0032
+Sprite = star, star
+
+[OBJECT]
+Name = 長槍兵
+Sequence = 30037
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\084
+Sprite = Wait, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008
+Sprite = fast, a0001, #3, a0002, a0003, a0004, a0005, a0006, a0007, a0008
+Sprite = slow, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0008
+Sprite = slow2, a0001, #6, a0002, a0003, a0004, a0005, a0006, a0007, a0008
+
+[OBJECT]
+Name = 豹
+Sequence = 30038
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\096
+Sprite = Wait, a01, #4, a02, a03, a04, a05, a06, a07, a08
+Sprite = fast, a01, #3, a02, a03, a04, a05, a06, a07, a08
+Sprite = slow, a01, #5, a02, a03, a04, a05, a06, a07, a08
+Sprite = slow2, a01, #6, a02, a03, a04, a05, a06, a07, a08
+;Sprite = die, b01, #4, b02, b03, b04, b05, b06, b07, b08, #999
+
+[OBJECT]
+Name = 鬼戟
+Sequence = 30039
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\118
+Sprite = Wait, a0001, #2, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0014, a0015, a0016
+
+[OBJECT]
+Name = 鬼戟 影子
+Sequence = 30040
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\118
+Sprite = Wait, b0001, #2, b0002, b0003, b0004, b0005, b0006, b0007, b0008, b0009, b0010, b0011, b0012, b0013, b0014, b0015, b0016
+
+[OBJECT]
+Name = 地雷
+Sequence = 30041
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\034
+Sprite = Wait, w0000
+Sprite = bomber1, c0001, #5, c0002, c0003, c0004, c0005, @SP_EVENT_ACT_FADEOUT, c0006, c0007, #999
+Sprite = bomber2, c0001, #3, c0002, c0003, c0004, c0005, @SP_EVENT_ACT_FADEOUT, c0006, c0007, #999
+Sprite = part_a, a1, #4, a2, a3, a4
+Sprite = part_b, b1, #4, b2, b3, b4
+Sprite = part_c, c1, #4, c2, c3, c4
+Sprite = part_d, d1, #4, d2, d3, d4
+Sprite = part_e, e1, #4, e2, e3, e4
+Sprite = part_f, f1, #4, f2, f3, f4
+Sprite = part_g, g1, #4, g2, g3, g4
+
+[OBJECT]
+Name = 爆炸
+Sequence = 30042
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\bom
+Sprite = Wait, C0001, #2, C0002, C0003, C0004, C0005, C0006, C0007, C0008, C0009, C0010, C0011, C0012, C0013, @SP_EVENT_ACT_REMOVE
+Sprite = small, sbomo001, #2, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, @SP_EVENT_ACT_REMOVE
+Sprite = big, bigbom01, #3, bigbom02, bigbom03, bigbom04, bigbom05, bigbom06, bigbom07, bigbom08, bigbom09, bigbom10, bigbom10, @SP_EVENT_ACT_REMOVE
+Sprite = Purple, Purple001, #2, Purple002, Purple003, Purple004, Purple005, Purple006, Purple007, Purple008, Purple009, Purple010, Purple011, Purple012, Purple013, @SP_EVENT_ACT_REMOVE
+;Name = 必殺技 碰觸效果
+Sprite = SABom0101, BOM0001
+Sprite = SABom0102, BOM0002
+Sprite = SABom0103, BOM0003
+; 銀色爆炸
+Sprite = Silver, silver001, #3, silver002, silver003, silver004, silver005, silver006, silver007, silver008, silver009, silver010, silver010, @SP_EVENT_ACT_REMOVE
+
+
+
+[OBJECT]
+Name = 虎
+Sequence = 30043
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\097
+Sprite = Wait, a01, #4, a02, a03, a04, a05, a06, a07, a08
+Sprite = fast, a01, #3, a02, a03, a04, a05, a06, a07, a08
+Sprite = slow, a01, #5, a02, a03, a04, a05, a06, a07, a08
+Sprite = slow2, a01, #6, a02, a03, a04, a05, a06, a07, a08
+Sprite = die, b01, #4, b02, b03, b04, b05, b06, b07, #999
+
+[OBJECT]
+Name = 象
+Sequence = 30044
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\098
+Sprite = Wait, a01, #4, a02, a03, a04, a05, a06, a07, a08
+Sprite = fast, a01, #3, a02, a03, a04, a05, a06, a07, a08
+Sprite = slow, a01, #5, a02, a03, a04, a05, a06, a07, a08
+Sprite = slow2, a01, #6, a02, a03, a04, a05, a06, a07, a08
+Sprite = die, b01, #4, b02, b03, b04, b05, b06, b07, b08, b09, #999
+
+[OBJECT]
+Name = 火龍 頭
+Sequence = 30045
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\081
+Sprite = Wait, Dfhn01*
+Sprite = rise1, Dfhu01*
+Sprite = drop1, Dfhd01*
+
+[OBJECT]
+Name = 火龍 身
+Sequence = 30046
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\081
+Sprite = Wait, Dfbn0000, #4, Dfbn0010, Dfbn0020, Dfbn0030, Dfbn0040, Dfbn0050, Dfbn0060, Dfbn0070, Dfbn0080, Dfbn0090, Dfbn0100
+
+[OBJECT]
+Name = 火龍 尾
+Sequence = 30047
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\081
+Sprite = Wait, e8n01*
+Sprite = rise1, e8u01*
+Sprite = drop1, e8d01*
+
+[OBJECT]
+Name = 火龍 火
+Sequence = 30048
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\081
+Sprite = Wait, m017f0000, #3, m017f0001, m017f0002, m017f0003, m017f0004, m017f0005, m017f0006, m017f0007, m017f0008, m017f0009, m017f0010
+
+[OBJECT]
+Name = 八門金鎖 
+Sequence = 30049
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\104
+Sprite = Wait, null
+;休
+Sprite = r1, mar18001	
+;開
+Sprite = r2, mar18008	
+;驚
+Sprite = r3, mar18007	
+;死
+Sprite = r4, mar18006	
+;景
+Sprite = r5, mar18005	
+;社
+Sprite = r6, mar18004	
+;傷
+Sprite = r7, mar18003	
+;生
+Sprite = r8, mar18002	
+
+;休
+Sprite = b1, mab18001	
+;開
+Sprite = b2, mab18008	
+;驚
+Sprite = b3, mab18007	
+;死
+Sprite = b4, mab18006	
+;景
+Sprite = b5, mab18005	
+;社
+Sprite = b6, mab18004	
+;傷
+Sprite = b7, mab18003	
+;生
+Sprite = b8, mab18002	
+
+[OBJECT]
+Name = 滾輪
+Sequence = 30050
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\019
+Sprite = Wait, NFWa0001, #1, NFWa0002, NFWa0003, NFWa0004, NFWa0005
+
+[OBJECT]
+Name = 滾石
+Sequence = 30051
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\022
+
+Sprite = Wait, Rock0001
+
+Sprite = run1, Rock0001, #4, Rock0002, Rock0003, Rock0004, Rock0005, Rock0006, Rock0007, Rock0008, Rock0009, Rock0010, Rock0011, Rock0012, Rock0013, Rock0014, Rock0015
+Sprite = run2, Rock0004, #4, Rock0005, Rock0006, Rock0007, Rock0008, Rock0009, Rock0010, Rock0011, Rock0012, Rock0013, Rock0014, Rock0015, Rock0001, Rock0002, Rock0003
+Sprite = run3, Rock0007, #4, Rock0008, Rock0009, Rock0010, Rock0011, Rock0012, Rock0013, Rock0014, Rock0015, Rock0001, Rock0002, Rock0003, Rock0004, Rock0005, Rock0006
+Sprite = run4, Rock0010, #4, Rock0011, Rock0012, Rock0013, Rock0014, Rock0015, Rock0001, Rock0002, Rock0003, Rock0004, Rock0005, Rock0006, Rock0007, Rock0008, Rock0009
+
+Sprite = break1, m028break01a, #4, m028break01b, m028break01c, m028break01d
+Sprite = break2, m028break02a, #4, m028break02b, m028break02c, m028break02d
+Sprite = break3, m028break03a, #4, m028break03b, m028break03c, m028break03d
+Sprite = break4, m028break04a, #4, m028break04b, m028break04c, m028break04d
+Sprite = break5, m028break05a, #4, m028break05b, m028break05c, m028break05d
+Sprite = break6, m028break06a, #4, m028break06b, m028break06c, m028break06d
+Sprite = break7, m028break07a, #4, m028break07b, m028break07c, m028break07d
+
+[OBJECT]
+Name = 雪球
+Sequence = 30052
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\025
+
+Sprite = Wait, SnoB0001
+
+Sprite = run1, SnoB0001, #4, SnoB0002, SnoB0003, SnoB0004, SnoB0005, SnoB0006, SnoB0007, SnoB0008, SnoB0009, SnoB0010, SnoB0011, SnoB0012, SnoB0013, SnoB0014, SnoB0015
+Sprite = run2, SnoB0004, #4, SnoB0005, SnoB0006, SnoB0007, SnoB0008, SnoB0009, SnoB0010, SnoB0011, SnoB0012, SnoB0013, SnoB0014, SnoB0015, SnoB0001, SnoB0002, SnoB0003
+Sprite = run3, SnoB0007, #4, SnoB0008, SnoB0009, SnoB0010, SnoB0011, SnoB0012, SnoB0013, SnoB0014, SnoB0015, SnoB0001, SnoB0002, SnoB0003, SnoB0004, SnoB0005, SnoB0006
+Sprite = run4, SnoB0010, #4, SnoB0011, SnoB0012, SnoB0013, SnoB0014, SnoB0015, SnoB0001, SnoB0002, SnoB0003, SnoB0004, SnoB0005, SnoB0006, SnoB0007, SnoB0008, SnoB0009
+
+Sprite = break1, Snpa0001, #4, Snpa0002, Snpa0003, Snpa0004
+Sprite = break2, Snpb0001, #4, Snpb0002, Snpb0003, Snpb0004
+Sprite = break3, Snpc0001, #4, Snpc0002, Snpc0003, Snpc0004
+Sprite = break4, Snpd0001, #4, Snpd0002, Snpd0003, Snpd0004
+
+[OBJECT]
+Name = 滾輪 火
+Sequence = 30053
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\019
+Sprite = Wait, WFrame0001, #4, WFrame0002, WFrame0003, WFrame0004, WFrame0005
+
+[OBJECT]
+Name = 火龍 頭 紫
+Sequence = 30054
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\082
+Sprite = Wait, Dfphn01*
+Sprite = rise1, Dfphu01*
+Sprite = drop1, Dfphd01*
+
+[OBJECT]
+Name = 火龍 身 紫
+Sequence = 30055
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\082
+Sprite = Wait, DFPBN0000, #4, DFPBN0010, DFPBN0020, DFPBN0030, DFPBN0040, DFPBN0050, DFPBN0060, DFPBN0070, DFPBN0080, DFPBN0090, DFPBN0100
+
+[OBJECT]
+Name = 火龍 尾 紫
+Sequence = 30056
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\082
+Sprite = Wait, DFPEN01*
+Sprite = rise1, DFPEU01*
+Sprite = drop1, DFPED01*
+
+[OBJECT]
+Name = 火龍 火 紫
+Sequence = 30057
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\082
+Sprite = Wait, m04fire01, #3, m04fire02, m04fire03, m04fire04, m04fire05, m04fire06
+
+[OBJECT]
+Name = 火龍 頭 黃
+Sequence = 30058
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\083
+Sprite = Wait, Dfyhn01*
+Sprite = rise1, Dfyhu01*
+Sprite = drop1, Dfyhd01*
+
+[OBJECT]
+Name = 火龍 身 黃
+Sequence = 30059
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\083
+Sprite = Wait, DFYBN0000, #4, DFYBN0010, DFYBN0020, DFYBN0030, DFYBN0040, DFYBN0050, DFYBN0060, DFYBN0070, DFYBN0080, DFYBN0090, DFYBN0100
+
+[OBJECT]
+Name = 火龍 尾 黃
+Sequence = 30060
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\083
+Sprite = Wait, DFYEN01*
+Sprite = rise1, DFYEU01*
+Sprite = drop1, DFYED01*
+
+[OBJECT]
+Name = 火龍 火 黃
+Sequence = 30061
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\083
+Sprite = Wait, m02fire01, #3, m02fire02, m02fire03, m02fire04, m02fire05, m02fire06
+
+[OBJECT]
+Name = 神劍
+Sequence = 30062
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\123
+Sprite = Wait, A0001
+Sprite = roll, A0001, #1, @SP_EVENT_ACT_ATTACK, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0009, A0010, A0011, A0012, A0013, A0014, A0015, A0016
+Sprite = rise, B0001
+Sprite = fall, B0002
+Sprite = hitGnd, C0001, #1, C0002, C0003, C0004, C0005, C0006, C0007, C0008, #999
+Sprite = hitGnd2, C0001, #6, C0002, C0003, C0004, C0005, C0006, C0007, C0008, #999
+Sprite = ball, Ball
+
+[OBJECT]
+Name = 大地狂嘯 大石柱
+Sequence = 30063
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\127
+Sprite = Wait, obj0001, #4, obj0002, obj0003, obj0004, obj0005, #30, obj0004, #4, obj0003, obj0002, obj0001, #4, NULL, @SP_EVENT_ACT_REMOVE
+Sprite = Wait2, abj0001, #4, abj0002, abj0003, abj0004, abj0005, #30, abj0004, #4, abj0003, abj0002, abj0001, #4, NULL, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 火柱2
+Sequence = 30064
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fire5
+Sprite = Wait, a0001, #2, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0014, a0015, @SP_EVENT_ACT_ATTACK
+Sprite = loop, a0016, #4, a0017, a0018, a0019, a0020, a0021, a0022, a0023
+Sprite = end, a0024, #4, a0024, a0025, a0026, a0027, a0028, a0029, a0030, @SP_EVENT_ACT_REMOVE
+Sprite = null, null
+Sprite = base, a0005
+
+[OBJECT]
+Name = 重騎兵
+Sequence = 30065
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\085
+Sprite = Wait, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010
+Sprite = fast, a0001, #3, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010
+Sprite = slow, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010
+Sprite = slow2, a0001, #6, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010
+
+[OBJECT]
+Name = 龍砲 blue
+Sequence = 30066
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\013
+Sprite = Wait, DCCFB01
+Sprite = rise, DCCFB02, #4, DCCFB03, DCCFB04, DCCFB05, #20, DCCFB06, @SP_EVENT_ACT_ATTACK
+Sprite = shoot, DCCFB07, #4, DCCFB08, DCCFB09, DCCFB10, DCCFB11, DCCFB12, #999
+
+[OBJECT]
+Name = 龍砲 red
+Sequence = 30067
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\013
+Sprite = Wait, DCCFR01
+Sprite = rise, DCCFR02, #4, DCCFR03, DCCFR04, DCCFR05, #20, DCCFR06, @SP_EVENT_ACT_ATTACK
+Sprite = shoot, DCCFR07, #4, DCCFR08, DCCFR09, DCCFR10, DCCFR11, DCCFR12, #999
+
+[OBJECT]
+Name = 龍砲頭 橘光圈
+Sequence = 30068
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\013
+Sprite = Wait, null
+Sprite = up, dh02
+Sprite = down, dh01
+Sprite = circle, circle
+
+[OBJECT]
+Name = 冰柱
+Sequence = 30069
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\037
+Sprite = Wait, null
+
+Sprite = bigIce1, a10001, #6, a10002, a10003, a10004, #999
+Sprite = bigIce2, b0001, #6, b0002, b0003, b0004, b0005, #999
+
+Sprite = smallIce1, c0001, #8, c0002, c0003, #999
+Sprite = smallIce2, d0001, #8, d0002, d0003, #999
+
+Sprite = stone, e0001, #4, e0002, e0003, e0004, e0005
+
+[OBJECT]
+Name = 八卦斬
+Sequence = 30070
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\146
+Sprite = Wait, null
+Sprite = roll, a0001, #2, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010
+Sprite = roll2, a2001, #2, a2002, a2003, a2005, a2006, a2007
+
+[OBJECT]
+Name = 神鳶
+Sequence = 30071
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\099
+Sprite = Wait, a01
+Sprite = bomb, bomb
+Sprite = shadow, bshadow
+
+[OBJECT]
+Name = 八卦斬 影子
+Sequence = 30072
+Space = 0,0,0
+Flags = SP_ATTRIB_MIXER
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\146
+Sprite = Wait, null
+Sprite = roll, s0001, #1, s0002, s0003, s0004, s0005, s0006, s0007, s0008, s0009, s0010
+
+[OBJECT]
+Name = 鐵輪斬
+Sequence = 30073
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\155
+Sprite = Wait, null
+;red
+Sprite = Rwait, a0000	
+Sprite = Rwait2, b0000	
+Sprite = Rrun, a0001, #1, a0002, a0003, a0004, a0005
+Sprite = Rrun2, b0001, #1, b0002, b0003, b0004, b0005	
+;blue
+Sprite = Bwait, c0000	
+Sprite = Bwait2, d0000	
+Sprite = Brun, c0001, #1, c0002, c0003, c0004, c0005
+Sprite = Brun2, d0001, #1, d0002, d0003, d0004, d0005
+
+Sprite = wave, RedWave01, #4, RedWave02, RedWave03
+
+
+[OBJECT]
+Name = 火雷玉 忍者投擲 blue
+Sequence = 30074
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\161
+Sprite = Wait, L2A60030
+Sprite = throw, L2A60030, #4, L2A60040, L2A60050, L2A60060, L2A60070, L2A60080, @SP_EVENT_ACT_ATTACK, L2A60090, L2A60100, L2A60110, L2A60120, L2A60130, L2A60140, L2A60150, #999
+Sprite = Wait2, L3A60030
+Sprite = throw2, L3A60030, #4, L3A60040, L3A60050, L3A60060, L3A60070, L3A60080, @SP_EVENT_ACT_ATTACK, L3A60090, L3A60100, L3A60110, L3A60120, L3A60130, L3A60140, L3A60150, #999
+
+[OBJECT]
+Name = 火雷玉 忍者投擲 red
+Sequence = 30075
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\161
+Sprite = Wait, L4A60030
+Sprite = throw, L4A60030, #4, L4A60040, L4A60050, L4A60060, L4A60070, L4A60080, @SP_EVENT_ACT_ATTACK, L4A60090, L4A60100, L4A60110, L4A60120, L4A60130, L4A60140, L4A60150, #999
+Sprite = Wait2, L5A60030
+Sprite = throw2, L5A60030, #4, L5A60040, L5A60050, L5A60060, L5A60070, L5A60080, @SP_EVENT_ACT_ATTACK, L5A60090, L5A60100, L5A60110, L5A60120, L5A60130, L5A60140, L5A60150, #999
+
+[OBJECT]
+Name = 火雷玉 炸彈
+Sequence = 30076
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\161
+Sprite = Wait, ball
+Sprite = Wait2, ball2
+
+[OBJECT]
+Name = 劍輪舞
+Sequence = 30077
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\075
+Sprite = Wait, a101**
+Sprite = a2, a201**
+Sprite = a3, a301**
+Sprite = a4, a401**
+Sprite = a5, a501**
+Sprite = a6, a601**
+Sprite = a7, a701**
+Sprite = a8, ai301**
+Sprite = a9, ai501**
+
+[OBJECT]
+Name = 劍輪舞 影子
+Sequence = 30078
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\075
+Sprite = Wait, s101**
+Sprite = a2, s201**
+Sprite = a3, s301**
+Sprite = a4, s401**
+Sprite = a5, s501**
+Sprite = a6, s601**
+Sprite = a7, s701**
+
+[OBJECT]
+Name = 劍舞
+Sequence = 30079
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\139
+Sprite = Wait, w1, #2, w2, w3, w4, w5, w6, w7, w6, w5, w4, w3, w2
+Sprite = ball, b1, #4, b2
+
+Sprite = wave2, wb1, #2, wb2, wb3, wb4, wb5, wb6, wb7, wb6, wb5, wb4, wb3, wb2
+Sprite = ball2, c1, #4, c2
+
+[OBJECT]
+Name = 土遁 忍者 blue
+Sequence = 30080
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\158
+Sprite = Wait, L2A30001
+Sprite = Attack, L2A30002, #4, L2A30003, L2A30004, #999
+Sprite = down, L2A40001
+
+[OBJECT]
+Name = 土遁 忍者 red
+Sequence = 30081
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\158
+Sprite = Wait, L4A30001
+Sprite = Attack, L4A30002, #4, L4A30003, L4A30004, #999
+Sprite = down, L4A40001
+
+[OBJECT]
+Name = 土遁 忍者 飛鏢
+Sequence = 30082
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\158
+Sprite = Wait, a0001, #4, a0002
+Sprite = Wait2, b0001, #4, b0002
+Sprite = Wait3, a0001, #2, a0002
+
+[OBJECT]
+Name = 太極門
+Sequence = 30083
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\047
+Sprite = Wait, 001, #6, 002, 003, 004, 005, 006, #999
+Sprite = end, 005, #8, 004, 003, 002, 001, @SP_EVENT_ACT_REMOVE
+Sprite = dot, dot
+Sprite = ball, ball
+
+[OBJECT]
+Name = 御飛刀
+Sequence = 30084
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\121
+Sprite = Wait, a0001, #6, a0002, a0003, a0004
+
+[OBJECT]
+Name = 落月弓
+Sequence = 30085
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\119
+Sprite = Wait, a0001, #4, a0002, a0003, a0004
+Sprite = yellow, b0001, #4, b0002, b0003, b0004
+Sprite = purple, c0001,#4, c0002, c0003, c0004
+; 日月並行 衝擊波 光點
+Sprite = Bdot, BlueDot
+Sprite = Rdot, RedDot
+Sprite = Bwave, BlueWave01, #4, BlueWave02
+Sprite = Rwave, RedWave01, #4, RedWave02
+; 暗箭傷人 衝擊波 光點
+Sprite = BAWave1, BAWave001
+Sprite = BAWave2, BAWave002
+Speite = BADot, LReddot
+
+
+[OBJECT]
+Name = 弓箭
+Sequence = 30086
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\119
+Sprite = Wait, arrow
+; 日月並行的雙色箭
+Sprite = Barrow, BlueArrow
+Sprite = Rarrow, RedArrow
+
+[OBJECT]
+Name = 鍋蓋
+Sequence = 30087
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fail
+Sprite = Wait, m000Fail1, #1, m000Fail2, m000Fail3, m000Fail4, m000Fail5, m000Fail6
+Sprite = frog, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0014, a0015, a0016
+
+[OBJECT]
+Name = 衝車 blue
+Sequence = 30088
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\089
+Sprite = Wait, TCMB0001, #6, TCMB0002, TCMB0003
+Sprite = crack, TCBK0001, #4, TCBK0002, TCBK0003, TCBK0004, TCBK0005, TCBK0006, @SP_EVENT_ACT_FADEOUT, TCBK0007, #999
+
+[OBJECT]
+Name = 火 人著火
+Sequence = 30089
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fire6
+Sprite = Wait, null
+
+Sprite = red, m01fire01, #4, m01fire02, m01fire03, m01fire04, m01fire05, m01fire06
+Sprite = red2, m01fire01, #5, m01fire02, m01fire03, m01fire04, m01fire05, m01fire06
+Sprite = red3, m01fire01, #6, m01fire02, m01fire03, m01fire04, m01fire05, m01fire06
+
+Sprite = yellow, m02fire01, #4, m02fire02, m02fire03, m02fire04, m02fire05, m02fire06
+Sprite = yellow2, m02fire01, #5, m02fire02, m02fire03, m02fire04, m02fire05, m02fire06
+Sprite = yellow3, m02fire01, #6, m02fire02, m02fire03, m02fire04, m02fire05, m02fire06
+
+Sprite = green, m03fire01, #4, m03fire02, m03fire03, m03fire04, m03fire05, m03fire06
+Sprite = green, m03fire01, #5, m03fire02, m03fire03, m03fire04, m03fire05, m03fire06
+Sprite = green, m03fire01, #6, m03fire02, m03fire03, m03fire04, m03fire05, m03fire06
+
+Sprite = purple, m04fire01, #4, m04fire02, m04fire03, m04fire04, m04fire05, m04fire06
+Sprite = purple, m04fire01, #5, m04fire02, m04fire03, m04fire04, m04fire05, m04fire06
+Sprite = purple, m04fire01, #6, m04fire02, m04fire03, m04fire04, m04fire05, m04fire06
+
+Sprite = blue, m05fire01, #4, m05fire02, m05fire03, m05fire04, m05fire05, m05fire06
+Sprite = blue, m05fire01, #5, m05fire02, m05fire03, m05fire04, m05fire05, m05fire06
+Sprite = blue, m05fire01, #6, m05fire02, m05fire03, m05fire04, m05fire05, m05fire06
+
+[OBJECT]
+Name = 光條
+Sequence = 30090
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\line
+Sprite = Wait, null
+;以下次序不可改變
+Sprite = blue, blueline
+Sprite = cyan, cyanline
+Sprite = green, greenline
+Sprite = orange, orangeline
+Sprite = purple, purpleline
+Sprite = red, redline
+Sprite = white, whiteline
+Sprite = yellow, yellowline
+
+[OBJECT]
+Name = 忍者 blue
+Sequence = 30091
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\164
+Sprite = Wait, L1W10001, #4, L1W10002, L1W10003, L1W10004, L1W10003, L1W10002
+Sprite = Attack, L1A10001, #4, L1A10002, L1A10003, L1A10004, L1A10005, @SP_EVENT_ACT_ATTACK, L1A10004, L1A10005, L1A10004, L1A10005, L1A10004, L1A10005, L1A10004, L1A10005, L1A10004, L1A10005, L1A10006, L1A10007, L1A10008
+Sprite = run1, L1R10001, #3, L1R10002, L1R10003, L1R10004, L1R10005, L1R10006, L1R10007, L1R10008
+Sprite = run2, L1R10001, #4, L1R10002, L1R10003, L1R10004, L1R10005, L1R10006, L1R10007, L1R10008
+Sprite = run3, L1R10001, #5, L1R10002, L1R10003, L1R10004, L1R10005, L1R10006, L1R10007, L1R10008
+Sprite = run4, L1R10001, #6, L1R10002, L1R10003, L1R10004, L1R10005, L1R10006, L1R10007, L1R10008
+
+[OBJECT]
+Name = 忍者 red
+Sequence = 30092
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\164
+Sprite = Wait, L3W10001, #4, L3W10002, L3W10003, L3W10004, L3W10003, L3W10002
+Sprite = Attack, L3A10001, #4, L3A10002, L3A10003, L3A10004, L3A10005, @SP_EVENT_ACT_ATTACK, L3A10004, L3A10005, L3A10004, L3A10005, L3A10004, L3A10005, L3A10004, L3A10005, L3A10004, L3A10005, L3A10006, L3A10007, L3A10008
+Sprite = run1, L3R10001, #3, L3R10002, L3R10003, L3R10004, L3R10005, L3R10006, L3R10007, L3R10008
+Sprite = run2, L3R10001, #4, L3R10002, L3R10003, L3R10004, L3R10005, L3R10006, L3R10007, L3R10008
+Sprite = run3, L3R10001, #5, L3R10002, L3R10003, L3R10004, L3R10005, L3R10006, L3R10007, L3R10008
+Sprite = run4, L3R10001, #6, L3R10002, L3R10003, L3R10004, L3R10005, L3R10006, L3R10007, L3R10008
+
+[OBJECT]
+Name = 黃龍天翔
+Sequence = 30093
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\126
+Sprite = Wait, null
+;以下次序不可改變
+Sprite = dragon, Dray0003, #4, Dray0004, Dray0005, Dray0006, Dray0007, Dray0008, Dray0009, Dray0010, Dray0011, Dray0012, Dray0013, Dray0014, Dray0015, Dray0016, Dray0017, Dray0018, Dray0019, Dray0020, Dray0021, Dray0022, Dray0023, #999
+Sprite = dragonWait, Dray0023
+Sprite = fireRise, FireRise
+Sprite = fireFall, FireFall
+Sprite = ball1, Ball1
+Sprite = ball2, Ball2
+Sprite = light1, light1, #9, light2
+Sprite = light2, light1, #13, light2
+Sprite = light3, light1, #17, light2
+
+[OBJECT]
+Name = 投石車 blue
+Sequence = 30094
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\016
+Sprite = Wait, O1A10001
+Sprite = attack, O1A10002, #8, O1A10003, O1A10004, O1A10005, @SP_EVENT_ACT_ATTACK, O1A10006, O1A10007, O1A10008, #999
+
+[OBJECT]
+Name = 投石車 red
+Sequence = 30095
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\016
+Sprite = Wait, O3A10002
+Sprite = attack, O3A10003, #8, O3A10004, O3A10005, O3A10006, @SP_EVENT_ACT_ATTACK, O3A10007, O3A10008, O3A10009, #999
+
+[OBJECT]
+Name = 投石車 fire
+Sequence = 30096
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\016
+Sprite = Wait, TSFE0001, #4, TSFE0002, TSFE0003, TSFE0004
+Sprite = attack, TSFE0005, #8, null, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 火牛
+Sequence = 30097
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\086
+Sprite = Wait, FCOW0001
+Sprite = fast2, FCOW0001, #3, FCOW0002, FCOW0003, FCOW0004, FCOW0005, FCOW0006, FCOW0007, FCOW0008
+Sprite = fast, FCOW0001, #4, FCOW0002, FCOW0003, FCOW0004, FCOW0005, FCOW0006, FCOW0007, FCOW0008
+Sprite = normal, FCOW0001, #5, FCOW0002, FCOW0003, FCOW0004, FCOW0005, FCOW0006, FCOW0007, FCOW0008
+Sprite = slow, FCOW0001, #6, FCOW0002, FCOW0003, FCOW0004, FCOW0005, FCOW0006, FCOW0007, FCOW0008
+
+[OBJECT]
+Name = 火牛 火
+Sequence = 30098
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\086
+Sprite = Wait, FCFE0010
+Sprite = fast2, FCFE0010, #3, FCFE0020, FCFE0030, FCFE0040, FCFE0050, FCFE0060, FCFE0070, FCFE0080
+Sprite = fast, FCFE0010, #4, FCFE0020, FCFE0030, FCFE0040, FCFE0050, FCFE0060, FCFE0070, FCFE0080
+Sprite = normal, FCFE0010, #5, FCFE0020, FCFE0030, FCFE0040, FCFE0050, FCFE0060, FCFE0070, FCFE0080
+Sprite = slow, FCFE0010, #6, FCFE0020, FCFE0030, FCFE0040, FCFE0050, FCFE0060, FCFE0070, FCFE0080
+
+[OBJECT]
+Name = 地釘
+Sequence = 30099
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\167
+Sprite = Wait, a0000
+Sprite = Wait2, a0001
+Sprite = Wait3, a0002
+Sprite = shadow, sa0000
+Sprite = shadow2, sa0001
+Sprite = shadow3, sa0002
+
+[OBJECT]
+Name = 弩車 blue
+Sequence = 30100
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\007
+Sprite = Wait, O1A10001
+Sprite = shoot, O1A10002, #4, O1A10003, O1A10004, O1A10005, #10, O1A10006, @SP_EVENT_ACT_ATTACK, O1A10007, O1A10006, O1A10007, O1A10006, O1A10007, O1A10006, O1A10007, O1A10006, O1A10007, #120, O1A10008, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 弩車 red
+Sequence = 30101
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\007
+Sprite = Wait, O3A10001
+Sprite = shoot, O3A10002, #4, O3A10003, O3A10004, O3A10005, #10, O3A10006, @SP_EVENT_ACT_ATTACK, O3A10007, O3A10006, O3A10007, O3A10006, O3A10007, O3A10006, O3A10007, O3A10006, O3A10007, #120, O3A10008, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 衝車 red
+Sequence = 30102
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\089
+Sprite = Wait, TCMR0001, #6, TCMR0002, TCMR0003
+Sprite = crack, TCRK0001, #4, TCRK0002, TCRK0003, TCRK0004, TCRK0005, TCRK0006, @SP_EVENT_ACT_FADEOUT, TCRK0007, #999
+
+[OBJECT]
+Name = 八卦二象陣
+Sequence = 30103
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\049
+Sprite = Wait, null
+Sprite = sword, A0000, #4, A0001, A0002, A0003, A0004
+Sprite = ball, ball
+;八卦上半部
+Sprite = symbol1, symbol1
+;八卦下半部
+Sprite = symbol2, symbol2
+Sprite = line, line
+;八卦上半部外框
+Sprite = light1, light1
+;八卦下半部外框
+Sprite = light2, light2
+
+[OBJECT]
+Name = 衝擊波
+Sequence = 30104
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\128
+Sprite = Wait, sw1, #8, sw2, sw3
+Sprite = big, bw1, #8, bw2, bw3
+
+[OBJECT]
+Name = 隕石
+Sequence = 30105
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\128
+Sprite = Wait, rock1
+Sprite = big, rock2
+
+[OBJECT]
+Name = 木頭替身
+Sequence = 30106
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\170
+Sprite = Wait, null
+Sprite = red, a0001
+Sprite = blue, b0001
+
+[OBJECT]
+Name = 九字大禁咒
+Sequence = 30107
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\170
+Sprite = Wait, null
+Sprite = w1, w1
+Sprite = w2, w2
+Sprite = w3, w3
+Sprite = w4, w4
+Sprite = w5, w5
+Sprite = w6, w6
+Sprite = w7, w7
+Sprite = w8, w8
+Sprite = w9, w9
+
+[OBJECT]
+Name = 花瓣
+Sequence = 30108
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\152
+Sprite = Wait, null
+Sprite = patel1, #4, 101, 102, 103, 104, 105, 106, 107, 108
+Sprite = patel2, #4, 201, 202, 203, 204, 205, 206, 207, 208
+Sprite = patel3, #4, 301, 302, 303, 304, 305, 306, 307, 308
+
+[OBJECT]
+Name = 電流 纏繞
+Sequence = 30109
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\thunder
+Sprite = Wait, 01, #4, 02, 03, 04, 05, 06, 07, 08, 09, 10
+Sprite = Wait2, 03, #4, 04, 05, 06, 07, 08, 09, 10, 01, 02
+Sprite = Wait3, 06, #4, 07, 08, 09, 10, 01, 02, 03, 04, 05
+Sprite = Wait4, 09, #4, 10, 01, 02, 03, 04, 05, 06, 07, 08
+
+Sprite = purple, purple01, #4, purple02, purple03, purple04, purple05, purple06, purple07, purple08, purple09, purple10
+Sprite = purple2, purple03, #4, purple04, purple05, purple06, purple07, purple08, purple09, purple10, purple01, purple02
+Sprite = purple3, purple06, #4, purple07, purple08, purple09, purple10, purple01, purple02, purple03, purple04, purple05
+Sprite = purple4, purple09, #4, purple10, purple01, purple02, purple03, purple04, purple05, purple06, purple07, purple08
+
+Sprite = gold, gold01, #4, gold02, gold03, gold04, gold05, gold06, gold07, gold08, gold09, gold10
+Sprite = gold2, gold03, #4, gold04, gold05, gold06, gold07, gold08, gold09, gold10, gold01, gold02
+Sprite = gold3, gold06, #4, gold07, gold08, gold09, gold10, gold01, gold02, gold03, gold04, gold05
+Sprite = gold4, gold09, #4, gold10, gold01, gold02, gold03, gold04, gold05, gold06, gold07, gold08
+
+[OBJECT]
+Name = 爆炸2
+Sequence = 30110
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\bom
+Sprite = Wait, null
+Sprite = orange, sbomr001, #4, sbomr002, sbomr003, sbomr004, sbomr005, sbomr006, sbomr007, sbomr008, sbomr009, sbomr010, sbomr011, sbomr012, sbomr013, sbomr014, sbomr015, sbomr016, @SP_EVENT_ACT_REMOVE
+Sprite = blue, sbomb001, #4, sbomb002, sbomb003, sbomb004, sbomb005, sbomb006, sbomb007, sbomb008, sbomb009, sbomb010, sbomb011, sbomb012, sbomb013, sbomb014, sbomb015, sbomb016, @SP_EVENT_ACT_REMOVE
+Sprite = purple, sbomb001, #4, sbomb002, sbomb003, sbomb004, sbomb005, sbomb006, sbomb007, sbomb008, sbomb009, sbomb010, sbomb011, sbomb012, sbomb013, sbomb014, sbomb015, sbomb016, @SP_EVENT_ACT_REMOVE
+Sprite = white, sbomw001, #4, sbomw002, sbomw003, sbomw004, sbomw005, sbomw006, sbomw007, sbomw008, sbomw009, sbomw010, sbomw011, sbomw012, sbomw013, sbomw014, sbomw015, sbomw016, @SP_EVENT_ACT_REMOVE
+Sprite = white2, b0001, #4, b0002, b0003, b0004, b0005, b0006, b0007, b0008, b0009, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 鬼面
+Sequence = 30111
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\136
+Sprite = Wait, A0001, #6, A0002, A0003, A0004, A0005, A0004, A0003, A0002
+Sprite = Wait2, A0003, #6, A0004, A0005, A0004, A0003, A0002, A0001, A0002
+Sprite = Wait3, A0005, #6, A0004, A0003, A0002, A0001, A0002, A0003, A0004
+
+[OBJECT]
+Name = 小石子爆開
+Sequence = 30112
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\stone4
+Sprite = Wait, A0001, #4, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0009, #999
+
+[OBJECT]
+Name = 爆炸3
+Sequence = 30113
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\bom
+Sprite = Wait, b0001, #4, b0002, b0003, b0004, b0005, b0006, b0007, b0008, b0009, #999
+
+[OBJECT]
+Name = 火柱
+Sequence = 30114
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fire7
+Sprite = Wait, a0002, #2, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0009, @SP_EVENT_ACT_ATTACK
+Sprite = loop, a0010, #4, a0011, a0012, a0013, a0014, a0015, a0016, a0017
+Sprite = null, null
+
+[OBJECT]
+Name = 落月弓 弓 藍
+Sequence = 30115
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\119
+Sprite = Wait, A_W0001, #12, A_W0002, A_W0003, A_W0004, A_W0004, A_W0003, A_W0002, A_W0001
+Sprite = attack, A_A0097, #5, A_A0098, A_A0099, A_A0100, #7, A_A0101, #5, @SP_EVENT_ACT_ATTACK, A_A0102, A_A0103, A_A0103, @SP_EVENT_ACT_WAIT
+Sprite = SAtk15, A_A0097, #5, A_A0098, A_A0099, @SP_EVENT_ACT_ATTACK, #90, A_A0100, #5, A_A0101, @SP_EVENT_ACT_ATTACK, A_A0102, A_A0103, A_A0103, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 落月弓 弓 黃
+Sequence = 30116
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\119
+Sprite = Wait, B_W0001, #12, B_W0002, B_W0003, B_W0004, B_W0004, B_W0003, B_W0002, B_W0001
+Sprite = attack, B_A0097, #5, B_A0098, B_A0099, #7, B_A0100, B_A0101, #5, @SP_EVENT_ACT_ATTACK, B_A0102, B_A0103, B_A0103, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 落月弓 弓 紫
+Sequence = 30117
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\119
+Sprite = Wait, C_W0001, #12, C_W0002, C_W0003, C_W0004, C_W0004, C_W0003, C_W0002, C_W0001
+Sprite = attack, C_A0097, #5, C_A0098, C_A0099, C_A0100, #7, C_A0101, #5, @SP_EVENT_ACT_ATTACK, C_A0102, C_A0103, C_A0103, @SP_EVENT_ACT_WAIT
+Sprite = SAtk09, C_A0097, #5, C_A0098, C_A0099, @SP_EVENT_ACT_ATTACK, #65, C_A0100, #5, C_A0101, @SP_EVENT_ACT_ATTACK, C_A0102, C_A0103, C_A0103, @SP_EVENT_ACT_REMOVE
+Sprite = SAtk10, C_A0097, #5, C_A0098, C_A0099, @SP_EVENT_ACT_ATTACK, #90, C_A0100, #5, C_A0101, @SP_EVENT_ACT_ATTACK, C_A0102, C_A0103, C_A0103, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度0
+Sequence = 30118
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light
+Sprite = Wait, null
+Sprite = Atk01, null
+Sprite = Atk02, null
+Sprite = Atk03, null
+Sprite = Atk04, null
+Sprite = Atk05, null
+Sprite = Atk06, null
+Sprite = Atk07, null
+Sprite = Atk08, null
+Sprite = Atk09, null
+Sprite = Atk10, null
+Sprite = Atk11, null
+Sprite = Atk12, null
+Sprite = Atk13, null
+Sprite = Atk14, null
+Sprite = Atk15, null
+Sprite = Atk16, null
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度1
+Sequence = 30119
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L101
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度2
+Sequence = 30120
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L102
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度3
+Sequence = 30121
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L103
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度4
+Sequence = 30122
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L104
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度5
+Sequence = 30123
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L105
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度6
+Sequence = 30124
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L106
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度7
+Sequence = 30125
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L107
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度8
+Sequence = 30126
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L108
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 神鬼亂舞刀光 長度9
+Sequence = 30127
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Light\L109
+Sprite = Wait, null
+Sprite = Atk01, L0001, #5, L0002, L0003,#7, L0004,#5, L0005, L0006, @SP_EVENT_ACT_ATTACK, L0007, L0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, L0009, #5, L0010, L0011, #7, L0012, #5, L0013, @SP_EVENT_ACT_ATTACK, L0014, L0015, L0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, L0017, #5, L0018, L0019, #7, L0020, #5, L0021, @SP_EVENT_ACT_ATTACK, L0022, L0023, L0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, L0025, #5, L0026, L0027, #7, L0028, #5, L0029, L0030, @SP_EVENT_ACT_ATTACK, L0031, L0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, L0033, #5, L0034, L0035, #7, L0036, #5, L0037, L0038, @SP_EVENT_ACT_ATTACK, L0039, L0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, L0041, #5, L0042, L0043, L0044, L0045, @SP_EVENT_ACT_ATTACK, L0046, L0047, L0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, L0049, #5, L0050, L0051, L0052, L0053, L0054, #7, @SP_EVENT_ACT_ATTACK, L0055, #5, L0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, L0057, #5, L0058, L0059, #7, L0060, #5, L0061, @SP_EVENT_ACT_ATTACK, L0062, L0063, L0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, L0065, #4, L0066, L0067, L0068, L0069, L0070, #12, @SP_EVENT_ACT_ATTACK, L0071, #4, L0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, L0073, #5, L0074, L0075, L0076, L0077, @SP_EVENT_ACT_ATTACK, L0078, L0079, L0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, L0081, #3, L0082, L0083, L0084, #12, @SP_EVENT_ACT_ATTACK, L0085, #5, L0086, L0087, L0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, L0089, #5, L0090, L0091, #7, L0092, #5, L0093, L0094, @SP_EVENT_ACT_ATTACK, L0095, L0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, L0097, #5, L0098, L0099, L0100, #7, L0101, #5, @SP_EVENT_ACT_ATTACK, L0102, L0103, L0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, L0105, #5, L0106, L0107, #7, L0108, #5, L0109, @SP_EVENT_ACT_ATTACK, L0110, L0011, L0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, L0113, #5, L0114, L0115, #7, L0116, #5, L0117, @SP_EVENT_ACT_ATTACK, L0118, L0119, L0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, L0121, #5, L0122, L0123, #7, L0124, #5, L0125, L0126, #7, @SP_EVENT_ACT_ATTACK, L0127, #5, L0127, @SP_EVENT_ACT_WAIT
+
+;[OBJECT]
+;Name = 玄武 test
+;Sequence = 30128
+;Space = 0, 0, 0
+;Flags = 
+;Process = BF_CLASS_BFMagic
+;Directory = \BF\\Sol\R1
+;Sprite = Wait, tW0001, #12, tW0002, tW0003, tW0004, tW0004, tW0003, tW0002, tW0001
+;Sprite = Walk, tm0001, #8, tm0002, tm0003, tm0004, tm0005, tm0006, tm0007, tm0008
+;Sprite = Attack, tA0001, #6, tA0002, tA0003, tA0004, tA0005, @SP_EVENT_ACT_ATTACK, tA0006, tA0007, tA0008, @SP_EVENT_ACT_WAIT
+;Sprite = Attack2, tb0001, #6, tb0002, tb0003, tb0004, tb0005, @SP_EVENT_ACT_ATTACK, tb0006, tb0007, tb0008, @SP_EVENT_ACT_WAIT
+;Sprite = Hurt, tH0003, #20, tH0002, #10, tH0001, @SP_EVENT_ACT_WAIT
+;Sprite = Die, td0001, #8, td0002, td0003, td0004, td0005, td0006, #90
+
+;[OBJECT]
+;Name = 白虎 test
+;Sequence = 30129
+;Space = 0, 0, 0
+;Flags = 
+;Process = BF_CLASS_BFMagic
+;Directory = \BF\\Sol\s1
+;Sprite = Wait, tigW0001, #12, tigW0002, tigW0003, tigW0004, tigW0004, tigW0003, tigW0002, tigW0001
+;Sprite = Walk, tigm0001, #8, tigm0002, tigm0003, tigm0004, tigm0005, tigm0006, tigm0007, tigm0008
+;Sprite = Attack, tigr0001, #6, tigr0002, tigr0003, tigr0004, tigr0005, @SP_EVENT_ACT_ATTACK, tigr0006, tigr0007, tigr0008, @SP_EVENT_ACT_WAIT
+;Sprite = Attack2, tigb0001, #6, tigb0002, tigb0003, tigb0004, tigb0005, @SP_EVENT_ACT_ATTACK, tigb0006, tigb0007, tigb0008, @SP_EVENT_ACT_WAIT
+;Sprite = Hurt, tigH0003, #20, tigH0002, #10, tigH0001, @SP_EVENT_ACT_WAIT
+;Sprite = Die, tigd0001, #8, tigd0002, tigd0003, tigd0004, tigd0005, tigd0006, #90
+
+;[OBJECT]
+;Name = 朱雀 test
+;Sequence = 30130
+;Space = 0, 0, 0
+;Flags = 
+;Process = BF_CLASS_BFMagic
+;Directory = \BF\\Sol\t1
+;Sprite = Wait, jcW0001, #8, jcW0002, jcW0003, jcW0004, jcW0005, jcW0006, jcW0007, jcW0008
+;Sprite = Walk, jcm0001, #8, jcm0002, jcm0003, jcm0004, jcm0005, jcm0006, jcm0007, jcm0008
+;Sprite = Attack, jcA0001, #6, jcA0002, jcA0003, jcA0004, jcA0005, @SP_EVENT_ACT_ATTACK, jcA0006, jcA0007, jcA0008, @SP_EVENT_ACT_WAIT
+;Sprite = Attack2, jcb0001, #6, jcb0002, jcb0003, jcb0004, jcb0005, @SP_EVENT_ACT_ATTACK, jcb0006, jcb0007, jcb0008, @SP_EVENT_ACT_WAIT
+;Sprite = Hurt, jcH0003, #20, jcH0002, #10, jcH0001, @SP_EVENT_ACT_WAIT
+;Sprite = Die, jcd0001, #8, jcd0002, jcd0003, jcd0004, jcd0005, jcd0006, jcd0007, jcd0008, #90
+
+;[OBJECT]
+;Name = 青龍 test
+;Sequence = 30131
+;Space = 0, 0, 0
+;Flags = 
+;Process = BF_CLASS_BFMagic
+;Directory = \BF\\Sol\u1
+;Sprite = Wait, dwW0001, #8, dwW0002, dwW0003, dwW0004, dwW0004, dwW0003, dwW0002, dwW0001
+;Sprite = Walk, dwm0001, #8, dwm0002, dwm0003, dwm0004, dwm0005, dwm0006, dwm0007, dwm0008
+;Sprite = Attack, dwA0001, #6, dwA0002, dwA0003, dwA0004, dwA0005, @SP_EVENT_ACT_ATTACK, dwA0006, dwA0007, dwA0008, @SP_EVENT_ACT_WAIT
+;Sprite = Attack2, dwb0001, #6, dwb0002, dwb0003, dwb0004, dwb0005, @SP_EVENT_ACT_ATTACK, dwb0006, dwb0007, dwb0008, @SP_EVENT_ACT_WAIT
+;Sprite = Hurt, dwH0003, #20, dwH0002, #10, dwH0001, @SP_EVENT_ACT_WAIT
+;Sprite = Die, dwd0001, #8, dwd0002, dwd0003, dwd0004, dwd0005, dwd0006, dwd0007, dwd0008, dwd0009, dwd0010, dwd0011, dwd0012, #90
+
+[OBJECT]
+Name = 五代 火龍 頭
+Sequence = 30132
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\229\head
+Sprite = Wait, n1*
+Sprite = rise, u1*
+Sprite = drop, d1*
+
+[OBJECT]
+Name = 五代 火龍 影子
+Sequence = 30133
+Space = 0,0,0
+Flags = 
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\229
+Sprite = Wait, shadow
+
+[OBJECT]
+Name = 五代 火龍 身體
+Sequence = 30134
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\229\body
+Sprite = Wait, 1, #4, 2, 3, 4, 5, 6, 7, 8
+Sprite = rise, 1, #4, 2, 3, 4, 5, 6, 7, 8
+Sprite = drop, 1, #4, 2, 3, 4, 5, 6, 7, 8
+
+[OBJECT]
+Name = 五代 火龍 尾
+Sequence = 30135
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\229\tail
+Sprite = Wait, n1*
+Sprite = rise, u1*
+Sprite = drop, d1*
+
+[OBJECT]
+Name = 五代 火龍 受傷
+Sequence = 30136
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\229\damage
+Sprite = Wait, E0001, #4, E0002, E0003, E0004, E0005, E0006, E0007, E0008, E0009, E0010, #4, NULL, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 軍師技，雷球
+Sequence = 30137
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecialAttack\041
+Sprite = Wait, A0001, #4, A0002, A0003, A0004, A0005
+
+[OBJECT]
+Name = 軍師技，效果1
+Sequence = 30138
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecialAttack\041\effect
+Sprite = Wait, A0001, #4, A0002, A0003, A0004, A0005, A0006, A0007, A0008, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 軍師技，效果2
+Sequence = 30139
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecialAttack\041\effect
+Sprite = Wait, B0001, #4, B0002, B0003, B0004, B0005, B0006, B0007, B0008, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 軍師技，效果3
+Sequence = 30140
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecialAttack\041\effect
+Sprite = Wait, C0001, #4, C0002, C0003, C0004, C0005, C0006, C0007, C0008, @SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 必殺技‧集氣
+Sequence = 30141
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\comboForce
+Sprite = Wait, R001, #7, R002, R003, R004, R005, R006, R007, R008, R009, R010, R011, R012, R013 @SP_EVENT_ACT_FADEOUT, #30
+Sprite = Wait2, NULL, #7, SB101, SB102, SB103, SB102, SB103, SB102, SB103, SB102, SB104, @SP_EVENT_ACT_FADEOUT, #30
+Sprite = Wait3, 001, #7, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013 @SP_EVENT_ACT_FADEOUT, #30
+Sprite = Wait4, NULL, #7, GSB101, GSB102, GSB103, GSB102, GSB103, GSB102, GSB103, GSB102, GSB104, @SP_EVENT_ACT_FADEOUT, #30
+
+[OBJECT]
+Name = 必殺技‧連刺
+Sequence = 30142
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\001
+Sprite = Wait, NULL
+Sprite = XLength01, xLength0101, #3, xLength0102, xLength0103, xLength0102, xLength0101, @SP_EVENT_ACT_FADEOUT, #30
+Sprite = XLength02, xLength0201, #3, xLength0202, xLength0203, xLength0202, xLength0201, @SP_EVENT_ACT_FADEOUT, #30
+Sprite = XLength03, xLength0301, #3, xLength0302, xLength0303, xLength0302, xLength0301, @SP_EVENT_ACT_FADEOUT, #30
+;Sprite = bom, bom001, #5, bom002, bom003, bom004, bom005, bom006, @SP_EVENT_ACT_FADEOUT, #30
+
+
+[OBJECT]
+Name = 必殺技‧斬鐵
+Sequence = 30143
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\002
+Sprite = Wait, MA001
+Sprite = Wait1, MA004
+Sprite = Wait2, MA008
+Sprite = Wait3, MA009
+Sprite = Wait4, MA010
+Sprite = Wait5, MA011
+Sprite = Wait6, MA012
+Sprite = Wait7, MA002
+Sprite = Wait8, MA003
+Sprite = Wait9, MA005
+Sprite = Wait10, MA006
+Sprite = Wait11, MA007
+
+
+[OBJECT]
+Name = 惡搞
+Sequence = 30144
+Space = 0,0,0
+Flags = 
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecialAttack\test
+Sprite = Wait, a_p1, #12, a_p2, a_p2
+
+[OBJECT]
+Name = 地龍
+Sequence = 30145
+Space = 0,0,0
+Flags = 
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\225\
+Sprite = Wait, A0001, #6, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0009, A0010, A0011, A0012, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 地龍煙霧
+Sequence = 30146
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\225\
+Sprite = Wait, B0001, #4, B0002, B0003, B0004, B0005, B0006, B0007, B0008, B0009, B0010, B0011, B0012, B0013, @SP_EVENT_ACT_FADEOUT, #999
+Sprite = Wait2, B0001, #4, B0002, B0003, B0004, B0005, B0006, B0007, B0008, B0009, B0010, B0011, B0012, B0013, #999
+
+[OBJECT]
+Name = 風龍
+Sequence = 30147
+Space = 0,0,0
+Flags = 
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\237\
+Sprite = Wait, A0001, #6, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0009, A0010, A0011, A0012, A0013, A0014, A0015, A0016, A0017, A0018, A0019, A0020, A0021, A0022, A0023, A0024, A0025, A0026, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 風龍‧龍捲風
+Sequence = 30148
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\237\
+Sprite = Wait, B0001, #6, B0002, B0003, B0004, B0005, B0006, B0007, B0008, B0009, B0010, B0011, B0012, B0013, B0014, B0015, B0016, B0017, @SP_EVENT_ACT_ATTACK
+Sprite = Loop, C0001, #6, C0002, C0003, C0004, C0005, C0006, C0007, C0008, C0009, C0010, C0011, C0012
+
+[OBJECT]
+Name = 被風打到
+Sequence = 30149
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\237\
+Sprite = Wait, F0001, #6, F0002, F0003, F0004, F0005, F0006, F0007, F0008, F0009, F0010, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 水龍
+Sequence = 30150
+Space = 0,0,0
+Flags = 
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\233\
+Sprite = Wait, A0001, #6, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0009, A0010, A0011, A0012, A0013, A0014, A0015, A0016, A0017, A0018, A0019, A0020, A0021, A0022, A0023, A0024, A0025, A0026, A0027, A0028, A0029, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 水龍‧光點
+Sequence = 30151
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\233\
+Sprite = Wait, B0001, #999
+
+[OBJECT]
+Name = 水龍‧水花
+Sequence = 30152
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\233\
+Sprite = Wait, D0001, #6, D0002, D0003, D0004, D0005, D0006, D0007, D0008, D0009 @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 水龍‧水箭，八方向
+Sequence = 30153
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\233\
+Sprite = Wait, E0001*
+
+[OBJECT]
+Name = 水龍‧水箭，八方向
+Sequence = 30154
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\233\
+Sprite = Wait, F0001
+
+[OBJECT]
+Name = 水龍‧水箭球
+Sequence = 30155
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\233\
+Sprite = Wait, C0001, #3, C0002, C0003, C0004, C0005, C0006, C0007, C0008, C0009, C0010, C0011, C0012, C0013, C0014, C0015, C0016, C0017, C0018, C0019, C0020, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 水龍‧水箭球
+Sequence = 30156
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\233\
+Sprite = Wait, G0001, #8, G0002, G0003, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 超忍滅絕陣 火雷玉 紫火焰
+Sequence = 30157
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\161
+; 縮小75%
+Sprite = Wait, F3A60030, #4, F3A60031, F3A60032, F3A60031
+Sprite = throw, F3A60030, #4, F3A60040, F3A60050, F3A60060, F3A60070, F3A60080, #4, NULL, @SP_EVENT_ACT_REMOVE
+Sprite = rise, F6A60030, #4, F6A60040, F6A60050, F6A60060
+Sprite = fall, F7A60030, #4, F7A60040, F7A60050, F7A60060, F7A60070
+
+[OBJECT]
+Name = 雙月斬 Ｘ型劍氣
+Sequence = 30158
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\414
+;Name = 雙月斬 0
+Sprite = Wait, X01001, #4, X01002
+Sprite = Wait2, X02001, #4, X02002
+Sprite = dot, dot
+;Name = 接地火花 3
+Sprite = GrdFireST, GF001, #4, GF002, GF003, GF004, GF005, #4, NULL, @SP_EVENT_ACT_WAIT
+Sprite = GrdFireLP, GF006, #4, GF007
+;Name = 接地火花 5
+Sprite = RUwave, RU01, #4, RU02
+Sprite = RDwave, RD01, #4, RD02
+Sprite = Rwave, R01, #4, R02
+;Name = 十六夜斬 迴旋之銀月彎刀8
+Sprite = Moon, MOON001, #1, MOON002, MOON003, MOON004, MOON005, MOON006, MOON007, MOON008, MOON009, MOON010
+;Name = 裂光千刃 四方向大型銀色劍氣9
+Sprite = SilverCC, SilverCC01, #4, SilverCC02
+Sprite = SilverLR, SilverLR01, #4, SilverLR02
+Sprite = SilverUD, SilverUD01, #4, SilverUD02, SilverUD03
+Sprite = SilverDU, SilverDU01, #4, SilverDU02, SilverDU03
+
+
+[OBJECT]
+Name = 必殺技‧拖刀
+Sequence = 30159
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\005
+Sprite = Wait, A01, #4, A02, A03, A04, A05, A06, @SP_EVENT_ACT_FADEOUT
+Sprite = hit, B01, #4, B02, B03
+
+[OBJECT]
+Name = 銀月彎刀 影子
+Sequence = 30160
+Space = 0,0,0
+Flags = SP_ATTRIB_MIXER
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\414
+Sprite = wait, MS01, #1, MS02, MS03, MS04, MS05, MS06, MS07, MS08, MS09, MS10
+
+[OBJECT]
+Name = 轟天一劍 巨大心劍
+Sequence = 30161
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\478
+Sprite = Wait, A0001
+Sprite = roll, A0001, #1, @SP_EVENT_ACT_ATTACK, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0009, A0010, A0011, A0012, A0013, A0014, A0015, A0016
+Sprite = rise, rise
+Sprite = fall, fall
+Sprite = hitGnd, C0001, #1, C0002, C0003, C0004, C0005, C0006, C0007, #999
+Sprite = circle, circle
+Sprite = light, light01, #6, light02, light03, light04, light05, light06, #999
+Sprite = light2, NULL, #3, light01, light02, light03, light04, light05, light06, @SP_EVENT_ACT_FADEOUT, #999
+Sprite = light3, light01, #10, light02, light03, light04, #20, light05, #10, light06, #999
+
+[OBJECT]
+Name = 迷魂  煙霧
+Sequence = 30162
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\004
+Sprite = Wait, misty0014, #10, misty0016, misty0018, misty0020, misty0022, misty0024, misty0026, misty0028, misty0030, #999
+Sprite = Rmisty, RM0001, #10, RM0007, RM0013, RM0019, RM0025, RM0031, RM0037, RM0043, RM0049, RM0055, RM0061, RM0067, RM0073, #999
+
+[OBJECT]
+Name = 亂舞 劍光
+Sequence = 30163
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\012
+Sprite = Wait, NULL
+;Name = 一擊 向下 SAtk1201
+;Name = 一擊 向上 SAtk1202
+;Name = 橫砍 向右 SAtk1203
+;Name = 縱砍 向下 SAtk1204
+;Name = 縱砍 向上 SAtk1205
+Sprite = SAtk1201, NULL, #14, M001, #2, M002, M003, #4, M004, M005, M006, M006, @SP_EVENT_ACT_WAIT
+Sprite = SAtk1202, NULL, #12, M101, #2, M102, M103, #4, M104, M105, M106, M106, @SP_EVENT_ACT_WAIT
+Sprite = SAtk1203, NULL, #15, M201, #3, M202, M203, M204, #4, M205, M206, M207, M207, @SP_EVENT_ACT_WAIT
+Sprite = SAtk1204, NULL, #14, M301, #1, M302, M303, #4, M304, M305, M306, M307, M307, @SP_EVENT_ACT_WAIT
+Sprite = SAtk1205, NULL, #14, M401, #2, M402, #4, M403, M404, M405, M406, M407, M407, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = 極意無限斬
+Sequence = 30164
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\502
+Sprite = Wait, A001
+Sprite = sword, A001, #6, A002, A003
+Sprite = spark, B001, #6, B002, B003, B004
+Sprite = bom, C001, #6, C002, C003, C004, C005, C006
+
+[OBJECT]
+Name = 必殺技‧挑斬
+Sequence = 30165
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\006
+Sprite = Wait, NULL
+Sprite = light, A001
+Sprite = light2, A002
+Sprite = bom, B001, #6, B002, B003, B004, B005, B006, B007, B008, #999
+Sprite = floorLight, C001
+Sprite = floorLight2, C002
+
+[OBJECT]
+Name = 必殺技‧霸者之威
+Sequence = 30166
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\013
+Sprite = Wait, NULL
+Sprite = fire, A001, #6, A002, A003, A004, A005, A006, A007, A008, A009, A010, #999
+Sprite = ball, B001, #10, B002, #999
+Sprite = light, C001, #10, C002
+Sprite = light2, C003, #999
+Sprite = bom, D001, #6, D002, D003, D004, D005, D006, D007, #999
+
+[OBJECT]
+Name = 必殺技‧爆炸
+Sequence = 30167
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\Bom
+Sprite = Wait, boom0001, #2, boom0002, boom0003, boom0004, boom0005, boom0006, boom0007, boom0008, boom0009, boom0010, boom0011, boom0012, boom0013, boom0014, boom0015, boom0016, NULL, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 必殺技‧血翼
+Sequence = 30168
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\010
+Sprite = Wait, bWing001
+Sprite = Wait2, bWing002
+Sprite = Wait3, bWing003
+Sprite = dot, Fdot
+Sprite = FlybWing, SmWing001, #1, BgWing001, SmWing001, BgWing002
+Sprite = Bom0, NULL, #5, Bom0101, Bom0102, Bom0103, Bom0104, #300
+Sprite = Bom1, Bom0201, #5, Bom0202, Bom0203, Bom0201, Bom0202, Bom0203, #300
+
+
+[OBJECT]
+Name = 必殺技‧王者之風
+Sequence = 30169
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\014
+Sprite = Wait, NULL
+Sprite = light, A001, #6, A002, A003, A004, A005, A006, A007, A008, A009, A010, A011, A012, A013, A014, #999
+Sprite = bom, B001, #6, B002, B003, B004, B005, B006, #999
+Sprite = pillar, C001, #999
+Sprite = circle, D001, #999
+Sprite = circle2, D002, #999
+
+[OBJECT]
+Name = 必殺技‧貫日
+Sequence = 30170
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\009
+Sprite = Wait, arrow
+Sprite = Lforce, f001, #10, f002
+Sprite = Cforce, f003, #5, f004, f005, f006, #600
+Sprite = wave, w001, #2,w001
+Sprite = ShotLight, SLight
+Sprite = Bom0, NULL, #5, Bom0101, Bom0102, Bom0103, Bom0104, #300
+Sprite = Bom1, Bom0201, #5, Bom0202, Bom0203, Bom0201, Bom0202, Bom0203
+
+[OBJECT]
+Name = 武將技‧白虎出現
+Sequence = 30171
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BFObj\BFSpec\003
+Sprite = Wait, a0002, #20, a0003, a0004, a0005, #10, a0006, a0007, a0007, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 武將技‧青龍吐雷
+Sequence = 30172
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BFObj\BFSpec\004
+Sprite = Wait, null
+Sprite = t1, thunder1
+Sprite = t2, thunder2
+Sprite = t3, thunder3
+
+[OBJECT]
+Name = 赤焰
+Sequence = 30173
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\fire8
+Sprite = Wait, a0002, #2, a0003, a0004, a0005, a0006, a0007, a0008, a0009, @SP_EVENT_ACT_ATTACK
+Sprite = loop, a0010, #4, a0011, a0012, a0013, a0014, a0015, a0016, a0017
+Sprite = null, null
+
+[OBJECT]
+Name = 奧汀大將軍˙變形˙飛彈
+Sequence = 30174
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BFObj\BFSpec\016
+Sprite = Wait, TF0015
+Sprite = Missile000, B0007
+Sprite = Missile032, B0006
+Sprite = Missile064, B0005
+Sprite = Missile096, B0004
+Sprite = Missile128, B0003
+Sprite = Missile160, B0002
+Sprite = Missile192, B0001
+Sprite = Missile224, B0008
+Sprite = Show, TF0014, #3, TF0013, TF0012, TF0011, TF0010, TF0009, TF0008, TF0007, TF0006, TF0005, TF0004, TF0003, TF0002, TF0001, @SP_EVENT_ACT_ATTACK, #999
+
+
+[OBJECT]
+Name = 奧汀大將軍˙火球
+Sequence = 30175
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BFObj\BFSpec\016
+Sprite = Wait, NULL
+Sprite = Fdown00, FB0001, #3, FB0002, FB0003, FB0004, FB0005
+Sprite = Fdown11, FB0102, #3, FB0103, FB0104, FB0105, FB0101
+
+
+[OBJECT]
+Name = 奧汀火輪衝
+Sequence = 30176
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BFObj\BFSpec\015
+Sprite = Wait, a0003, #5, a0004, a0005, a0006, a0007
+
+;--------------------------------------------------------------------------
+; Raven61 專用
+
+[OBJECT]
+Name = Raven61測試專用
+Sequence = 30177
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \Menu
+Sprite = Wait, PointBlue
+
+[OBJECT]
+Name = 斷頭
+Sequence = 30178
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BFObj\BFSoldier\DieBody
+Sprite = Wait, hd0001, #4, hd0002, hd0003, hd0004, hd0005, hd0006, hd0007, hd0008, hd0009, hd0010
+Sprite = Wait2, hd0010, #4, hd0009, hd0008, hd0007, hd0006, hd0005, hd0004, hd0003, hd0002, hd0001
+Sprite = Shadow, s_Head, #9999
+
+[OBJECT]
+Name = 屍塊
+Sequence = 30179
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BFObj\BFSoldier\DieBody
+;Flags = SP_ATTRIB_GRAVITY, SP_ATTRIB_DISTURB
+Sprite = Wait, Null, #9999
+Sprite = Piece0, B0008, #4, B0007, B0006, B0005, B0004, B0003, B0002, B0001
+Sprite = Piece1, C0008, #4, C0007, C0006, C0005, C0004, C0003, C0002, C0001
+Sprite = Piece2, H0008, #4, H0007, H0006, H0005, H0004, H0003, H0002, H0001
+Sprite = Piece3, L0008, #4, L0007, L0006, L0005, L0004, L0003, L0002, L0001
+Sprite = Piece4, S0008, #4, S0007, S0006, S0005, S0004, S0003, S0002, S0001
+Sprite = Piece0r, B0001, #4, B0002, B0003, B0004, B0005, B0006, B0007, B0008
+Sprite = Piece1r, C0001, #4, C0002, C0003, C0004, C0005, C0006, C0007, C0008
+Sprite = Piece2r, H0001, #4, H0002, H0003, H0004, H0005, H0006, H0007, H0008
+Sprite = Piece3r, L0001, #4, L0002, L0003, L0004, L0005, L0006, L0007, L0008
+Sprite = Piece4r, S0001, #4, S0002, S0003, S0004, S0005, S0006, S0007, S0008
+Sprite = Shadow0, s_Head, #9999
+Sprite = Shadow1, s_Head, #9999
+Sprite = Shadow2, s_Head, #9999
+Sprite = Shadow3, s_Head, #9999
+Sprite = Shadow4, s_Head, #9999
+
+[OBJECT]
+Name = 武器
+Sequence = 30180
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BFObj\BFWeapon\001
+Sprite = Wait, F0001, #3, F0002, F0003, F0004, F0005, F0006, F0007, F0008, F0009, F0010, F0011, F0012, F0013, F0014, F0015, F0016
+
+;--------------------------------------------------------------------------
+
+[OBJECT]
+Name = 拒鹿 影子
+Sequence = 30181
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\001\shadow
+Sprite = Wait, GJCB0001
+Sprite = die, GJCB0002, #10, GJCB0003, GJCB0004, GJCB0005, GJCB0006, GJCB0007, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 拒鹿 Cover
+Sequence = 30182
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\001\cover
+Sprite = Wait, GJCB0001
+Sprite = die, GJCB0002, #10, GJCB0003, GJCB0004, GJCB0005, GJCB0006, GJCB0007, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 地雷 影子
+Sequence = 30183
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\034\shadow
+Sprite = Wait, w0000
+Sprite = bomber1, c0001, #5, c0002, c0003, c0004, c0005, @SP_EVENT_ACT_FADEOUT, c0006, c0007, #999
+Sprite = bomber2, c0001, #3, c0002, c0003, c0004, c0005, @SP_EVENT_ACT_FADEOUT, c0006, c0007, #999
+
+[OBJECT]
+Name = 地雷 Cover
+Sequence = 30184
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\034\cover
+Sprite = Wait, w0000
+Sprite = bomber1, c0001, #5, c0002, c0003, c0004, c0005, @SP_EVENT_ACT_FADEOUT, c0006, c0007, #999
+Sprite = bomber2, c0001, #3, c0002, c0003, c0004, c0005, @SP_EVENT_ACT_FADEOUT, c0006, c0007, #999
+
+[OBJECT]
+Name = 軍師技 鐵獸
+Sequence = 30185
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecialAttack\040
+Sprite = Wait, Null, #9999
+Sprite = fireball, b0001, #3, b0002, b0003, b0004, b0005, b0006, b0007, @SP_EVENT_ACT_FADEOUT
+Sprite = mouthfire, f0001, #1, f0002, f0003, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 土遁 金忍者 Blue
+Sequence = 30186
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\158
+Sprite = Wait, gL2A30001
+Sprite = Attack, gL2A30002, #4, gL2A30003, gL2A30004, #999
+Sprite = down, gL2A30005
+
+[OBJECT]
+Name = 土遁 金忍者 Red
+Sequence = 30187
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\158
+Sprite = Wait, gL4A30001
+Sprite = Attack, gL4A30002, #4, gL4A30003, gL4A30004, #999
+Sprite = down, gL4A30005
+
+[OBJECT]
+Name = 鐵輪血斬 10方向
+Sequence = 30188
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\155
+Sprite = Wait, NULL
+; 20
+Sprite = down1, d01001, #1, d01002, d01003
+Sprite = Attack1, a01001, #1, a01002, a01003
+; 20
+Sprite = down2, d02001, #1, d02002, d02003
+Sprite = Attack2, a02001, #1, a02002, a02003
+; 0
+Sprite = down3, d03001, #1, d03002, d03003
+Sprite = Attack3, a03001, #1, a03002, a03003
+; -20
+Sprite = down4, d04001, #1, d04002, d04003
+Sprite = Attack4, a04001, #1, a04002, a04003
+; -20
+Sprite = down5, d05001, #1, d05002, d05003
+Sprite = Attack5, a05001, #1, a05002, a05003
+
+[OBJECT]
+Name = 組合技 神鳶車
+Sequence = 30189
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\412
+Sprite = Wait, a010001, #9999
+;神鳶車-發射
+Sprite = shelf, a010001, #2, a010002, a010003, a010004, a010005, a010006, a010007, #30, a010008, #2, @SP_EVENT_ACT_ATTACK, a010009, a010010, #999
+
+[OBJECT]
+Name = 組合技 神鳶
+Sequence = 30190
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\412
+Sprite = Wait, NULL
+;發射-向上飛
+Sprite = up1, w0001, #8, fireup0001, fireup0002, fireup0003, fireup0004, fireup0005, #999
+Sprite = up2, w0002, #8, fireup0001, fireup0002, fireup0003, fireup0004, fireup0005, #999
+;落下-墜地
+Sprite = downbody1, boby0001, #2, boby0002, boby0003, boby0004, boby0005
+Sprite = downbody2, bobynt0001, #2, bobynt0002, bobynt0003, bobynt0004, bobynt0005
+Sprite = downshell1, firedown0001, #2, firedown0002, firedown0003
+Sprite = downshell2, fire0001, #2, fire0002, fire0003, fire0004, fire0005
+;落地爆炸
+Sprite = bom, burn00001, #2, burn00002, burn00003, burn00004, burn00005, burn00006, burn00007, burn00008, burn00009, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 測試圓週用
+Sequence = 30191
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\dot
+Sprite = Wait, NULL
+Sprite = blue, blue
+Sprite = gold, gold
+
+[OBJECT]
+Name = 黑色劍輪斬 劍
+Sequence = 30192
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\422
+Sprite = Wait, A0005
+Sprite = spin, A0006, #2, A0007, A0008, A0001, A0002, A0003, A0004, A0005
+Sprite = restore, A0001, #8, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0001, A0002, A0003, A0004, @SP_EVENT_ACT_ATTACK
+
+[OBJECT]
+Name = 劍輪斬 劍光
+Sequence = 30193
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\422
+Sprite = Wait, null
+Sprite = spin, B0006, #2, B0007, B0008, B0001, B0002, B0003, B0004, B0005
+Sprite = restore, null, @SP_EVENT_ACT_ATTACK
+
+[OBJECT]
+Name = 七煞鬼刀
+Sequence = 30194
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\430
+Sprite = Wait, a0008, #2, a0007, a0006, a0005, a0004, a0003, a0002, a0001, #2
+
+[OBJECT]
+Name = 七煞鬼刀 影子
+Sequence = 30195
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\430
+Sprite = Wait, b0008, #2, b0007, b0006, b0005, b0004, b0003, b0002, b0001, #2
+
+[OBJECT]
+Name = 太極火-八卦旋轉
+Sequence = 30196
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\420
+Sprite = Wait, bg00001, #6, bg00002, bg00003, bg00004, bg00005, bg00006, bg00007, bg00008, bg00009, bg00010, bg00011, bg00012, bg00013, bg00014, bg00015, bg00016
+
+[OBJECT]
+Name = 金龍
+Sequence = 30197
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\501
+Sprite = Wait, a0001, #60, a0002, #7, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0009, @SP_EVENT_ACT_ATTACK
+Sprite = Attack, a0010, #7, a0011, a0012, a0013, a0014, a0015, a0016, a0017, a0018, a0019, a0020, a0021
+
+[OBJECT]
+Name = 金龍 爆炸光柱
+Sequence = 30198
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\501
+Sprite = Wait, NULL
+Sprite = Gwave, Gwave
+Sprite = Star, Star001, #1, Star002, Star003
+Sprite = Line, Line
+Sprite = bom, c0001, #3, c0002, c0003, c0004, c0005, #999
+Sprite = dot, Hit001, #3, Hit002, Hit003, Hit004, @SP_EVENT_ACT_FADEOUT, Hit005, Hit006, #999
+
+[OBJECT]
+Name = 綠色魔法陣
+Sequence = 30199
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\493
+Sprite = Wait, a0001
+
+[OBJECT]
+Name = 金龍 光罩
+Sequence = 30200
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\501
+Sprite = Wait, LA0001, #60, LA0002, #7, LA0003, LA0004, LA0005, LA0006, LA0007, LA0008, LA0009, LA0009, @SP_EVENT_ACT_ATTACK
+Sprite = Attack, LA0010, #7, LA0011, LA0012, LA0013, LA0014, LA0015, LA0016, LA0017, LA0018, LA0019, LA0020, LA0021
+
+[OBJECT]
+Name = 金色魔法陣
+Sequence = 30201
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\507
+Sprite = Wait, w0001
+
+[OBJECT]
+Name = 天地一刀 金色大刀
+Sequence = 30202
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\504
+Sprite = Wait, a0005
+Sprite = Sword01, a0001
+Sprite = Sword02, a0002
+Sprite = Sword03, a0003
+Sprite = Sword04, a0004
+
+[OBJECT]
+Name = 森羅萬象斬 劍
+Sequence = 30203
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\491
+Sprite = Wait, w0001
+Sprite = fall, f0001
+Sprite = hitGnd, f0002, #999
+
+[OBJECT]
+Name = 森羅萬象斬 劍光
+Sequence = 30204
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\491
+Sprite = Wait, L0001, #2, L0002
+
+[OBJECT]
+Name = 乾坤八陣圖
+Sequence = 30205
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\482
+Sprite = Wait, NULL
+Sprite = bagua, bg00001, #6, bg00002, bg00003, bg00004, bg00005, bg00006, bg00007, bg00008, bg00009, bg00010, bg00011, bg00012, bg00013, bg00014, bg00015, bg00016
+Sprite = thunder, a0001, #10, @SP_EVENT_ACT_FADEOUT, #999
+Sprite = thunder2, a0002, #10, @SP_EVENT_ACT_FADEOUT, #999
+Sprite = thunder3, a0003, #10, @SP_EVENT_ACT_FADEOUT, #999
+Sprite = hitgnd, b0001, #6, b0002, b0003, @SP_EVENT_ACT_FADEOUT, #999
+Sprite = circle, c0001, #8, @SP_EVENT_ACT_FADEOUT, #999
+
+[OBJECT]
+Name = 煙 加色
+Sequence = 30206
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\smoke
+Sprite = Wait, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+; 金色大刀 煙霧 靜止
+Sprite = GSm01, a0001
+Sprite = GSm02, a0002
+Sprite = GSm03, a0003
+Sprite = GSm04, a0004
+Sprite = GSm05, a0005
+Sprite = GSm06, a0006
+Sprite = GSm07, a0007
+Sprite = GSm08, a0008
+Sprite = GSm09, a0009
+Sprite = GSm10, a0010
+Sprite = GSm11, a0011
+Sprite = GSm12, a0012
+Sprite = GSm13, a0013
+; 金色大刀 煙霧 循環
+Sprite = GSm14, a0001, #4, a0002, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm15, a0002, #4, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm16, a0003, #4, a0004, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm17, a0004, #4, a0005, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm18, a0005, #4, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm19, a0006, #4, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm20, a0007, #4, a0008, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm21, a0008, #4, a0009, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm22, a0009, #4, a0010, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm23, a0010, #4, a0011, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm24, a0011, #4, a0012, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm25, a0012, #4, a0013, a0013, @SP_EVENT_ACT_REMOVE
+Sprite = GSm26, a0013, #4, a0013, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 天地一刀 金色大刀 光罩
+Sequence = 30207
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\504
+Sprite = Wait, L0001, #1, L0002, L0003, L0004
+
+[OBJECT]
+Name = 噬血刃 劍光(不用了)
+Sequence = 30208
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\004
+Sprite = Wait, RM0001, #3, RM0007, RM0013, RM0019, RM0025, RM0031, RM0037, RM0043, @SP_EVENT_ACT_FADEOUT, RM0049, RM0055, RM0061, RM0067, RM0073, #999,
+
+[OBJECT]
+Name = 天劍斬 劍光(不用了)
+Sequence = 30209
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\247
+Sprite = Wait, NULL, #12, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+
+[OBJECT]
+Name = 劍無量 劍光(不用了)
+Sequence = 30210
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\432
+Sprite = Wait, NULL, #12, NULL, NULL, NULL, NULL, NULL, NULL, NULL
+
+[OBJECT]
+Name = 金色劍輪斬 劍
+Sequence = 30211
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\503
+Sprite = Wait, A0005
+Sprite = spin, A0006, #2, A0007, A0008, A0001, A0002, A0003, A0004, A0005
+Sprite = restore, A0001, #8, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0001, A0002, A0003, A0004, @SP_EVENT_ACT_ATTACK
+
+[OBJECT]
+Name = 金色劍輪斬 劍光
+Sequence = 30212
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\503
+Sprite = Wait, null
+Sprite = spin, B0006, #2, B0007, B0008, B0001, B0002, B0003, B0004, B0005
+Sprite = restore, null, @SP_EVENT_ACT_ATTACK
+
+[OBJECT]
+Name = 巨劍
+Sequence = 30213
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\243
+Sprite = Wait, NULL
+Sprite = BSword, BSword
+Sprite = SSword, SSword
+Sprite = GSword, GSword
+
+[OBJECT]
+Name = 巨劍 光柱
+Sequence = 30214
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\243
+Sprite = Wait, NULL
+Sprite = RLine, RLine
+Sprite = SLine, SLine
+Sprite = GLine, GLine
+
+
+[OBJECT]
+Name = 爆擊 重擊
+Sequence = 30215
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\bom
+Sprite = red, 001, #4, 002, 003,004,005,006,007,006,005,#999
+Sprite = gold, G001, #2, G002, G003,G004,G005,G006,G007,G006,G005,#999
+Sprite = silver, S001, #2, S002, S003,S004,S005,S006,S007,S006,S005,#999
+Sprite = blue, B001, #2, B002, B003,B004,B005,B006,B007,B006,B005,#999
+;金色爆炸
+Sprite = goldEx, Gold001, #2, Gold002, Gold003, Gold004, Gold005, Gold006, Gold007, Gold008, Gold009, Gold010, Gold011, Gold012, Gold013, @SP_EVENT_ACT_REMOVE
+Sprite = super, h001, #6, h002,h003,h004,h005,h006, #999
+Sprite = cover, a001
+Sprite = coverF, a002
+Sprite = circle, circle
+
+[OBJECT]
+Name = 白色劍氣
+Sequence = 30216
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\305
+Sprite = UD, UD003, #4, UD004
+Sprite = LR, LR003, #4, LR004
+Sprite = RD, RD003, #4, RD004
+Sprite = RU, RU003, #4, RU004
+Sprite = DU, DU003, #4, DU004
+
+[OBJECT]
+Name = 紅色劍氣
+Sequence = 30217
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\307
+Sprite = UD, UD003, #4, UD004
+Sprite = LR, LR003, #4, LR004
+Sprite = RD, RD003, #4, RD004
+Sprite = RU, RU003, #4, RU004
+Sprite = DU, DU003, #4, DU004
+
+
+[OBJECT]
+Name = 金色劍氣
+Sequence = 30218
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\512
+Sprite = UD, UD003, #4, UD004
+Sprite = LR, LR003, #4, LR004
+Sprite = RD, RD003, #4, RD004
+Sprite = RU, RU003, #4, RU004
+Sprite = DU, DU003, #4, DU004
+
+
+[OBJECT]
+Name = 藍色劍氣
+Sequence = 30219
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\514
+Sprite = UD, UD003, #4, UD004
+Sprite = LR, LR003, #4, LR004
+Sprite = RD, RD003, #4, RD004
+Sprite = RU, RU003, #4, RU004
+Sprite = DU, DU003, #4, DU004
+
+
+[OBJECT]
+Name = 電光劍氣
+Sequence = 30220
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\515
+Sprite = UD, UD001, #4, UD002, UD003, UD004, UD005, UD006, UD007
+Sprite = LR, LR001, #2, LR002, LR003, LR004, LR005, LR006, LR007
+Sprite = RD, RD001, #2, RD002, RD003, RD004, RD005, RD006, RD007
+Sprite = RU, RU001, #2, RU002, RU003, RU004, RU005, RU006, RU007
+Sprite = DU, DU001, #4, DU002, DU003, DU004, DU005, DU006, DU007
+
+
+[OBJECT]
+Name = 火球
+Sequence = 30221
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\510
+Sprite = Wait, 001, #4, 002, 003, 004
+
+
+[OBJECT]
+Name = 渾元一氣 流星拳
+Sequence = 30222
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\317
+Sprite = white, W001, #4, W002, W003
+Sprite = gold,  G001, #4, G002, G003
+
+
+
+[OBJECT]
+Name = 七星燈
+Sequence = 30223
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\301
+Sprite = wait, 0001
+
+
+
+[OBJECT]
+Name = 挪移陣
+Sequence = 30224
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\315
+Sprite = body, 00000, #6, 00001, 00002, 00003, 00004, 00005, 00006, 00007, 00008, 00009, 00010, 00011, 00012, 00013, 00014, 00015, 00016, 00017, 00018, 00019, 00020, 00021, 00022, 00023
+
+
+
+[OBJECT]
+Name = 挪移陣 光罩
+Sequence = 30225
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\315
+Sprite = cover,g0000, #6, g0001, g0002, g0003, g0004, g0005, g0006, g0007, g0008, g0009, g0010, g0011, g0012, g0013, g0014, g0015, g0016, g0017, g0018, g0019, g0020, g0021, g0022, g0023
+Sprite = BluePole, BP001, #10, BP002, BP003, @SP_EVENT_ACT_FADEOUT, BP003, #999
+Sprite = BlueGround, BG001, #10, BG002, BG003,@SP_EVENT_ACT_FADEOUT, BG003, #999 
+
+
+[OBJECT]
+Name = 金色挪移陣
+Sequence = 30226
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\516
+Sprite = body, 00000, #6, 00001, 00002, 00003, 00004, 00005, 00006, 00007, 00008, 00009, 00010, 00011, 00012, 00013, 00014, 00015, 00016, 00017, 00018, 00019, 00020, 00021, 00022, 00023
+
+
+
+[OBJECT]
+Name = 金色挪移陣 光罩
+Sequence = 30227
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\516
+Sprite = cover,g0000, #6, g0001, g0002, g0003, g0004, g0005, g0006, g0007, g0008, g0009, g0010, g0011, g0012, g0013, g0014, g0015, g0016, g0017, g0018, g0019, g0020, g0021, g0022, g0023
+Sprite = GoldPole, GP001, #10, GP002, GP003, @SP_EVENT_ACT_FADEOUT,GP003, #999
+Sprite = GoldGround, GG001, #10, GG002, GG003, @SP_EVENT_ACT_FADEOUT, GG003, #999
+
+[OBJECT]
+Name = 紅色爆炸
+Sequence = 30228
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\explode
+Sprite = wait, NULL
+Sprite = red, 000, #6, 001, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015
+Sprite = reda, a000, #6, a001, a002, a003, a004, a005, a006, a007, a008, a009, a010, a011
+Sprite = redb, b000, #6, b001, b002, b003, b004, b005, b006, b007, b008, b009, b010, b011, b012, b013
+
+
+[OBJECT]
+Name = 火焰劍氣
+Sequence = 30229
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\573
+Sprite = UD, UD001, #4, UD002
+Sprite = LR, LR001, #4, LR002
+Sprite = RD, RD001, #4, RD002
+Sprite = RU, RU001, #4, RU002
+Sprite = DU, UD001, #4, UD002
+
+[OBJECT]
+Name = 神劍
+Sequence = 30230
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\531
+Sprite = Wait, A0001
+Sprite = roll, A0001, #1, @SP_EVENT_ACT_ATTACK, A0002, A0003, A0004, A0005, A0006, A0007, A0008, A0009, A0010, A0011, A0012, A0013, A0014, A0015, A0016
+Sprite = rise, B0001
+Sprite = fall, B0002
+Sprite = hitGnd, C0001, #1, C0002, C0003, C0004, C0005, C0006, C0007, C0008, #999
+Sprite = hitGnd2, C0001, #6, C0002, C0003, C0004, C0005, C0006, C0007, C0008, #999
+Sprite = ball, Ball
+
+
+[OBJECT]
+Name = 邪刃,鐵鎚出現效果
+Sequence = 30231
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\312
+Sprite = rise, 01, #6, 02, 03, 04, 05, 06, 07, 08,@SP_EVENT_ACT_FINISHED, 08, #999
+Sprite = hammer, f0016
+;紅色版本
+Sprite = risered, r01, #6, r02, r03, r04, r05, r06, r07, r08,@SP_EVENT_ACT_FINISHED, r08, #999
+Sprite = goldhammer, gf0016
+
+
+
+[OBJECT]
+Name = 鐵鎚聚氣效果
+Sequence = 30232
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\309
+Sprite = circle, White001
+Sprite = hammer, f0016
+
+
+
+[OBJECT]
+Name = 龍形衝擊波
+Sequence = 30233
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\521
+;風
+Sprite = blueLR, b01, #4, b02
+Sprite = blueRD, b03, #4, b04
+Sprite = blueRU, b05, #4, b06
+;火
+Sprite = redLR, r01, #4, r02
+Sprite = redRD, r03, #4, r04
+Sprite = redRU, r05, #4, r06
+;地
+Sprite = coffeeLR, c01, #4, c02
+Sprite = coffeeRD, c03, #4, c04
+Sprite = coffeeRU, c05, #4, c06
+;水
+Sprite = bluewLR, bw01, #4, bw02
+Sprite = bluewRD, bw03, #4, bw04
+Sprite = bluewRU, bw05, #4, bw06
+
+;大龍
+Sprite = water, water001, #4, water002
+Sprite = rock, rock001, #4, rock002
+Sprite = wind, wind001, #4, wind002
+Sprite = fire, fire001, #4, fire002
+
+
+[OBJECT]
+Name = 蓮華實體(不加色)
+Sequence = 30234
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\582
+;小蓮華
+Sprite = small, a0001, #6, a0002
+;大蓮華
+Sprite = big, 0000,#4,0001,0002,0003,0004,0005
+
+
+[OBJECT]
+Name = 蓮華背景(加色)
+Sequence = 30235
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\582
+;小蓮華
+Sprite = small, b0001, #6, b0002
+;大蓮華
+Sprite = big,g001,#4,g002,g003,g004,g005,g006
+;巨劍落地光罩
+Sprite = cover, 001,#4, 002, 003
+;巨劍落地衝擊波
+Sprite = up, up001,#4, up002
+Sprite = down, d001,#4, d002
+;橫向劍氣
+Sprite = sword,s001,#4,s002
+Sprite = shadow,shadow01
+
+
+[OBJECT]
+Name = 五把劍
+Sequence = 30236
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\583
+;黑劍
+Sprite = bup, blackup
+Sprite = bdown, blackuown
+Sprite = bdrop, b01, #6, b02, b03, b04, b05, b06, b06, #999
+;銀劍
+Sprite = sup, silverup
+Sprite = sdown, silverdown
+Sprite = sdrop, s01, #4, s02, s03, s04, s05, s06, s06, #999
+;金劍
+Sprite = gup, goldup
+Sprite = gdown, golddown
+Sprite = gdrop, g01, #4, g02, g03, g04, g05, g06, g06, #999
+;神劍
+Sprite = hup, holyup
+Sprite = hdown, holydown
+Sprite = hdrop, h01, #4, h02, h03, h04, h05, h06, h06, #999
+;邪刃
+Sprite = eup, evilup
+Sprite = edown, evildown
+Sprite = edrop, e01, #4, e02, e03, e04, e05, e06, e06, #999
+
+
+[OBJECT]
+Name = 黑龍噴火
+Sequence = 30237
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\588
+;黃龍出土
+Sprite = rise, blacku01, #6, blacku02, blacku03, blacku04, blacku05, blacku06, blacku07, blacku08, blacku09, blacku10,@SP_EVENT_ACT_WAIT, blacku10, #999 
+Sprite = Wait, blacku10
+Sprite = exit, blackd01, #6, blackd02, blackd03, blackd04, blackd05, blackd06, blackd07, blackd07, @SP_EVENT_ACT_REMOVE
+Sprite = fireAt4, b401, #6, b402,@SP_EVENT_ACT_ATTACK,b401,#999
+Sprite = fireAt5, b501, #6, b502,@SP_EVENT_ACT_ATTACK,b501,#999
+Sprite = fireAt6, b601, #6, b602,@SP_EVENT_ACT_ATTACK,b601,#999
+Sprite = fireAt7, b701, #6, b702,@SP_EVENT_ACT_ATTACK,b701,#999
+Sprite = fireAt8, b801, #6, b802,@SP_EVENT_ACT_ATTACK,b801,#999
+;火球
+Sprite = fireBall4, 4001, #4, 4002, 4003, 4004 
+Sprite = fireBall5, 5001, #4, 5002, 5003, 5004 
+Sprite = fireBall6, 6001, #4, 6002, 6003, 6004 
+;火焰
+Sprite = fireWait, a0002, #2, a0003, a0004, a0005, a0006, a0007, a0008, a0009, @SP_EVENT_ACT_ATTACK
+Sprite = fireLoop, a0010, #4, a0011, a0012, a0013, a0014, a0015, a0016, a0017
+;爆炸效果
+Sprite = circle, circle
+Sprite = big, bigbom01, #3, bigbom02, bigbom03, bigbom04, bigbom05, bigbom06, bigbom07, bigbom08, bigbom09, bigbom10, bigbom10, @SP_EVENT_ACT_REMOVE
+;人身上著火 15
+Sprite = purple, m04fire01, #4, m04fire02, m04fire03, m04fire04, m04fire05, m04fire06
+Sprite = purple, m04fire01, #5, m04fire02, m04fire03, m04fire04, m04fire05, m04fire06
+Sprite = purple, m04fire01, #6, m04fire02, m04fire03, m04fire04, m04fire05, m04fire06
+
+
+[OBJECT]
+Name = 極˙遁甲玄祕
+Sequence = 30238
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\590
+Sprite = Wait, b0000, #6, b0001, b0002, b0003, b0004, b0005, b0006, b0007, b0008, b0009, b0010, b0011, b0012, b0013, b0014, b0015
+
+
+
+[OBJECT]
+Name = 流螢
+Sequence = 30239
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\006
+Sprite = Wait, f0001
+Sprite = explode, 001, #4, 002, 003, 004, 005, 006, 007, 008, 008, @SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 銀月劍氣
+Sequence = 30240
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\575
+Sprite = CLOCK0, 0001, #4, 0002
+Sprite = CLOCK1, 1001, #4, 1002, 1003
+Sprite = CLOCK2, 2001, #4, 2002, 2003
+Sprite = CLOCK3, 3001, #4, 3002
+Sprite = CLOCK4, 4001, #4, 4002, 4003
+Sprite = CLOCK5, 5001, #4, 5002, 5003
+Sprite = CLOCK6, 6001, #4, 6002
+
+[OBJECT]
+Name = 烈風
+Sequence = 30241
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\003
+Sprite = Wait, NULL
+Sprite = A1, A1001, #4, A1002, A1003, A1004, @SP_EVENT_ACT_FADEOUT, A1004, #999
+Sprite = A2, A2001, #4, A2002, A2003, A2004, @SP_EVENT_ACT_FADEOUT, A2004, #999
+Sprite = A3, A3001, #4, A3002, A3003, A3004, @SP_EVENT_ACT_FADEOUT, A3004, #999
+Sprite = A4, A4001, #4, A4002, A4003, A4004, @SP_EVENT_ACT_FADEOUT, A4004, #999
+Sprite = A5, A5001, #4, A5002, A5003, A5004, @SP_EVENT_ACT_FADEOUT, A5004, #999
+Sprite = B1, B1001, #4, B1002, B1003, B1004, @SP_EVENT_ACT_FADEOUT, B1004, #999
+Sprite = B2, B2001, #4, B2002, B2003, B2004, @SP_EVENT_ACT_FADEOUT, B2004, #999
+Sprite = B3, B3001, #4, B3002, B3003, B3004, @SP_EVENT_ACT_FADEOUT, B3004, #999
+Sprite = B4, B4001, #4, B4002, B4003, B4004, @SP_EVENT_ACT_FADEOUT, B4004, #999
+Sprite = B5, B5001, #4, B5002, B5003, B5004, @SP_EVENT_ACT_FADEOUT, B5004, #999
+
+
+
+[OBJECT]
+Name = 龍皇逆鱗斬
+Sequence = 30242
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\574
+Sprite = rise, 001,#,002,003,004, @SP_EVENT_ACT_FADEOUT, 004, #999
+Sprite = fly, dragon01,#6,dragon02
+Sprite = spot, GSpot
+
+
+
+[OBJECT]
+Name = 加色的龍上升
+Sequence = 30243
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\588
+;龍出土
+Sprite = rise, blacku01, #6, blacku02, blacku03, blacku04, blacku05, blacku06, blacku07, blacku08, blacku09, blacku10,@SP_EVENT_ACT_WAIT, blacku10, #999 
+Sprite = Wait, blacku10
+Sprite = exit, blackd01, #10, blackd02, blackd03, blackd04, blackd05, blackd06, blackd07, blackd07, @SP_EVENT_ACT_REMOVE
+
+
+[OBJECT]
+Name = 透明偃月刀
+Sequence = 30244
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\303
+Sprite = wait,W_F0000
+Sprite = atk, W_F0000,#1,W_F0001, W_F0002, W_F0003, W_F0004, W_F0005, W_F0006, W_F0007, W_F0008, W_F0009, W_F0010, W_F0011, W_F0012,#999
+Sprite = rise, 00001,#6,00002,00003,00004,00005,00006,00007,00008,00009,00010,#999 
+
+
+[OBJECT]
+Name = 暴雨
+Sequence = 30245
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\012
+Sprite = circle,s001,#3,s002,s003,s007,s008
+Sprite = fire1, 1001,#4,1002
+Sprite = fire2, 2001,#4,2002
+Sprite = fire3,  002,#4, 004
+Sprite = fire4, 4001,#4,4002
+Sprite = fire5, 5001,#4,5002
+Sprite = fire6, 6001,#4,6002
+Sprite = fire55, 55001,#4,55002
+Sprite = fire12, 12001,#4,12002
+;旋轉氣流
+Sprite = storm, MAGIC260001,#8,MAGIC260002,MAGIC260003,MAGIC260004,MAGIC260005
+
+
+
+[OBJECT]
+Name = 電光
+Sequence = 30246
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\015
+;電流集氣
+Sprite = Wait, 001, #4, 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013, 014, 015
+Sprite = t1, thunder1
+Sprite = t2, thunder2
+Sprite = t3, thunder3
+Sprite = arrow, a001, #4, a002, a003, a004, a005
+Sprite = Bom1, Bom0201, #5, Bom0202, Bom0203, Bom0201, Bom0202, Bom0203, #300
+
+
+[OBJECT]
+Name = 臥龍嘯天
+Sequence = 30247
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\608
+;青龍昇天
+Sprite = Wait, 01, #4, 02, 03, 04, 05, 06, 07, 08, 09, 10,@SP_EVENT_ACT_ATTACK,10,#999
+Sprite = cover,g0000, #6, g0001, g0002, g0003, g0004, g0005, g0006, g0007, g0008, g0009, g0010, g0011, g0012, g0013, g0014, g0015, g0016, g0017, g0018, g0019, g0020, g0021, g0022, g0023
+Sprite = BluePole, BP001, #10, BP002, BP003, @SP_EVENT_ACT_FADEOUT, BP003, #999
+Sprite = BlueGround, BG001, #10, BG002, BG003,@SP_EVENT_ACT_FADEOUT, BG003, #999 
+
+
+[OBJECT]
+Name = 滅絕
+Sequence = 30248
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\018
+Sprite = Wait, 001,#6,002,003
+Sprite = cast, CAST070000,#1, CAST070001, CAST070002, CAST070003, CAST070004, CAST070005, CAST070006, CAST070007, CAST070008, CAST070009, CAST070010, CAST070011, CAST070012, CAST070013, CAST070014, CAST070015, CAST070016, CAST070017, CAST070018, CAST070019, CAST070020, CAST070021, CAST070022, CAST070023, CAST070024, CAST070025, CAST070026, CAST070027, CAST070028, CAST070029, CAST070030, CAST070031, CAST070032, CAST070033, CAST070034, CAST070035, CAST070036, CAST070037, CAST070038,@SP_EVENT_ACT_CHECK,CAST070039, CAST070040,@SP_EVENT_ACT_FADEOUT,CAST070040,#999
+Sprite = circle, circle
+Sprite = exp, b080002,#4, b080006, b080010, b080014, b080020, b080024, b080028, b080032,@SP_EVENT_ACT_FADEOUT, b080032,#999
+
+
+[OBJECT]
+Name = 皇者之路
+Sequence = 30249
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\021
+Sprite = Wait, null
+Sprite = wave, 001,#6,002,003,004,005,006,007,@SP_EVENT_ACT_FADEOUT, 007,#999
+
+
+
+[OBJECT]
+Name = 減色的龍捲風
+Sequence = 30250
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\tornado
+;Sprite = Wait, A0010, #4, A0011, A0012, A0013, A0014, A0015, A0016, A0017, A0018, A0019
+Sprite = Wait, null
+Sprite = tornado21, A0020, #4, A0021, A0022, A0023, A0024, A0025, A0026, A0027, A0028, A0029
+Sprite = tornado22, A0022, #4, A0023, A0024, A0025, A0026, A0027, A0028, A0029, A0020, A0021
+Sprite = tornado23, A0024, #4, A0025, A0026, A0027, A0028, A0029, A0020, A0021, A0022, A0023
+Sprite = tornado24, A0026, #4, A0027, A0028, A0029, A0020, A0021, A0022, A0023, A0024, A0025
+Sprite = tornado25, A0028, #4, A0029, A0020, A0021, A0022, A0023, A0024, A0025, A0026, A0027
+;Sprite = tornado3, A0030, #4, A0031, A0032, A0033, A0034, A0035, A0036, A0037, A0038, A0039
+
+[OBJECT]
+Name = 減色地龍煙霧
+Sequence = 30251
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\225\
+Sprite = Wait, B0001, #4, B0002, B0003, B0004, B0005, B0006, B0007, B0008, B0009, B0010, B0011, B0012, B0013, @SP_EVENT_ACT_FADEOUT, #999
+Sprite = Wait2, B0001, #4, B0002, B0003, B0004, B0005, B0006, B0007, B0008, B0009, B0010, B0011, B0012, B0013, #999
+
+[OBJECT]
+Name = 減色的風龍‧龍捲風
+Sequence = 30252
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic5\237\
+Sprite = Wait, B0001, #6, B0002, B0003, B0004, B0005, B0006, B0007, B0008, B0009, B0010, B0011, B0012, B0013, B0014, B0015, B0016, B0017, @SP_EVENT_ACT_ATTACK
+Sprite = Loop, C0001, #6, C0002, C0003, C0004, C0005, C0006, C0007, C0008, C0009, C0010, C0011, C0012
+
+
+[OBJECT]
+Name = 銀龍
+Sequence = 30253
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\406
+Sprite = Wait, null
+;銀龍盤旋
+Sprite = dragon, 00001,#2,00002,00003,00004,00005,00006,00007,00008,00009,00010,00011,00012
+Sprite = circle, circle
+Sprite = circle2,001,#6,002,003,004
+Sprite = dot, sdot
+Sprite = flyDragon, dragon01, #6, dragon02
+
+
+[OBJECT]
+Name = 動物型態
+Sequence = 30254
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\320
+Sprite = Wait, null
+;獅子
+Sprite = Lion, 00000,#6,00001,00002,00003,00004,00005,#999,00005
+;老虎
+Sprite = Tiger, t00000,#6,t00001,t00002,t00003,t00004,t00005,t00006,#999,t00006
+
+
+
+[OBJECT]
+Name = 減色的狼
+Sequence = 30255
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\619
+;叫得正爽
+Sprite = Wait, a00003
+;半夜亂叫的狼
+Sprite = Howl, a00000,#4,a00001,a00002,a00003,a00004,a00004,@SP_EVENT_ACT_WAIT
+;要衝前的狼
+Sprite = Stay, 00001,#6,00002,00003,00004,00005,00006,@SP_EVENT_ACT_ATTACK,00006,#999,00006
+;狼型氣功
+Sprite = Atk,01,02
+Sprite = circle, circle
+
+[OBJECT]
+Name = 減色流螢
+Sequence = 30256
+Space = 0,0,0
+Flags = SP_ATTRIB_SMOKE
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\006
+Sprite = Wait, f0001
+Sprite = explode, 001, #4, 002, 003, 004, 005, 006, 007, 008, 008, @SP_EVENT_ACT_REMOVE
+
+
+[OBJECT]
+Name = 旋轉氣流
+Sequence = 30257
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\spin
+Sprite = Wait, null
+Sprite = gold, g001, #4,g002, g003, g004, g005, g006, g007, g008, g009, g010
+Sprite = blue, b001, #4,b002, b003, b004, b005, b006, b007, b008, b009, b010
+Sprite = silver, s001, #4,s002, s003, s004, s005, s006, s007, s008, s009, s010
+Sprite = red, r001, #4,r002, r003, r004, r005, r006, r007, r008, r009, r010
+Sprite = pink, p001, #4,p002, p003, p004, p005, p006, p007, p008, p009, p010
+
+[OBJECT]
+Name = 仁者無敵-金色劍氣
+Sequence = 30258
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\101
+Sprite = Wait, null
+Sprite = act1, 1001, #6,1002, 1003, 1004, 1005,@SP_EVENT_ACT_FADEOUT, 1005,#999
+Sprite = act2, 2001, #6,2002, 2003, 2004, 2005,@SP_EVENT_ACT_FADEOUT, 2005,#999
+Sprite = act3, 3001, #6,3002, 3003, 3004, 3005,@SP_EVENT_ACT_FADEOUT, 3005,#999
+Sprite = act4, 4001, #6,4002, 4003, 4004, 4005,@SP_EVENT_ACT_FADEOUT, 4005,#999
+
+
+[OBJECT]
+Name = 大喝-多顏色
+Sequence = 30259
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\ShoutColor
+Sprite = Wait, null
+;1.白 2.綠 3.金 4.粉紅 5.紅 6.銀
+Sprite = Normal, B0001, #4, B0002, B0003, B0004, B0005, B0006, B0007, B0008, B0009, B0010, B0011, B0012, B0013, #999
+Sprite = Green, G001, #4, G002, G003, G004, G005, G006, G007, G008, G009, G010, G011, G012, G013, #999
+Sprite = Gold, Gold001, #4, Gold002, Gold003, Gold004, Gold005, Gold006, Gold007, Gold008, Gold009, Gold010, Gold011, Gold012, Gold013, #999
+Sprite = Pink, P001, #4, P002, P003, P004, P005, P006, P007, P008, P009, P010, P011, P012, P013, #999
+Sprite = Red, R001, #4, R002, R003, R004, R005, R006, R007, R008, R009, R010, R011, R012, R013, #999
+Sprite = Silver, S001, #4, S002, S003, S004, S005, S006, S007, S008, S009, S010, S011, S012, S013, #999
+;7.白 8.綠 9.金 10.粉紅 11.紅 12.銀
+Sprite = circle, circle
+Sprite = GCircle, GCircle
+Sprite = GoldCircle, GoldCircle
+Sprite = PinkCircle, PCircle
+Sprite = RedCircle, RCircle
+Sprite = SilverCircle, SCircle
+
+
+
+[OBJECT]
+Name = 蝴蝶
+Sequence = 30260
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\318
+Sprite = Wait, null
+Sprite = act1,01_0001, #8,01_0002
+Sprite = act2,02_0001, #8,02_0002
+Sprite = act3,03_0001, #8,03_0002
+Sprite = act4,04_0001, #8,04_0002
+Sprite = act5,05_0001, #8,05_0002
+Sprite = act6,06_0001, #8,06_0002
+Sprite = act7,07_0001, #8,07_0002
+Sprite = act8,08_0001, #8,08_0002
+Sprite = act9,09_0001, #8,09_0002
+Sprite = act10,10_0001, #8,10_0002
+Sprite = act11,11_0001, #8,11_0002
+Sprite = act12,12_0001, #8,12_0002
+
+
+
+[OBJECT]
+Name = 四種動物
+Sequence = 30261
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\634
+Sprite = Wait, null
+Sprite = bird, b_00001, #4, b_00002, b_00003, b_00004, b_00005, b_00006
+Sprite = cougar, c_00001, #4, c_00002, c_00003, c_00004, c_00005, c_00006, c_00007, c_00008
+Sprite = tiger, tiger_00001, #4, tiger_00002, tiger_00003, tiger_00004, tiger_00005, tiger_00006, tiger_00007, tiger_00008, tiger_00009, tiger_00010
+Sprite = wolf, w_00001, #4, w_00002, w_00003, w_00004, w_00005, w_00006, w_00007, w_00008
+
+
+[OBJECT]
+Name = 董卓鬼影
+Sequence = 30262
+Space = 0,0,0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\331
+Sprite = Wait, A01, #4, A02, A03, A04, A05, A06, @SP_EVENT_ACT_FADEOUT
+Sprite = hit, B01, #4, B02, B03
+Sprite = ghost, w_00001, #8, w_00002, w_00003, w_00004, w_00005,#999, w_00006
+
+
+[OBJECT]
+Name = 金色刀光
+Sequence = 30263
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\sword\golden
+Sprite = Wait, W0001, #12, W0002, W0003, W0004, W0004, W0003, W0002, W0001
+Sprite = Wait1, W0005, #12, W0006, W0007, W0008, W0008, W0007, W0006, W0005
+Sprite = Wait2, W0009, #12, W0010, W0011, W0012, W0012, W0011, W0010, W0009
+Sprite = Wait3, W0013, #12, W0014, W0015, W0016, W0016, W0015, W0014, W0013
+Sprite = Walk, R10001, #5, R10002, R10003, R10004, R10005, R10006, R10007, R10008, R10009, R10010
+Sprite = Atk01, A0001, #5, A0002, A0003,#7, A0004,#5, A0005, A0006, @SP_EVENT_ACT_ATTACK, A0007, A0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, A0009, #5, A0010, A0011, #7, A0012, #5, A0013, @SP_EVENT_ACT_ATTACK, A0014, A0015, A0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, A0017, #5, A0018, A0019, #7, A0020, #5, A0021, @SP_EVENT_ACT_ATTACK, A0022, A0023, A0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, A0025, #5, A0026, A0027, #7, A0028, #5, A0029, A0030, @SP_EVENT_ACT_ATTACK, A0031, A0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, A0033, #5, A0034, A0035, #7, A0036, #5, A0037, A0038, @SP_EVENT_ACT_ATTACK, A0039, A0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, A0041, #5, A0042, A0043, A0044, A0045, @SP_EVENT_ACT_ATTACK, A0046, A0047, A0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, A0049, #5, A0050, A0051, A0052, A0053, A0054, #7, @SP_EVENT_ACT_ATTACK, A0055, #5, A0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, A0057, #5, A0058, A0059, #7, A0060, #5, A0061, @SP_EVENT_ACT_ATTACK, A0062, A0063, A0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, A0065, #4, A0066, A0067, A0068, A0069, A0070, #12, @SP_EVENT_ACT_ATTACK, A0071, #4, A0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, A0073, #5, A0074, A0075, A0076, A0077, @SP_EVENT_ACT_ATTACK, A0078, A0079, A0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, A0081, #3, A0082, A0083, A0084, #12, @SP_EVENT_ACT_ATTACK, A0085, #5, A0086, A0087, A0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, A0089, #5, A0090, A0091, #7, A0092, #5, A0093, A0094, @SP_EVENT_ACT_ATTACK, A0095, A0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, A0097, #5, A0098, A0099, A0100, #7, A0101, #5, @SP_EVENT_ACT_ATTACK, A0102, A0103, A0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, A0105, #5, A0106, A0107, #7, A0108, #5, A0109, @SP_EVENT_ACT_ATTACK, A0110, A0011, A0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, A0113, #5, A0114, A0115, #7, A0116, #5, A0117, @SP_EVENT_ACT_ATTACK, A0118, A0119, A0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, A0121, #5, A0122, A0123, #7, A0124, #5, A0125, A0126, #7, @SP_EVENT_ACT_ATTACK, A0127, #5, A0127, @SP_EVENT_ACT_WAIT
+; 其他動作
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Defend, W0018, #30, W0017, #6, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, W0022, #30, W0021, #6, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Die1, F0001, #12, F0002, F0003, F0004, F0005, #300, @SP_EVENT_ACT_FADEOUT
+Sprite = Die2, F0006, #12, F0007, F0008, F0009, F0010, #300, @SP_EVENT_ACT_FADEOUT
+; 必殺技武將動作
+; 連刺
+Sprite = SAtk01, A0025, #2, A0026, A0027, #4, A0028, #2, A0029, A0030, @SP_EVENT_ACT_CHECK, A0031, A0031, @SP_EVENT_ACT_FINISHED
+; 斬鐵
+Sprite = SAtk02, A0033, #5, A0034, A0035, #7, A0036, @SP_EVENT_ACT_CHECK, #5, A0037, A0038, A0039, A0039, @SP_EVENT_ACT_FINISHED
+; 龍捲
+Sprite = SAtk03, A0033, #4, A0034, A0035, A0036, @SP_EVENT_ACT_CHECK, A0037, A0038, #15, A0037, #4, A0036, @SP_EVENT_ACT_CHECK, A0035, A0034, A0033, A0033, @SP_EVENT_ACT_FINISHED
+; 迷魂
+Sprite = SAtk04, A0033, #5, A0034, A0035, #7, A0036, #5, A0037, @SP_EVENT_ACT_CHECK, A0038, A0039, A0039, @SP_EVENT_ACT_FINISHED
+;拖刀 
+Sprite = SAtk05, A0057, #5, A0058, A0059, #7, A0060, #5, A0061, @SP_EVENT_ACT_CHECK, A0062, A0063, A0063, @SP_EVENT_ACT_FINISHED
+;挑斬 
+Sprite = SAtk0601, A0056, #6, A0057, A0058, A0059, A0060, A0061, A0061, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk0602, A0019, #6, A0020, A0021, A0022, A0023, A0023, @SP_EVENT_ACT_FINISHED
+; 旋櫻
+Sprite = SAtk07, A0073, #2, A0074, #3, A0075, A0076, A0077, A0078, @SP_EVENT_ACT_CHECK, A0074, A0075, A0076, A0077, A0078, A0079, A0079, @SP_EVENT_ACT_FINISHED
+; 豪烈
+Sprite = SAtk08, A0113, #5, A0114, #7, A0115, A0116, A0117, @SP_EVENT_ACT_CHECK, A0044, A0043, A0041, A0041, @SP_EVENT_ACT_FINISHED
+; 必殺技 貫日
+Sprite = SAtk09, A0097, #5, A0098, A0099, #65, A0100, @SP_EVENT_ACT_CHECK, #5, A0101, A0102, A0103, A0103, @SP_EVENT_ACT_FINISHED
+; 必殺技 血翼
+Sprite = SAtk10, A0097, #5, A0098, A0099, #90, A0100, @SP_EVENT_ACT_CHECK, #5, A0101, A0102, A0103, A0103, @SP_EVENT_ACT_FINISHED
+; 大喝
+Sprite = SAtk11, A0065, #4, A0066, A0067, A0068, A0069, A0070, #12, @SP_EVENT_ACT_CHECK, A0071, #4, A0071, @SP_EVENT_ACT_FINISHED
+; 亂舞
+Sprite = SAtk1201, A0113, #4, A0114, A0115, A0116, @SP_EVENT_ACT_CHECK, #6, A0117, #4, A0118, A0119, A0119, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1202, A0049, #4, A0050, A0051, A0052, A0053, @SP_EVENT_ACT_CHECK, A0054, #6, A0055, #4, A0055, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1203, A0033, #4, A0034, A0035, A0036, #6, A0037, @SP_EVENT_ACT_CHECK, A0038, #4, A0039, A0039, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1204, A0009, #4, A0010, A0011, A0012, @SP_EVENT_ACT_CHECK, A0013, A0014, A0015, A0015, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1205, A0041, #4, A0042, A0043, A0044, @SP_EVENT_ACT_CHECK, A0045, A0046, A0047, A0047, @SP_EVENT_ACT_FINISHED
+; 必殺技 霸者之威
+Sprite = SAtk1301, A0088, #6, A0089, A0090, A0091, A0092, A0093, A0094, A0095, A0088, A0088, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1302, A0064, #6, A0065, A0066, A0067, A0068, A0069, A0070, A0071, @SP_EVENT_ACT_FINISHED
+; 必殺技 王者之風
+Sprite = SAtk1401, A0032, #6, A0033, A0034, A0035, A0036, A0037, A0038, A0039, A0039, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1402, A0048, #6, A0049, A0050, A0051, A0052, A0053, A0054, A0055, A0139, #60, A0139, @SP_EVENT_ACT_FINISHED
+;必殺技 暴雨
+Sprite = S6Atk1201, A0073, #2, A0074, #3, A0075, A0076, A0077, A0078, A0074, A0075, A0076, A0077, A0078, A0074, A0075, A0076, A0077, A0078, A0074, A0075, A0076, A0077, A0078, A0079, A0079, @SP_EVENT_ACT_FINISHED
+
+[OBJECT]
+Name = 藍色刀光
+Sequence = 30264
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\sword\blue
+Sprite = Wait, W0001, #12, W0002, W0003, W0004, W0004, W0003, W0002, W0001
+Sprite = Wait1, W0005, #12, W0006, W0007, W0008, W0008, W0007, W0006, W0005
+Sprite = Wait2, W0009, #12, W0010, W0011, W0012, W0012, W0011, W0010, W0009
+Sprite = Wait3, W0013, #12, W0014, W0015, W0016, W0016, W0015, W0014, W0013
+Sprite = Walk, R10001, #5, R10002, R10003, R10004, R10005, R10006, R10007, R10008, R10009, R10010
+Sprite = Atk01, A0001, #5, A0002, A0003,#7, A0004,#5, A0005, A0006, @SP_EVENT_ACT_ATTACK, A0007, A0007, @SP_EVENT_ACT_WAIT
+Sprite = Atk02, A0009, #5, A0010, A0011, #7, A0012, #5, A0013, @SP_EVENT_ACT_ATTACK, A0014, A0015, A0015, @SP_EVENT_ACT_WAIT
+Sprite = Atk03, A0017, #5, A0018, A0019, #7, A0020, #5, A0021, @SP_EVENT_ACT_ATTACK, A0022, A0023, A0023, @SP_EVENT_ACT_WAIT
+Sprite = Atk04, A0025, #5, A0026, A0027, #7, A0028, #5, A0029, A0030, @SP_EVENT_ACT_ATTACK, A0031, A0031, @SP_EVENT_ACT_WAIT
+Sprite = Atk05, A0033, #5, A0034, A0035, #7, A0036, #5, A0037, A0038, @SP_EVENT_ACT_ATTACK, A0039, A0039, @SP_EVENT_ACT_WAIT
+Sprite = Atk06, A0041, #5, A0042, A0043, A0044, A0045, @SP_EVENT_ACT_ATTACK, A0046, A0047, A0047, @SP_EVENT_ACT_WAIT
+Sprite = Atk07, A0049, #5, A0050, A0051, A0052, A0053, A0054, #7, @SP_EVENT_ACT_ATTACK, A0055, #5, A0055, @SP_EVENT_ACT_WAIT
+Sprite = Atk08, A0057, #5, A0058, A0059, #7, A0060, #5, A0061, @SP_EVENT_ACT_ATTACK, A0062, A0063, A0063, @SP_EVENT_ACT_WAIT
+Sprite = Atk09, A0065, #4, A0066, A0067, A0068, A0069, A0070, #12, @SP_EVENT_ACT_ATTACK, A0071, #4, A0071, @SP_EVENT_ACT_WAIT
+Sprite = Atk10, A0073, #5, A0074, A0075, A0076, A0077, @SP_EVENT_ACT_ATTACK, A0078, A0079, A0079, @SP_EVENT_ACT_WAIT
+Sprite = Atk11, A0081, #3, A0082, A0083, A0084, #12, @SP_EVENT_ACT_ATTACK, A0085, #5, A0086, A0087, A0087, @SP_EVENT_ACT_WAIT
+Sprite = Atk12, A0089, #5, A0090, A0091, #7, A0092, #5, A0093, A0094, @SP_EVENT_ACT_ATTACK, A0095, A0095, @SP_EVENT_ACT_WAIT
+Sprite = Atk13, A0097, #5, A0098, A0099, A0100, #7, A0101, #5, @SP_EVENT_ACT_ATTACK, A0102, A0103, A0103, @SP_EVENT_ACT_WAIT
+Sprite = Atk14, A0105, #5, A0106, A0107, #7, A0108, #5, A0109, @SP_EVENT_ACT_ATTACK, A0110, A0011, A0011, @SP_EVENT_ACT_WAIT
+Sprite = Atk15, A0113, #5, A0114, A0115, #7, A0116, #5, A0117, @SP_EVENT_ACT_ATTACK, A0118, A0119, A0119, @SP_EVENT_ACT_WAIT
+Sprite = Atk16, A0121, #5, A0122, A0123, #7, A0124, #5, A0125, A0126, #7, @SP_EVENT_ACT_ATTACK, A0127, #5, A0127, @SP_EVENT_ACT_WAIT
+; 其他動作
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Defend, W0018, #30, W0017, #6, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, W0022, #30, W0021, #6, W0001, @SP_EVENT_ACT_WAIT
+Sprite = Die1, F0001, #12, F0002, F0003, F0004, F0005, #300, @SP_EVENT_ACT_FADEOUT
+Sprite = Die2, F0006, #12, F0007, F0008, F0009, F0010, #300, @SP_EVENT_ACT_FADEOUT
+; 必殺技武將動作
+; 連刺
+Sprite = SAtk01, A0025, #2, A0026, A0027, #4, A0028, #2, A0029, A0030, @SP_EVENT_ACT_CHECK, A0031, A0031, @SP_EVENT_ACT_FINISHED
+; 斬鐵
+Sprite = SAtk02, A0033, #5, A0034, A0035, #7, A0036, @SP_EVENT_ACT_CHECK, #5, A0037, A0038, A0039, A0039, @SP_EVENT_ACT_FINISHED
+; 龍捲
+Sprite = SAtk03, A0033, #4, A0034, A0035, A0036, @SP_EVENT_ACT_CHECK, A0037, A0038, #15, A0037, #4, A0036, @SP_EVENT_ACT_CHECK, A0035, A0034, A0033, A0033, @SP_EVENT_ACT_FINISHED
+; 迷魂
+Sprite = SAtk04, A0033, #5, A0034, A0035, #7, A0036, #5, A0037, @SP_EVENT_ACT_CHECK, A0038, A0039, A0039, @SP_EVENT_ACT_FINISHED
+;拖刀 
+Sprite = SAtk05, A0057, #5, A0058, A0059, #7, A0060, #5, A0061, @SP_EVENT_ACT_CHECK, A0062, A0063, A0063, @SP_EVENT_ACT_FINISHED
+;挑斬 
+Sprite = SAtk0601, A0056, #6, A0057, A0058, A0059, A0060, A0061, A0061, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk0602, A0019, #6, A0020, A0021, A0022, A0023, A0023, @SP_EVENT_ACT_FINISHED
+; 旋櫻
+Sprite = SAtk07, A0073, #2, A0074, #3, A0075, A0076, A0077, A0078, @SP_EVENT_ACT_CHECK, A0074, A0075, A0076, A0077, A0078, A0079, A0079, @SP_EVENT_ACT_FINISHED
+; 豪烈
+Sprite = SAtk08, A0113, #5, A0114, #7, A0115, A0116, A0117, @SP_EVENT_ACT_CHECK, A0044, A0043, A0041, A0041, @SP_EVENT_ACT_FINISHED
+; 必殺技 貫日
+Sprite = SAtk09, A0097, #5, A0098, A0099, #65, A0100, @SP_EVENT_ACT_CHECK, #5, A0101, A0102, A0103, A0103, @SP_EVENT_ACT_FINISHED
+; 必殺技 血翼
+Sprite = SAtk10, A0097, #5, A0098, A0099, #90, A0100, @SP_EVENT_ACT_CHECK, #5, A0101, A0102, A0103, A0103, @SP_EVENT_ACT_FINISHED
+; 大喝
+Sprite = SAtk11, A0065, #4, A0066, A0067, A0068, A0069, A0070, #12, @SP_EVENT_ACT_CHECK, A0071, #4, A0071, @SP_EVENT_ACT_FINISHED
+; 亂舞
+Sprite = SAtk1201, A0113, #4, A0114, A0115, A0116, @SP_EVENT_ACT_CHECK, #6, A0117, #4, A0118, A0119, A0119, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1202, A0049, #4, A0050, A0051, A0052, A0053, @SP_EVENT_ACT_CHECK, A0054, #6, A0055, #4, A0055, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1203, A0033, #4, A0034, A0035, A0036, #6, A0037, @SP_EVENT_ACT_CHECK, A0038, #4, A0039, A0039, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1204, A0009, #4, A0010, A0011, A0012, @SP_EVENT_ACT_CHECK, A0013, A0014, A0015, A0015, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1205, A0041, #4, A0042, A0043, A0044, @SP_EVENT_ACT_CHECK, A0045, A0046, A0047, A0047, @SP_EVENT_ACT_FINISHED
+; 必殺技 霸者之威
+Sprite = SAtk1301, A0088, #6, A0089, A0090, A0091, A0092, A0093, A0094, A0095, A0088, A0088, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1302, A0064, #6, A0065, A0066, A0067, A0068, A0069, A0070, A0071, @SP_EVENT_ACT_FINISHED
+; 必殺技 王者之風
+Sprite = SAtk1401, A0032, #6, A0033, A0034, A0035, A0036, A0037, A0038, A0039, A0039, @SP_EVENT_ACT_FINISHED
+Sprite = SAtk1402, A0048, #6, A0049, A0050, A0051, A0052, A0053, A0054, A0055, A0139, #60, A0139, @SP_EVENT_ACT_FINISHED
+;必殺技 暴雨
+Sprite = S6Atk1201, A0073, #2, A0074, #3, A0075, A0076, A0077, A0078, A0074, A0075, A0076, A0077, A0078, A0074, A0075, A0076, A0077, A0078, A0074, A0075, A0076, A0077, A0078, A0079, A0079, @SP_EVENT_ACT_FINISHED
+
+
+
+[OBJECT]
+Name = 12方向火球
+Sequence = 30265
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\fire
+Sprite = fire0, 0001, #6, 0002, 0003, 0004
+Sprite = fire1, 1001, #6, 1002, 1003, 1004
+Sprite = fire2, 2001, #6, 2002, 2003, 2004
+Sprite = fire3, 3001, #6, 3002, 3003, 3004
+Sprite = fire4, 4001, #6, 4002, 4003, 4004
+Sprite = fire5, 5001, #6, 5002, 5003, 5004
+Sprite = fire6, 6001, #6, 6002, 6003, 6004
+
+[OBJECT]
+Name = 藤甲兵防禦,屍兵魔法陣
+Sequence = 30266
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Soldier
+Sprite = Wait, Null
+Sprite = defence, defence
+Sprite = circle, c001,#6,c002,c003,c004,c005,c006,c006,@SP_EVENT_ACT_FADEOUT,#30
+Sprite = fireArrow1, sf01
+Sprite = fireArrow2, sf02
+Sprite = fireArrow3, sf03
+Sprite = fireArrow4, sf04
+Sprite = fireArrow5, sf05
+Sprite = fireArrow6, sf06
+Sprite = fireArrow7, sf07
+Sprite = fireArrow8, sf08
+Sprite = fireArrow9, sf09
+
+
+[OBJECT]
+Name = 屍兵
+Sequence = 30267
+Space = 0, 0, 0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Soldier
+Sprite = Wait, Null
+Sprite = zombie,01,#6,02,03,04,05,@SP_EVENT_ACT_CHECK,06,#999,06
+
+[OBJECT]
+Name = 紅羽毛
+Sequence = 30268
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\232
+Sprite = Wait, null
+Sprite = clock1, 00001
+Sprite = clock2, 00002
+Sprite = clock3, 00003
+Sprite = clock4, 00004
+Sprite = clock5, 00005
+Sprite = clock6, 00006
+Sprite = clock0, 00000
+Sprite = pheonixA, a0000, #8, a0001, a0002, a0003, a0004, a0005,@SP_EVENT_ACT_CHECK, a0005,#999
+Sprite = phennixB, a0006, #8, a0007, a0008, a0009, a0010, a0011,@SP_EVENT_ACT_CHECK, a0012,#999
+
+
+[OBJECT]
+Name = 金色劍氣劉備用
+Sequence = 30269
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\101B
+Sprite = CLOCK0, 0001, #4, 0002, 0003
+Sprite = CLOCK1, 1001, #4, 1002, 1003
+Sprite = CLOCK2, 1001, #4, 1002, 1003
+Sprite = CLOCK3, 3001, #4, 3002, 3003
+Sprite = CLOCK4, 5001, #4, 5002, 5003
+Sprite = CLOCK5, 5001, #4, 5002, 5003
+Sprite = CLOCK6, 6001, #4, 6002, 6003
+
+
+[OBJECT]
+Name = 偃月刀
+Sequence = 30270
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\303
+Sprite = wait,BW_F0001
+Sprite = atk, BW_F0001,#1,BW_F0001, BW_F0002, BW_F0003, BW_F0004, BW_F0005, BW_F0006, BW_F0007, BW_F0008, BW_F0009, BW_F0010, BW_F0011, BW_F0012,#999
+Sprite = rise, 00001,#6,00002,00003,00004,00005,00006,00007,00008,00009,00010,#999 
+
+
+
+[OBJECT]
+Name = 武將個人技
+Sequence = 30271
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\GenSkill
+Sprite = wait,Null
+;暗箭
+Sprite = Gen010,010
+;短戟
+Sprite = Gen011,011
+;銅錘
+Sprite = Gen012,00001,#6,00002,00003,00004,00005,00006,00007,00008
+;柳葉刀
+Sprite = Gen1301,1301
+Sprite = Gen1302,1302
+Sprite = Gen1303,1303
+
+
+[OBJECT]
+Name = 孫策
+Sequence = 30272
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\407
+Sprite = circle,s001,#3,s002,s003,s007,s008
+Sprite = lance, body
+;0度
+Sprite = fire1, 1001,#4,1002
+;30度
+Sprite = fire2, 2001,#4,2002
+;40度
+Sprite = fire3, 3002,#4,3004
+;50度
+Sprite = fire4, 4001,#4,4002
+;60度
+Sprite = fire5, 5001,#4,5002
+;70度
+Sprite = fire6, 6001,#4,6002
+;80度
+Sprite = fire7, 7001,#4,7002
+Sprite = lanceCover, 001,#6,002,003,004,005
+Sprite = superLance, a001,#6,a002,a003
+
+
+[OBJECT]
+Name = 軍師技地面圖示
+Sequence = 30273
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\AdvMagic\GroundMark
+Sprite = Wait, null
+Sprite = fire, Fire02
+Sprite = move, move01
+Sprite = mine, mine01,#6, mine02
+Sprite = ninja, Nin01
+Sprite = fire2, Fire01,#6, Fire02
+
+
+[OBJECT]
+Name = 暗雷
+Sequence = 30274
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\AdvMagic\GroundMark
+Sprite = Wait, null
+Sprite = fire, Fire02
+Sprite = move, move01
+Sprite = mine, mine01,#6, mine02
+Sprite = ninja, Nin01
+Sprite = fire2, Fire01,#6, Fire02
+
+
+
+[OBJECT]
+Name = 小喬的花瓣雨
+Sequence = 30275
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\317
+Sprite = Wait, null
+Sprite = tornado21, flower0000, #4, flower0001, flower0002, flower0003, flower0004, flower0005, flower0006, flower0007, flower0008, flower0009
+Sprite = tornado22, flower0002, #4, flower0003, flower0004, flower0005, flower0006, flower0007, flower0008, flower0009, flower0000, flower0001
+Sprite = tornado23, flower0004, #4, flower0005, flower0006, flower0007, flower0008, flower0009, flower0000, flower0001, flower0002, flower0003
+Sprite = tornado24, flower0006, #4, flower0007, flower0008, flower0009, flower0000, flower0001, flower0002, flower0003, flower0004, flower0005
+Sprite = tornado25, flower0008, #4, flower0009, flower0000, flower0001, flower0002, flower0003, flower0004, flower0005, flower0006, flower0007
+Sprite = petal01, petal00, #4, petal01, petal02, petal03, petal04, petal05, petal06, petal07
+Sprite = petal02, petal08, #4, petal09, petal10, petal11, petal12, petal13, petal14, petal15
+Sprite = petal03, petal16, #4, petal17, petal18, petal19, petal20, petal21, petal22, petal23
+Sprite = petal04, petal24, #4, petal25, petal26, petal27, petal28, petal29, petal00, petal01
+
+
+[OBJECT]
+Name = 土遁 忍者 blue
+Sequence = 30276
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Flags = SP_ATTRIB_SMOKE
+Directory = \BF\Magic\158
+Sprite = Wait, L2A30001
+Sprite = Attack, L2A30002, #4, L2A30003, L2A30004, #999
+Sprite = down, R010003
+
+
+[OBJECT]
+Name = 必殺技‧斬鐵
+Sequence = 30277
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\102
+Sprite = Wait, MA001
+Sprite = Wait1, MA004
+Sprite = Wait2, MA008
+Sprite = Wait3, MA009
+Sprite = Wait4, MA010
+Sprite = Wait5, MA011
+Sprite = Wait6, MA012
+Sprite = Wait7, MA002
+Sprite = Wait8, MA003
+Sprite = Wait9, MA005
+Sprite = Wait10, MA006
+Sprite = Wait11, MA007
+
+
+[OBJECT]
+Name = 必殺技‧血翼(金色)
+Sequence = 30278
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\529
+Sprite = Wait, bWing001
+Sprite = Wait2, bWing002
+Sprite = Wait3, bWing003
+Sprite = dot, Fdot
+Sprite = FlybWing, SmWing001, #1, BgWing001, SmWing001, BgWing002
+Sprite = Bom0, NULL, #5, Bom0101, Bom0102, Bom0103, Bom0104, #300
+Sprite = Bom1, Bom0201, #5, Bom0202, Bom0203, Bom0201, Bom0202, Bom0203, #300
+
+
+[OBJECT]
+Name = 冰柱
+Sequence = 30279
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\ice
+Sprite = Wait, Null
+Sprite = smoke, F0001,#3,F0002,F0003,F0004,F0005,F0006,F0007,F0008,F0009,F0010,F0011,F0012,F0013, @SP_EVENT_ACT_REMOVE
+Sprite = act01, A0001,#6,A0002,A0003,#999,A0003
+Sprite = cov01, A1001,#6,A1002,A1003,#999,A1003
+Sprite = act02, B0001,#6,B0002,B0003,#999,B0003
+Sprite = cov02, B1001,#6,B1002,B1003,#999,B1003
+Sprite = act03, C0001,#6,C0002,C0003,#999,C0003
+Sprite = cov03, C1001,#6,C1002,C1003,#999,C1003
+Sprite = act04, D0001,#6,D0002,D0003,#999,D0003
+Sprite = cov04, D1001,#6,D1002,D1003,#999,D1003
+Sprite = act05, E0001,#6,E0002,E0003,#999,E0003
+Sprite = cov05, E1001,#6,E1002,E1003,#999,E1003
+
+[OBJECT]
+Name = 朱雀火燄
+Sequence = 30280
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\fire
+Sprite = Wait, Null
+Sprite = fire, fire0001,#4,fire0002,fire0003,fire0004,fire0005,fire0006,fire0007,fire0008,fire0009,fire0010,@SP_EVENT_ACT_REMOVE
+
+[OBJECT]
+Name = 召喚獸特效1
+Sequence = 30281
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\324
+Sprite = Wait, Null
+Sprite = zombieS, CAST001,#6, CAST002, CAST003, CAST004, CAST005, CAST006,@SP_EVENT_ACT_CHECK, CAST006,#999
+Sprite = zombieC, CAST007,#6, CAST008, CAST009, CAST010
+Sprite = fireS, MAGIC001,#6, MAGIC002, MAGIC003, MAGIC004, MAGIC005,@SP_EVENT_ACT_CHECK, MAGIC005,#999
+Sprite = fireC, MAGIC011,#6, MAGIC012, MAGIC013, MAGIC014, MAGIC015, MAGIC016, MAGIC017, MAGIC018, MAGIC019, MAGIC020
+Sprite = fire2S, MAGIC1201,#6, MAGIC1202, MAGIC1203, MAGIC1204, MAGIC1205, MAGIC1206, MAGIC1207, MAGIC1208, MAGIC1210, MAGIC1211, MAGIC1212, MAGIC1213, MAGIC1214, MAGIC1215,@SP_EVENT_ACT_REMOVE
+;action number 6
+Sprite = ball, ball
+Sprite = ballAct, ball01,#4,ball02,ball03,ball04
+Sprite = explode, explode
+Sprite = expLight,expLight
+
+
+[OBJECT]
+Name = 召喚獸特效2
+Sequence = 30282
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\324
+Sprite = Wait, a0002, #2, a0003, a0004, a0005, a0006, a0007, a0008, a0009, a0009, @SP_EVENT_ACT_ATTACK
+Sprite = loop, a0010, #4, a0011, a0012, a0013, a0014, a0015, a0016, a0017
+Sprite = null, null
+Sprite = base, a0001
+Sprite = circleS,CAST0601,#6,CAST0602,CAST0603,CAST0604,CAST0605,@SP_EVENT_ACT_CHECK,CAST0606,#999
+Sprite = circleC,CAST0606,#6,CAST0607,CAST0608,CAST0609,CAST0610,CAST0611,CAST0612,CAST0613
+Sprite = magicS,CAST0801,#6,CAST0802,CAST0803,CAST0804,CAST0805,@SP_EVENT_ACT_CHECK,CAST0806,#999
+Sprite = magicC,CAST0806,#6,CAST0807,CAST0808,CAST0809,CAST0810,CAST0811,CAST0812,CAST0813,CAST0814,CAST0815
+
+
+[OBJECT]
+Name = 召喚獸特攻
+Sequence = 30283
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecAtk\021
+Sprite = Wait, null
+;噴火
+Sprite = Atk024, p001,#4, p002, p003, p004, p005, p006, p007, p008
+;噴火
+Sprite = Atk021, 001,#4, 002, 003, 004, 005, 006, 007, 008
+
+
+
+
+[OBJECT]
+Name = 老虎出場
+Sequence = 30284
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\leafTornado
+Sprite = Wait, null
+Sprite = tornado21, flower0000, #4, flower0001, flower0002, flower0003, flower0004, flower0005, flower0006, flower0007, flower0008, flower0009
+Sprite = tornado22, flower0002, #4, flower0003, flower0004, flower0005, flower0006, flower0007, flower0008, flower0009, flower0000, flower0001
+Sprite = tornado23, flower0004, #4, flower0005, flower0006, flower0007, flower0008, flower0009, flower0000, flower0001, flower0002, flower0003
+Sprite = tornado24, flower0006, #4, flower0007, flower0008, flower0009, flower0000, flower0001, flower0002, flower0003, flower0004, flower0005
+Sprite = tornado25, flower0008, #4, flower0009, flower0000, flower0001, flower0002, flower0003, flower0004, flower0005, flower0006, flower0007
+
+
+
+
+[OBJECT]
+Name = 火焰爆發
+Sequence = 30285
+Space = 0, 0, 0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\435
+Sprite = Wait, null
+Sprite = explode, 036,#3,037,038,039,040,041,042,043,044,@SP_EVENT_ACT_FADEOUT,044,#999
+
+
+
+[OBJECT]
+Name = 鐵羽毛
+Sequence = 30286
+Space = 0, 0, 0
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecAtk\028
+Sprite = Wait, null
+Sprite = act0, 0000
+Sprite = act1, 0001
+Sprite = act2, 0002
+Sprite = act3, 0003
+Sprite = act4, 0004
+
+
+[OBJECT]
+Name = 黃忠流星(金色)
+Sequence = 30287
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\529
+Sprite = CLOCK0, null
+Sprite = CLOCK1, 0001
+Sprite = CLOCK2, 0002
+Sprite = CLOCK3, 0003
+Sprite = CLOCK4, 0004
+Sprite = CLOCK5, 0005
+Sprite = CLOCK6, null
+
+[OBJECT]
+Name = 藍色劍氣
+Sequence = 30288
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\115
+Sprite = CLOCK0, NULL
+Sprite = CLOCK1, 1001, #4, 1002, 1003
+Sprite = CLOCK2, 2001, #4, 2002, 2003
+Sprite = CLOCK3, 3001, #4, 3002, 3003
+Sprite = CLOCK4, 4001, #4, 4002, 4003
+Sprite = CLOCK5, 5001, #4, 5002, 5003
+
+[OBJECT]
+Name = 金色閃電
+Sequence = 30289
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\625
+Sprite = Wait, 001,#6,002,003,004,005
+
+
+[OBJECT]
+Name = 沙塵龍捲風
+Sequence = 30290
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\409
+Sprite = Wait, sand_00001,#6,sand_00002,sand_00003,sand_00004,sand_00005,sand_00006,sand_00007,sand_00008,sand_00009,sand_00010
+Sprite = sandB, p_00001,#6,p_00002,p_00003
+
+[OBJECT]
+Name = 大小喬
+Sequence = 30291
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\216
+Sprite = Wait,001,#10,002,003,004,005,006,007,008,009,010,011,010,009,011,@SP_EVENT_ACT_FADEOUT,011,#999
+Sprite = ground,g001,#6,g002,g003,g004,g005,g006,g007,g008,g009,g010,g011,@SP_EVENT_ACT_FADEOUT,g011,#999
+Sprite = air,a001,#6,a002,a003,a004,a005,a006,a007,a008,a009,a010,a011,a012,a013,a014,a015,a016,@SP_EVENT_ACT_REMOVE,a016,#999
+
+
+
+[OBJECT]
+Name = 飛石台特攻
+Sequence = 30292
+Space = 0, 0, 0
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecAtk\051
+Sprite = Wait, null
+Sprite = act0, s0001,#6,s0002,s0003,s0004,s0005,s0006
+
+
+[OBJECT]
+Name = 擲雷隊 火藥
+Sequence = 30293
+Space = 0, 0, 0
+Process = BF_CLASS_BFMagic
+Directory = \BF\SpecAtk\037
+Sprite = Wait, null
+Sprite = act0, s0001,#6,s0002,s0003,s0004,s0005,s0006
+Sprite = cball, cball
+Sprite = act1, rise01
+Sprite = act7, fall
+Sprite = act8, fall01,#8,fall02,#999
+Sprite = act43,r0001,#6,r0002,r0003,r0004,r0005,r0006
+Sprite = ball,wave2
+
+[OBJECT]
+Name = 呂蒙
+Sequence = 30294
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Super6\322
+Sprite = Wait,NULL
+Sprite = ground,base01,#6,base02,base03,base04,#999
+Sprite = pole,pole00,#6,pole01,pole02,pole03,pole04,pole05,@SP_EVENT_ACT_CHECK,pole05,#999
+Sprite = poleLoop,pole06,#6,pole07,pole08,pole09,pole10,pole11,pole12
+
+
+[OBJECT]
+Name = wall
+Sequence = 30501
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic6\test
+Sprite = wall1, 牆01
+Sprite = wall2, 牆02
+Sprite = wall3, 牆03
+Sprite = wall4, 牆
+Sprite = wall5, 矮城牆
+Sprite = wall6, 矮城牆01
+Sprite = wall7, 矮城牆02
+Sprite = wall8, 矮城牆03
+Sprite = wall9, 柱子
+Sprite = wall10, 柱子01
+Sprite = wall11, 木城牆
+Sprite = wall12, 木城牆01
+Sprite = wall13, 003城牆_平地
+
+[OBJECT]
+Name = 武將臉 測試
+Sequence = 33000
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \test
+Sprite = Wait, NULL
+Sprite = general, general
+
+
+[OBJECT]
+Name = 武將臉 測試2
+Sequence = 34000
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \test
+Sprite = Wait, NULL
+Sprite = general,general
+
+[OBJECT]
+Name = 武將臉 測試3
+Sequence = 35000
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \test
+Sprite = Wait, NULL
+Sprite = general, general
+
+[OBJECT]
+Name = 武將臉 測試4
+Sequence = 36000
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \Face
+Sprite = Wait, NULL
+Sprite = 0004, 0004
+
+[OBJECT]
+Name = 武將臉 測試5
+Sequence = 37000
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \Face
+Sprite = Wait, NULL
+Sprite = 0005, 0005
+
+[OBJECT]
+Name = 光柱 測試
+Sequence = 38000
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \test
+Sprite = Wait, NULL
+Sprite = left,left
+
+
+[OBJECT]
+Name = 火鳳 
+Sequence = 40001
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm01
+Sprite = Wait,firebird00001
+Sprite = Fly, firebird00002,#8,firebird00003, firebird00004, firebird00005, firebird00006,#999
+Sprite = Flyf,firebird00007,#12, firebird00008, firebird00009,#999
+Sprite = Fly2, firebird00007,#14, firebird00008, firebird00009,#999
+Sprite = Fly3, firebird00009,#999
+Sprite = Flywait,firebird00013
+Sprite = Attack, firebird00010,#6, firebird00011, firebird00013,#999
+Sprite = Ring,ring_00000,#999
+Sprite = Light,light_00000,#999
+Sprite = Flyshadow,firebird00002,#20,firebird00003, firebird00004, firebird00005,@SP_EVENT_ACT_CHECK, firebird00006,#999
+
+
+[OBJECT]
+Name = 火羽
+Sequence = 40002
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm01
+Sprite = Feather,01_00001,#10,02_00002,03_00003,02_00004,01_00005
+Sprite = Feather2,02_00001,#10,01_00002,03_00003,02_00004,01_00005
+Sprite = Feather3,03_00001,#10,02_00002,01_00003,03_00004,02_00005
+
+[OBJECT]
+Name = 閃光
+Sequence = 40003
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm01
+Sprite = Light,glow00001,#8,glow00002,glow00003,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 煙
+Sequence = 40004
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm01
+Sprite = Smoke,smoke00001,#12,smoke00002,smoke00003,smoke00004,smoke00005,#999
+
+[OBJECT]
+Name = 火羽
+Sequence = 40005
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm01
+Sprite = Feather,w01_00001,#10,w02_00002,w03_00003,w02_00004,w01_00005
+Sprite = Feather2,w02_00001,#10,w01_00002,w03_00003,w02_00004,w01_00005
+Sprite = Feather3,w03_00001,#10,w02_00002,w01_00003,w03_00004,w02_00005
+
+[OBJECT]
+Name = 項羽魔刀龍捲
+Sequence = 40006
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm11
+Sprite = Sword,sr0001,#5,sr0002,sr0003,sr0004,sr0005,sr0006,sr0007,sr0008
+Sprite = Tstart,s00001,#12,s00002,s00003,#6,s00004,s00005,s00006,@SP_EVENT_ACT_ATTACK 
+Sprite = Tloop,l00001,#7,l00002,l00003
+Sprite = Shadow,shadow0001,#5,shadow0002,shadow0003,shadow0004,shadow0005,shadow0006,shadow0007,shadow0008
+
+[OBJECT]
+Name = 方天化日弄彩蝶
+Sequence = 40007
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm05
+Sprite = Move,s0001,#999
+Sprite = Inearth,s0002,#999
+Sprite = Light,w00001,#10,w00002,#999
+
+[OBJECT]
+Name = 忠義傲世 三劍
+Sequence = 40008
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm12
+Sprite = Sword,d0001,#6,d0002,d0003,#999
+Sprite = Knife,s0001,#6,s0002,s0003,#999
+Sprite = Lance,sn0001,#6,sn0002,sn0003,#999
+Sprite = Glow,glow00001,#10,glow00002,#999
+
+[OBJECT]
+Name = 黑蛟怒翻 共工霸海
+Sequence = 40009
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm14
+Sprite = Wloop,loop00001,#8,loop00002,loop00003
+Sprite = Tloop,loop0001,#8,loop0002,loop0003
+Sprite = Wstart,water00001,#8,water00002,water00003,water00004,water00005,@SP_EVENT_ACT_ATTACK
+Sprite = Tstart,w0001,#8,w0002,w0003,w0004,w0005,w0006,@SP_EVENT_ACT_ATTACK
+Sprite = Wbase,water0001,#10,water0002,@SP_EVENT_ACT_ATTACK,#999
+Sprite = Wbaseloop,water0003,#8,water0004,water0005,water0006,water0007,water0008,water0009
+Sprite = God,WF0001,#16,WF0002,WF0003,WF0002
+
+[OBJECT]
+Name = 鴛鴦斬舞
+Sequence = 40010
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm03
+Sprite = Start,001,#14,002,003,@SP_EVENT_ACT_ATTACK
+Sprite = Loop1,a001,#14,a002,a003,a004,a005,@SP_EVENT_ACT_CHECK
+Sprite = Loop2,a006,#10,a007,a008,a009,a010,@SP_EVENT_ACT_CHECK
+Sprite = Loop3,a001,#6,a002,a003,a004,a005,a006,a007,a008,a009,a010
+Sprite = Colorlight,colorlight0001,#8,colorlight0002,colorlight0003
+Sprite = KillL,k001,#10,k002,@SP_EVENT_ACT_REMOVE
+Sprite = KillR,k003,#10,k004,@SP_EVENT_ACT_REMOVE
+Sprite = Sword1,d001,#6,d002,d003,l001,l002,@SP_EVENT_ACT_FADEOUT
+Sprite = Sword2,u001,#6,u002,u003,l001,l002,@SP_EVENT_ACT_FADEOUT
+Sprite = Sword3,l1001,#6,l1002,d001,d002,d003,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 神鵰天舞
+Sequence = 40011
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm03
+Sprite = Wait,001,#999
+
+[OBJECT]
+Name = 百劍絕蹤
+Sequence = 40012
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm16
+Sprite = Single, r0001**
+Sprite = Circle,#6,ar0001,ar0002,ar0003
+
+
+[OBJECT]
+Name = 奔雷襲電
+Sequence = 40013
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm17
+Sprite = Blue,blue_00001,#8,blue_00002
+Sprite = Red,red_00001,#8,red_00002
+Sprite = Thunder,E0001,#8,E0002
+Sprite = Smoke,D0001,#8,D0002,D0003,D0004,D0005,D0006
+
+[OBJECT]
+Name = 劍test
+Sequence = 40014
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \test\75
+Sprite = a8, ai301**
+Sprite = a9, ai501**
+
+[OBJECT]
+Name = 炎魔破地
+Sequence = 40015
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm08
+Sprite = Wait,WA0001
+Sprite = Firebg,fire0001,#10,fire0002,fire0003
+Sprite = Devil,WA0001,#14,WA0002,WA0003,WA0004,#999
+Sprite = Start,s0001,#16,s0002,@SP_EVENT_ACT_CHECK
+
+[OBJECT]
+Name = 奔雷襲電
+Sequence = 40016
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm17
+Sprite = Blue,blue_00001,#8,blue_00002
+Sprite =Red,red_00001,#8,red_00002
+Sprite =Smoke,D0001,#10,D0002,D0003,D0004,D0005,D0006,@SP_EVENT_ACT_FADEOUT
+Sprite =Smoke2,D0001,#10,D0002,D0003,D0004,D0005,D0006
+Sprite =Thunder,E0001,#8,E0002
+Sprite =Tu,u001,#8,u002,u003,u004,u005,u006
+Sprite =Td,d001,#8,d002,d003,d004,d005,d006
+Sprite =Tru,ru001,#8,ru002,ru003,ru004,ru005,ru006
+Sprite =Trd,rd001,#8,rd002,rd003,rd004,rd005,rd006
+Sprite =Tr,r001,#8,r002,r003,r004,r005,r006
+
+[OBJECT]
+Name = 青龍天狼牙
+Sequence = 40017
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm19
+Sprite = Yellow,W_F0001,#6,W_F0002,W_F0003,W_F0004,W_F0005,#1,W_F0006,W_F0007,W_F0008,W_F0009,W_F0010,W_F0011,W_F0012,#999,@SP_EVENT_ACT_CHECK
+Sprite = Blue,blue_00001,#6,blue_00002,blue_00003,blue_00004,blue_00005,#1,blue_00006,blue_00007,blue_00008,blue_00009,blue_00010,blue_00011,blue_00012,#999
+Sprite = Wolf,tiger_r
+Sprite = Dragon,dragon
+
+
+[OBJECT]
+Name = 赤焰陷阱
+Sequence = 40018
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_169
+
+[OBJECT]
+Name = 猛火陷阱
+Sequence = 40019
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_170
+
+[OBJECT]
+Name = 蓮華陷阱
+Sequence = 40020
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_171
+
+[OBJECT]
+Name = 浮雷陷阱
+Sequence = 40021
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_172
+
+[OBJECT]
+Name = 八門陷阱
+Sequence = 40022
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_173
+
+[OBJECT]
+Name = 挪移陣陷阱
+Sequence = 40023
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_174
+
+[OBJECT]
+Name = 轉移陣陷阱
+Sequence = 40024
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_175
+
+[OBJECT]
+Name = 錯蹤挪移陣陷阱
+Sequence = 40025
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_176
+
+[OBJECT]
+Name = 生死陷阱
+Sequence = 40026
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_177
+
+[OBJECT]
+Name = 奈落陷阱
+Sequence = 40027
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_178
+
+[OBJECT]
+Name = 地矛陷阱
+Sequence = 40028
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_179
+
+[OBJECT]
+Name = 劍輪陷阱
+Sequence = 40029
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\trap
+Sprite = Circle,trap_180
+
+[OBJECT]
+Name = 八掛火神炮
+Sequence = 40030
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm06
+Sprite =Run,s0001
+Sprite =Shoot,s0001,#8,s0002,s0003,s0004,s0005,s0006,s0007,s0008,#999,@SP_EVENT_ACT_CHECK
+Sprite =Shadow,shadow
+Sprite =Fire,fire
+Sprite =Ice,ice
+Sprite =Thunder,thunder
+Sprite =Air,air
+Sprite =ThunderS,thunderS
+Sprite =AirS,airS
+Sprite =IceS,iceS
+Sprite =FireS,fireS
+
+[OBJECT]
+Name = 八掛火神炮冰峰效果
+Sequence = 40031
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm06
+Sprite =Ice1,I0001,#8,I0002,I0003,#999
+Sprite =Ice2,G0001,#8,G0002,G0003,#999
+Sprite =Ice3,H0001,#8,H0002,H0003,#999
+
+[OBJECT]
+Name = 鴛鴦斬舞
+Sequence = 40032
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm03
+Sprite = Sword,f00001,#6,f00002,f00003,f00004,f00005,f00006,#999
+Sprite = Spot,lightspot
+Sprite = LTornado,MAGIC260000,#12,MAGIC260001,MAGIC260002,MAGIC260003,MAGIC260004,MAGIC260005,MAGIC260006,MAGIC260007,MAGIC260008,MAGIC260009,MAGIC260010,MAGIC260011,MAGIC260012,MAGIC260013,MAGIC260014,MAGIC260015,MAGIC260016,MAGIC260017,MAGIC260018,MAGIC260019,MAGIC260020,MAGIC260021,MAGIC260022,MAGIC260023
+Sprite = Flower,flower0000,#8,flower0001,flower0002,flower0003,flower0004,flower0005,flower0006,flower0007,flower0008,flower0009
+
+[OBJECT]
+Name = 陰陽滅元炮
+Sequence = 40033
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm07
+Sprite = Redline,redline
+Sprite = Blueline,blueline
+Sprite = Dcar,#10,s0001,s0002,s0003,s0004,#999
+Sprite = Tcar,#10,t0001,t0002,t0003,t0004,#999
+Sprite = Dwait,s0001
+Sprite = Twait,t0001
+Sprite = Bomb,#8,b001,b002,b003,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = Bomr,#8,r001,r002,r003,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = Shadowd,shadowd
+Sprite = Shadowt,shadowt
+Sprite = Drun,#10,drun0001,drun0002,drun0003
+Sprite = Trun,#10,trun0001,trun0002,trun0003
+Sprite = Red,red
+Sprite = Blue,blue
+Sprite = AirR,airR001,#10,airR002
+Sprite = AirB,airB001,#10,airB002
+
+[OBJECT]
+Name = 天劍驚雷動九霄
+Sequence = 40034
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm10
+Sprite = Sword,sword01
+Sprite = Sword2,sword02
+Sprite = Ground,g001,#8,g002,g003
+Sprite = Fireru,ru001,#8,ru002
+Sprite = Firer,r001,#8,r002
+Sprite = Firerd,rd001,#8,rd001
+Sprite = Fired,d001,#8,d002
+Sprite = Thunder,th001,#10,th002,th003,th004,th005,#999,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 紫蓋騰龍
+Sequence = 40035
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\excbm\excbm28
+Sprite = Dragon,purple00001,#10,purple00002,purple00003,purple00004,purple00005,purple00006,purple00007,purple00008,purple00009,purple00010,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = Purple,p00001,#8,p00002,p00003,p00004,p00005,p00006,p00007,p00008,p00009,p00010,p00011,p00012,p00013
+
+[OBJECT]
+Name = 虎嘯滅軍
+Sequence = 40036
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\excbm\excbm24
+Sprite = Tigerup,start00001,#6,start00002,start00003,start00004,start00005,start00006,start00007,start00008,start00009,start00010,start00011,start00012,#999,@SP_EVENT_ACT_CHECK
+Sprite = Tigerlp,run00001,#6,run00001,run00003,run00004,run00005,run00006,run00007,run00008,run00009,run00010,run00011,run00012,run00013
+
+[OBJECT]
+Name = 龍鳳天舞
+Sequence = 40037
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\excbm\excbm30
+Sprite = Dragonup,d00001,#10,d00002,d00003,d00004,d00005,d00006,d00007,d00008,d00009,#999,@SP_EVENT_ACT_CHECK
+Sprite = Dragonlp,d00012,#12,d00013,d00014,d00013
+Sprite = Birdup,f00001,#10,f00002,f00003,f00004,f00005,f00006,f00007,f00008,f00009,#999,@SP_EVENT_ACT_CHECK
+Sprite = Birdlp,#12,f00010,f00011,f00012,f00011
+
+[OBJECT]
+Name = 銀色爆炸
+Sequence = 40038
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\excbm\excbm24
+Sprite = silver,001,#6,002,003,004,005,006,007,#999,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 祝融弓火焰
+Sequence = 40039
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\Magic7\bm704
+Sprite = Fire,MAGIC120000,#4,MAGIC120002,MAGIC120004,MAGIC120006,MAGIC120008,MAGIC120010,MAGIC120012,MAGIC120014,MAGIC120016,MAGIC120018,MAGIC120020,MAGIC120022,MAGIC120024,MAGIC120026,MAGIC120028,MAGIC120030,MAGIC120032,MAGIC120034,#999,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 雷電槍雷爆
+Sequence = 40040
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\Magic7\bm712
+Sprite = Tloop,loop00001,#8,loop00002,loop00003
+Sprite = Tstart,start00001,#8,start00002,start00003,start00004,start00005,start00006,@SP_EVENT_ACT_CHECK
+
+[OBJECT]
+Name = 藍龍
+Sequence = 40041
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\excbm\excbm12
+Sprite = Dragon,blue00001,#10,blue00002,blue00003,blue00004,blue00005,blue00006,blue00007,blue00008,blue00009,blue00010,#999,@SP_EVENT_ACT_CHECK
+
+[OBJECT]
+Name = 水月斬
+Sequence = 40042
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\excbm\excbm16
+Sprite = Water2,w2001,#10,w2002,w2003
+Sprite = Water4,w4001,#10,w4002,w4003
+
+[OBJECT]
+Name = 光柱
+Sequence = 40043
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm01
+Sprite = circle, circle
+Sprite = light,light01, #6, light02, light03, light04, light05, light06,#999
+
+[OBJECT]
+Name = 青色陰魄
+Sequence = 40044
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\magic7\bm716
+Sprite = Ghost,g00001,#10,g00002,g00003,g00004,g00005,g00006,g00007,g00008,g00009,g00010,g00011,g00012,g00013,g00014
+
+[OBJECT]
+Name = 紫色陰魄
+Sequence = 40045
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\magic7\bm718
+Sprite = Ghost,g00001,#10,g00002,g00003,g00004,g00005,g00006,g00007,g00008,g00009,g00010,g00011,g00012,g00013,g00014
+
+[OBJECT]
+Name = 光點
+Sequence = 40046
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\magic7\bm720
+Sprite = Blue,blue
+Sprite = Green,green
+Sprite = Gold,gold
+
+[OBJECT]
+Name = 死字
+Sequence = 40047
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\magic7\bm720
+Sprite = Dead,d00001,#8,d00002,d00003,d00004,d00005,#999
+
+[OBJECT]
+Name = 箭雨 箭
+Sequence = 40048
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\022
+Sprite = Arrow,arrow
+Sprite = ArrowIn,arrowIn
+
+[OBJECT]
+Name = 箭雨 落地光罩
+Sequence = 40049
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\SuperAttack\022
+Sprite = Mask1,f0001,#6,f0002,f0003,f0004,f0003,f0004,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = Mask2,001,#12,002,003,#999,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 黑蛟
+Sequence = 40050
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm14
+Sprite = Dragon,a0001,#12,a0002,a0003,@SP_EVENT_ACT_CHECK,a0004,a0005,a0006,a0007,a0008,a0009,@SP_EVENT_ACT_ATTACK,a0010,@SP_EVENT_ACT_REMOVE
+Sprite = Dwater,bwater0001,#12,bwater0002,bwater0003,bwater0004,bwater0005,bwater0006,bwater0007,bwater0008,bwater0009,bwater0010,#999
+Sprite = Dragoni,ia0001,#12,ia0002,ia0003,@SP_EVENT_ACT_CHECK,ia0004,ia0005,ia0006,ia0007,ia0008,ia0009,@SP_EVENT_ACT_ATTACK,ia0010,@SP_EVENT_ACT_REMOVE
+Sprite = Dwateri,iwater0001,#12,iwater0002,iwater0003,iwater0004,iwater0005,iwater0006,iwater0007,iwater0008,iwater0009,iwater0010,#999
+
+[OBJECT]
+Name = 紅黃白綠龍衝天
+Sequence = 40051
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\SuperAttack\023
+Sprite = RDragon,red00001,#8,red00002,red00003,red00004,red00005,red00006,red00007,red00008,red00009,red00010,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = YDragon,yellow00001,#8,yellow00002,yellow00003,yellow00004,yellow00005,yellow00006,yellow00007,yellow00008,yellow00009,yellow00010,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = WDragon,w_00001,#8,w_00002,w_00003,w_00004,w_00005,w_00006,w_00007,w_00008,w_00009,w_00010,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = GDragon,green_00001,#8,green_00002,green_00003,green_00004,green_00005,green_00006,green_00007,green_00008,green_00009,green_00010,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = BDragon,blue00001,#8,blue00002,blue00003,blue00004,blue00005,blue00006,blue00007,blue00008,blue00009,blue00010,#999,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 新大喝
+Sequence = 40052
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\SuperAttack\023
+Sprite = Mask,mask001,#10,mask002,mask003,mask002,mask003,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = Wave,wave001,#10,wave002,wave003
+Sprite = Smoke,s001,#8,s002,s003,s004,s005,s006,s007,s008,s009,s010,s011,s012,s013,#999,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 飄帶光輪
+Sequence = 40053
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\SuperAttack\635
+Sprite = Down,down00001,#10,down00002,down00003
+Sprite = Up,up00001,#10,up00002,up00003
+
+[OBJECT]
+Name = 星屑四散
+Sequence = 40054
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\SuperAttack\233
+Sprite = Star,star00001,#4,star00002,star00003,star00004,#999,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 雷球
+Sequence = 40055
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\SuperAttack\332
+Sprite = Tball,Wa0001,#4,Wa0002,Wa0003,Wa0004,Wa0005
+
+[OBJECT]
+Name = 光輪
+Sequence = 40056
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\SuperAttack\137
+Sprite = Ring,w001
+
+[OBJECT]
+Name = 紅白色刀光
+Sequence = 40057
+Space = 0,0,0
+Process = BF_CLASS_BFMagic	
+Directory = \BF\SuperAttack\138
+Sprite = White,white001,#6,white002,white003,white004,#999
+Sprite = Red,red001,#6,red002,red003,red004,#999
+
+[OBJECT]
+Name = 凍血刀
+Sequence = 40058
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic7\weapon
+Sprite = Wait, NULL
+Sprite = Weapon, iceblade
+
+
+[OBJECT]
+Name = 祝融弓
+Sequence = 40059
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic7\weapon
+Sprite = Wait, NULL
+Sprite = Weapon, firebow
+
+[OBJECT]
+Name = 芭蕉扇
+Sequence = 40060
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic7\weapon
+Sprite = Wait, NULL
+Sprite = Weapon, banana
+
+[OBJECT]
+Name = 雷電槍
+Sequence = 40061
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic7\weapon
+Sprite = Wait, NULL
+Sprite = Weapon, thunderlance
+
+[OBJECT]
+Name = 龍虎炮車攻擊火光
+Sequence = 40062
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\Soldier\soldier085
+Sprite = Wait, NULL
+Sprite = Fire, fire1,#10,fire2,fire3,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = Bluefire, bluefire1,#10,bluefire2,bluefire3,#999,@SP_EVENT_ACT_FADEOUT
+
+[OBJECT]
+Name = 火焰塔火焰
+Sequence = 40063
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\excbm\excbm08
+Sprite = Fire,redfire0026,#4,redfire0027,redfire0028,redfire0029,redfire0030,redfire0031,redfire0032,redfire0033,redfire0034,redfire0035,redfire0036,redfire0037,@SP_EVENT_ACT_CHECK
+
+[OBJECT]
+Name = 戰場計數器
+Sequence = 40064
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \Menu\Digits
+Sprite = a0, 0
+Sprite = a1, 1
+Sprite = a2, 2
+Sprite = a3, 3
+Sprite = a4, 4
+Sprite = a5, 5
+Sprite = a6, 6
+Sprite = a7, 7
+Sprite = a8, 8
+Sprite = a9, 9
+Sprite = Wait, NULL
+
+[OBJECT]
+Name = 點穴
+Sequence = 40065
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \BF\WeaponAttack\049
+Sprite = Attack, A0001,A0002,A0003,A0004,#999,@SP_EVENT_ACT_FADEOUT
+Sprite = Ring, B0001
+Sprite = Hit,D0001,D0002,D0003,D0004,D0005

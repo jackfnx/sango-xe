@@ -1,0 +1,934 @@
+[STRING] 
+String =0,Error Test 
+String =1,Null 
+
+; Test 
+String =1002, begin the game 
+
+String =1005, the internal affairs in season 
+String =1006, the internal affairs 
+String =1007, note down 
+String =1008, read 
+String =1009, establish 
+String =1010, the battle field 
+String =1011, usually 
+String =1012, diverge from the game 
+String =1013, final result 
+String =1020, new monarch 
+
+String =1031, the city interface 
+
+
+; ========================================================================
+
+; Word bunch preserved 
+String =3994,test. 
+String =3995,test. 
+String =3996,test. 
+String =3997,test. 
+String =3998,100% 
+String =3999, pieces of each 
+
+
+
+; Main interface  Press the button 
+String =4000, fight for the world 
+String =4001, read history 
+String =4002, log-in military officer 
+String =4003, establish and select 
+String =4004, finished going on an expedition 
+
+; Main interface title 
+String =4005, it is single to mainly select 
+
+
+
+; Word bunch of Demo 
+String =4010, please press the left key of the Genius mouse to continue ...
+
+; Main interface  Press the button comment 
+String =4020, begin the new game 
+String =4021, read history 
+String =4022, log-in military officer 
+String =4023, establish and select 
+String =4024, finished the fight 
+
+
+; Begin interface title of the new game 
+String =4050, choose period 
+String =4051, choose the monarch 
+String =4052, establish and select 
+
+; Begin interface title comment of the new game 
+String =4060, free monarch 
+String =4061, free military officer 
+String =4062, free force 
+
+; Press the button word at 
+String =4100, carriage return 
+String =4101, fix 
+String =4102, automatic 
+String =4103, manual 
+String =4104, cancel 
+
+; Interface title of the big map 
+String =5000, the internal affairs in season 
+String =5001, the internal affairs 
+String =5002, the battle field 
+String =5003, establish 
+String =5004, read 
+String =5005, note down 
+
+; Choose period 
+String =5200, the Yellow Turbans Uprising 
+String =5201, send forces to suppress Dong Zhuo 
+String =5202, heroes set up 
+String =5203, the fight which the officer crosses 
+String =5204, the fight of Chibi 
+String =5205, the Three Kingdoms' tripartite equilibrium 
+String =5206, belong to Wei all over the world 
+String =5207, the woman contends for hegemony 
+String =5208, hold sway over a region in troubled times 
+
+String =5210, A.D. 184. East Hanzhong of value is flat hour in the first year of an era. Efficacious emperor's incapability, the law of an imperial court is in low spirits, so that the people have no means of livelihood. Peaceful Taoist priest claims to be an angle: ' Heaven has already died and acted as and stood on yellow day ', lead the yellow army of piece of cloth to rise in revolt. What the senior general enters to present purport with respect to go on a punitive expedition, Liu Bei , Cao Cao , Yuan Shao ,etc. star contend with it in rate. Regional warlord , hero rise in revolt and fight for the rivers and mountains one after another too, the world is in confusion, surge forward for the moment, since this raises the curtain in three countries troubled times when heroes contended for hegemony ¡­¡­¡­¡­¡­¡­
+String =5211, A.D. 189. China is six years flatter . The efficacious emperor dies, few emperors succeed to the throne. What enter dense to call together senior general and state herd Dong tall and erect to lead troops enter Beijing , intent to put to death and abate the eunuch. And then what enter thing frustrate, kill by eunuch, Yuan Shao is it is it do the eunuch to put to death to take advantage of a situation. How material Dong tall and erect to is it is it crouch Luoyang to curl to seize the chance, is it offer emperor , abolish little emperor to set up, carry prime minister, right inclines in the imperial court. Regional heroes make up the alliance and assist the grand occasion altogether one after another , raise troops and send forces to suppress Dong Zhuo in unison. Have begun a fierce struggle between tow evenly-matching opponents taking serving the king and demanding thieves as name. 
+String =5212, A.D. 194. Excitement is flat in the first year of an era. King Situ permits and orders adopted daughter's ermine's cicada to instigate with sex-trap, then makes the valiant general Lv Bu put to death and kill Dong Zhuo, the regional army riffraff dispatches troops for war without cause immediately. The alliance collapsed in a sunset , the fight that the state herds the force became more and more fierce , swept across the Chinese overall civil war and broke out at last. Political tactics , armed conflict among every warlord's monarch reach the unprecedented fierce degree. 
+String =5213, A.D. 199. Build Ann for four years. Yuan Shao kills Gongsun Zan, occupies the North in deep and remote , Ji , blue and green , combines four states. Little overlord's grandson's slip calms down in the river. Liu Bei support oneself on Xuzhou also, belong to form Liu. Cao Cao is it offer emperor think orthodox , kill skill Yuan , cut Lv Bu , Central Plains entered his hand to the limit to hold under the arm. Next year, Cao Cao will defeat Yuan Shao gloriously and spend the officer well according to the picked troops , will weigh ' the fight which the officer crosses ' generation. This then inclined to three of the tendencies all over the world after fighting. 
+String =5214, A.D. 208. Build Ann for 13 years. Liu Bei repeatedly request somebody to take up a responsible post Kong Ming Zhuge in Wolong already, and receive Jing Zhou. Sun Quan also inherits elder brother's grandson's slip mantle and sits and navigates a ship on a river in the east. Liu Bei then jointly waves the army and goes up north with Sun Quan, defeats Cao Cao in three Jiangkou in Chibi. So far, general trend of events all over the world think 3. 
+String =5215, A.D. 219. Build Ann for 24 years. Liu Bei enters Sichuan Province, captures Hanzhong, supports oneself for the Hanzhong king. Sun Quan attacks and occupies Jing Zhou. Next year, Cao Cao dies, son Cao Pi succeeds to the throne and proclaims oneself emperor, King Wen Wei, Chinese died. And next year, Liu Bei proclaims oneself emperor, is a clear strong emperor in the kingdom of Shu Han. And even Sun Quan changes Huanglong of title of an emperor's reign, is the big emperor in Wu. Refered in later age the kingdom of Shu Han, ' the Three Kingdoms' tripartite equilibrium ' of Cao and Wei , Wu chase and sue establishing. 
+String =5216, A.D. 263. Person ginger of Zhu Ge-liang is it assist a ruler in governing a country master deep meditation Liu under Sichuan Province to link , resist senior general of Cao and Wei imperial court Si Mayi strenuously. Why be unable to save the situation, the kingdom of Shu Han kill, deep meditation Liu lower Wei. Wu kingdom impossible to clap with one hand , unable to contend with Wei. Divide the world into three parts and then trend towards the tendency unified ¡­¡­¡­¡­¡­¡­¡­
+String =5217, the Christian era? ? ? Annual. The situation all over the world of unwillingness is by man's leading factor to the limit, woman military officers of the Three Kingdoms take off the pole and rise in revolt one after another . For the moment, the rivers and mountains are ten thousand li, all enter women to master, the fight of one herd of phoenixes is launched here ¡­¡­¡­
+String =5218, the Christian era? ? ? Annual. The goblin star plunders emptily, it is different and alike now. Since different times , the hero of the Three Kingdoms crosses over space-time to get together, each need the military expertise , fight for the overlord's location all over the world. Just look at that the heroes of the Three Kingdoms are bathed in blood thousand li , composed the brand-new legend of the Divine Land ¡­¡­¡­
+
+
+
+; Choose period comment 
+String =5220, please choose the period that you begin 
+String =5221, please choose the monarch that want to act 
+String =5222, please choose one to set military officer as a new monarch by oneself 
+String =5223, please choose five at most and set military officer as it from by oneself 
+String =5224, please choose a piece of city it is the initial base area 
+
+; The game establishing 
+String =5225, it is difficult 
+String =5226, generally 
+String =5227, it is simple 
+String =5228, 
+String =5229, deny 
+
+; Choose the monarch 
+String =5230, monarch's name 
+String =5231, build things 
+String =5232, monarch 
+String =5233, the monarch site 
+String =5234, the outpost of the tax office 
+String =5235, population 
+String =5236, the total amount of the money 
+String =5237, choose to have a monarch by oneself 
+String =5238, choose the monarch in carriage return 
+String =5239, the carriage return has a monarch by oneself 
+String =5240, new monarch 
+String =5241, the carriage return will be chosen from 
+String =5242, please choose from 
+String =5243, please choose the city 
+String =5244, defence 
+String =5245, the next step 
+String =5246, represent color 
+String =5247, the degree of difficulty of the game 
+String =5248, have a military officer and come on stage by oneself 
+
+
+; The legion fights 
+String =5250, plan to fight 
+String =5251, the entire PLA withdraws 
+String =5252, play the leading role of independently 
+String =5253, horse's fight 
+String =5254, the military officer counts 
+String =5255, military officer 
+
+; The army fights 
+String =5350, begin to fight 
+String =5351, change a chief commander 
+String =5352, change the strategist in ancient China 
+String =5353, an army withdraws 
+String =5354, military officer way 
+String =5355, formation way 
+String =5356, 
+String =5357, soldier 
+
+; Close interfaces after the war 
+; String =5400, handle after the war 
+String =5400, overcome and handle 
+String =5401, summon to surrender 
+String =5402, take into custody 
+String =5403, is beheaded 
+String =5404, release 
+String =5405, all are summonned to surrender 
+String =5406, all take into custody 
+String =5407, all are beheaded 
+String =5408, all release 
+String =5409, is handled the state 
+
+; Close interfaces after the war 
+String =5410, suffer a defeat to check 
+String =5411, have half share 
+
+
+; Close interfaces after the war 
+String =5420, settle account after the war 
+String =5421, the exploit value of an income 
+String =5422, the experience value of an income 
+String =5423, this fights achievements 
+String =5424, accumulate the achievements 
+String =5425, studying must kill the skill 
+
+
+; The army fights  Will begin soon 
+String =5450, enter the battle field 
+
+; The army fights 
+String =5550, play the leading role of independently 
+String =5551, cancel and play the leading role of independently 
+String =5552, carry on horse's fight 
+String =5553, cancel horse's fight 
+
+String =5580, left 
+
+; Big map 
+String =5600, this national conditions newspaper 
+String =5601, diplomatic information 
+String =5602, the system 
+String =5603, % 4d annual % 4d monthly % 4d day 
+String =5604, % 4d annual % 4d monthly % 4d day 
+String =5605, % 4d annual % 4d monthly % 4d day 
+String =5606, % 4d annual % 4d monthly % 4d day 
+String =5607, % 4d annual % 4d monthly % 4d day 
+String =5608, the city 
+String =5609, the legion 
+String =5610, an army 
+String =5611, military officer 
+String =5612, the port 
+String =5613, the outpost of the tax office 
+String =5614, the tower 
+
+; Military officer's state 
+String =5615, the captive 
+String =5616, 0 out of office 
+String =5617, 1 out of office 
+String =5618, death 
+
+
+; List Title 
+String =5620, the city name 
+String =5621, an army counts 
+String =5622, the military officer counts 
+String =5623, legion's name 
+String =5624, the site 
+String =5625, military force 
+String =5626, intelligence 
+String =5627, army's name 
+String =5628, military officer's name 
+
+; Diplomatic information 
+String =5630, the country 
+String =5631, our captive 
+String =5632, an enemy captive 
+String =5633, prepare 
+String =5634, prepare 
+
+
+; The city is selected singly 
+String =5640, city information 
+String =5641, the procurator 
+String =5642, develop 
+String =5643, search 
+String =5644, build the city 
+String =5645, public security 
+String =5646, seek a soldier 
+String =5647, train 
+String =5648, the captive 
+String =5650, an army dispatcher 
+String =5651, an army reorganizes and outfits 
+String =5652, the legion goes out of the city 
+String =5653, build the order of things 
+String =5654, troops goal 
+String =5655, tax rate 
+String =5656, cancel and seek a soldier 
+
+
+; The legion selects singly 
+String =5670, legion's information 
+
+
+
+; The internal affairs are selected singly in season 
+String =5700, talents 
+String =5701, articles 
+String =5702, diplomacy 
+String =5703, information 
+
+String =Internal affairs that 5710 , finish season 
+
+
+
+; The city son selects singly 
+String =5800, appoint procurators 
+String =5801, commerce development 
+String =5802, the search is ascertained 
+String =5803, build the city in defence 
+String =5804, rectify the public security 
+String =5805, seek and prepare a soldier 
+String =5806, train morale 
+String =5807, dungeon captive 
+String =5808, city information 
+String =5809, city information 
+
+; The military officer use materials 
+
+String =5811, physical power 
+String =5812, morale 
+String =5813, an exploit 
+String =5814, experience value 
+String =5815, achievements 
+String =5816, skill strength 
+String =5817, loyal 
+String =5818, tired 
+String =5819, win 
+String =5820, frustrate 
+String =5821, reorganize and outfit a military officer 
+String =5822, the weapon 
+String =5823, the props 
+String =5824, ride in stand 
+String =5825, consume 
+String =5826, military officer's skill 
+String =5827, the strategist in ancient China skill 
+String =5828, must kill the skill 
+String =5829, the formation 
+String =5830, the arm 
+String =5831, military officer's skill name 
+String =5832, consume skill strength 
+String =5833, necessary strength 
+String =5834, the military officer explains ability 
+String =5835, the skill name of the strategist in ancient China 
+String =5836, an opportunity 
+String =5837, the strategist in ancient China explains ability 
+String =5838, must kill the skill name 
+String =5839, the weapon is 
+String =5840, must kill the skill to explain 
+String =5841, attack 
+String =5842, vitality 
+String =5843, move strength 
+String =5844, the grade 
+String =5845, arm's choice 
+String =5846, the looks is one gram of sex 
+String =5847, the arm 
+String =5848, the troops are adjusted 
+String =5849, military officer's materials 
+String =5850, seek a soldier the most greatly in the whole city 
+String =5851, the troops of the whole city are removed 
+String =5852, %'s s weapon 
+
+; The city using 
+
+String =5900, chief commander's name 
+String =5901, the military officer counts 
+String =5902, government post 
+String =5903, total military force 
+String =5904, total intelligence 
+String =5905, former monarch 
+String =5906, monarch 
+String =5907, population 
+String =5908, the popular feelings 
+String =5909, money 
+String =5910, prepare a soldier 
+String =5911, defence 
+String =5912, develop 
+String =5913, an army counts 
+String =5914, the military officer counts 
+String =5915, total troops 
+String =5916, military officer's name 
+String =5917, military force 
+String =5918, intelligence 
+String =5919, the grade 
+String =5920, carrying out rate 
+
+; The legion goes out of the city 
+String =5921, army's name 
+String =5922, the military officer counts 
+String =5923, the troops / upper limit 
+String =5924, an army chooses 
+String =5925, adjust the troops 
+String =5926, send the captive 
+String =5927, seek a soldier the most greatly 
+String =5928, the whole soldier removes 
+String =5929, go out of the city 
+String =5930, go out of the city and encamp 
+String =5931, close 
+String =5932, an army 
+String =5933, military officer 
+String =5934, the troops 
+String =5935, the captive 
+String =5936, money 
+String =5937, military spending 
+String =Number of times that 5938 , encamp 
+String =5939, the formation 
+String =5940, fix 
+String =5941, army's regimental commander 
+
+; Army dispatcher 
+String =5942, an army tabulates 
+String =5943, the strategist in ancient China name 
+String =5944, can join the army 
+String =5945, an army amalgamates 
+String =5946, an army dismisses 
+String =5947, the legion seeks a soldier the most greatly 
+String =5948, the whole soldier of the legion removes 
+String =5949, since % s will withdraw soon in our troops, whether will carry all money and captive outside? 
+
+; Bunch of choice of words of battle field 
+
+String =5950, the word 
+
+; Internal affairs in season  It is single to select  Talents 
+String =6000, confer titles of nobility on the government post 
+String =6001, persuade talents 
+String =6002, will summon the enemy to surrender 
+String =6003, set up crown prince 
+String =6004, award to a military officer 
+
+
+String =6006, cancelling the government post will lose the exploit accumulated at present 
+String =6007, will become a assistant minister after cancelling the government post 
+String =6008, cancel 
+String =6009, cancel the government post 
+String =6010, confer titles of nobility on the government post 
+String =6011, the guide look of the government post 
+String =6012, the government post is tabulated 
+String =6013, confer titles of nobility on 
+String =6014, confer titles of nobility on high automatically 
+String =6015, it is low to confer titles of nobility on automatically 
+String =6016, the government post is explained in detail 
+String =6017, confer titles of nobility on wholly 
+String =6018, confer titles of nobility on high 
+String =6019, it is confered titles of nobility on that it is low 
+
+; The system is selected singly 
+
+String =6020, history of the record 
+String =6021, read history 
+String =6022, the system is established 
+String =6023, go back to mainly select singly 
+String =6024, diverge from the game 
+String =6025, the system is selected singly 
+
+String =6029, radar result 
+String =6030, the volume of the music 
+String =6031, the result volume of the sound 
+String =6032, the result behaves 
+String =6033, the speed of the game 
+String =6034, the style of calligraphy is chosen 
+String =6035, information 
+String =6036, please choose your settlement project 
+String =6037, it is low 
+String =6038, China 
+String =6039, it is high 
+String =6040, slow 
+String =6041, China 
+String =6042, fast 
+String =6043, one 
+String =6044, two 
+String =6045, join 
+String =6046, Mount Emei 
+String =6047, Wudang 
+String =6048, have 
+String =6049, does not have 
+String =6050, intact 
+String =6051, simple and easy 
+String =6052, do \ n you confirm that will write down in this seat? 
+String =6053, do \ n you confirm that want to read the record of this seat? 
+String =6054, do \ n you fix getting back to to mainly select singly? 
+String =6055, do \ n you confirm that want to diverge from the game? 
+String =6056, system, n of \, go on to format all hard disk, can leave heroes spread five materials of generation only ...\N please treat slightly ...
+
+; Internal affairs in season  It is single to select  Persuade talents 
+
+String =6060, talent's list 
+String =6061, represent 
+String =6062, ask 
+String =6063, huge profit 
+String =6064, persuade 
+String =6065, persuade automatically 
+String =6066, use the target 
+String =6067, carry out a military officer 
+String =6068, the money in the city 
+String =6069, offer the amount of money 
+
+; Internal affairs in season  It is single to select  Induce to capitulate and fight lowering 
+
+String =6070, induce to capitulate 
+String =6071, threaten 
+String =6072, cruel torture 
+String =6073, lure by promise of gain 
+String =6074, summon to surrender 
+String =6075, summon to surrender automatically 
+String =6076, capture the list 
+String =6077, affiliated monarch 
+String =6078, is beheaded automatically 
+
+; Internal affairs in season  It is single to select  The volume sets up the crown prince 
+
+String =6080, an volume sets up the crown prince 
+String =6081, the crown prince at present 
+String =6082, the military officer tabulates 
+
+
+; Internal affairs in season  It is single to select  Articles 
+String =6100, commercial deal 
+String =6101, award articles 
+String =6102, buy in 
+String =6103, sell 
+String =6104, carry out a military officer 
+String =6105, the list of articles 
+String =6106, an article name 
+String =6107, purchasing price 
+String =6108, hold and count 
+String =6109, buy and count 
+String =6110, sell and count 
+String =6111, buy the quantity    One 
+String =6112, sell the quantity    One 
+String =6113, total price 
+String =6114, the reason 
+String =6115, majesty 
+String =6116, the purchasing price converts into money 
+String =6117, intelligence 
+String =6118, the price is raised 
+String =6119, own in common in the city 
+String =6120, buy the amount of money this time 
+String =6121, sell the amount of money this time 
+String =6122, selling price 
+String =6123, equip articles 
+String =6124, use articles 
+String =6125, equip the list of articles 
+String =6126, use the list of articles 
+String =6127, military officer's inventory 
+String =6128, equip 
+String =6129, use 
+String =6130, the task 
+String =6131, date 
+String =6132, articles 
+String =6133, got the army 
+String =6134, the source 
+String =6135, annual 
+String =6136, the moon 
+String =6137, the sun 
+
+
+; The internal affairs press the button in season  Article 
+String =6140, commercial deal 
+String =6141, award articles 
+String =6142, put in storage this season 
+String =6143, the inventory of national treasury 
+String =6144, the supply is transported 
+
+; The weapon is explained 
+
+String =6150, the sword 
+String =6151, the fan 
+String =6152, the broadsword 
+String =6153, the rifle 
+String =6154, bend 
+String =6155, the whole weapon 
+
+String =6160, begin to learn 
+String =6161, enter the steps 
+String =6162, master 
+
+
+; Internal affairs in season  It is single to select  Diplomacy 
+String =6200, grant the money 
+String =6201, persuade and close and say 
+String =6202, break up and dial the rumour 
+String =6203, instigate the country 
+String =6204, sow discord between a military officer 
+String =6205, redeem captives 
+String =6206, alliance's agreement 
+
+; Internal affairs in season  It is single to select  Information 
+String =6300, city information 
+String =6301, military officer's information 
+String =6302, inspect the force 
+String =6303, side analyses the national power 
+
+; Internal affairs in season  Government post 
+
+String =6350, the name 
+String =6351, the type 
+String =6352, an official's rank 
+String =6353, the grade 
+String =6354, an exploit 
+String =6355, military officer's grade 
+String =6356, the lower limit of military force 
+String =6357, the lower limit of intelligence 
+String =6358, take and count 
+String =6359, physical power 
+String =6360, skill strength 
+String =6361, military force 
+String =6362, intelligence 
+String =6363, the speed 
+String =6364, the formation 
+String =6365, add military officer's skill : 
+String =6366, an additional strategist in ancient China skill : 
+String =6367, the arm: 
+
+; Supplement the word bunch 
+String =6500, chief commander 
+String =6501, the strategist in ancient China 
+String =6502, left the battle field 
+String =6503, affiliated soldier 
+String =6504, will be complete 
+String =6505, the whole soldiers of offices and men 
+String =Order that 6506 , fight 
+String =6507, make the skill up 
+String =6508, military officer's skill 
+String =6509, will hit out completely 
+String =6510, the whole soldier hits out 
+String =6511, the entire PLA awaits orders 
+String =6512, the entire PLA withdraws 
+String =6513, the charge of entire PLA 
+String =6514, upwards 
+String =6515, go backwards 
+String =6516, await orders 
+String =6517, advance 
+String =6518, downward 
+String =6519, strength 
+String =6520, attacking enemies will choose 
+String =6521, put to good use and confirm 
+String =6522, put to good use 
+String =6523, technical ability is explained 
+String =6524, each for each strategists in ancient China 
+String =6525, choose the stratagem 
+String =6526, prove 
+String =6527, the strategist in ancient China % s surplus skill strength % d 
+String =6528, surplus skill strength 
+String =6529, the state 
+String =6530, the strategist in ancient China putting to good use it skill 
+String =6531, offset 
+String =6532, some left keys select the destination of the legion, the right key is cancelled 
+String =6533, left key order and confirm this route, the right key is cancelled 
+String =6534, the map shrinks 
+String =6535, the switch shows the city 
+String =6536, the switch shows the outpost of the tax office 
+String =6537, the switch shows the port 
+String =6538, the switch shows the land route 
+String =6539, the switch shows the waterway 
+String =6540, % s of our troops puts military officer skill \ n% s to good use 
+String =6541, % s of enemy army puts military officer skill \ n% s to good use 
+String =6542, % d is won / % d is frustrated 
+String =6543, our troops mobilize the strategist in ancient China skill \ n% s 
+String =6544, an enemy army mobilizes the strategist in ancient China skill \ n% s 
+String =6545, the persons , such as % s ,etc. 
+String =6546, summon to surrender? 
+String =6547, throw into the prison? 
+String =6548, is beheaded ? 
+String =6549, release ? 
+String =6550, whether 
+
+String =6551, % of we strategist in ancient China s practise strategist in ancient China of % s skill 
+String =6552, % of enemy strategist in ancient China s practise strategist in ancient China of % s skill 
+
+; //The military officer tabulates ability  Choose to tabulate  -The son selects singly  -Fix the button 
+String =6553, choose automatically 
+
+; //Strategist in ancient China skill 
+String =6554, % s person , such as % s of our troops ,etc. put to good use and make skill \ n% s up 
+String =6555, % s person , such as % s of enemy army ,etc. put to good use and make skill \ n% s up 
+
+//Supplementary 
+String =6560, whether it is correctly 
+
+
+; The internal affairs information presses the button in season 
+String =6590, national information 
+String =6591, city information 
+String =6592, legion's information 
+String =6593, army's information 
+String =6594, military officer's information 
+
+; Concern the information 
+String =6600, concern the information 
+String =6601, the country 
+String =6602, the population number 
+String =6603, the money is counted 
+String =6604, concern the army 
+String =6605, concern a military officer 
+String =6606, an affiliated relation 
+String =6607, enumerate it all 
+String =6608, chief commander: 
+String =6609, the strategist in ancient China: 
+String =6610, the formation: 
+String =6611, total troops: 
+String =6612, the legion counts 
+String =6613, an army counts 
+String =6614, the military officer counts 
+
+; Have a military officer by oneself 
+String =6700, set up a military officer by oneself while being newly-increased 
+String =6701, delete and have a military officer by oneself 
+String =6702, have a military officer by oneself 
+String =6703, male 
+String =6704, female 
+String =6705, family name 
+String =6706, the name 
+String =6707, the word 
+String =6708, the change of the portrait 
+String =6709, assign and count 
+String =6710, the life 
+String =6711, skill strength 
+String =6712, choose the modelling 
+String =6713, technical ability is studied 
+String =6714, technical ability name 
+String =6715, consume and count 
+String =6716, reconfigure 
+String =6717, do \ n you confirm that want to delete the military officer ? \Military officer that n\n wants to delete: %s 
+String =6718, please choose the portrait that you want to use 
+String =6719, the portrait is chosen 
+String =6720, explain 
+String =6721,\ n [surnamed ] or [name ] introduction field have to be blank ! 
+String =6722, having military officer's number to reach upper limit by oneself of \ n you. 
+String =6723, newly-increased military officer 
+String =6724, log-in 
+String =6725, reset 
+
+
+; Diplomacy 
+
+String =6800, necessary ransom money 
+String =6801, two 
+String =6802, the amount of money 
+String =6803, available money 
+String =6804, \ n% s requires that pays the ransom money of s two of % for % s \n. \Is n\n fixed and paid? 
+String =6805, gift the target 
+String =6806, monarch's name 
+; String =6807, the available amount of money 
+String =6807, the amount of money 
+String =6808, grant the amount of money 
+String =6809, sow discord between the target 
+String =6810, choose the country 
+String =6811, the loyalty to the b04 of \ n b02 is firmer that the idea of sowing discord of the a02 has failed. \n 
+String =6812, \ n b02 #'s loyalty decline to the b04 that the idea of sowing discord of the a02 has succeeded. \n 
+String =6813, b02 refuses to meet you. 
+String =6814, the b02 determines to lower our troops, is garrisonned in % s of our troops. 
+String =6815, loyalty 
+String =6816, % s has already been released , and get back to % s. 
+String =6817, persuade the target 
+
+; The fighting capacity in the battle field is assessed 
+String =6840, my military officer's fighting capacity 
+String =6841, enemy's military officer's fighting capacity 
+String =6842, my soldier's fighting capacity 
+String =6843, enemy's soldier's fighting capacity 
+String =6844, my fighting capacity total 
+String =6845, my victorious probability 
+
+; Confer titles of nobility on automatically 
+String =6850, confer titles of nobility on automatically 
+String =6851, confer titles of nobility on a military officer 
+String =6852, this % d location altogether of military officer that can still be confered titles of nobility on in season 
+String =6853, choose % d location altogether of military officer confered titles of nobility on at present 
+String =6854, preview is carried out 
+String =6855, government post 
+String =6856, confer titles of nobility on high: Confer titles of nobility on and consume government post \ n of the exploit at most automatically low to confer titles of nobility on: The least confer titles of nobility on and consume the government post of the exploit automatically 
+String =6857, the Han nationality 
+String =6858, Xiongnu 
+String =6859, rough in the south 
+String =6860, the sun rises 
+
+; Other 
+
+String =6900, prepare to count in the army 
+String =6901, army's soldier counts 
+String =Guide look that 6902 , capture 
+String =6903, the general military officer counts 
+String =6904, the total troops are counted 
+String =6905, army military force 
+String =6906, army's intelligence 
+String =6907, army's grade 
+String =6908, army's morale 
+String =6909, army's fighting capacity 
+String =6910, diplomacy degree 
+String =6911, equip at present 
+String =6912, choose the article 
+String =6913, value 
+String =6914, spring 
+String =6915, summer 
+String =6916, autumn 
+String =6917, winter 
+String =6918, appoint 
+String =6919, equip wholly 
+String =6920, equip automatically 
+String =6921, unload and eliminate automatically 
+String =6922, all military officers 
+String =6923, unequipped military officer 
+String =6924, weapon name 
+String =6925, saddle horse's name 
+String =6926, the way signs and claims 
+String =6927, the inventory of national treasury 
+String =6928, the classification at present: 
+String =6929, an article name 
+String =6930, equip the name 
+String =6931, select completely 
+String =6932, preview is carried out 
+String =6933, military officer's % d location 
+String =6934, equip thing % d one 
+String =6935, carry out a military officer 
+String =6936, equip things 
+String =6937, \ n still has technical ability to finish counting unallocatedly, will be unable to assign after log-in is finished. \N is confirmed carries on log-in? 
+String =6938, the soldier counts 
+String =6939, win the field 
+String =6940, frustrate the field 
+String =6941, test listening 
+String =6942, the work of the internal affairs that you confirm and want to finish season ? 
+String =6943, the state 
+String =6944, concern 
+String =6945, award wholly 
+String =6946, award automatically 
+String =6947, award automatically 
+String =6948, award to a military officer 
+
+
+; Diplomatic information 
+
+String =6950, national name 
+String =6951, former nationality 
+String =6952, capture the country 
+
+; Battle field 
+String =7000, body 
+String =7001, the skill 
+String =7002, military 
+String =7003, intelligently 
+String =7004, loyal 
+String =7005, the person 
+String =7006, soldier 
+String =7007, soldier 
+String =7008, soldier 
+String =7009, soldier 
+String =7010, soldier 
+
+; Military officer's information in the battle field 
+String =7011, grade   % d\n name   % s\n physical power   % d / skill strength % d / military force intelligence loyal morale soldier , d\n of % , , d\n of % , , d\n of % , , d\n of % , , d\n of % , , d\n of % , count % d 
+
+
+; File interface 
+String =7100, file % 3d 
+String =7101, period: %s 
+String =7102, the degree of difficulty of the game: %s 
+String =7103, note down time: %4d/%2d/%2d-%02d: %02d: %02d 
+String =7104, % 3d annual % 2d monthly % 2d day 
+String =7105, monarch: %s 
+String =7106, build things to count : % 3d military officer counts : %3d 
+String =7107, file automatically 
+String =7108, an edition does not conform 
+String =7109, the damage of the file 
+
+; Supplementary 
+String =7110, unwilling to surrender 
+
+; File interface is 2 
+String =7200, back up promptly 
+String =7201, reserve 
+String =7202, reserve 
+String =7203, reserve 
+String =7204, reserve 
+String =7205, reserve 
+
+; Other 2 
+String =7250, military officer's % d location 
+String =7251, award % d location 
+String =7252, award 
+String =7253, build thing money affiliatedly insufficiently 
+String =7254, the affiliated legion's money is insufficient 
+String =7255, each military officer awards 300 two for five o'clock of loyalty each time 
+
+; //for Yin 
+; Button name 
+String =7300, buy in fast 
+String =7301, buy in fast 
+; Interface title 
+String =7302, buy in fast 
+String =7303, unit price 
+String =7304, traffic to the area 
+String =7305, the consumables 
+String =7306, clear and empty 
+String =7307, % s surplus fund: %d 
+String =7308, % s buys % s 
+String =7309, buy and count : %d 
+String =7310, add military officer's skill 
+String =7311, add the strategist in ancient China skill 
+String =7312, add the formation 
+String =7313, add the arm 
+String =7314, army's materials 
+String =7315, skilled degree 
+String =7316, the experience value at present 
+String =7317, make first class experience value 
+String =7318, enter 
+String =7319, left 
+String =7320, buy the amount of money 
+String =7321, carry the amount of money 
+String =7322, all 
+String =7323, the consumables 
+String =7324, the props 
+String =7325, ride in stand 
+String =7326, the sword 
+String =7327, the fan 
+String =7328, the knife 
+String =7329, the rifle 
+String =7330, bend 
+String =7331, gather the treasure cave-dwelling 
+
+
+String =8000, the grade of articles: 
+String =8001, hostility 
+
+; Supply interface 
+String =8100, the procurator 
+String =8101, army's regimental commander 
+String =8102, team leader 
+String =8103, military officer 
+
+String =8120, the place 
+
+String =8140, the guide look of the map 
+String =8141, show the name 
+String =8142, place inventory 
+String =8143, the city name 
+
+String =8144, money 
+String =8145, prepare a soldier 
+
+String =8146, the source of the supply 
+String =8147, the purpose of the supply 
+
+String =8148, money 
+String =8149, supply money 
+String =8150, prepare a soldier 
+String =8151, supply plan soldier 
+
+String =8152, the reality has the money 
+String =8153, so real as to prepare a soldier 
+String =8154, the biggest supply 
+String =8155, carry out 
+
+String =8160, the map looks at completely 
+
+String =8170, the source 
+String =8171, the purpose 
+
+
+
+
+
+
+
+; //Add by R61 
+; //Under 12000 can't use 

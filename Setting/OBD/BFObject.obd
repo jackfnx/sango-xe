@@ -1,0 +1,123 @@
+#include BFObject.obd
+
+[SYSTEM]
+ShapeDir = D:\Dev-Sango5\GameData\Shape\
+SoundDir = sound
+SpriteDir = D:\Dev-Sango5\GameData\Shape\
+BgPath = \testBG.SHP
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 4194304
+MaxSize = 67108864
+
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+#define SP_EVENT_ACT_WAIT                       0x00000001	//進入待机動作
+#define SP_EVENT_ACT_FADEOUT                    0x00000002	//淡出移除
+#define SP_EVENT_ACT_REMOVE                     0x00000003	//立即移除
+#define SP_EVENT_ACT_ATTACK                     0x00000004	//攻擊
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define BF_CLASS_BFBase                         0x00000002	//BF_CLASS_BFBase
+#define BF_CLASS_BFObject                       0x00000003	//BF_CLASS_BFObject
+#define BF_CLASS_BFHorse                        0x00000004	//BF_CLASS_BFHorse
+#define BF_CLASS_BFWeapon                       0x00000005	//BF_CLASS_BFWeapon
+#define BF_CLASS_BFGeneral                      0x00000006	//BF_CLASS_BFGeneral
+#define BF_CLASS_BFSoldier                      0x00000007	//BF_CLASS_BFSoldier
+#define BF_CLASS_BFMagic                        0x00000008	//BF_CLASS_BFMagic
+#define BF_CLASS_BFSpecial                      0x00000009	//BF_CLASS_BFSpecial
+
+#define SP_ATTRIB_001                           0x00040000	//SP_ATTRIB_001
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//混色
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//加色
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//減色
+#define SP_ATTRIB_OUTLINE                       0x00000010	//外框
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash效果
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke效果
+#define SP_ATTRIB_WATER                         0x00000080	//Water效果
+#define SP_ATTRIB_SINGLE                        0x00000100	//單色
+#define SP_ATTRIB_GLASS                         0x00000200	//玻璃色
+#define SP_ATTRIB_GRAY                          0x00000400	//灰階
+#define SP_ATTRIB_TABLE                         0x00001000	//表格
+#define SP_ATTRIB_BIAS                          0x00002000	//換色
+
+
+[SP_CLASS]
+Name = BF_CLASS_BFBase
+Value = 0x00000002
+Comment = BF_CLASS_BFBase
+
+[SP_CLASS]
+Name = BF_CLASS_BFGeneral
+Value = 0x00000006
+Comment = BF_CLASS_BFGeneral
+
+[SP_CLASS]
+Name = BF_CLASS_BFHorse
+Value = 0x00000004
+Comment = BF_CLASS_BFHorse
+
+[SP_CLASS]
+Name = BF_CLASS_BFMagic
+Value = 0x00000008
+Comment = BF_CLASS_BFMagic
+
+[SP_CLASS]
+Name = BF_CLASS_BFObject
+Value = 0x00000003
+Comment = BF_CLASS_BFObject
+
+[SP_CLASS]
+Name = BF_CLASS_BFSoldier
+Value = 0x00000007
+Comment = BF_CLASS_BFSoldier
+
+[SP_CLASS]
+Name = BF_CLASS_BFSpecial
+Value = 0x00000009
+Comment = BF_CLASS_BFSpecial
+
+[SP_CLASS]
+Name = BF_CLASS_BFWeapon
+Value = 0x00000005
+Comment = BF_CLASS_BFWeapon
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_ATTACK
+Value = 0x00000004
+Comment = 攻擊
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_FADEOUT
+Value = 0x00000002
+Comment = 淡出移除
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_REMOVE
+Value = 0x00000003
+Comment = 立即移除
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_WAIT
+Value = 0x00000001
+Comment = 進入待机動作
+
+
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_001
+Value = 0x00040000
+Comment = SP_ATTRIB_001

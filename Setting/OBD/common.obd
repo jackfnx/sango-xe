@@ -1,0 +1,597 @@
+#include common.obd
+
+[SYSTEM]
+ShapeDir = shape
+SoundDir = sound
+SpriteDir = shape
+BgPath = 
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 131072
+MaxSize = 10485760
+
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+#define SP_EVENT_ACT_WAIT                       0x00000001	//SP_EVENT_ACT_WAIT
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define SP_CLASS_MAPOBJ                         0x00000002	//SP_CLASS_MAPOBJ
+#define SP_CLASS_CHAROBJ                        0x00000102	//SP_CLASS_CHAROBJ
+#define SP_CLASS_HOUSEIN                        0x00000202	//SP_CLASS_HOUSEIN
+#define SP_CLASS_HOUSEOUT                       0x00000302	//SP_CLASS_HOUSEOUT
+
+#define SP_ATTRIB_DISTURB                       0x00020000	//SP_ATTRIB_DISTURB
+#define SP_ATTRIB_ZBUFFER2                      0x00080000	//SP_ATTRIB_ZBUFFER2
+#define SP_ATTRIB_STATIC                        0x00100000	//SP_ATTRIB_STATIC
+#define SP_ATTRIB_HITTEST                       0x00200000	//SP_ATTRIB_HITTEST
+#define SP_ATTRIB_SHADOW                        0x00400000	//SP_ATTRIB_SHADOW
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//混色
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//加色
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//減色
+#define SP_ATTRIB_OUTLINE                       0x00000010	//外框
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash效果
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke效果
+#define SP_ATTRIB_WATER                         0x00000080	//Water效果
+#define SP_ATTRIB_SINGLE                        0x00000100	//單色
+#define SP_ATTRIB_GLASS                         0x00000200	//玻璃色
+#define SP_ATTRIB_GRAY                          0x00000400	//灰階
+#define SP_ATTRIB_TABLE                         0x00001000	//表格
+#define SP_ATTRIB_BIAS                          0x00002000	//換色
+
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+[SP_CLASS]
+Name = SP_CLASS_CHAROBJ
+Value = 0x00000102
+Comment = SP_CLASS_CHAROBJ
+
+[SP_CLASS]
+Name = SP_CLASS_HOUSEIN
+Value = 0x00000202
+Comment = SP_CLASS_HOUSEIN
+
+[SP_CLASS]
+Name = SP_CLASS_HOUSEOUT
+Value = 0x00000302
+Comment = SP_CLASS_HOUSEOUT
+
+[SP_CLASS]
+Name = SP_CLASS_MAPOBJ
+Value = 0x00000002
+Comment = SP_CLASS_MAPOBJ
+
+
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_WAIT
+Value = 0x00000001
+Comment = SP_EVENT_ACT_WAIT
+
+
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_DISTURB
+Value = 0x00020000
+Comment = SP_ATTRIB_DISTURB
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_HITTEST
+Value = 0x00200000
+Comment = SP_ATTRIB_HITTEST
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_SHADOW
+Value = 0x00400000
+Comment = SP_ATTRIB_SHADOW
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_STATIC
+Value = 0x00100000
+Comment = SP_ATTRIB_STATIC
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_ZBUFFER2
+Value = 0x00080000
+Comment = SP_ATTRIB_ZBUFFER2
+
+
+
+[OBJECT]
+Name = NULL
+Sequence = 1
+Space = 0, 0, 0
+Process = SP_CLASS_BASE
+Directory = \
+Sprite = Wait, nullshp
+
+
+[OBJECT]
+Name = 一般游標
+Sequence = 11
+Process = SP_CLASS_BASE
+Directory = \
+Sprite = Wait, test
+
+
+[OBJECT]
+Name = 測試人物
+Sequence = 14
+Space = 25, 80, 0
+Flags = SP_ATTRIB_DISTURB, SP_ATTRIB_HITTEST
+Process = SP_CLASS_CHAROBJ
+Directory = \
+Sprite = Wait, nullshp
+
+
+[OBJECT]
+Name = 測試人物
+Sequence = 15
+Space = 25, 80, 0
+Flags = SP_ATTRIB_DISTURB, SP_ATTRIB_HITTEST
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, p001bfw011*, #8, p001bfw021*, p001bfw031*, p001bfw041*, p001bfw031*, p001bfw021*
+Sprite = Run, p001bfr011*, #7, p001bfr021*, p001bfr031*, p001bfr041*, p001bfr051*, p001bfr061*
+
+
+[OBJECT]
+Name = 測試頭髮
+Sequence = 16
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i002bfw011*, #8, i002bfw021*, i002bfw031*, i002bfw041*, i002bfw031*, i002bfw021*
+Sprite = Run, i002bfr011*, #7, i002bfr021*, i002bfr031*, i002bfr041*, i002bfr051*, i002bfr061*
+
+
+[OBJECT]
+Name = 測試頭盔
+Sequence = 17
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i004bfw011*, #8, i004bfw021*, i004bfw031*, i004bfw041*, i004bfw031*, i004bfw021*
+Sprite = Run, i004bfr011*, #7, i004bfr021*, i004bfr031*, i004bfr041*, i004bfr051*, i004bfr061*
+
+
+[OBJECT]
+Name = 測試上身
+Sequence = 18
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i005bfw011*, #8, i005bfw021*, i005bfw031*, i005bfw041*, i005bfw031*, i005bfw021*
+Sprite = Run, i005bfr011*, #7, i005bfr021*, i005bfr031*, i005bfr041*, i005bfr051*, i005bfr061*
+
+
+[OBJECT]
+Name = 測試手套
+Sequence = 19
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i008bfw011*, #8, i008bfw021*, i008bfw031*, i008bfw041*, i008bfw031*, i008bfw021*
+Sprite = Run, i008bfr011*, #7, i008bfr021*, i008bfr031*, i008bfr041*, i008bfr051*, i008bfr061*
+
+
+[OBJECT]
+Name = 測試下身
+Sequence = 20
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i010bfw011*, #8, i010bfw021*, i010bfw031*, i010bfw041*, i010bfw031*, i010bfw021*
+Sprite = Run, i010bfr011*, #7, i010bfr021*, i010bfr031*, i010bfr041*, i010bfr051*, i010bfr061*
+
+
+[OBJECT]
+Name = 測試腳
+Sequence = 21
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i012bfw011*, #8, i012bfw021*, i012bfw031*, i012bfw041*, i012bfw031*, i012bfw021*
+Sprite = Run, i012bfr011*, #7, i012bfr021*, i012bfr031*, i012bfr041*, i012bfr051*, i012bfr061*
+
+
+[OBJECT]
+Name = 測試背後
+Sequence = 22
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i013bfw011*, #8, i013bfw021*, i013bfw031*, i013bfw041*, i013bfw031*, i013bfw021*
+Sprite = Run, i013bfr011*, #7, i013bfr021*, i013bfr031*, i013bfr041*, i013bfr051*, i013bfr061*
+
+
+[OBJECT]
+Name = 測試背後
+Sequence = 23
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i014bfw011*, #8, i014bfw021*, i014bfw031*, i014bfw041*, i014bfw031*, i014bfw021*
+Sprite = Run, i014bfr011*, #7, i014bfr021*, i014bfr031*, i014bfr041*, i014bfr051*, i014bfr061*
+
+
+[OBJECT]
+Name = 房子1外
+Sequence = 24
+Flags = SP_ATTRIB_SHADOW, SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_HOUSEOUT
+Directory = \test\house\
+Sprite = Wait, 00-006-1U0
+
+
+[OBJECT]
+Name = 房子1內
+Sequence = 25
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_HOUSEIN
+Directory = \test\house\
+Sprite = Wait, 00-006-1N0
+
+
+[OBJECT]
+Name = 房子2外
+Sequence = 26
+Flags = SP_ATTRIB_SHADOW, SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_HOUSEOUT
+Directory = \test\house\
+Sprite = Wait, 00-006-2U0
+
+
+[OBJECT]
+Name = 房子2內
+Sequence = 27
+Flags = SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_HOUSEIN
+Directory = \test\house\
+Sprite = Wait, 00-006-2N0
+
+
+[OBJECT]
+Name = 房子5外
+Sequence = 30
+Flags = SP_ATTRIB_SHADOW, SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_HOUSEOUT
+Directory = \test\house\
+Sprite = Wait, 01-007-1U0
+
+
+[OBJECT]
+Name = 房子5內
+Sequence = 31
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_HOUSEIN
+Directory = \test\house\
+Sprite = Wait, 01-007-1N0
+
+
+[OBJECT]
+Name = 房子6外
+Sequence = 32
+Flags = SP_ATTRIB_SHADOW, SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_HOUSEOUT
+Directory = \test\house\
+Sprite = Wait, 01-008-1U0
+
+
+[OBJECT]
+Name = 房子6內
+Sequence = 33
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_HOUSEIN
+Directory = \test\house\
+Sprite = Wait, 01-008-1N0
+
+
+[OBJECT]
+Name = 測試右手
+Sequence = 34
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i015bfw011*, #8, i015bfw021*, i015bfw031*, i015bfw041*, i015bfw031*, i015bfw021*
+Sprite = Run, i015bfr011*, #7, i015bfr021*, i015bfr031*, i015bfr041*, i015bfr051*, i015bfr061*
+
+
+[OBJECT]
+Name = 測試右手
+Sequence = 35
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i016bfw011*, #8, i016bfw021*, i016bfw031*, i016bfw041*, i016bfw031*, i016bfw021*
+Sprite = Run, i016bfr011*, #7, i016bfr021*, i016bfr031*, i016bfr041*, i016bfr051*, i016bfr061*
+
+
+[OBJECT]
+Name = 測試左手
+Sequence = 36
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i017bfw011*, #8, i017bfw021*, i017bfw031*, i017bfw041*, i017bfw031*, i017bfw021*
+Sprite = Run, i017bfr011*, #7, i017bfr021*, i017bfr031*, i017bfr041*, i017bfr051*, i017bfr061*
+
+
+[OBJECT]
+Name = 測試左手
+Sequence = 37
+Process = SP_CLASS_CHAROBJ
+Directory = \test\
+Sprite = Wait, i019bfw011*, #8, i019bfw021*, i019bfw031*, i019bfw041*, i019bfw031*, i019bfw021*
+Sprite = Run, i019bfr011*, #7, i019bfr021*, i019bfr031*, i019bfr041*, i019bfr051*, i019bfr061*
+
+
+[OBJECT]
+Name = 房子7外
+Sequence = 38
+Flags = SP_ATTRIB_SHADOW, SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_HOUSEOUT
+Directory = \test\house\
+Sprite = Wait, 00-002-1U0
+
+
+[OBJECT]
+Name = test
+Sequence = 39
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Directory = \
+Sprite = Wait, stone
+
+
+[OBJECT]
+Name = 測試座騎人物
+Sequence = 40
+Space = 25, 80, 0
+Flags = SP_ATTRIB_DISTURB, SP_ATTRIB_HITTEST
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, p001brw011*, #12, p001brw021*, p001brw031*, p001brw021*
+Sprite = Run, p001brr011*, #6, p001brr021*, p001brr031*, p001brr041*, p001brr051*, p001brr061*
+Sprite = Att, p001brl011*, #6, p001brl021*, p001brl031*, p001brl041*, p001brl041*, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = 測試座騎頭髮
+Sequence = 41
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i002brw011*, #12, i002brw021*, i002brw031*, i002brw021*
+Sprite = Run, i002brr011*, #6, i002brr021*, i002brr031*, i002brr041*, i002brr051*, i002brr061*
+Sprite = Att, i002bra011*, #6, i002bra021*, i002bra031*, i002bra041*, i002bra041*
+
+
+[OBJECT]
+Name = 測試座騎頭盔
+Sequence = 42
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i004brw011*, #12, i004brw021*, i004brw031*, i004brw021*
+Sprite = Run, i004brr011*, #6, i004brr021*, i004brr031*, i004brr041*, i004brr051*, i004brr061*
+Sprite = Att, i004bra011*, #6, i004bra021*, i004bra031*, i004bra041*, i004bra041*
+
+
+[OBJECT]
+Name = 測試座騎上身
+Sequence = 43
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i005brw011*, #12, i005brw021*, i005brw031*, i005brw021*
+Sprite = Run, i005brr011*, #6, i005brr021*, i005brr031*, i005brr041*, i005brr051*, i005brr061*
+Sprite = Att, i005bra011*, #6, i005bra021*, i005bra031*, i005bra041*, i005bra041*
+
+
+[OBJECT]
+Name = 測試座騎手套
+Sequence = 44
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i008brw011*, #12, i008brw021*, i008brw031*, i008brw021*
+Sprite = Run, i008brr011*, #6, i008brr021*, i008brr031*, i008brr041*, i008brr051*, i008brr061*
+Sprite = Att, i008bra011*, #6, i008bra021*, i008bra031*, i008bra041*, i008bra041*
+
+
+[OBJECT]
+Name = 測試座騎下身
+Sequence = 45
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i010brw011*, #12, i010brw021*, i010brw031*, i010brw021*
+Sprite = Run, i010brr011*, #6, i010brr021*, i010brr031*, i010brr041*, i010brr051*, i010brr061*
+Sprite = Att, i010bra011*, #6, i010bra021*, i010bra031*, i010bra041*, i010bra041*
+
+
+[OBJECT]
+Name = 測試座騎腳
+Sequence = 46
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i012brw011*, #12, i012brw021*, i012brw031*, i012brw021*
+Sprite = Run, i012brr011*, #6, i012brr021*, i012brr031*, i012brr041*, i012brr051*, i012brr061*
+Sprite = Att, i012bra011*, #6, i012bra021*, i012bra031*, i012bra041*, i012bra041*
+
+
+[OBJECT]
+Name = 測試座騎右手
+Sequence = 47
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i015brw011*, #12, i015brw021*, i015brw031*, i015brw021*
+Sprite = Run, i015brr011*, #6, i015brr021*, i015brr031*, i015brr041*, i015brr051*, i015brr061*
+Sprite = Att, i015bra011*, #6, i015bra021*, i015bra031*, i015bra041*, i015bra041*
+
+
+[OBJECT]
+Name = 測試座騎左手
+Sequence = 48
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i019brw011*, #12, i019brw021*, i019brw031*, i019brw021*
+Sprite = Run, i019brr011*, #6, i019brr021*, i019brr031*, i019brr041*, i019brr051*, i019brr061*
+Sprite = Att, i019bra011*, #6, i019bra021*, i019bra031*, i019bra041*, i019bra041*
+
+
+[OBJECT]
+Name = 測試座騎
+Sequence = 49
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, r001brw011*, #12, r001brw021*, r001brw031*, r001brw021*
+Sprite = Run, r001brr011*, #6, r001brr021*, r001brr031*, r001brr041*, r001brr051*, r001brr061*
+Sprite = Att, r001brw011*, #12, r001brw021*, r001brw031*, r001brw021*
+
+
+[OBJECT]
+Name = 測試座騎背後
+Sequence = 50
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, i014brw011*, #12, i014brw021*, i014brw031*, i014brw021*
+Sprite = Run, i014brr011*, #6, i014brr021*, i014brr031*, i014brr041*, i014brr051*, i014brr061*
+Sprite = Att, i014bra011*, #6, i014bra021*, i014bra031*, i014bra041*, i014bra041*
+
+
+[OBJECT]
+Name = 測試座騎
+Sequence = 51
+Process = SP_CLASS_CHAROBJ
+Directory = \test\r\
+Sprite = Wait, r002brw011*, #12, r002brw021*, r002brw031*, r002brw021*
+Sprite = Run, r002brr011*, #6, r002brr021*, r002brr031*, r002brr041*, r002brr051*, r002brr061*
+Sprite = Att, r002brw011*, #12, r002brw021*, r002brw031*, r002brw021*
+
+
+[OBJECT]
+Name = 測試場景物件01
+Sequence = 52
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Directory = \
+Sprite = Wait, 21-006-1U0, #12
+
+
+[OBJECT]
+Name = 測試場景物件02
+Sequence = 53
+Flags = SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_MAPOBJ
+Directory = \
+Sprite = Wait, 21-006-2U0, #12
+
+
+[OBJECT]
+Name = 測試場景物件03
+Sequence = 54
+Flags = SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_MAPOBJ
+Directory = \
+Sprite = Wait, 21-006-3U0, #12
+
+
+[OBJECT]
+Name = 測試場景物件04
+Sequence = 55
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Directory = \
+Sprite = Wait, 21-009-1U0, #12
+
+
+[OBJECT]
+Name = 測試場景物件05
+Sequence = 56
+Flags = SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_MAPOBJ
+Directory = \
+Sprite = Wait, 21-009-2U0, #12
+
+
+[OBJECT]
+Name = 測試場景物件06
+Sequence = 57
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Directory = \
+Sprite = Wait, 21-005-1U0, #12
+
+
+[OBJECT]
+Name = 測試場景物件07
+Sequence = 58
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Directory = \
+Sprite = Wait, 21-005-2U0, #12
+
+
+[OBJECT]
+Name = 房子1外
+Sequence = 59
+Flags = SP_ATTRIB_SHADOW, SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_HOUSEOUT
+Directory = \test\house\
+Sprite = Wait, 01-001-1U0
+
+
+[OBJECT]
+Name = 房子1內
+Sequence = 60
+Flags = SP_ATTRIB_STATIC, SP_ATTRIB_ZBUFFER2
+Process = SP_CLASS_HOUSEIN
+Directory = \test\house\
+Sprite = Wait, 01-001-1N0
+
+
+[OBJECT]
+Name = 物件01
+Sequence = 61
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Sprite = Wait, 01
+
+
+[OBJECT]
+Name = 物件02
+Sequence = 62
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Sprite = Wait, 02
+
+
+[OBJECT]
+Name = 物件03
+Sequence = 63
+Flags = SP_ATTRIB_SHADOW, SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Sprite = Wait, 03
+
+
+[OBJECT]
+Name = 物件04
+Sequence = 64
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Sprite = Wait, 04
+
+
+[OBJECT]
+Name = 北鼻機器人
+Sequence = 65
+Space = 0, 0, 0
+Process = SP_CLASS_CHAROBJ
+Directory = \test\robot
+Sprite = Wait, r001brw011*, #6, r001brw021*, r001brw031*, r001brw021*
+Sprite = Run, r001brr011*, #3, r001brr021*, r001brr031*, r001brr041*
+Sprite = Att, r001bra011*, #6, r001bra021*, r001bra031*, r001bra041*, r001bra041*, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = 物件05
+Sequence = 66
+Flags = SP_ATTRIB_STATIC
+Process = SP_CLASS_MAPOBJ
+Sprite = Wait, 21-007-1U0
+

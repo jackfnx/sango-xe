@@ -1,0 +1,141 @@
+#include font.ini
+
+[DEFINE]
+#define FONT_SHAPE		1
+#define FONT_BITMASK	2
+#define FONT_BITMAP		4
+#define FONT_SYSTEM		8
+#define FONT_BIT4		16
+
+#define CHARSET_BIG5	0
+#define CHARSET_GB		1
+#define CHARSET_SJIS	2
+
+#define FONT_SIZE_01      1
+#define FONT_SIZE_02      2  
+#define FONT_SIZE_03      3  
+#define FONT_SIZE_05      5
+#define FONT_SIZE_DEV     9
+
+#define FONT_SIZE_01_2      11
+#define FONT_SIZE_02_2      12  
+#define FONT_SIZE_03_2      13  
+#define FONT_SIZE_05_2      15
+#define FONT_SIZE_DEV_2     19
+
+#define FONT_SIZE_01_3      21
+#define FONT_SIZE_02_3      22  
+#define FONT_SIZE_03_3      23  
+#define FONT_SIZE_05_3      25
+#define FONT_SIZE_DEV_3     29
+
+[CHARSET]
+CharSet = CHARSET_GB
+
+;=========================================================
+[FONT]
+ID = FONT_SIZE_01
+EnglishFont = font_gb\eng14.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\cht14.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_02
+EnglishFont = font_gb\eng18.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\cht18.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_03
+EnglishFont = font_gb\eng24.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\cht24.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_05
+EnglishFont = font_gb\eng36.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\cht36.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_DEV
+EnglishFont = font_gb\eng08.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\cht08.fnt
+ChineseType = FONT_BIT4
+
+;=========================================================
+[FONT]
+ID = FONT_SIZE_01_2
+EnglishFont = font_gb\2-eng14.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\2-cht14.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_02_2
+EnglishFont = font_gb\2-eng18.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\2-cht18.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_03_2
+EnglishFont = font_gb\2-eng24.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\2-cht24.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_05_2
+EnglishFont = font_gb\2-eng36.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\2-cht36.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_DEV_2
+EnglishFont = font_gb\2-eng08.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\2-cht08.fnt
+ChineseType = FONT_BIT4
+
+;=========================================================
+[FONT]
+ID = FONT_SIZE_01_3
+EnglishFont = font_gb\3-eng14.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\3-cht14.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_02_3
+EnglishFont = font_gb\3-eng18.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\3-cht18.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_03_3
+EnglishFont = font_gb\3-eng24.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\3-cht24.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_05_3
+EnglishFont = font_gb\3-eng36.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\3-cht36.fnt
+ChineseType = FONT_BIT4
+
+[FONT]
+ID = FONT_SIZE_DEV_3
+EnglishFont = font_gb\3-eng08.fnt
+EnglishType = FONT_BIT4
+ChineseFont = font_gb\3-cht08.fnt
+ChineseType = FONT_BIT4

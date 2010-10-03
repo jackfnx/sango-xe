@@ -1,0 +1,4602 @@
+#include SFObject.obd
+
+[SYSTEM]
+ShapeDir = Shape
+SoundDir = sound
+SpriteDir = Shape
+BgPath = \bgtest.shp
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 2097152
+MaxSize = 671088640
+
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+
+#define SP_CLASS_SFCITY                         0x00002002	//カ
+#define SP_CLASS_SFARMY                         0x00002003	//猌盢
+#define SP_CLASS_SFTENT                         0x00002004	//犁眀
+#define SP_CLASS_SFTOWER                        0x00002005	//娥
+#define SP_CLASS_SFHARBOR                       0x00002006	//翠
+#define SP_CLASS_SFBRIDGE                       0x00002007	//爵假
+#define SP_CLASS_SFFORT                         0x00002008	//闽
+#define SP_CLASS_SFOBJECT                       0x00002009	//ン
+#define SP_CLASS_SFCITYCRACK                    0x00002021	//カ瘆穕
+#define SP_CLASS_SFCITYDAMAGE                   0x00002022	//カ穕反
+#define SP_CLASS_SFPATCHa                       0x00002031	//干1
+#define SP_CLASS_SFPATCHb                       0x00002032	//干2
+#define SP_CLASS_SFPATCHc                       0x00002033	//干3
+#define SP_CLASS_SFPATCHd                       0x00002034	//干4
+#define SP_CLASS_SFPATCHe                       0x00002035	//干5
+#define SP_CLASS_SFPATCHf                       0x00002036	//干6
+#define SP_CLASS_SFPATCHg                       0x00002037	//干7
+#define SP_CLASS_SFPATCHh                       0x00002038	//干8
+#define SP_CLASS_SFPATCHi                       0x00002039	//干9
+#define SP_CLASS_SFPATCHj                       0x00002040	//干10
+#define SP_CLASS_SFPATCHk                       0x00002041	//干11
+#define SP_CLASS_SFPATCHl                       0x00002042	//干12
+#define SP_CLASS_SFPATCHn                       0x00002043	//干13
+#define SP_CLASS_SFPATCHm                       0x00002044	//干14
+#define SP_CLASS_SFPATCHo                       0x00002045	//干15
+#define SP_CLASS_SFPATCHp                       0x00002046	//干16
+#define SP_CLASS_SFPATCHq                       0x00002047	//干17
+#define SP_CLASS_SFPATCHr                       0x00002048	//干18
+#define SP_CLASS_SFFORTCRACK                    0x00002081	//闽瘆穕
+#define SP_CLASS_SFFORTDAMAGE                   0x00002082	//闽穕反
+#define SP_CLASS_SFCAVE                         0x00002091	//瑌マ
+#define SP_CLASS_RoadBlock                      0x00002092  // 隔毁
+#define SP_CLASS_SFVillage                      0x000020A0  // 闺
+#define SP_CLASS_SFExpCave                      0x000020B0  // 絤瑌
+#define SP_CLASS_SFPOSTPATCH                    0x000020C0  // ㄆ干
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//睼︹
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//︹
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//搭︹
+#define SP_ATTRIB_OUTLINE                       0x00000010	//
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash狦
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke狦
+#define SP_ATTRIB_WATER                         0x00000080	//Water狦
+#define SP_ATTRIB_SINGLE                        0x00000100	//虫︹
+#define SP_ATTRIB_GLASS                         0x00000200	//件︹
+#define SP_ATTRIB_GRAY                          0x00000400	//η顶
+#define SP_ATTRIB_TABLE                         0x00001000	//
+#define SP_ATTRIB_BIAS                          0x00002000	//传︹
+
+
+[SP_CLASS]
+Name = SP_CLASS_SFARMY
+Value = 0x00002003
+Comment = 猌盢
+
+[SP_CLASS]
+Name = SP_CLASS_SFBRIDGE
+Value = 0x00002007
+Comment = 爵假
+
+[SP_CLASS]
+Name = SP_CLASS_SFCITY
+Value = 0x00002002
+Comment = カ
+
+[SP_CLASS]
+Name = SP_CLASS_SFCITYCRACK
+Value = 0x00002021
+Comment = カ瘆穕
+
+[SP_CLASS]
+Name = SP_CLASS_SFCITYDAMAGE
+Value = 0x00002022
+Comment = カ穕反
+
+[SP_CLASS]
+Name = SP_CLASS_SFFORT
+Value = 0x00002008
+Comment = 闽
+
+[SP_CLASS]
+Name = SP_CLASS_SFFORTCRACK
+Value = 0x00002081
+Comment = 闽瘆穕
+
+[SP_CLASS]
+Name = SP_CLASS_SFFORTDAMAGE
+Value = 0x00002082
+Comment = 闽穕反
+
+[SP_CLASS]
+Name = SP_CLASS_SFHARBOR
+Value = 0x00002006
+Comment = 翠
+
+[SP_CLASS]
+Name = SP_CLASS_SFOBJECT
+Value = 0x00002009
+Comment = ン
+
+[SP_CLASS]
+Name = SP_CLASS_SFCAVE
+Value = 0x00002091
+Comment = 瑌マ
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHa
+Value = 0x00002031
+Comment = 干1
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHb
+Value = 0x00002032
+Comment = 干2
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHc
+Value = 0x00002033
+Comment = 干3
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHd
+Value = 0x00002034
+Comment = 干4
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHe
+Value = 0x00002035
+Comment = 干5
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHf
+Value = 0x00002036
+Comment = 干6
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHg
+Value = 0x00002037
+Comment = 干7
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHh
+Value = 0x00002038
+Comment = 干8
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHi
+Value = 0x00002039
+Comment = 干9
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHj
+Value = 0x00002040
+Comment = 干10
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHk
+Value = 0x00002041
+Comment = 干11
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHl
+Value = 0x00002042
+Comment = 干12
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHm
+Value = 0x00002044
+Comment = 干14
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHn
+Value = 0x00002043
+Comment = 干13
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHo
+Value = 0x00002045
+Comment = 干15
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHp
+Value = 0x00002046
+Comment = 干16
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHq
+Value = 0x00002047
+Comment = 干17
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCHr
+Value = 0x00002048
+Comment = 干18
+
+;[SP_CLASS]
+;Name = SP_CLASS_SFTENT
+;Value = 0x00002004
+;Comment = 犁眀
+
+[SP_CLASS]
+Name = SP_CLASS_SFTOWER
+Value = 0x00002005
+Comment = 娥
+
+[SP_CLASS]
+Name = SP_CLASS_SFVillage
+Value = 0x000020A0
+Comment = 闺
+
+[SP_CLASS]
+Name = SP_CLASS_SFExpCave
+Value = 0x000020B0
+Comment = 絤瑌
+
+[SP_CLASS]
+Name = SP_CLASS_SFPATCH
+Value = 0x000020C0
+Comment = ㄆ干
+
+
+
+
+
+[OBJECT]
+Name = CH(鲤)
+Sequence = 12000
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-01
+
+
+[OBJECT]
+Name = CH(鲤い)
+Sequence = 12001
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-02
+
+
+[OBJECT]
+Name = CH(鲤)
+Sequence = 12002
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-03
+
+
+[OBJECT]
+Name = CHい(鲤)
+Sequence = 12010
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-04
+
+
+[OBJECT]
+Name = CHい(鲤い)
+Sequence = 12011
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-05
+
+
+[OBJECT]
+Name = CHい(鲤)
+Sequence = 12012
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-06
+
+
+[OBJECT]
+Name = CH(鲤)
+Sequence = 12020
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-07
+
+
+[OBJECT]
+Name = CH(鲤い)
+Sequence = 12021
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-08
+
+
+[OBJECT]
+Name = CH(鲤)
+Sequence = 12022
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, CHcity-09
+
+
+[OBJECT]
+Name = JP(鲤)
+Sequence = 12030
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-01
+
+
+[OBJECT]
+Name = JP(鲤い)
+Sequence = 12031
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-02
+
+
+[OBJECT]
+Name = JP(鲤)
+Sequence = 12032
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-03
+
+
+[OBJECT]
+Name = JPい(鲤)
+Sequence = 12040
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-04
+
+
+[OBJECT]
+Name = JPい(鲤い)
+Sequence = 12041
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-05
+
+
+[OBJECT]
+Name = JPい(鲤)
+Sequence = 12042
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-06
+
+
+[OBJECT]
+Name = JP(鲤)
+Sequence = 12050
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-07
+
+
+[OBJECT]
+Name = JP(鲤い)
+Sequence = 12051
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-08
+
+
+[OBJECT]
+Name = JP(鲤)
+Sequence = 12052
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\City
+Sprite = Wait, JPcity-09
+
+
+[OBJECT]
+Name = CH瘆穕(鲤)
+Sequence = 12100
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-01
+
+
+[OBJECT]
+Name = CH瘆穕(鲤い)
+Sequence = 12101
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-02
+
+
+[OBJECT]
+Name = CH瘆穕(鲤)
+Sequence = 12102
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-03
+
+
+[OBJECT]
+Name = CHい瘆穕(鲤)
+Sequence = 12110
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-04
+
+
+[OBJECT]
+Name = CHい瘆穕(鲤い)
+Sequence = 12111
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-05
+
+
+[OBJECT]
+Name = CHい瘆穕(鲤)
+Sequence = 12112
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-06
+
+
+[OBJECT]
+Name = CH瘆穕(鲤)
+Sequence = 12120
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-07
+
+
+[OBJECT]
+Name = CH瘆穕(鲤い)
+Sequence = 12121
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-08
+
+
+[OBJECT]
+Name = CH瘆穕(鲤)
+Sequence = 12122
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, CHcity-09
+
+
+[OBJECT]
+Name = JP瘆穕(鲤)
+Sequence = 12130
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-01
+
+
+[OBJECT]
+Name = JP瘆穕(鲤い)
+Sequence = 12131
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-02
+
+
+[OBJECT]
+Name = JP瘆穕(鲤)
+Sequence = 12132
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-03
+
+
+[OBJECT]
+Name = JPい瘆穕(鲤)
+Sequence = 12140
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-04
+
+
+[OBJECT]
+Name = JPい瘆穕(鲤い)
+Sequence = 12141
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-05
+
+
+[OBJECT]
+Name = JPい瘆穕(鲤)
+Sequence = 12142
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-06
+
+
+[OBJECT]
+Name = JP瘆穕(鲤)
+Sequence = 12150
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-07
+
+
+[OBJECT]
+Name = JP瘆穕(鲤い)
+Sequence = 12151
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-08
+
+
+[OBJECT]
+Name = JP瘆穕(鲤)
+Sequence = 12152
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYCRACK
+Directory = \SF\City-Crack
+Sprite = Wait, JPcity-09
+
+
+[OBJECT]
+Name = CH穕反(鲤)
+Sequence = 12200
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-01
+
+
+[OBJECT]
+Name = CH穕反(鲤い)
+Sequence = 12201
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-02
+
+
+[OBJECT]
+Name = CH穕反(鲤)
+Sequence = 12202
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-03
+
+
+[OBJECT]
+Name = CHい穕反(鲤)
+Sequence = 12210
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-04
+
+
+[OBJECT]
+Name = CHい穕反(鲤い)
+Sequence = 12211
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-05
+
+
+[OBJECT]
+Name = CHい穕反(鲤)
+Sequence = 12212
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-06
+
+
+[OBJECT]
+Name = CH穕反(鲤)
+Sequence = 12220
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-07
+
+
+[OBJECT]
+Name = CH穕反(鲤い)
+Sequence = 12221
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-08
+
+
+[OBJECT]
+Name = CH穕反(鲤)
+Sequence = 12222
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, CHcity-09
+
+
+[OBJECT]
+Name = JP穕反(鲤)
+Sequence = 12230
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-01
+
+
+[OBJECT]
+Name = JP穕反(鲤い)
+Sequence = 12231
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-02
+
+
+[OBJECT]
+Name = JP穕反(鲤)
+Sequence = 12232
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-03
+
+
+[OBJECT]
+Name = JPい穕反(鲤)
+Sequence = 12240
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-04
+
+
+[OBJECT]
+Name = JPい穕反(鲤い)
+Sequence = 12241
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-05
+
+
+[OBJECT]
+Name = JPい穕反(鲤)
+Sequence = 12242
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-06
+
+
+[OBJECT]
+Name = JP穕反(鲤)
+Sequence = 12250
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-07
+
+
+[OBJECT]
+Name = JP穕反(鲤い)
+Sequence = 12251
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-08
+
+
+[OBJECT]
+Name = JP穕反(鲤)
+Sequence = 12252
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITYDAMAGE
+Directory = \SF\City-Damage
+Sprite = Wait, JPcity-09
+
+
+[OBJECT]
+Name = 猌盢
+Sequence = 13000
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SF\Gen\001
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = 簙壁犁眀
+Sequence = 14001
+Space = 0, 0, 0
+Process = SP_CLASS_SFTENT
+Directory = \sf\tent
+Sprite = Wait, Tent-01
+
+
+[OBJECT]
+Name = 芞壁犁眀
+Sequence = 14002
+Space = 0, 0, 0
+Process = SP_CLASS_SFTENT
+Directory = \sf\tent
+Sprite = Wait, Tent-02
+
+
+[OBJECT]
+Name = ィ犁眀
+Sequence = 14003
+Space = 0, 0, 0
+Process = SP_CLASS_SFTENT
+Directory = \sf\tent
+Sprite = Wait, Tent-03
+
+
+[OBJECT]
+Name = 盕犁眀
+Sequence = 14004
+Space = 0, 0, 0
+Process = SP_CLASS_SFTENT
+Directory = \sf\tent
+Sprite = Wait, Tent-04
+
+
+[OBJECT]
+Name = ホ窸
+Sequence = 14101
+Space = 0, 0, 0
+Process = SP_CLASS_SFOBJECT
+Directory = \SF\Object
+Sprite = Wait, tombstone
+
+
+[OBJECT]
+Name = 猠-↖差01
+Sequence = 14201
+Space = 0, 0, 0
+Process = SP_CLASS_SFOBJECT
+Directory = \SF\Object
+Sprite = Wait, boat-r-01
+
+
+[OBJECT]
+Name = 猠-↖差02
+Sequence = 14202
+Space = 0, 0, 0
+Process = SP_CLASS_SFOBJECT
+Directory = \SF\Object
+Sprite = Wait, boat-r-02
+
+
+[OBJECT]
+Name = -↖差01
+Sequence = 14203
+Space = 0, 0, 0
+Process = SP_CLASS_SFOBJECT
+Directory = \SF\Object
+Sprite = Wait, boat-s-01
+
+
+[OBJECT]
+Name = -↖差02
+Sequence = 14204
+Space = 0, 0, 0
+Process = SP_CLASS_SFOBJECT
+Directory = \SF\Object
+Sprite = Wait, boat-s-01
+
+
+[OBJECT]
+Name = 獵纒娥
+Sequence = 15201
+Space = 0, 0, 0
+Process = SP_CLASS_SFTOWER
+Directory = \SF\Tower
+Sprite = Wait, tower-01
+
+
+[OBJECT]
+Name = ト猌娥
+Sequence = 15202
+Space = 0, 0, 0
+Process = SP_CLASS_SFTOWER
+Directory = \SF\Tower
+Sprite = Wait, tower-02
+
+
+[OBJECT]
+Name = フ娥
+Sequence = 15203
+Space = 0, 0, 0
+Process = SP_CLASS_SFTOWER
+Directory = \SF\Tower
+Sprite = Wait, tower-03
+
+
+[OBJECT]
+Name = Χ扯娥
+Sequence = 15204
+Space = 0, 0, 0
+Process = SP_CLASS_SFTOWER
+Directory = \SF\Tower
+Sprite = Wait, tower-04
+
+
+[OBJECT]
+Name = 腝棚娥
+Sequence = 15205
+Space = 0, 0, 0
+Process = SP_CLASS_SFTOWER
+Directory = \SF\Tower
+Sprite = Wait, tower-05
+
+
+[OBJECT]
+Name = 硄ぱぇ娥
+Sequence = 15206
+Space = 0, 0, 0
+Process = SP_CLASS_SFTOWER
+Directory = \SF\Tower
+Sprite = Wait, tower-06
+
+
+[OBJECT]
+Name = 窾描繻
+Sequence = 15207
+Space = 0, 0, 0
+Process = SP_CLASS_SFTOWER
+Directory = \SF\Tower
+Sprite = Wait, mirror
+
+
+[OBJECT]
+Name = 瞨瑌-3.10
+Sequence = 15300
+Space = 0, 0, 0
+Process = SP_CLASS_SFCAVE
+Directory = \SF\Cave
+Sprite = Wait, tmpX02Y09
+
+
+[OBJECT]
+Name = 方秏-4.12
+Sequence = 15301
+Space = 0, 0, 0
+Process = SP_CLASS_SFCAVE
+Directory = \SF\Cave
+Sprite = Wait, tmpX03Y11
+
+
+[OBJECT]
+Name = 脋瑌-6.08
+Sequence = 15302
+Space = 0, 0, 0
+Process = SP_CLASS_SFCAVE
+Directory = \SF\Cave
+Sprite = Wait, tmpX05Y07
+
+
+[OBJECT]
+Name = 縑-6.13
+Sequence = 15303
+Space = 0, 0, 0
+Process = SP_CLASS_SFCAVE
+Directory = \SF\Cave
+Sprite = Wait, tmpX05Y12
+
+
+[OBJECT]
+Name = 撤-12.1
+Sequence = 15304
+Space = 0, 0, 0
+Process = SP_CLASS_SFCAVE
+Directory = \SF\Cave
+Sprite = Wait, tmpX11Y00
+
+
+[OBJECT]
+Name = 瑄ぇ瞁-13.5
+Sequence = 15305
+Space = 0, 0, 0
+Process = SP_CLASS_SFCAVE
+Directory = \SF\Cave
+Sprite = Wait, tmpX12Y04
+
+
+[OBJECT]
+Name = 瑌-14.7
+Sequence = 15306
+Space = 0, 0, 0
+Process = SP_CLASS_SFCAVE
+Directory = \SF\Cave
+Sprite = Wait, tmpX13Y06
+
+
+[OBJECT]
+Name = 瑀纒兼-15.10
+Sequence = 15307
+Space = 0, 0, 0
+Process = SP_CLASS_SFCAVE
+Directory = \SF\Cave
+Sprite = Wait, tmpX14Y09
+
+
+[OBJECT]
+Name = 而ヅм
+Sequence = 15999
+Space = 0, 0, 0
+Process = SP_CLASS_SFCITY
+Directory = \SF\Object
+Sprite = Wait, 06com
+
+
+[OBJECT]
+Name = 翠-01
+Sequence = 16001
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor01-01
+
+
+[OBJECT]
+Name = 翠-02
+Sequence = 16002
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor01-02
+
+
+[OBJECT]
+Name = 翠-03
+Sequence = 16003
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor01-03
+
+
+[OBJECT]
+Name = 翠-04
+Sequence = 16004
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor01-04
+
+
+[OBJECT]
+Name = 翠-05
+Sequence = 16005
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor01-05
+
+
+[OBJECT]
+Name = 翠-06
+Sequence = 16006
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor01-06
+
+
+[OBJECT]
+Name = 翠-07
+Sequence = 16007
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor01-07
+
+
+[OBJECT]
+Name = 翠-08
+Sequence = 16008
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor01-08
+
+
+[OBJECT]
+Name = い翠-01
+Sequence = 16011
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor02-01
+
+
+[OBJECT]
+Name = い翠-02
+Sequence = 16012
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor02-02
+
+
+[OBJECT]
+Name = い翠-03
+Sequence = 16013
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor02-03
+
+
+[OBJECT]
+Name = い翠-04
+Sequence = 16014
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor02-04
+
+
+[OBJECT]
+Name = い翠-05
+Sequence = 16015
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor02-05
+
+
+[OBJECT]
+Name = い翠-06
+Sequence = 16016
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor02-06
+
+
+[OBJECT]
+Name = い翠-07
+Sequence = 16017
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor02-07
+
+
+[OBJECT]
+Name = い翠-08
+Sequence = 16018
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor02-08
+
+
+[OBJECT]
+Name = 翠-01
+Sequence = 16021
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor03-01
+
+
+[OBJECT]
+Name = 翠-02
+Sequence = 16022
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor03-02
+
+
+[OBJECT]
+Name = 翠-03
+Sequence = 16023
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor03-03
+
+
+[OBJECT]
+Name = 翠-04
+Sequence = 16024
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor03-04
+
+
+[OBJECT]
+Name = 翠-05
+Sequence = 16025
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor03-05
+
+
+[OBJECT]
+Name = 翠-06
+Sequence = 16026
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor03-06
+
+
+[OBJECT]
+Name = 翠-07
+Sequence = 16027
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor03-07
+
+
+[OBJECT]
+Name = 翠-08
+Sequence = 16028
+Space = 0, 0, 0
+Process = SP_CLASS_SFHARBOR
+Directory = \sf\harbor
+Sprite = Wait, harbor03-08
+
+
+; 瓜毁锚
+[OBJECT]
+Name = 爵假-01
+Sequence = 17001
+Space = 0, 0, 0
+Process = SP_CLASS_SFBRIDGE
+Directory = \sf\bridge
+Sprite = Wait, nullBridge
+Sprite = Break, Bridge-01B
+
+
+[OBJECT]
+Name = 爵假-02
+Sequence = 17002
+Space = 0, 0, 0
+Process = SP_CLASS_SFBRIDGE
+Directory = \sf\bridge
+Sprite = Wait, nullBridge
+Sprite = Break, Bridge-02B
+
+
+[OBJECT]
+Name = 爵假-03
+Sequence = 17003
+Space = 0, 0, 0
+Process = SP_CLASS_SFBRIDGE
+Directory = \sf\bridge
+Sprite = Wait, nullBridge
+Sprite = Break, Bridge-03B
+
+[OBJECT]
+Name = 铭01
+Sequence = 17100
+Space = 0, 0, 0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = SP_CLASS_RoadBlock
+Directory = \SF\RoadBlock\Fog01
+Sprite = Wait, Fog0001, #10, Fog0002, Fog0003, Fog0004, Fog0005, Fog0006, Fog0007, Fog0008, Fog0009, Fog0010, Fog0011, Fog0012
+
+
+[OBJECT]
+Name = 铭02
+Sequence = 17101
+Space = 0, 0, 0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = SP_CLASS_RoadBlock
+Directory = \SF\RoadBlock\Fog02
+Sprite = Wait, Fog0001, #10, Fog0002, Fog0003, Fog0004, Fog0005, Fog0006, Fog0007, Fog0008, Fog0009, Fog0010, Fog0011, Fog0012
+
+[OBJECT]
+Name = 铭03
+Sequence = 17102
+Space = 0, 0, 0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = SP_CLASS_RoadBlock
+Directory = \SF\RoadBlock\Fog03
+Sprite = Wait, Fog0001, #10, Fog0002, Fog0003, Fog0004, Fog0005, Fog0006, Fog0007, Fog0008, Fog0009, Fog0010, Fog0011, Fog0012
+
+[OBJECT]
+Name = 铭04
+Sequence = 17103
+Space = 0, 0, 0
+Flags = SP_ATTRIB_DARKLIGHT
+Process = SP_CLASS_RoadBlock
+Directory = \SF\RoadBlock\Fog04
+Sprite = Wait, Fog0001, #10, Fog0002, Fog0003, Fog0004, Fog0005, Fog0006, Fog0007, Fog0008, Fog0009, Fog0010, Fog0011, Fog0012
+
+
+[OBJECT]
+Name = 簘箇称ゼ﹚
+Sequence = 17104
+Space = 0, 0, 0
+Process = SP_CLASS_RoadBlock
+Directory = \sf\RoadBlock
+Sprite = Wait, obj0006.SHP
+
+
+; 闽
+[OBJECT]
+Name = 娩闽(オ)
+Sequence = 18001
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-01
+
+
+[OBJECT]
+Name = 娩闽()
+Sequence = 18002
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-02
+
+
+[OBJECT]
+Name = 娩闽()
+Sequence = 18003
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-03
+
+
+[OBJECT]
+Name = い娩闽(オ)
+Sequence = 18004
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-04
+
+
+[OBJECT]
+Name = い娩闽()
+Sequence = 18005
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-05
+
+
+[OBJECT]
+Name = い娩闽()
+Sequence = 18006
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-06
+
+
+[OBJECT]
+Name = 娩闽(オ)
+Sequence = 18007
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-07
+
+
+[OBJECT]
+Name = 娩闽()
+Sequence = 18008
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-08
+
+
+[OBJECT]
+Name = 娩闽()
+Sequence = 18009
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-09
+
+
+[OBJECT]
+Name = 娩闽()
+Sequence = 18010
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-10
+
+
+[OBJECT]
+Name = い娩闽()
+Sequence = 18011
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-11
+
+
+[OBJECT]
+Name = 娩闽()
+Sequence = 18012
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-12
+
+
+[OBJECT]
+Name = 娩闽(撤)
+Sequence = 18013
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-13
+
+
+[OBJECT]
+Name = い娩闽(撤)
+Sequence = 18014
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-14
+
+
+[OBJECT]
+Name = 娩闽(撤)
+Sequence = 18015
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORT
+Directory = \sf\fort
+Sprite = Wait, Fort-15
+
+
+[OBJECT]
+Name = 娩闽瘆穕
+Sequence = 18101
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-01
+
+
+[OBJECT]
+Name = 娩闽瘆穕
+Sequence = 18102
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-02
+
+
+[OBJECT]
+Name = 娩闽瘆穕
+Sequence = 18103
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-03
+
+
+[OBJECT]
+Name = い娩闽瘆穕
+Sequence = 18104
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-04
+
+
+[OBJECT]
+Name = い娩闽瘆穕
+Sequence = 18105
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-05
+
+
+[OBJECT]
+Name = い娩闽瘆穕
+Sequence = 18106
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-06
+
+
+[OBJECT]
+Name = 娩闽瘆穕
+Sequence = 18107
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-07
+
+
+[OBJECT]
+Name = 娩闽瘆穕
+Sequence = 18108
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-08
+
+
+[OBJECT]
+Name = 娩闽瘆穕
+Sequence = 18109
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-09
+
+
+[OBJECT]
+Name = 娩闽瘆穕()
+Sequence = 18110
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-10
+
+
+[OBJECT]
+Name = い娩闽瘆穕()
+Sequence = 18111
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-11
+
+
+[OBJECT]
+Name = 娩闽瘆穕()
+Sequence = 18112
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-12
+
+
+[OBJECT]
+Name = 娩闽瘆穕(撤)
+Sequence = 18113
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-13
+
+
+[OBJECT]
+Name = い娩闽瘆穕(撤)
+Sequence = 18114
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-14
+
+
+[OBJECT]
+Name = 娩闽瘆穕(撤)
+Sequence = 18115
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTCRACK
+Directory = \sf\Fort-Crack
+Sprite = Wait, Fort-15
+
+
+[OBJECT]
+Name = 娩闽穕反
+Sequence = 18201
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-01
+
+
+[OBJECT]
+Name = 娩闽穕反
+Sequence = 18202
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-02
+
+
+[OBJECT]
+Name = 娩闽穕反
+Sequence = 18203
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-03
+
+
+[OBJECT]
+Name = い娩闽穕反
+Sequence = 18204
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-04
+
+
+[OBJECT]
+Name = い娩闽穕反
+Sequence = 18205
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-05
+
+
+[OBJECT]
+Name = い娩闽穕反
+Sequence = 18206
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-06
+
+
+[OBJECT]
+Name = 娩闽穕反
+Sequence = 18207
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-07
+
+
+[OBJECT]
+Name = 娩闽穕反
+Sequence = 18208
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-08
+
+
+[OBJECT]
+Name = 娩闽穕反
+Sequence = 18209
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-09
+
+
+[OBJECT]
+Name = 娩闽穕反()
+Sequence = 18210
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-10
+
+
+[OBJECT]
+Name = い娩闽穕反()
+Sequence = 18211
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-11
+
+
+[OBJECT]
+Name = 娩闽穕反()
+Sequence = 18212
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-12
+
+
+[OBJECT]
+Name = 娩闽穕反(撤)
+Sequence = 18213
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-13
+
+
+[OBJECT]
+Name = い娩闽穕反(撤)
+Sequence = 18214
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-14
+
+
+[OBJECT]
+Name = 娩闽穕反 (撤)
+Sequence = 18215
+Space = 0, 0, 0
+Process = SP_CLASS_SFFORTDAMAGE
+Directory = \sf\Fort-Damage
+Sprite = Wait, Fort-15
+
+
+[OBJECT]
+Name = 干-1-1
+Sequence = 19001
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y00
+
+
+[OBJECT]
+Name = 干-1-2
+Sequence = 19002
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y01
+
+
+[OBJECT]
+Name = 干-1-3
+Sequence = 19003
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y02
+
+
+[OBJECT]
+Name = 干-1-4
+Sequence = 19004
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y03
+
+
+[OBJECT]
+Name = 干-1-5
+Sequence = 19005
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y04
+
+
+[OBJECT]
+Name = 干-1-6
+Sequence = 19006
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y05
+
+
+[OBJECT]
+Name = 干-1-7
+Sequence = 19007
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y06
+
+
+[OBJECT]
+Name = 干-1-8
+Sequence = 19008
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y07
+
+
+[OBJECT]
+Name = 干-1-9
+Sequence = 19009
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y08
+
+
+[OBJECT]
+Name = 干-1-10
+Sequence = 19010
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y09
+
+
+[OBJECT]
+Name = 干-1-11
+Sequence = 19011
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y10
+
+
+[OBJECT]
+Name = 干-1-12
+Sequence = 19012
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y11
+
+
+[OBJECT]
+Name = 干-1-13
+Sequence = 19013
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y12
+
+
+[OBJECT]
+Name = 干-1-14
+Sequence = 19014
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y13
+
+
+[OBJECT]
+Name = 干-1-15
+Sequence = 19015
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y14
+
+
+[OBJECT]
+Name = 干-1-16
+Sequence = 19016
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y15
+
+
+[OBJECT]
+Name = 干-1-17
+Sequence = 19017
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHa
+Directory = \SF\Patch-x00
+Sprite = Wait, tmpX00Y16
+
+
+[OBJECT]
+Name = 干-2-1
+Sequence = 19018
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y00
+
+
+[OBJECT]
+Name = 干-2-2
+Sequence = 19019
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y01
+
+
+[OBJECT]
+Name = 干-2-3
+Sequence = 19020
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y02
+
+
+[OBJECT]
+Name = 干-2-4
+Sequence = 19021
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y03
+
+
+[OBJECT]
+Name = 干-2-5
+Sequence = 19022
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y04
+
+
+[OBJECT]
+Name = 干-2-6
+Sequence = 19023
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y05
+
+
+[OBJECT]
+Name = 干-2-7
+Sequence = 19024
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y06
+
+
+[OBJECT]
+Name = 干-2-8
+Sequence = 19025
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y07
+
+
+[OBJECT]
+Name = 干-2-9
+Sequence = 19026
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y08
+
+
+[OBJECT]
+Name = 干-2-10
+Sequence = 19027
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y09
+
+
+[OBJECT]
+Name = 干-2-11
+Sequence = 19028
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y10
+
+
+[OBJECT]
+Name = 干-2-12
+Sequence = 19029
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y11
+
+
+[OBJECT]
+Name = 干-2-13
+Sequence = 19030
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y12
+
+
+[OBJECT]
+Name = 干-2-14
+Sequence = 19031
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y13
+
+
+[OBJECT]
+Name = 干-2-15
+Sequence = 19032
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y14
+
+
+[OBJECT]
+Name = 干-2-16
+Sequence = 19033
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y15
+
+
+[OBJECT]
+Name = 干-2-17
+Sequence = 19034
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHb
+Directory = \SF\Patch-x01
+Sprite = Wait, tmpX01Y16
+
+
+[OBJECT]
+Name = 干-3-1
+Sequence = 19035
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y00
+
+
+[OBJECT]
+Name = 干-3-2
+Sequence = 19036
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y01
+
+
+[OBJECT]
+Name = 干-3-3
+Sequence = 19037
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y02
+
+
+[OBJECT]
+Name = 干-3-4
+Sequence = 19038
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y03
+
+
+[OBJECT]
+Name = 干-3-5
+Sequence = 19039
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y04
+
+
+[OBJECT]
+Name = 干-3-6
+Sequence = 19040
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y05
+
+
+[OBJECT]
+Name = 干-3-7
+Sequence = 19041
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y06
+
+
+[OBJECT]
+Name = 干-3-8
+Sequence = 19042
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y07
+
+
+[OBJECT]
+Name = 干-3-9
+Sequence = 19043
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y08
+
+
+[OBJECT]
+Name = 干-3-10
+Sequence = 19044
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y09
+
+
+[OBJECT]
+Name = 干-3-11
+Sequence = 19045
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y10
+
+
+[OBJECT]
+Name = 干-3-12
+Sequence = 19046
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y11
+
+
+[OBJECT]
+Name = 干-3-13
+Sequence = 19047
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y12
+
+
+[OBJECT]
+Name = 干-3-14
+Sequence = 19048
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y13
+
+
+[OBJECT]
+Name = 干-3-15
+Sequence = 19049
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y14
+
+
+[OBJECT]
+Name = 干-3-16
+Sequence = 19050
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y15
+
+
+[OBJECT]
+Name = 干-3-17
+Sequence = 19051
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHc
+Directory = \SF\Patch-x02
+Sprite = Wait, tmpX02Y16
+
+
+[OBJECT]
+Name = 干-4-1
+Sequence = 19052
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y00
+
+
+[OBJECT]
+Name = 干-4-2
+Sequence = 19053
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y01
+
+
+[OBJECT]
+Name = 干-4-3
+Sequence = 19054
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y02
+
+
+[OBJECT]
+Name = 干-4-4
+Sequence = 19055
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y03
+
+
+[OBJECT]
+Name = 干-4-5
+Sequence = 19056
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y04
+
+
+[OBJECT]
+Name = 干-4-6
+Sequence = 19057
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y05
+
+
+[OBJECT]
+Name = 干-4-7
+Sequence = 19058
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y06
+
+
+[OBJECT]
+Name = 干-4-8
+Sequence = 19059
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y07
+
+
+[OBJECT]
+Name = 干-4-9
+Sequence = 19060
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y08
+
+
+[OBJECT]
+Name = 干-4-10
+Sequence = 19061
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y09
+
+
+[OBJECT]
+Name = 干-4-11
+Sequence = 19062
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y10
+
+
+[OBJECT]
+Name = 干-4-12
+Sequence = 19063
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y11
+
+
+[OBJECT]
+Name = 干-4-13
+Sequence = 19064
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y12
+
+
+[OBJECT]
+Name = 干-4-14
+Sequence = 19065
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y13
+
+
+[OBJECT]
+Name = 干-4-15
+Sequence = 19066
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y14
+
+
+[OBJECT]
+Name = 干-4-16
+Sequence = 19067
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y15
+
+
+[OBJECT]
+Name = 干-4-17
+Sequence = 19068
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHd
+Directory = \SF\Patch-x03
+Sprite = Wait, tmpX03Y16
+
+
+[OBJECT]
+Name = 干-5-1
+Sequence = 19069
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y00
+
+
+[OBJECT]
+Name = 干-5-2
+Sequence = 19070
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y01
+
+
+[OBJECT]
+Name = 干-5-3
+Sequence = 19071
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y02
+
+
+[OBJECT]
+Name = 干-5-4
+Sequence = 19072
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y03
+
+
+[OBJECT]
+Name = 干-5-5
+Sequence = 19073
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y04
+
+
+[OBJECT]
+Name = 干-5-6
+Sequence = 19074
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y05
+
+
+[OBJECT]
+Name = 干-5-7
+Sequence = 19075
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y06
+
+
+[OBJECT]
+Name = 干-5-8
+Sequence = 19076
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y07
+
+
+[OBJECT]
+Name = 干-5-9
+Sequence = 19077
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y08
+
+
+[OBJECT]
+Name = 干-5-10
+Sequence = 19078
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y09
+
+
+[OBJECT]
+Name = 干-5-11
+Sequence = 19079
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y10
+
+
+[OBJECT]
+Name = 干-5-12
+Sequence = 19080
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y11
+
+
+[OBJECT]
+Name = 干-5-13
+Sequence = 19081
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y12
+
+
+[OBJECT]
+Name = 干-5-14
+Sequence = 19082
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y13
+
+
+[OBJECT]
+Name = 干-5-15
+Sequence = 19083
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y14
+
+
+[OBJECT]
+Name = 干-5-16
+Sequence = 19084
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y15
+
+
+[OBJECT]
+Name = 干-5-17
+Sequence = 19085
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHe
+Directory = \SF\Patch-x04
+Sprite = Wait, tmpX04Y16
+
+
+[OBJECT]
+Name = 干-6-1
+Sequence = 19086
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y00
+
+
+[OBJECT]
+Name = 干-6-2
+Sequence = 19087
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y01
+
+
+[OBJECT]
+Name = 干-6-3
+Sequence = 19088
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y02
+
+
+[OBJECT]
+Name = 干-6-4
+Sequence = 19089
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y03
+
+
+[OBJECT]
+Name = 干-6-5
+Sequence = 19090
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y04
+
+
+[OBJECT]
+Name = 干-6-6
+Sequence = 19091
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y05
+
+
+[OBJECT]
+Name = 干-6-7
+Sequence = 19092
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y06
+
+
+[OBJECT]
+Name = 干-6-8
+Sequence = 19093
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y07
+
+
+[OBJECT]
+Name = 干-6-9
+Sequence = 19094
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y08
+
+
+[OBJECT]
+Name = 干-6-10
+Sequence = 19095
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y09
+
+
+[OBJECT]
+Name = 干-6-11
+Sequence = 19096
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y10
+
+
+[OBJECT]
+Name = 干-6-12
+Sequence = 19097
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y11
+
+
+[OBJECT]
+Name = 干-6-13
+Sequence = 19098
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y12
+
+
+[OBJECT]
+Name = 干-6-14
+Sequence = 19099
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y13
+
+
+[OBJECT]
+Name = 干-6-15
+Sequence = 19100
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y14
+
+
+[OBJECT]
+Name = 干-6-16
+Sequence = 19101
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y15
+
+
+[OBJECT]
+Name = 干-6-17
+Sequence = 19102
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHf
+Directory = \SF\Patch-x05
+Sprite = Wait, tmpX05Y16
+
+
+[OBJECT]
+Name = 干-7-1
+Sequence = 19103
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y00
+
+
+[OBJECT]
+Name = 干-7-2
+Sequence = 19104
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y01
+
+
+[OBJECT]
+Name = 干-7-3
+Sequence = 19105
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y02
+
+
+[OBJECT]
+Name = 干-7-4
+Sequence = 19106
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y03
+
+
+[OBJECT]
+Name = 干-7-5
+Sequence = 19107
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y04
+
+
+[OBJECT]
+Name = 干-7-6
+Sequence = 19108
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y05
+
+
+[OBJECT]
+Name = 干-7-7
+Sequence = 19109
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y06
+
+
+[OBJECT]
+Name = 干-7-8
+Sequence = 19110
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y07
+
+
+[OBJECT]
+Name = 干-7-9
+Sequence = 19111
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y08
+
+
+[OBJECT]
+Name = 干-7-10
+Sequence = 19112
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y09
+
+
+[OBJECT]
+Name = 干-7-11
+Sequence = 19113
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y10
+
+
+[OBJECT]
+Name = 干-7-12
+Sequence = 19114
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y11
+
+
+[OBJECT]
+Name = 干-7-13
+Sequence = 19115
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y12
+
+
+[OBJECT]
+Name = 干-7-14
+Sequence = 19116
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y13
+
+
+[OBJECT]
+Name = 干-7-15
+Sequence = 19117
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y14
+
+
+[OBJECT]
+Name = 干-7-16
+Sequence = 19118
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y15
+
+
+[OBJECT]
+Name = 干-7-17
+Sequence = 19119
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHg
+Directory = \SF\Patch-x06
+Sprite = Wait, tmpX06Y16
+
+
+[OBJECT]
+Name = 干-8-1
+Sequence = 19120
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y00
+
+
+[OBJECT]
+Name = 干-8-2
+Sequence = 19121
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y01
+
+
+[OBJECT]
+Name = 干-8-3
+Sequence = 19122
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y02
+
+
+[OBJECT]
+Name = 干-8-4
+Sequence = 19123
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y03
+
+
+[OBJECT]
+Name = 干-8-5
+Sequence = 19124
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y04
+
+
+[OBJECT]
+Name = 干-8-6
+Sequence = 19125
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y05
+
+
+[OBJECT]
+Name = 干-8-7
+Sequence = 19126
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y06
+
+
+[OBJECT]
+Name = 干-8-8
+Sequence = 19127
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y07
+
+
+[OBJECT]
+Name = 干-8-9
+Sequence = 19128
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y08
+
+
+[OBJECT]
+Name = 干-8-10
+Sequence = 19129
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y09
+
+
+[OBJECT]
+Name = 干-8-11
+Sequence = 19130
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y10
+
+
+[OBJECT]
+Name = 干-8-12
+Sequence = 19131
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y11
+
+
+[OBJECT]
+Name = 干-8-13
+Sequence = 19132
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y12
+
+
+[OBJECT]
+Name = 干-8-14
+Sequence = 19133
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y13
+
+
+[OBJECT]
+Name = 干-8-15
+Sequence = 19134
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y14
+
+
+[OBJECT]
+Name = 干-8-16
+Sequence = 19135
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y15
+
+
+[OBJECT]
+Name = 干-8-17
+Sequence = 19136
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHh
+Directory = \SF\Patch-x07
+Sprite = Wait, tmpX07Y16
+
+
+[OBJECT]
+Name = 干-9-1
+Sequence = 19137
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y00
+
+
+[OBJECT]
+Name = 干-9-2
+Sequence = 19138
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y01
+
+
+[OBJECT]
+Name = 干-9-3
+Sequence = 19139
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y02
+
+
+[OBJECT]
+Name = 干-9-4
+Sequence = 19140
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y03
+
+
+[OBJECT]
+Name = 干-9-5
+Sequence = 19141
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y04
+
+
+[OBJECT]
+Name = 干-9-6
+Sequence = 19142
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y05
+
+
+[OBJECT]
+Name = 干-9-7
+Sequence = 19143
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y06
+
+
+[OBJECT]
+Name = 干-9-8
+Sequence = 19144
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y07
+
+
+[OBJECT]
+Name = 干-9-9
+Sequence = 19145
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y08
+
+
+[OBJECT]
+Name = 干-9-10
+Sequence = 19146
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y09
+
+
+[OBJECT]
+Name = 干-9-11
+Sequence = 19147
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y10
+
+
+[OBJECT]
+Name = 干-9-12
+Sequence = 19148
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y11
+
+
+[OBJECT]
+Name = 干-9-13
+Sequence = 19149
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y12
+
+
+[OBJECT]
+Name = 干-9-14
+Sequence = 19150
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y13
+
+
+[OBJECT]
+Name = 干-9-15
+Sequence = 19151
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y14
+
+
+[OBJECT]
+Name = 干-9-16
+Sequence = 19152
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y15
+
+
+[OBJECT]
+Name = 干-9-17
+Sequence = 19153
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHi
+Directory = \SF\Patch-x08
+Sprite = Wait, tmpX08Y16
+
+
+[OBJECT]
+Name = 干-10-1
+Sequence = 19154
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y00
+
+
+[OBJECT]
+Name = 干-10-2
+Sequence = 19155
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y01
+
+
+[OBJECT]
+Name = 干-10-3
+Sequence = 19156
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y02
+
+
+[OBJECT]
+Name = 干-10-4
+Sequence = 19157
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y03
+
+
+[OBJECT]
+Name = 干-10-5
+Sequence = 19158
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y04
+
+
+[OBJECT]
+Name = 干-10-6
+Sequence = 19159
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y05
+
+
+[OBJECT]
+Name = 干-10-7
+Sequence = 19160
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y06
+
+
+[OBJECT]
+Name = 干-10-8
+Sequence = 19161
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y07
+
+
+[OBJECT]
+Name = 干-10-9
+Sequence = 19162
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y08
+
+
+[OBJECT]
+Name = 干-10-10
+Sequence = 19163
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y09
+
+
+[OBJECT]
+Name = 干-10-11
+Sequence = 19164
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y10
+
+
+[OBJECT]
+Name = 干-10-12
+Sequence = 19165
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y11
+
+
+[OBJECT]
+Name = 干-10-13
+Sequence = 19166
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y12
+
+
+[OBJECT]
+Name = 干-10-14
+Sequence = 19167
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y13
+
+
+[OBJECT]
+Name = 干-10-15
+Sequence = 19168
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y14
+
+
+[OBJECT]
+Name = 干-10-16
+Sequence = 19169
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y15
+
+
+[OBJECT]
+Name = 干-10-17
+Sequence = 19170
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHj
+Directory = \SF\Patch-x09
+Sprite = Wait, tmpX09Y16
+
+
+[OBJECT]
+Name = 干-11-1
+Sequence = 19171
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y00
+
+
+[OBJECT]
+Name = 干-11-2
+Sequence = 19172
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y01
+
+
+[OBJECT]
+Name = 干-11-3
+Sequence = 19173
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y02
+
+
+[OBJECT]
+Name = 干-11-4
+Sequence = 19174
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y03
+
+
+[OBJECT]
+Name = 干-11-5
+Sequence = 19175
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y04
+
+
+[OBJECT]
+Name = 干-11-6
+Sequence = 19176
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y05
+
+
+[OBJECT]
+Name = 干-11-7
+Sequence = 19177
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y06
+
+
+[OBJECT]
+Name = 干-11-8
+Sequence = 19178
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y07
+
+
+[OBJECT]
+Name = 干-11-9
+Sequence = 19179
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y08
+
+
+[OBJECT]
+Name = 干-11-10
+Sequence = 19180
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y09
+
+
+[OBJECT]
+Name = 干-11-11
+Sequence = 19181
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y10
+
+
+[OBJECT]
+Name = 干-11-12
+Sequence = 19182
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y11
+
+
+[OBJECT]
+Name = 干-11-13
+Sequence = 19183
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y12
+
+
+[OBJECT]
+Name = 干-11-14
+Sequence = 19184
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y13
+
+
+[OBJECT]
+Name = 干-11-15
+Sequence = 19185
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y14
+
+
+[OBJECT]
+Name = 干-11-16
+Sequence = 19186
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y15
+
+
+[OBJECT]
+Name = 干-11-17
+Sequence = 19187
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHk
+Directory = \SF\Patch-x10
+Sprite = Wait, tmpX10Y16
+
+
+[OBJECT]
+Name = 干-12-1
+Sequence = 19188
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y00
+
+
+[OBJECT]
+Name = 干-12-2
+Sequence = 19189
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y01
+
+
+[OBJECT]
+Name = 干-12-3
+Sequence = 19190
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y02
+
+
+[OBJECT]
+Name = 干-12-4
+Sequence = 19191
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y03
+
+
+[OBJECT]
+Name = 干-12-5
+Sequence = 19192
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y04
+
+
+[OBJECT]
+Name = 干-12-6
+Sequence = 19193
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y05
+
+
+[OBJECT]
+Name = 干-12-7
+Sequence = 19194
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y06
+
+
+[OBJECT]
+Name = 干-12-8
+Sequence = 19195
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y07
+
+
+[OBJECT]
+Name = 干-12-9
+Sequence = 19196
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y08
+
+
+[OBJECT]
+Name = 干-12-10
+Sequence = 19197
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y09
+
+
+[OBJECT]
+Name = 干-12-11
+Sequence = 19198
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y10
+
+
+[OBJECT]
+Name = 干-12-12
+Sequence = 19199
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y11
+
+
+[OBJECT]
+Name = 干-12-13
+Sequence = 19200
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y12
+
+
+[OBJECT]
+Name = 干-12-14
+Sequence = 19201
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y13
+
+
+[OBJECT]
+Name = 干-12-15
+Sequence = 19202
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y14
+
+
+[OBJECT]
+Name = 干-12-16
+Sequence = 19203
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHl
+Directory = \SF\Patch-x11
+Sprite = Wait, tmpX11Y15
+
+
+
+[OBJECT]
+Name = 干-13-1
+Sequence = 19205
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y00
+
+
+[OBJECT]
+Name = 干-13-2
+Sequence = 19206
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y01
+
+
+[OBJECT]
+Name = 干-13-3
+Sequence = 19207
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y02
+
+
+[OBJECT]
+Name = 干-13-4
+Sequence = 19208
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y03
+
+
+[OBJECT]
+Name = 干-13-5
+Sequence = 19209
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y04
+
+
+[OBJECT]
+Name = 干-13-6
+Sequence = 19210
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y05
+
+
+[OBJECT]
+Name = 干-13-7
+Sequence = 19211
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y06
+
+
+[OBJECT]
+Name = 干-13-8
+Sequence = 19212
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y07
+
+
+[OBJECT]
+Name = 干-13-9
+Sequence = 19213
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y08
+
+
+[OBJECT]
+Name = 干-13-10
+Sequence = 19214
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y09
+
+
+[OBJECT]
+Name = 干-13-11
+Sequence = 19215
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y10
+
+
+[OBJECT]
+Name = 干-13-12
+Sequence = 19216
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y11
+
+
+[OBJECT]
+Name = 干-13-13
+Sequence = 19217
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y12
+
+
+[OBJECT]
+Name = 干-13-14
+Sequence = 19218
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y13
+
+
+[OBJECT]
+Name = 干-13-15
+Sequence = 19219
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y14
+
+
+
+[OBJECT]
+Name = 干-13-16
+Sequence = 19220
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHn
+Directory = \SF\Patch-x12
+Sprite = Wait, tmpX12Y15
+
+
+
+[OBJECT]
+Name = 干-14-1
+Sequence = 19222
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y00
+
+
+[OBJECT]
+Name = 干-14-2
+Sequence = 19223
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y01
+
+
+[OBJECT]
+Name = 干-14-3
+Sequence = 19224
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y02
+
+
+[OBJECT]
+Name = 干-14-4
+Sequence = 19225
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y03
+
+
+[OBJECT]
+Name = 干-14-5
+Sequence = 19226
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y04
+
+
+[OBJECT]
+Name = 干-14-6
+Sequence = 19227
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y05
+
+
+[OBJECT]
+Name = 干-14-7
+Sequence = 19228
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y06
+
+
+[OBJECT]
+Name = 干-14-8
+Sequence = 19229
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y07
+
+
+[OBJECT]
+Name = 干-14-9
+Sequence = 19230
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y08
+
+
+[OBJECT]
+Name = 干-14-10
+Sequence = 19231
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y09
+
+
+[OBJECT]
+Name = 干-14-11
+Sequence = 19232
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y10
+
+
+[OBJECT]
+Name = 干-14-12
+Sequence = 19233
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y11
+
+
+[OBJECT]
+Name = 干-14-13
+Sequence = 19234
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y12
+
+
+[OBJECT]
+Name = 干-14-14
+Sequence = 19235
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHm
+Directory = \SF\Patch-x13
+Sprite = Wait, tmpX13Y13
+
+
+
+[OBJECT]
+Name = 干-15-1
+Sequence = 19239
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y00
+
+
+[OBJECT]
+Name = 干-15-2
+Sequence = 19240
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y01
+
+
+
+[OBJECT]
+Name = 干-15-4
+Sequence = 19242
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y03
+
+
+[OBJECT]
+Name = 干-15-5
+Sequence = 19243
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y04
+
+
+
+[OBJECT]
+Name = 干-15-7
+Sequence = 19245
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y06
+
+
+[OBJECT]
+Name = 干-15-8
+Sequence = 19246
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y07
+
+
+[OBJECT]
+Name = 干-15-9
+Sequence = 19247
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y08
+
+
+[OBJECT]
+Name = 干-15-10
+Sequence = 19248
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y09
+
+
+[OBJECT]
+Name = 干-15-11
+Sequence = 19249
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y10
+
+
+[OBJECT]
+Name = 干-15-12
+Sequence = 19250
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y11
+
+
+[OBJECT]
+Name = 干-15-13
+Sequence = 19251
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y12
+
+
+[OBJECT]
+Name = 干-15-14
+Sequence = 19252
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y13
+
+
+[OBJECT]
+Name = 干-15-15
+Sequence = 19253
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y14
+
+
+[OBJECT]
+Name = 干-15-16
+Sequence = 19254
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHo
+Directory = \SF\Patch-x14
+Sprite = Wait, tmpX14Y15
+
+
+
+[OBJECT]
+Name = 干-16-1
+Sequence = 19256
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y00
+
+
+[OBJECT]
+Name = 干-16-2
+Sequence = 19257
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y01
+
+
+[OBJECT]
+Name = 干-16-3
+Sequence = 19258
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y02
+
+
+[OBJECT]
+Name = 干-16-4
+Sequence = 19259
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y03
+
+
+[OBJECT]
+Name = 干-16-5
+Sequence = 19260
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y04
+
+
+[OBJECT]
+Name = 干-16-6
+Sequence = 19261
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y05
+
+
+
+[OBJECT]
+Name = 干-16-8
+Sequence = 19263
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y07
+
+
+[OBJECT]
+Name = 干-16-9
+Sequence = 19264
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y08
+
+
+[OBJECT]
+Name = 干-16-10
+Sequence = 19265
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y09
+
+
+[OBJECT]
+Name = 干-16-11
+Sequence = 19266
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y10
+
+
+[OBJECT]
+Name = 干-16-12
+Sequence = 19267
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y11
+
+
+[OBJECT]
+Name = 干-16-13
+Sequence = 19268
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y12
+
+
+[OBJECT]
+Name = 干-16-14
+Sequence = 19269
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y13
+
+
+[OBJECT]
+Name = 干-16-15
+Sequence = 19270
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHp
+Directory = \SF\Patch-x15
+Sprite = Wait, tmpX15Y14
+
+
+
+[OBJECT]
+Name = 干-17-1
+Sequence = 19273
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHq
+Directory = \SF\Patch-x16
+Sprite = Wait, tmpX16Y00
+
+
+[OBJECT]
+Name = 干-17-2
+Sequence = 19274
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHq
+Directory = \SF\Patch-x16
+Sprite = Wait, tmpX16Y01
+
+
+[OBJECT]
+Name = 干-17-3
+Sequence = 19275
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHq
+Directory = \SF\Patch-x16
+Sprite = Wait, tmpX16Y02
+
+
+[OBJECT]
+Name = 干-17-4
+Sequence = 19276
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHq
+Directory = \SF\Patch-x16
+Sprite = Wait, tmpX16Y03
+
+
+[OBJECT]
+Name = 干-17-5
+Sequence = 19277
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHq
+Directory = \SF\Patch-x16
+Sprite = Wait, tmpX16Y04
+
+
+[OBJECT]
+Name = 干-17-6
+Sequence = 19278
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHq
+Directory = \SF\Patch-x16
+Sprite = Wait, tmpX16Y05
+
+
+
+[OBJECT]
+Name = 干-18-1
+Sequence = 19290
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHr
+Directory = \SF\Patch-x17
+Sprite = Wait, tmpX17Y00
+
+
+[OBJECT]
+Name = 干-18-3
+Sequence = 19292
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHr
+Directory = \SF\Patch-x17
+Sprite = Wait, tmpX17Y02
+
+
+[OBJECT]
+Name = 干-18-4
+Sequence = 19293
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHr
+Directory = \SF\Patch-x17
+Sprite = Wait, tmpX17Y03
+
+
+[OBJECT]
+Name = 干-18-5
+Sequence = 19294
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHr
+Directory = \SF\Patch-x17
+Sprite = Wait, tmpX17Y04
+
+
+[OBJECT]
+Name = 干-18-6
+Sequence = 19295
+Space = 0, 0, 0
+Process = SP_CLASS_SFPATCHr
+Directory = \SF\Patch-x17
+Sprite = Wait, tmpX17Y05
+
+
+[OBJECT]
+Name = ㄆ干-17-6
+Sequence = 19500
+Space = 0, 0, 0
+Process = SP_CLASS_SFPOSTPATCH
+Directory = \SF\PostSFPatch
+Sprite = Wait, tmpX384Y068
+
+
+[OBJECT]
+Name = ㄆ干-17-6
+Sequence = 19501
+Space = 0, 0, 0
+Process = SP_CLASS_SFPOSTPATCH
+Directory = \SF\PostSFPatch
+Sprite = Wait, tmpX192Y358
+
+
+
+
+
+
+
+
+
+
+
+
+
+[OBJECT]
+Name = 闺
+Sequence = 20000
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, Village
+
+[OBJECT]
+Name = 搁01
+Sequence = 20001
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, VillageHarbor01
+
+[OBJECT]
+Name = 搁02
+Sequence = 20002
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, VillageHarbor02
+
+[OBJECT]
+Name = 搁03
+Sequence = 20003
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, VillageHarbor03
+
+[OBJECT]
+Name = 搁04
+Sequence = 20004
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, VillageHarbor04
+
+[OBJECT]
+Name = 搁05
+Sequence = 20005
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, VillageHarbor05
+
+[OBJECT]
+Name = 搁06
+Sequence = 20006
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, VillageHarbor06
+
+[OBJECT]
+Name = 搁07
+Sequence = 20007
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, VillageHarbor07
+
+[OBJECT]
+Name = 搁08
+Sequence = 20008
+Space = 0, 0, 0
+Process = SP_CLASS_SFVillage
+Directory = \SF\Village
+Sprite = Wait, VillageHarbor08
+
+
+;[OBJECT]
+;Name = 絤瑌
+;Sequence = 21000
+;Space = 0, 0, 0
+;Process = SP_CLASS_SFExpCave
+;Directory = \SF\ExpCave
+;Sprite = Wait, ExpCave
+
+
+
+[OBJECT]
+Name = -03.09
+Sequence = 21000
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX02Y08
+
+
+[OBJECT]
+Name = 纒活か-02.12
+Sequence = 21001
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX01Y10
+
+
+[OBJECT]
+Name = 纒┄-02.05
+Sequence = 21002
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX01Y04
+
+
+[OBJECT]
+Name = 窾矰-01.12
+Sequence = 21003
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX00Y11
+
+
+[OBJECT]
+Name = 菏-05.10
+Sequence = 21004
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX04Y09
+
+
+[OBJECT]
+Name = 档紀膓-07.10
+Sequence = 21005
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX06Y09
+
+
+[OBJECT]
+Name = とé-04.5
+Sequence = 21006
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX03Y04
+
+
+[OBJECT]
+Name = み泊-01.03
+Sequence = 21007
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX00Y02
+
+
+[OBJECT]
+Name = 簔紀犁-03.02
+Sequence = 21008
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX02Y00
+
+
+[OBJECT]
+Name = κ狶-09.07
+Sequence = 21009
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX08Y05
+
+
+[OBJECT]
+Name = 礚マ-12.09
+Sequence = 21010
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX11Y08
+
+
+[OBJECT]
+Name = 縛狶-05.15
+Sequence = 21011
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX05Y14
+
+
+[OBJECT]
+Name = 白瑄-01.14
+Sequence = 21012
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX00Y13
+
+
+[OBJECT]
+Name = 琗瑄-01.14
+Sequence = 21013
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX01Y13
+
+
+[OBJECT]
+Name = 堵瑄-01.16
+Sequence = 21014
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX00Y15
+
+
+[OBJECT]
+Name = 防瑄-01.15
+Sequence = 21015
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX00Y14
+
+
+[OBJECT]
+Name = 癨狶-03.16
+Sequence = 21016
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX02Y15
+
+
+[OBJECT]
+Name = 冻冠緼-09.12
+Sequence = 21017
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX08Y11
+
+
+[OBJECT]
+Name = 貉マ-12.12
+Sequence = 21018
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX11Y11
+
+
+[OBJECT]
+Name = 春瑌竇-08.08
+Sequence = 21019
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX07Y07
+
+
+[OBJECT]
+Name = 糞℡-12.03
+Sequence = 21020
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX11Y02
+
+
+[OBJECT]
+Name = 碍瑌-12.07
+Sequence = 21021
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX11Y06
+
+
+[OBJECT]
+Name = 紼é-10.03
+Sequence = 21022
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX09Y03
+
+
+[OBJECT]
+Name = 甃緼-06.02
+Sequence = 21023
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX05Y01
+
+
+[OBJECT]
+Name = 定緼-14.04
+Sequence = 21024
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX13Y03
+
+
+[OBJECT]
+Name = ト竇-14.02
+Sequence = 21025
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX13Y01
+
+
+[OBJECT]
+Name = 讹-09.02
+Sequence = 21026
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX08Y01
+
+
+[OBJECT]
+Name = 褂-07.05
+Sequence = 21027
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX06Y04
+
+
+[OBJECT]
+Name = 瞆緼-14.10
+Sequence = 21028
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX13Y09
+
+
+[OBJECT]
+Name = 霉玝é-06.16
+Sequence = 21029
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX05Y15
+
+
+[OBJECT]
+Name = 琈る兼-12.15
+Sequence = 21030
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX11Y14
+
+
+[OBJECT]
+Name = 臟甽-11.06
+Sequence = 21031
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX10Y05
+
+
+[OBJECT]
+Name = 荡拉-16.01
+Sequence = 21032
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX15Y00
+
+
+[OBJECT]
+Name = 瑌-08.03
+Sequence = 21033
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX07Y02
+
+
+[OBJECT]
+Name = 飞罣-14.15
+Sequence = 21034
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX13Y15
+
+
+[OBJECT]
+Name = 疊畄-17.01
+Sequence = 21035
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX16Y00
+
+
+[OBJECT]
+Name = 獵碍畄-15.04
+Sequence = 21036
+Space = 0, 0, 0
+Flags = SP_ATTRIB_BIAS
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX14Y03
+
+
+[OBJECT]
+Name = í碍畄-17.06
+Sequence = 21037
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX16Y05
+
+
+[OBJECT]
+Name = 胹瑆畄-17.12~13
+Sequence = 21038
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX16Y12
+
+
+[OBJECT]
+Name = 酱弟畄-16.07
+Sequence = 21039
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX15Y07
+
+
+[OBJECT]
+Name = 获澳拉-15.13
+Sequence = 21040
+Space = 0, 0, 0
+Process = SP_CLASS_SFExpCave
+Directory = \SF\ExpCave
+Sprite = Wait, tmpX14Y12

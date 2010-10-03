@@ -1,0 +1,219 @@
+[SYSTEM]
+ShapeDir = ..\shape
+SoundDir = sound
+SpriteDir = ..\shape
+BgPath = \testBG.SHP
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 4194304
+MaxSize = 67108864
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+;--------------------------------------------------------------------------
+
+#define SP_EVENT_ACT_WAIT		0x00000001	// 進入待机動作
+#define SP_EVENT_ACT_FADEOUT	0x00000002	// 淡出移除
+#define SP_EVENT_ACT_REMOVE		0x00000003	// 立即移除
+#define SP_EVENT_ACT_ATTACK		0x00000004	// 攻擊
+#define SP_EVENT_ACT_FINISHED	0x00000005	// 結尾
+#define SP_EVENT_ACT_CHECK		0x00000006	// 中間斷點
+
+;--------------------------------------------------------------------------
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define BF_CLASS_BFBase                         0x00000002	//BF_CLASS_BFBase
+#define BF_CLASS_BFObject                       0x00000003	//BF_CLASS_BFObject
+#define BF_CLASS_BFHorse                        0x00000004	//BF_CLASS_BFHorse
+#define BF_CLASS_BFWeapon                       0x00000005	//BF_CLASS_BFWeapon
+#define BF_CLASS_BFGeneral                      0x00000006	//BF_CLASS_BFGeneral
+#define BF_CLASS_BFSoldier                      0x00000007	//BF_CLASS_BFSoldier
+#define BF_CLASS_BFMagic                        0x00000008	//BF_CLASS_BFMagic
+#define BF_CLASS_BFSpecial                      0x00000009	//BF_CLASS_BFSpecial
+
+;--------------------------------------------------------------------------
+
+#define SP_ATTRIB_001                           0x00040000	//SP_ATTRIB_001
+
+;--------------------------------------------------------------------------
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//混色
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//加色
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//減色
+#define SP_ATTRIB_OUTLINE                       0x00000010	//外框
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash效果
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke效果
+#define SP_ATTRIB_WATER                         0x00000080	//Water效果
+#define SP_ATTRIB_SINGLE                        0x00000100	//單色
+#define SP_ATTRIB_GLASS                         0x00000200	//玻璃色
+#define SP_ATTRIB_GRAY                          0x00000400	//灰階
+#define SP_ATTRIB_TABLE                         0x00001000	//表格
+#define SP_ATTRIB_BIAS                          0x00002000	//換色
+
+;===================================================================================
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_WAIT
+Value = 0x00000001
+Comment = 進入待机動作
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_FADEOUT
+Value = 0x00000002
+Comment = 淡出移除
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_REMOVE
+Value = 0x00000003
+Comment = 立即移除
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_ATTACK
+Value = 0x00000004
+Comment = 攻擊
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+[SP_CLASS]
+Name = BF_CLASS_BFBase
+Value = 0x00000002
+Comment = BF_CLASS_BFBase
+
+[SP_CLASS]
+Name = BF_CLASS_BFObject
+Value = 0x00000003
+Comment = BF_CLASS_BFObject
+
+[SP_CLASS]
+Name = BF_CLASS_BFHorse
+Value = 0x00000004
+Comment = BF_CLASS_BFHorse
+
+[SP_CLASS]
+Name = BF_CLASS_BFWeapon
+Value = 0x00000005
+Comment = BF_CLASS_BFWeapon
+
+[SP_CLASS]
+Name = BF_CLASS_BFGeneral
+Value = 0x00000006
+Comment = BF_CLASS_BFGeneral
+
+[SP_CLASS]
+Name = BF_CLASS_BFSoldier
+Value = 0x00000007
+Comment = BF_CLASS_BFSoldier
+
+[SP_CLASS]
+Name = BF_CLASS_BFMagic
+Value = 0x00000008
+Comment = BF_CLASS_BFMagic
+
+[SP_CLASS]
+Name = BF_CLASS_BFSpecial
+Value = 0x00000009
+Comment = BF_CLASS_BFSpecial
+
+;=============================================================
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_001
+Value = 0x00040000
+Comment = SP_ATTRIB_001
+
+;=============================================================
+
+[OBJECT]
+Name = 武將陣型
+Sequence = 25001
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \AButton\qoo
+Sprite = Wait, qoo_01, #999
+Sprite = WaitFormat, qoo_07, #999
+Sprite = ToGen, qoo_02, #3, qoo_03, qoo_04, qoo_05, qoo_06, qoo_06, @SP_EVENT_ACT_WAIT
+Sprite = ToFormat, qoo_08, #3, qoo_09, qoo_10, qoo_11, qoo_12, qoo_12, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = 火焰戰字
+Sequence = 25002
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \AButton\FightWord
+Sprite = Wait, 01, #8, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11
+
+
+
+[OBJECT]
+Name = 流程圖01
+Sequence = 25006
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \Menu\frontendBattleArena\01
+Sprite = Wait, Lose, #999
+Sprite = Lose, Lose, #999
+Sprite = Win, line022, #999
+Sprite = Start, line001, #2, line002, line003, line004, line005, line006, line007, line008, line009, line010, line011, line012, line013, line014, line015, line016, line017, line018, line019, line020, line021, line022, line022, @SP_EVENT_ACT_ATTACK, #120
+
+[OBJECT]
+Name = 流程圖02
+Sequence = 25007
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \Menu\frontendBattleArena\02
+Sprite = Wait, Lose, #999
+Sprite = Lose, Lose, #999
+Sprite = Win, line030, #999
+Sprite = Start, line001, #2, line002, line003, line004, line005, line006, line007, line008, line009, line010, line011, line012, line013, line014, line015, line016, line017, line018, line019, line020, line021, line022, line023, line024, line025, line026, line027, line028, line029, line030, line030, @SP_EVENT_ACT_ATTACK, #120
+
+[OBJECT]
+Name = 流程圖03
+Sequence = 25008
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \Menu\frontendBattleArena\03
+Sprite = Wait, Lose, #999
+Sprite = Lose, Lose, #999
+Sprite = Win, line013, #999
+Sprite = Start, line001, #2, line002, line003, line004, line005, line006, line007, line008, line009, line010, line011, line012, line013, line013, @SP_EVENT_ACT_ATTACK, #120
+
+[OBJECT]
+Name = 流程圖04
+Sequence = 25009
+Space = 0,0,0
+Process = BF_CLASS_BFMagic
+Directory = \Menu\frontendBattleArena\04
+Sprite = Wait, Lose, #999
+Sprite = Lose, Lose, #999
+Sprite = Win, line006, #999
+Sprite = Start, line001, #2, line002, line003, line004, line005, line006, line006, @SP_EVENT_ACT_ATTACK, #120
+
+[OBJECT]
+Name = 爆炸
+Sequence = 25010
+Space = 0,0,0
+Flags = SP_ATTRIB_WHITELIGHT
+Process = BF_CLASS_BFMagic
+Directory = \BF\Magic\bom
+Sprite = Wait, Null
+Sprite = Boom, Purple001, #2, Purple002, Purple003, Purple004, Purple005, Purple006, Purple007, Purple008, Purple009, Purple010, Purple011, Purple012, Purple013, Purple013, @SP_EVENT_ACT_WAIT
+;Sprite = Boom01, C0001, #2, C0002, C0003, C0004, C0005, C0006, C0007, C0008, C0009, C0010, C0011, C0012, C0013, C0013, @SP_EVENT_ACT_WAIT
+;Sprite = Boom03, bigbom01, #3, bigbom02, bigbom03, bigbom04, bigbom05, bigbom06, bigbom07, bigbom08, bigbom09, bigbom10, bigbom10, @SP_EVENT_ACT_WAIT
+;Sprite = Boom05, silver001, #3, silver002, silver003, silver004, silver005, silver006, silver007, silver008, silver009, silver010, silver010, @SP_EVENT_ACT_WAIT
+;Sprite = Gold, sbomo001, #2, sbomo002, sbomo003, sbomo004, sbomo005, sbomo006, sbomo007, sbomo008, sbomo009, sbomo010, sbomo011, sbomo012, sbomo013, sbomo014, sbomo015, sbomo016, sbomo016, @SP_EVENT_ACT_WAIT
+;Sprite = red, sbomr001, #4, sbomr002, sbomr003, sbomr004, sbomr005, sbomr006, sbomr007, sbomr008, sbomr009, sbomr010, sbomr011, sbomr012, sbomr013, sbomr014, sbomr015, sbomr016, @SP_EVENT_ACT_REMOVE
+;Sprite = blue, sbomb001, #4, sbomb002, sbomb003, sbomb004, sbomb005, sbomb006, sbomb007, sbomb008, sbomb009, sbomb010, sbomb011, sbomb012, sbomb013, sbomb014, sbomb015, sbomb016, @SP_EVENT_ACT_REMOVE
+;Sprite = white, sbomw001, #4, sbomw002, sbomw003, sbomw004, sbomw005, sbomw006, sbomw007, sbomw008, sbomw009, sbomw010, sbomw011, sbomw012, sbomw013, sbomw014, sbomw015, sbomw016, @SP_EVENT_ACT_REMOVE
+;Sprite = BigWhite, b0001, #4, b0002, b0003, b0004, b0005, b0006, b0007, b0008, b0009, @SP_EVENT_ACT_REMOVE
+
+

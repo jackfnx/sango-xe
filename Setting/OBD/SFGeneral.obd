@@ -1,0 +1,1364 @@
+[SYSTEM]
+ShapeDir = shape
+SoundDir = sound
+SpriteDir = shape
+BgPath = \testBG.SHP
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 4194304
+MaxSize = 67108864
+
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define SP_CLASS_TEST                           0x00000002	//SP_CLASS_TEST
+#define SP_CLASS_SFBase                         0x00000003	//SP_CLASS_SFBase
+#define SP_CLASS_SFSHIP                         0x00000004
+#define SP_CLASS_SFEVENTPLACE                   0x00000005
+
+
+#define SP_CLASS_SFCITY                         0x00002002	//«°¥«
+#define SP_CLASS_SFARMY                         0x00002003	//ªZ±N
+#define SP_CLASS_SFTENT                         0x00002004	//Àç±b
+#define SP_CLASS_SFTOWER                        0x00002005	//¶ð
+#define SP_CLASS_SFHARBOR                       0x00002006	//´ä¤f
+#define SP_CLASS_SFBRIDGE                       0x00002007	//¾ô¼Ù
+#define SP_CLASS_SFFORT                         0x00002008	//Ãö¥d
+#define SP_CLASS_SFOBJECT                       0x00002009	//ª«¥ó
+#define SP_CLASS_SFPATCH                        0x0000200a	//­×¸É
+
+#define SP_CLASS_SFARMYEVENT                    0x00003003	//³°¨Æ¥ó
+#define SP_CLASS_SFSHIPEVENT                    0x00003004	//¤ô¨Æ¥ó
+
+
+
+#define SP_ATTRIB_001                           0x00040000	//SP_ATTRIB_001
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//²V¦â
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//¥[¦â
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//´î¦â
+#define SP_ATTRIB_OUTLINE                       0x00000010	//¥~®Ø
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash®ÄªG
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke®ÄªG
+#define SP_ATTRIB_WATER                         0x00000080	//Water®ÄªG
+#define SP_ATTRIB_SINGLE                        0x00000100	//³æ¦â
+#define SP_ATTRIB_GLASS                         0x00000200	//¬Á¼þ¦â
+#define SP_ATTRIB_GRAY                          0x00000400	//¦Ç¶¥
+#define SP_ATTRIB_TABLE                         0x00001000	//ªí®æ
+#define SP_ATTRIB_BIAS                          0x00002000	//´«¦â
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+[SP_CLASS]
+Name = SP_CLASS_TEST
+Value = 0x00000002
+Comment = SP_CLASS_TEST
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_SFCITY
+Value = 0x00002002
+Comment = SP_CLASS_SFCITY
+
+;=============================================================
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_001
+Value = 0x00040000
+Comment = SP_ATTRIB_001
+
+;=============================================================
+
+[OBJECT]
+Name = ±ä¾Þ(415)
+Sequence = 90001
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\001
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¥q°¨Åt(92)
+Sequence = 90002
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\002
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®L«J±¬(247)
+Sequence = 90003
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\003
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ±i¿ñ(381)
+Sequence = 90004
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\004
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¨å­³(192)
+Sequence = 90005
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\005
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ±i­¨(359)
+Sequence = 90006
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\006
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¼B³Æ(579)
+Sequence = 90007
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\007
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ½Ñ¸¯«G(624)
+Sequence = 90008
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\008
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = Ãö¦Ð(697)
+Sequence = 90009
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\009
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ±i­¸(360)
+Sequence = 90010
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\010
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = »¯¶³(561)
+Sequence = 90011
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\011
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = °¨¶W(322)
+Sequence = 90012
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\012
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¶À©¾(493)
+Sequence = 90013
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\013
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®]Åv(279)
+Sequence = 90014
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\014
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ©P·ì(200)
+Sequence = 90015
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\015
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤Ó¥v·O(32)
+Sequence = 90016
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\016
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¥Ì¹ç(96)
+Sequence = 90017
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\017
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®]¤¯(256)
+Sequence = 90018
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\018
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ³°»¹(463)
+Sequence = 90019
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\019
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤p³ì(17)
+Sequence = 90020
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\020
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ±i¨¤(349)
+Sequence = 90021
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\021
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¸³¨ô(518)
+Sequence = 90022
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\022
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = §f¥¬(151)
+Sequence = 90023
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\023
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¶IÂÍ(486)
+Sequence = 90024
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\024
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ³\»u(432)
+Sequence = 90025
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\025
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¨õÀ±©I(831)
+Sequence = 90026
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\026
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = Ãe²Î(690)
+Sequence = 90027
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\027
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®]µ¦(273)
+Sequence = 90028
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\028
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ©sÀò(764)
+Sequence = 90029
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\029
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¯¬¿Ä¤Ò¤H(765)
+Sequence = 90030
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\030
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤j³ì(16)
+Sequence = 90031
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\031
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®]°í(268)
+Sequence = 90032
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\032
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¶À¤ë­^(880)
+Sequence = 90033
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\033
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ÃQ©µ(686)
+Sequence = 90034
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\034
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®L«J²W(248)
+Sequence = 90035
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\035
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®}®Ì(282)
+Sequence = 90036
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\036
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ³¢¹Å(441)
+Sequence = 90037
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\037
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤åÁà(43)
+Sequence = 90038
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\038
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ÃC¨}(684)
+Sequence = 90039
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\039
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = «¸ºû(218)
+Sequence = 90040
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\040
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ©P®õ(199)
+Sequence = 90041
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\041
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = §f»X(160)
+Sequence = 90042
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\042
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¯ûÑ{(299)
+Sequence = 90043
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\043
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤B©^(1) ¤B»ö(6) ¤h³ü(12) ¤hÀ²(14) ¤½®]«×(19) ¤½®]²W(22) ¤½®]¶V(24) ¤Õ¨q(34) ¤å´Ü(39) ¤åÀm(42) ¤è®®(44) ¤ûª÷(47) ¤û»²(48) ¤ý¥­(53) ¤ý©¾(58) ¤ýªA(59) ¤ý«Â(60) ¤ý¯u(66) ¤ý°ò(68) ¤ýàà(76) ¤ýÀà(77) ¤ýÂù(78) ¥q°¨°J(87) ¥q°¨±æ(88) ¥ÐÃ¥(101) ¥ÐÄò(102) ¥Ó¯Ô(103) ¥Ó»ö(104) ¥ì¤j¥Ø(107) ¥þÚz(113) ¥þºÝ(114) ¦VÃd(120) ¦¶ªv(122) ¦¶®Ù(124) ¦¶²§(125) ¦¶µM(126) ¦¶·l(127) ¦¶ºµ(129) ¦¶ÆF(132) ¦¶Æg(133) §N­c(142) §d¤lÄõ(144) §d¥¨(145) §d¯Z(146) §dÄõ(149) §dÅt(150) §f©§(152) §f«Â¿X(153) §f°@(154) §fµ¾(156) §f¸q(159) §f¾Ú(162) §º¾Ë(166) §õ²§(171) §õ³ô(172) §õ»X(176) §õÄP(179) §õÄY(180) §ù»·(181) ¨®­H(184) ¨·¹Dºa(189) ©s©Z(202) «J¦¨(214) «\¯A(216) «¸±Ô(217) ¬Ó¨j·C(221) ¬öÆF(222) ­JÜH(226) ­J¾Ä(227) ­J¿í(228) ­SÃ¦(230) ­â¾Þ(238) ®L«J©|(243) ®L«J«Â(244) ®L«JÝÕ(249) ®L«J¼w(251) ®]®Ù(265) ®]»à(275) ®b©ú(280) ®}²±(284) ®}½è(286) ¯dÃÙ(290) °K²Ð(304) °¨¥ð(313) °¨©µ(318) °¨ª±(320) °¨Âä(327) °ª¨K(330) °ª©w(331) °ªª@(332) °ª¶¶(336) °ª·F(337) °ªÄý(338) ±Z«i(340) ±i¥ÕÃM(346) ±i¥ô(348) ±iªê(353) ±i«n(354) ±i­^(357) ±i²r(366) ±i¹F(373) ±i¾î(378) ±i¿P(379) ±iÀÙ(382) ±iÁl(383) ±iñm(388) ±ä¥ð(396) ±ä©Ê(398) ±ä¬x(401) ±ä°\(405) ±ä¹ü(412) ±ä¿ª(416) ±ç¿³(420) ²E¤_¾É(424) ²E¤_Ã£(425) ³¯¦¡(444) ³¯®õ(448) ³¯¾î(456) ³¯ÄÊ(458) ³°§Ü(460) ³Å§Í(469) µJÄ²(476) µ{´¶(480) µØ¶¯(484) ¶k·Ø(491) ¶¾²ß(492) ¶À¯ª(494) ·¨ªQ(504) ·¨¬î(507) ·¨¯®(509) ·¨±K(513) ·¨Áà(514) ·¨Ãh(515) ¸³Å§(526) ¹lñm(541) ¹p»É(543) »NÅQ(555) »p¤¸²Ð(556) »¯¥°(557) »¯¼s(563) ¼B©§(570) ¼B¸·(583) ¼B¹@(584) ¼Ô¸Y(597) ¼Ö¶i(598) ¼ï¼ý(600) ½±´Ü(607) ½±¸q´ë(611) ½²©M(614) ½²¶§(616) ½²·è(618) ½²¾±(619) ¾H©¾(632) ¾HÃG(636) ÀF¦t(644) ÀN®m(651) Àj¶©(655) À¹­û(656) ÁSªÚ(660) Áú¥È(670) Áú¯E(672) Áú·í(674) Áú¾æ(677) ÃQÄò(689) Ãe¼w(692) ÃÓ¶¯(693) ÄY¥Õªê(705) ÄY¬F(707) ÄYÁÖ(710) Ä¬­¸(712) ÅÇ³£(716)
+Sequence = 90044
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\044
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤_¸T(8) ¤Ó¥v¨É(30) ¤å¸u(40) ¤ý¥ê(54) ¤ý¦J(55) ¤ý¦¥(56) ¤ý¨j(57) ¤ý²»(69) ¤ý´Ó(71) ¤ý¸g(74) ¤ýÄý(79) ¥Oª°·M(81) ¥q°¨ª¢(83) ¥Ð·¢(98) ¥Ð¿Ý(99) ¥Û±R(106) ¥ìÀq(108) ¥òªø²Î(112) ¦V®Ô(119) ¦ó»ö(141) §^«Û(143) §dºõ(147) §d½è(148) §f³Í(155) §f½d(161) §º©¾(164) §º´­(165) §õ¨å(169) §õ«ì(170) §õµÂ(173) §õ¾§(177) ¨BÆO(183) ¨¯¬s(185) ¨¯´¯(186) ¨¯µû(187) ¨ôÁt(193) ©P­N(197) ªk¥¿(206) ªqÃ[(208) «J­µ(215) ­J¨®¨à(223) ­³±d(232) Ïú©Ø(234) ­â²Î(237) ­ð«t(239) ®L«J¥È(241) ®L«J©M(242) ®L«J®¦(245) ®]¨q(259) ®]©M(260) ®]«G(261) ®]Öö(270) ®]µn(271) ®]ÀR(277) ®}¥L(281) ®Ù½d(288) ¯³ÌW(295) ¯³µX(296) ¯Õ¬ö(297) ¯û§ñ(298) °K©|(301) °K­N(303) °KàÔ(306) °Kº³(307) °K¿ò(308) °KÃÓ(309) °q¬L(310) °¨¤¸¸q(311) °¨¦t(314) °¨§¡(315) °¨¨}(316) °¨¿í(325) °¨î¢(326) °ªµ¾(335) ±i¤¹(344) ±i¥ð(347) ±i©Ó(351) ±iªQ(352) ±i¬L(356) ±i­c(358) ±i¯Â(362) ±iÓT(363) ±i·Å(372) ±i¾±(377) ±iìÚ(385) ±ióª(389) ±ä¥A(395) ±ä©ù(399) ±ä®ï(402) ±ä¯u(403) ±ä¯Â(404) ±ä²n(407) ±ä»F(413) ³\§ñ(429) ³\°^(430) ³\¹t(431) ³¢Éú(437) ³¢§ñ¤§(438) ³¢«³(439) ³¯ªZ(446) ³¯µY(451) ³¯¸s(453) ³¯¾_(455) ³¯ÁB(457) ³°³Í(462) ³Å¤h¤¯(468) ³ÅÀ¦(472) µ{ªZ(477) µ{ªÃ(478) µ{¬R(479) µØÝõ(485) ¶OçÇ(488) ¶À±j(495) ¶Àµq(496) ¶ÀÅv(499) ·¨ªú(505) ·¨³C(510) ·¨µa(511) ·¨»ö(512) ¸³©M(519) ¸³©Ó(521) ¸³¬L(523) ¸³¿Å(525) ¸·Â½(527) ¸ë¥R(529) ¸ëàH(534) ¸ë½d(535) ¹Q¹t(540) ¹pÁ¡(544) º¡Ãd(548) »¯²Î(559) »¯½d(564) ãÇ¨}(565) ãÇ¶V(566) ¼B¤Ú(567) ¼B©µ(571) ¼B«Ê(573) ¼B«×(574) ¼B²z(577) ¼B´`(580) ¼Bµa(581) ¼BÚz(582) ¼B½d(588) ¼B½å(589) ¼B¾ç(591) ¼BÁI(592) ¼f°t(595) ¼Ô«Ø(596) ¼ïÀà(601) ½±Ú{(609) ½±ÀÙ(612) ½²¤¤(613) ½²°o(615) ½Ñ¸¯ª½(622) ½Ñ¸¯½@(627) ½Ñ¸¯½Ï(628) ¾H½å(635) ¾|µÂ(640) ¿c´Ó(641) ¿p¶¶(642) ÀF¬X(645) ÀF®E(646) Àd²Î(653) Àj«H(654) Á§ºî(662) Á§¼ü(663) Áé²Ô(665) Áé·|(666) Áé¿§(667) ÁéíÙ(668) Áú·C(673) Áú¹E(675) ÁúºÖ(676) Â²¹l(682) Â¿¤Í(683) Ãe¸q(691) ÄTºt(703) ò¥¿Å(704) ÄYÚ­(708) ÄYºõ(709) õE¿A(713) ÅU¹l(714)
+Sequence = 90045
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\045
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤B­ì(2) ¤½®]±d(21) ¤½®]ÅÐ(27) ¤Ë³ß(28) ¤ð¥C»ü(45) ¤òÍk(46) ¤ý¤è(52) ¤ýÎë(62) ¥ÐÂ×(100) ¥ñ§¹(110) ¦¶¹m(128) ¦ó¶i(139) §fÃm(163) ©P©ý(196) ­J¯Z(225) ®}ºa(285) ¯d²¤(289) ¯ª­Z(291) °¨©¾(319) ²E¤_¹Å(423) ³¢²a(440) ¶À»\(498) ¸³ÌÉ(522) ¾H¦ã(631) Áú¿Ä(678) ÂZÀs©v(681) ÃQ§ñ(685) ÄYÃC(711) ªnÂkªd(741)
+Sequence = 90046
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\046
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤B´´(3) ¤_¸à(9) ¤h®]·ç(10) ¤sÀÜ(18) ¤½®]®¥(20) ¤Õ¸r(36) ¤ý¤lªA(49) ¤ý¤¹(51) ¤ý¯P(65) ¤ý²Ö(70) ¤ý´ý(72) ¤ýßT(75) ¥Oª°Ês(80) ¥q°¨§·(82) ¥q°¨®v(85) ¥q°¨®Ô(86) ¥q°¨À²(91) ¥ª·O(93) ¥Û­c(105) ¥ìÄy(109) ¦N¿p(116) ¦NÂä(117) ¦¶½Ç(130) ¦¶¾Ú(131) ¦Ï¹D(135) ¦ó®Ë(138) §Â©ü(167) §ùÅ§(182) ¨¿Äy(191) ©PèÛ(201) ©|¼s(204) ªq±Â(207) ­S·V(229) ­³¬L(231) ÏúÊs(233) ­Ûª½(236) ®L«J¾§(252) ®]¥ð(257) ®]¦J(258) ®]®m(263) ®]®Ô(264) ®]°®(267) ®}±f(283) ¯³¥¹(294) °ª¬X(333) ±i¤lÁ¾(343) ±i¬J(355) ±i²Ð(368) ±iµØ(370) ±i·¨(371) ±iÁ|(384) ±iÂä(387) ±ä¤å¨û(394) ±äªÚ(400) ±ä´Ó(408) ±ç²ß(419) ²¦­y(426) ²È¿Ä(427) ³\¤l±N(428) ³{¬ö(434) ³¢¹Ï(442) ³¯®c(447) ³¯Þ·(454) ³°ÁZ(464) ³Å´S(470) ³Å·F(471) ³ì¥È(473) µØ¦ï(483) ·¨­×(508) ¸³¤¹(517) ¸ë¾¤¥Á(536) ºÞàx(552) »¯²Ö(560) ¼B³³(569) ¼B²Ð(578) ¼BÄÛ(594) ½±·F(610) ½Ñ¸¯§¡(621) ½Ñ¸¯«ñ(625) ¾HªÛ(633) ÀF·Å(649) ÁSªÇ(659) ÁÂ´º(664) Áú©¾(671) Ã×©P(694)
+Sequence = 90047
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\047
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¯ª­¦(292) ¤ì³À¤j¤ý(766) ¦·«ä¤j¤ý(767) ¸³²þ¨º(774)
+Sequence = 90048
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\048
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¶·¦õ¤§¨k(801) ¤j°ê¥D(802) «Ø±s¦W¤è(803) ¤Ö«Û¦W(804) ¤jª«¥D(805) «Ø±s¹p(806) ÂâÂâÃÀ(807) ¤s©¯«Û(808) ®ü©¯«Û(809) ¤Ñ¤â¤O¨k(810) ¤p¸P¬Ó¤l(811) ­{¨ã¤g(812) ¤j¤s¬z¨£(813) ¤[¤[¯à´¼(814) §Ó¨º³£«Û(815) ´Ö¬z¨£(816) ªü¾è(817) ÔG¤H(818) ¯«ªZ(819) ¤­Ãu(820)
+Sequence = 90049
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\049
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤hÀè(15) ¤Õ©¦(35) ¤Õ¿Ä(37) ª÷±Û(211) ®]µq(272) ±iÂ¸(386) ±äèû(418) ³³Á¾(467) ³ì·è(475) ¼Bªí(572) ¼B²j(576) ¼B¼ý(587) ¼BíÙ(593) ÁúÃL(680) ÅÇ´º(717)
+Sequence = 90050
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\050
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤ýÑÔ(67) ±iÄ_(390) ¾H­Z(634) À±¥[(734) ©sÆN(776)
+Sequence = 90051
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\051
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤N¥È(7) ¤½®]½d(25) §õØR(174) §õºÖ(175) §õÂ×(178) ÍÕèX°Ó(213) ®]¯T(266) ±ö¦¨(421) ³¯Äõ(459) µ{»·§Ó(481) ¹Qªû(538)
+Sequence = 90052
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\052
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤ý­×(63) °¨ÄË(328) ³¢¥Û(436) ³³Àà(466) µ{»È(482) ¶P»ô(490) ¼ï»ñ(599) ¿ú»É(643) Ãä±i(695) ÄT¸q(702) ¹ý¨½¦N(727) ³t¹²¤Y(738) ªv¤¸¦h(742) ¨F¼¯¬_(768) ª÷Àô¤Tµ²(769)
+Sequence = 90053
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\053
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤ý®Ô(64) Ïú¿è(235) ®L«JÅQ(253) ®]Â§(278) °¨ÅK(329) ±ZÚ|(341) ±`ÀJ(342) ±i¥¬(345) ±i²y(367) ±i½Ã(375) ±i¾|(376) ¶O¸Ö(487) ¶OÄ£(489) ·¨¥ô(501) ·¨©^(502) ·¨©ù(503) ·¨¬f(506) ¸ëµØ(533) ¹ù¥ß(546) »¯©ù(558) ¼B¾±(590) ¼ïÁô(602) ½±¥Û(606) ½±µÎ(608) ½Ñ¸¯è°(629) ¾d§Ó(637) ¾d³£(638) À¹³®(657) ÃQ¿Ø(687) ÃQÄË(688) ¨º¼Ó(736) ªü·|³ä(773) ¶a¤ñ¯à(775)
+Sequence = 90054
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\054
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = °K³N(305) °¨¤éí­(312) °¨©§(317) ±ä¦t(397) ³\»ö(433) ³¯¨ì(445) ÀFªÛ(647) ÀN¤à(650) Ãö¥­(696) Ãö¯Á(698) Ãö²Î(699) ·¨¾W(781)
+Sequence = 90055
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\055
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤a¬ð°©(761) ©sÀu(763) °g·í¤j¤ý(770) ±a¨Ó¬}¥D(771) ¦£¤úªø(772) «¢¥§(780)
+Sequence = 90056
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\056
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦N¤Ó(115) ¦V¨q(118) ¨¿«w(190) ÍÔ­ì(212) ®]·ì(274) ®}Âä(287) °ª°ó¶©(334) ±i®­(361) ±i³®(369) ±ä¾Ú(414) ²D­Z(422) ³¯µn(452) ¸³³Ö(524) ºÞ¹ç(553) ¼B§D(568) ¼ð­N(603) ½]±d(605) ÀF¶H(648) Àd«T(652) Àä¶§¿³(658) Áô¿»(669) ¥ª½å¤ý(735) ©s¸`(779)
+Sequence = 90057
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\057
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¥C¤O©~(718) ¥_®c§B¥É(719) ¥h¨õ(720) ¥Õªê¤å(721) ¨B«×®Ú(722) ©Ý©Þ¤O·L(723) ©ó§ßÃ¹(724) ¶V¦N(725) ¶®¤¦(726) Ð{°·(728) ¯À§Q(729) ¯à¦Ú©è¤§(730) ³Ö¾÷(731) ´¶¿c(732) µL¦Ú¥Â(733) ©I¼p¬u(737) ¼Ó¯Z(739) ªvµLÀ¹(743) ¶ÂÀs¬}¥D(778)
+Sequence = 90058
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\058
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ±ä¤¯(393) Ãö¿³(701) ÁÏ¹y(740) ¤d¸U(744) ©s¯T(777)
+Sequence = 90059
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\059
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦¨©y(121) ¦ÏÒé(134) ±i±ç(364) »N¬x(554)
+Sequence = 90060
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\060
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤½®]Äò(26) ¥q°¨¬L(84) ¨õ­l(194) ©P­Ü(198) ©s¹F(203) ªZ¦w°ê(205) ¬I¦ý(220) ®]²§(269) ±ä¿í(417) ³¯¯^(449) ·¨¥°(500) ¸ë¶f(532) ¹ù¤Æ(545) «X¦ó¿N¤à(745)
+Sequence = 90061
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\061
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤B·¬(4) ¤h²§(11) ¤hºÑ(13) ¤½®]´@(23) ¤Õ¤ë(33) ¤å´D(38) ¤ý¤¸®V(50) ¤ý­YµØ(61) ¥q°¨¹a(89) ¥ÐªY(97) ¦ó®V(137) ¨¯¾Ë­^(188) ®]®S(262) ³¯³·(450) ³ì³ì(474) ½²Ú|(617) ½Ñ¸¯ªå(623)
+Sequence = 90062
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\062
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤Ó¥v¬L®e(31) ¤å¿¶(41) ¥q°¨Þ³(90) ¥Ì­Y¨k(94) ¥Ì­Å(95) ¦¶­i(123) «¸Áø(219) °KªÚ(302) ¸ëÀà(537) ¼B¼z®Q(585)
+Sequence = 90063
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\063
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤Bº½(5) ¤Ñ­»(29) ¤ý¸a(73) ¦ó»e(140) ±iÅaÅa(392) ¾H¦B(630)
+Sequence = 90064
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\064
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¥ñ¹Ø(111) §fµ×(157) §f¶²(158) ®]¤jªê(254) °¨¶³ÅÚ(323) ¸ë«n­·(530) ¹ùµ^(547) ¾|¬Ã(639)
+Sequence = 90065
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\065
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®L«J¼b(250) ±äµØ(409) ³°­^(461) ¸³©y(520)
+Sequence = 90066
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\066
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ©P¥É(195) ®]¤pªê(255) ±i±ö(365) ±i¹ç(374) ±i¿P¿P(380) ±ä²Q(406) ¹Q¶ê(539) ¼B¼ü(586) ÁS­s(661)
+Sequence = 90067
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\067
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦ÏÀ²·ì(136) §õ¤å®V(168) ®L«J¥O¤k(240) ³¢ºi(443) ³³ªé(465) ¼B¯](575) ¼ðÄR(604) ½²Á¨(620)
+Sequence = 90068
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\068
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ªÜ»T(209) °K§ö(300) °¨»A(324) ¸ë¤È(528) ÅÇ­^½¬(715) µØ¾¤(751)
+Sequence = 90069
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\069
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ®]ÀO»n(276) °¨µY(321) ±iÄÉ(391) ÁúÂL(679) Ãö»ñ(700) ³ØÄR¨à(748) ³Â²üÅÚ(785)
+Sequence = 90070
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\070
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ±i¨Ø(350) ±ä¸`(410) ·¨ÆA(516) ºÂÌW(549) ÄY¦p·N(706)
+Sequence = 90071
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\071
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ³¢¤k¤ý(435) ¸ë¯þ(531) ½Ñ¸¯µX(626) ¸­µ·°û(750)
+Sequence = 90072
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\072
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤Õ³¶(782) ªü¸Öº¿(783) »Èªá¤Ò¤H(786) »A«½(787)
+Sequence = 90073
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\073
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ²ï¶®(784)
+Sequence = 90074
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\074
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¤ëÅª(821) ¥É¨Ì®V(822) ¥«¤o®q®V(823) ¦h¬ö²z®V(824) ¦h§Á³£®V(825) ¦õ¤[©]®V(826) §Ì¾ï®V(827) ¶·¶Õ²z®V(828) Â×¥É®V(829) ÀÍ¦W¥Ð®V(830)
+Sequence = 90075
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\075
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ±ä¸r(411) ¤ë¤ú¨à(746) ©IÄõ(749) ¿p¶ð¨à(752) ©s­»(762)
+Sequence = 90076
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\076
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ª÷ªöÄ«(210) ®L«J®þ(246) ¨Ìº¸­Û(747)
+Sequence = 90077
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\077
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ­Jªâ(224) ¶À»R½º(497) »¯ß»(562)
+Sequence = 90078
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\078
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90079
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\079
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90080
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\080
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90081
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\081
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90082
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\082
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90083
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\083
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90084
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\084
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90085
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\085
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90086
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\086
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90087
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\087
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90088
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\088
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90089
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\089
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90090
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\090
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90091
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\091
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90092
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\092
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90093
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\093
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90094
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\094
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90095
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\095
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90096
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\096
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90097
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\097
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90098
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\098
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90099
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\099
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90100
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\100
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90101
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\101
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90102
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\102
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90103
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\103
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90104
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\104
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90105
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\105
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90106
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\106
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90107
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\107
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90108
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\108
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90109
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\109
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90110
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\110
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90111
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\111
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90112
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\112
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90113
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\113
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90114
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\114
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90115
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\115
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90116
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\116
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90117
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\117
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90118
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\118
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90119
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\119
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90120
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\120
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90121
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\121
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90122
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\122
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90123
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\123
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90124
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\124
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90125
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\125
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90126
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\126
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90127
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\127
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90128
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\128
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90129
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\129
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*
+
+[OBJECT]
+Name = ¦Û³]ªZ±N
+Sequence = 90130
+Space = 0, 0, 0
+Process = SP_CLASS_SFARMY
+Directory = \SFArmy\General\130
+Sprite = Wait, W011*, #12, W031*, W041*, W031*, W021*
+Sprite = Walk, R011*, #6, R021*, R031*, R041*, R051*, R061*, R071*, R081*

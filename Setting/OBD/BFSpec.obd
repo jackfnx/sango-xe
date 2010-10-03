@@ -1,0 +1,1514 @@
+#include BFSpec.obd
+
+[SYSTEM]
+ShapeDir = D:\Dev-Sango5\GameData\Shape\
+SoundDir = sound
+SpriteDir = D:\Dev-Sango5\GameData\Shape\
+BgPath = \testBG.SHP
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 4194304
+MaxSize = 67108864
+
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+#define SP_EVENT_ACT_WAIT                       0x00000001	//¶i¤J«ÝÉó°Ê§@
+#define SP_EVENT_ACT_FADEOUT                    0x00000002	//²H¥X²¾°£
+#define SP_EVENT_ACT_REMOVE                     0x00000003	//¥ß§Y²¾°£
+#define SP_EVENT_ACT_ATTACK                     0x00000004	//§ðÀ»
+#define SP_EVENT_ACT_FINISHED					0x00000005	// µ²§À
+#define SP_EVENT_ACT_CHECK						0x00000006	// ¤¤¶¡Â_ÂI
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define BF_CLASS_BFBase                         0x00000002	//BF_CLASS_BFBase
+#define BF_CLASS_BFObject                       0x00000003	//BF_CLASS_BFObject
+#define BF_CLASS_BFHorse                        0x00000004	//BF_CLASS_BFHorse
+#define BF_CLASS_BFWeapon                       0x00000005	//BF_CLASS_BFWeapon
+#define BF_CLASS_BFGeneral                      0x00000006	//BF_CLASS_BFGeneral
+#define BF_CLASS_BFSoldier                      0x00000007	//BF_CLASS_BFSoldier
+#define BF_CLASS_BFMagic                        0x00000008	//BF_CLASS_BFMagic
+#define BF_CLASS_BFSpecial                      0x00000009	//BF_CLASS_BFSpecial
+#define BF_CLASS_BFCityWall                     0x0000000A	//BF_CLASS_BFCityWall
+
+#define BF_CLASS_BFSpecialTower                 0x00001005	//BF_CLASS_BFSpecialTower
+#define BF_CLASS_BFGeneralEvent                 0x00001006	//BF_CLASS_BFGeneralEvent
+
+#define SP_ATTRIB_001                           0x00040000	//SP_ATTRIB_001
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//²V¦â
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//¥[¦â
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//´î¦â
+#define SP_ATTRIB_OUTLINE                       0x00000010	//¥~®Ø
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash®ÄªG
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke®ÄªG
+#define SP_ATTRIB_WATER                         0x00000080	//Water®ÄªG
+#define SP_ATTRIB_SINGLE                        0x00000100	//³æ¦â
+#define SP_ATTRIB_GLASS                         0x00000200	//¬Á¼þ¦â
+#define SP_ATTRIB_GRAY                          0x00000400	//¦Ç¶¥
+#define SP_ATTRIB_TABLE                         0x00001000	//ªí®æ
+#define SP_ATTRIB_BIAS                          0x00002000	//´«¦â
+
+
+[SP_CLASS]
+Name = BF_CLASS_BFBase
+Value = 0x00000002
+Comment = BF_CLASS_BFBase
+
+[SP_CLASS]
+Name = BF_CLASS_BFGeneral
+Value = 0x00000006
+Comment = BF_CLASS_BFGeneral
+
+[SP_CLASS]
+Name = BF_CLASS_BFHorse
+Value = 0x00000004
+Comment = BF_CLASS_BFHorse
+
+[SP_CLASS]
+Name = BF_CLASS_BFMagic
+Value = 0x00000008
+Comment = BF_CLASS_BFMagic
+
+[SP_CLASS]
+Name = BF_CLASS_BFObject
+Value = 0x00000003
+Comment = BF_CLASS_BFObject
+
+[SP_CLASS]
+Name = BF_CLASS_BFSoldier
+Value = 0x00000007
+Comment = BF_CLASS_BFSoldier
+
+[SP_CLASS]
+Name = BF_CLASS_BFSpecial
+Value = 0x00000009
+Comment = BF_CLASS_BFSpecial
+
+[SP_CLASS]
+Name = BF_CLASS_BFWeapon
+Value = 0x00000005
+Comment = BF_CLASS_BFWeapon
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_ATTACK
+Value = 0x00000004
+Comment = §ðÀ»
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_FADEOUT
+Value = 0x00000002
+Comment = ²H¥X²¾°£
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_REMOVE
+Value = 0x00000003
+Comment = ¥ß§Y²¾°£
+
+[SP_EVENT]
+Name = SP_EVENT_ACT_WAIT
+Value = 0x00000001
+Comment = ¶i¤J«ÝÉó°Ê§@
+
+
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_001
+Value = 0x00040000
+Comment = SP_ATTRIB_001
+
+
+
+[OBJECT]
+Name = ¥ÈªZ
+Sequence = 80001
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\001
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¦¶³¶
+Sequence = 80002
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\002
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¥Õªê
+Sequence = 80003
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\003
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = «CÀs
+Sequence = 80004
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\004
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ÄQÅï
+Sequence = 80005
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\005
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = «Í°­
+Sequence = 80006
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\006
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ª¢Ã~
+Sequence = 80007
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\007
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+;Sprite = Attack, Car_fB01, #45, Car_fB01, @SP_EVENT_ACT_WAIT
+;Sprite = Attack2, Car_fB01, #45, Car_fB01, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¤«Áñ
+Sequence = 80008
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\008
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = óVîÁ¨®
+Sequence = 80009
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\009
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ²Å§L
+Sequence = 80010
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\010
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ÅKÃ~
+Sequence = 80011
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\011
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ½b¼Ó
+Sequence = 80012
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\012
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0005, #999
+
+
+;[OBJECT]
+;Name = ½b¼Ó ¦u«°±M¥Î
+;Sequence = 80012
+;Space = 0, 100, 0
+;Process = BF_CLASS_BFSpecialTower
+;Directory = \BFObj\BFSpec\012
+;Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+;Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+;Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+;Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+;Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+;Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+;Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+;Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+;Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+;Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = »É¤H
+Sequence = 80013
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\013
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¤¸§Ù¯«©¸
+Sequence = 80014
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\014
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0005, #999
+
+
+[OBJECT]
+Name = ¶ø¥Å¤õ½ü½Ä
+Sequence = 80015
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\015
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¶ø¥Å¤j±N­x
+Sequence = 80016
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\016
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, @SP_EVENT_ACT_CHECK, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, @SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0016, a0016, @SP_EVENT_ACT_WAIT
+Sprite = MAttack, a0016, #5, a0017, a0018, a0019, a0020, a0021, @SP_EVENT_ACT_CHECK, a0022, a0023, a0023, @SP_EVENT_ACT_WAIT
+Sprite = MAttack2, a0024, #5, a0025, a0026, a0027, a0028, @SP_EVENT_ACT_CHECK, a0029, a0030, a0031, a0031, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¥ÛÀð
+Sequence = 80017
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\017
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ©Ú°¨
+Sequence = 80018
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\018
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ÅK¬Þ
+Sequence = 80019
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\019
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008, r10009, r10010
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = Às¤ú¨®
+Sequence = 80020
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\020
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = ¤E§Àª°
+Sequence = 80021
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\021
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003,@SP_EVENT_ACT_ATTACK, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013,#20, a0014,#5, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+
+[OBJECT]
+Name = ¥¨íL«Í
+Sequence = 80022
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\022
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011,@SP_EVENT_ACT_CHECK, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¥¨ªê
+Sequence = 80023
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\023
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¾÷ÃöÀs
+Sequence = 80024
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\024
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013,#20, a0014,#5, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¾÷Ãö»ñ
+Sequence = 80025
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\025
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¾÷Ãö°\
+Sequence = 80026
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\026
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¾÷Ãö·à
+Sequence = 80027
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\027
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014,#20, a0015,#5, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¤ìÆN
+Sequence = 80028
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\028
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¤õ§¯
+Sequence = 80029
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Flags = SP_ATTRIB_WHITELIGHT
+Directory = \BFObj\BFSpec\029
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¥Õ°©ªø¤ò¶H
+Sequence = 80030
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\030
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¾uÅ\ÃM§L
+Sequence = 80031
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\031
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	¦º»î¤M
+Sequence = 80032
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\032
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	¦º»îºj
+Sequence = 80033
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\033
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	§ð«°ºl
+Sequence = 80034
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\034
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006,@SP_EVENT_ACT_CHECK, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014,@SP_EVENT_ACT_CHECK, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	ÅK½ü¨®
+Sequence = 80035
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\035
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name =	­«¥Ò¾Ô¨®
+Sequence = 80036
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\036
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	Ãz¥¹§L
+Sequence = 80037
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\037
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004, a0005,@SP_EVENT_ACT_CHECK, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0014,@SP_EVENT_ACT_CHECK, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	¤õµ©§L
+Sequence = 80038
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\038
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	¯¥¨®§L
+Sequence = 80039
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\039
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004, a0005,@SP_EVENT_ACT_CHECK, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013,@SP_EVENT_ACT_CHECK, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	¥¨¬Þ§L
+Sequence = 80040
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\040
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004, a0005,@SP_EVENT_ACT_CHECK, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013,@SP_EVENT_ACT_CHECK, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	ÁêùÁ§L
+Sequence = 80041
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\041
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	ºI¤Ñ©¸
+Sequence = 80042
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\042
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	ÅRÆE¨®
+Sequence = 80043
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\043
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = Á¡«°Àð
+Sequence = 80044
+Space = 0, 100, 0
+Process = BF_CLASS_BFCityWall
+Directory = \BFObj\BFSpec\044
+Sprite = Wait, f0009
+Sprite = Walk, f0009
+Sprite = Attack, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Defend, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, f0006, f0007, f0008, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Point1, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Point2, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0008, #999
+
+
+[OBJECT]
+Name = ¤¤«°Àð
+Sequence = 80045
+Space = 0, 100, 0
+Process = BF_CLASS_BFCityWall
+Directory = \BFObj\BFSpec\045
+Sprite = Wait, f0009
+Sprite = Walk, f0009
+Sprite = Attack, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Defend, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, f0006, f0007, f0008, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Point1, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Point2, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0008, #999
+
+
+[OBJECT]
+Name = «p«°Àð
+Sequence = 80046
+Space = 0, 100, 0
+Process = BF_CLASS_BFCityWall
+Directory = \BFObj\BFSpec\046
+Sprite = Wait, f0009
+Sprite = Walk, f0009
+Sprite = Attack, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Defend, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, f0006, f0007, f0008, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Point1, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Point2, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0008, #999
+
+
+[OBJECT]
+Name = ­«¬Þ«°Àð
+Sequence = 80047
+Space = 0, 100, 0
+Process = BF_CLASS_BFCityWall
+Directory = \BFObj\BFSpec\047
+Sprite = Wait, f0009
+Sprite = Walk, f0009
+Sprite = Attack, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Defend, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, f0006, f0007, f0008, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Point1, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = Point2, f0009, #5, f0009, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0008, #999
+
+
+[OBJECT]
+Name = ©¸½b¼Ó
+Sequence = 80048
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\048
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003,@SP_EVENT_ACT_CHECK, a0004, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011,@SP_EVENT_ACT_CHECK, a0012, a0013, a0014, a0015, a0016, a0016, @SP_EVENT_ACT_WAIT
+Sprite = Attack3, a0017, #5, a0018, a0019,@SP_EVENT_ACT_CHECK, a0020, a0021, a0022, a0023, a0024, a0024, @SP_EVENT_ACT_WAIT
+Sprite = Attack4, a0025, #5, a0026, a0027,@SP_EVENT_ACT_CHECK, a0028, a0029, a0030, a0031, a0032, a0032, @SP_EVENT_ACT_WAIT
+Sprite = Attack5, a0033, #5, a0034, a0035,@SP_EVENT_ACT_CHECK, a0036, a0037, a0038, a0039, a0040, a0040, @SP_EVENT_ACT_WAIT
+Sprite = Attack6, a0041, #5, a0042, a0043,@SP_EVENT_ACT_CHECK, a0044, a0045, a0046, a0047, a0128, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, f0006, f0007, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0007, #999
+
+
+[OBJECT]
+Name = ªø¤}¼Ó
+Sequence = 80049
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\049
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Attack3, a0016, #5, a0017, a0018, a0019,@SP_EVENT_ACT_CHECK, a0020, a0021, a0022, a0022, @SP_EVENT_ACT_WAIT
+Sprite = Attack4, a0023, #5, a0024, a0025, a0026,@SP_EVENT_ACT_CHECK, a0027, a0028, a0029, a0029, @SP_EVENT_ACT_WAIT
+Sprite = Attack5, a0030, #5, a0031, a0032, a0033,@SP_EVENT_ACT_CHECK, a0034, a0035, a0036, a0036, @SP_EVENT_ACT_WAIT
+Sprite = Attack6, a0037, #5, a0038, a0039, a0040,@SP_EVENT_ACT_CHECK, a0041, a0042, a0043, a0043, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, f0006, f0007, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0007, #999
+
+
+[OBJECT]
+Name = ¹p¤õ»O
+Sequence = 80050
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\050
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004, a0005,@SP_EVENT_ACT_CHECK, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0014,@SP_EVENT_ACT_CHECK, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, f0006, f0007, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0007, #999
+
+[OBJECT]
+Name = ­¸¥Û»O
+Sequence = 80051
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\051
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004, a0005, a0006,@SP_EVENT_ACT_CHECK, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012, a0013, a0014,@SP_EVENT_ACT_CHECK, a0015, a0016, a0016, @SP_EVENT_ACT_WAIT
+Sprite = Attack3, a0017, #5, a0018, a0019, a0020, a0021, a0022,@SP_EVENT_ACT_CHECK, a0023, a0023,@SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, f0006, f0007, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0007, #999
+
+[OBJECT]
+Name = ©Ú°¨ºj
+Sequence = 80052
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\052
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0005, #999
+
+
+[OBJECT]
+Name = ÆN
+Sequence = 80053
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\053
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ³¥¯T
+Sequence = 80054
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\054
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¨g¤û
+Sequence = 80055
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\055
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ²rªê
+Sequence = 80056
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\056
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ªá°\
+Sequence = 80057
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\057
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¶Âºµ
+Sequence = 80058
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\058
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	¦¡¯«µ£¤l
+Sequence = 80059
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\059
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0128, #5, a0129, a0130, a0131,@SP_EVENT_ACT_CHECK, a0132, a0133, a0134, a0135, a0135, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name =	¦¡¯«®V
+Sequence = 80060
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\060
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0128, #5, a0129, a0130, a0131,@SP_EVENT_ACT_CHECK, a0132, a0133, a0134, a0135, a0135, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¤ü¯«
+Sequence = 80061
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\061
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¤ì¤û
+Sequence = 80062
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\062
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¬y°¨
+Sequence = 80063
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\063
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ½_¯ó§¯§L
+Sequence = 80064
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\064
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = ¾÷Ãö§L
+Sequence = 80065
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\065
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = «Í§L¥l³ê
+Sequence = 80066
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\066
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0008, a0008, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0016, a0016, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, w0001, #10, w0002, w0003, w0004, w0003, w0002, w0002, @SP_EVENT_ACT_WAIT
+Sprite = Point1, w0001, #10, w0002, w0003, w0004, w0003, w0002, w0002, @SP_EVENT_ACT_WAIT
+Sprite = Point2, w0001, #10, w0002, w0003, w0004, w0003, w0002, w0002, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = Áô§Ô¥l³ê
+Sequence = 80067
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\067
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_ATTACK, a0005, a0006, a0007, a0008, a0008, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0016, a0016, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, w0001, #10, w0002, w0003, w0004, w0003, w0002, w0002, @SP_EVENT_ACT_WAIT
+Sprite = Point1, w0001, #10, w0002, w0003, w0004, w0003, w0002, w0002, @SP_EVENT_ACT_WAIT
+Sprite = Point2, w0001, #10, w0002, w0003, w0004, w0003, w0002, w0002, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ºu¾Ý»O
+Sequence = 80068
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\068
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #3, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005,#5, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0014, a0015, a0016, a0017, a0018, a0019, a0019, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0001, #3, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005,#5, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0014, a0015, a0016, a0017, a0018, a0019, a0019, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_WAIT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0005, #999
+
+
+[OBJECT]
+Name = ¥¨Âñ¾÷§L
+Sequence = 80083
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\083
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+
+[OBJECT]
+Name = ¾Ô¥Ò§L
+Sequence = 80084
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\084
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack, a0001, #3, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005,#5, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0014, a0015, a0016, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0001, #3, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005,#5, a0006, a0007, a0008, a0009, a0010, a0011, a0012, a0013, a0014, a0015, a0016, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+Sprite = DieWait, f0005, #999
+
+
+[OBJECT]
+Name = ¤ÑÀs¯¥¨®
+Sequence = 80085
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\085
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+
+[OBJECT]
+Name = ¦aªê¯¥¨®
+Sequence = 80086
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\086
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+
+[OBJECT]
+Name = ÅK¤MÀð
+Sequence = 80087
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecialTower
+Directory = \BFObj\BFSpec\087
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+[OBJECT]
+Name = ¼Q¤õ¼Ó
+Sequence = 80088
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\088
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT
+
+
+[OBJECT]
+Name = ¦a¤ú¼Ó
+Sequence = 80089
+Space = 0, 100, 0
+Process = BF_CLASS_BFSpecial
+Directory = \BFObj\BFSpec\089
+Sprite = Wait, w0001, #10, w0002, w0003, w0004, w0003, w0002
+Sprite = Walk, r10001, #5, r10002, r10003, r10004, r10005, r10006, r10007, r10008
+Sprite = Attack1, a0001, #5, a0002, a0003, a0004,@SP_EVENT_ACT_CHECK, a0005, a0006, a0007, a0007, @SP_EVENT_ACT_WAIT
+Sprite = Attack2, a0009, #5, a0010, a0011, a0012,@SP_EVENT_ACT_CHECK, a0013, a0014, a0015, a0015, @SP_EVENT_ACT_WAIT
+Sprite = Defend, w0017, #5, w0018, w0018, @SP_EVENT_ACT_WAIT
+Sprite = Hurt, w0021, #5, w0022, w0022, @SP_EVENT_ACT_WAIT
+Sprite = Die, f0001, #5, f0002, f0003, f0004, f0005, #90, @SP_EVENT_ACT_FADEOUT
+Sprite = Perform, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point1, A0128, #4, A0129, A0130, A0131, #8, A0132, #2, A0133, A0134, #4, A0135, A0135, @SP_EVENT_ACT_WAIT
+Sprite = Point2, A0136, #4, A0137, A0138, A0139, #8, A0140, #2, A0141, A0142, #4, A0143, A0144, A0144, @SP_EVENT_ACT_WAIT

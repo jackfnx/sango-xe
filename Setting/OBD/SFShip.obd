@@ -1,0 +1,92 @@
+[SYSTEM]
+ShapeDir = shape
+SoundDir = sound
+SpriteDir = shape
+BgPath = \testBG.SHP
+BgColor = 0x0
+DelayUnit = 60
+UseDefault = 2
+UseDefine = 2
+MinSize = 4194304
+MaxSize = 67108864
+
+
+[DEFINE]
+#define SP_NUMBER_MAX				0x7fffffff
+
+#define SP_CLASS_BASE                           0x00000001	//SP_CLASS_BASE
+#define SP_CLASS_TEST                           0x00000002	//SP_CLASS_TEST
+#define SP_CLASS_SFBase                         0x00000003	//SP_CLASS_SFBase
+#define SP_CLASS_SFSHIP                         0x00000004
+#define SP_CLASS_SFEVENTPLACE                   0x00000005
+
+
+#define SP_CLASS_SFCITY                         0x00002002	//城市
+#define SP_CLASS_SFARMY                         0x00002003	//武將
+#define SP_CLASS_SFTENT                         0x00002004	//營帳
+#define SP_CLASS_SFTOWER                        0x00002005	//塔
+#define SP_CLASS_SFHARBOR                       0x00002006	//港口
+#define SP_CLASS_SFBRIDGE                       0x00002007	//橋樑
+#define SP_CLASS_SFFORT                         0x00002008	//關卡
+#define SP_CLASS_SFOBJECT                       0x00002009	//物件
+#define SP_CLASS_SFPATCH                        0x0000200a	//修補
+
+#define SP_CLASS_SFARMYEVENT                    0x00003003	//陸事件
+#define SP_CLASS_SFSHIPEVENT                    0x00003004	//水事件
+
+
+
+
+#define SP_ATTRIB_001                           0x00040000	//SP_ATTRIB_001
+
+#define SP_ATTRIB_ALPHA                         0x00000001	//Alpha
+#define SP_ATTRIB_MIXER                         0x00000002	//混色
+#define SP_ATTRIB_WHITELIGHT                    0x00000004	//加色
+#define SP_ATTRIB_DARKLIGHT                     0x00000008	//減色
+#define SP_ATTRIB_OUTLINE                       0x00000010	//外框
+#define SP_ATTRIB_FLASH                         0x00000020	//Flash效果
+#define SP_ATTRIB_SMOKE                         0x00000040	//Smoke效果
+#define SP_ATTRIB_WATER                         0x00000080	//Water效果
+#define SP_ATTRIB_SINGLE                        0x00000100	//單色
+#define SP_ATTRIB_GLASS                         0x00000200	//玻璃色
+#define SP_ATTRIB_GRAY                          0x00000400	//灰階
+#define SP_ATTRIB_TABLE                         0x00001000	//表格
+#define SP_ATTRIB_BIAS                          0x00002000	//換色
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_BASE
+Value = 0x00000001
+Comment = SP_CLASS_BASE
+
+[SP_CLASS]
+Name = SP_CLASS_TEST
+Value = 0x00000002
+Comment = SP_CLASS_TEST
+
+;=============================================================
+
+[SP_CLASS]
+Name = SP_CLASS_SFCITY
+Value = 0x00002002
+Comment = SP_CLASS_SFCITY
+
+;=============================================================
+
+[SP_GAME_ATTRIB]
+Name = SP_ATTRIB_001
+Value = 0x00040000
+Comment = SP_ATTRIB_001
+
+;=============================================================
+
+[OBJECT]
+Name = SF_Ship
+Sequence = 91001
+Space = 0, 0, 0
+Flags = 
+Process = SP_CLASS_SFSHIP
+Directory = \SFArmy\Ship\001
+Sprite = Wait, W011*, #9999
+Sprite = Walk, W011*, #9999

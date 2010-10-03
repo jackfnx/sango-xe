@@ -1,0 +1,934 @@
+[STRING]
+String = 0,Error Test
+String = 1,Null
+
+; Test
+String = 1002,開始遊戲
+
+String = 1005,季內政
+String = 1006,內政
+String = 1007,紀錄
+String = 1008,讀取
+String = 1009,設定
+String = 1010,戰場
+String = 1011,平常
+String = 1012,離開遊戲
+String = 1013,結局
+String = 1020,新君主
+
+String = 1031,城介面
+
+
+;========================================================================
+
+; 預設的字串
+String = 3994,test.
+String = 3995,test.
+String = 3996,test.
+String = 3997,test.
+String = 3998,100%
+String = 3999,張張張張
+
+
+
+; 主介面 按鈕
+String = 4000,征戰天下
+String = 4001,讀取歷史
+String = 4002,登錄武將
+String = 4003,設定選項
+String = 4004,結束征戰
+
+; 主介面 title
+String = 4005,主選單
+
+
+
+; Demo 的字串
+String = 4010,請按滑鼠左鍵繼續...
+
+; 主介面 按鈕 comment
+String = 4020,開始新遊戲
+String = 4021,讀取歷史
+String = 4022,登錄武將
+String = 4023,設定選項
+String = 4024,結束爭戰
+
+
+; 開始新遊戲的介面 title
+String = 4050,選擇時期
+String = 4051,選擇君主
+String = 4052,設定選項
+
+; 開始新遊戲的介面 title comment
+String = 4060,自選君主
+String = 4061,自選武將
+String = 4062,自選勢力
+
+; 按鈕上的字
+String = 4100,返回
+String = 4101,確定
+String = 4102,自動
+String = 4103,手動
+String = 4104,取消
+
+; 大地圖的介面 title
+String = 5000,季內政
+String = 5001,內政
+String = 5002,戰場
+String = 5003,設定
+String = 5004,讀取
+String = 5005,紀錄
+
+; 選擇時期
+String = 5200,黃巾起義
+String = 5201,討伐董卓
+String = 5202,群雄割據
+String = 5203,官渡之戰
+String = 5204,赤壁之戰
+String = 5205,三國鼎立
+String = 5206,天下歸魏
+String = 5207,巾幗爭霸
+String = 5208,亂世稱雄
+
+String = 5210,    西元184年。時值東漢中平元年。靈帝無能，朝綱不振，以致民不聊生。太平道人張角號稱：「蒼天已死 黃天當立」，率黃巾軍起義。大將軍何進奉旨征討，率劉備、曹操、袁紹等名將與之抗衡。各地軍閥、豪傑也紛紛起義爭奪江山，一時天下大亂、風起雲湧，群雄爭霸的三國亂世自此拉開序幕………………
+String = 5211,    西元189年。中平六年。靈帝駕崩，少帝繼位。大將軍何進密召并州牧董卓帶兵入京，意欲誅殺宦官。後何進事敗，為宦官所殺，袁紹順勢誅盡宦官。怎料董卓趁機蟠踞洛陽，立獻帝、廢少帝，進位相國，權傾朝廷。各地豪傑紛紛組成聯盟共襄盛舉，同聲起兵討伐董卓。開始了一場以勤王討賊為名的龍爭虎鬥。
+String = 5212,    西元194年。興平元年。司徒王允命養女貂蟬以美人計挑撥，遂使猛將呂布誅殺董卓，各地兵馬頓時師出無名。聯盟一夕崩潰，州牧勢力的爭鬥趨於白熱化，席捲中國的全面內戰終於爆發。各軍閥君主間的政治權謀、武力衝突達到前所未有的激烈程度。
+String = 5213,    西元199年。建安四年。袁紹滅公孫瓚，佔有北方幽、冀、青、并四州。小霸王孫策平定江。劉備亦於徐州自立，後歸劉表。曹操挾獻帝以為正統，滅袁術、斬呂布，中原盡入其手。次年，曹操憑精兵良將大破袁紹於官渡，世稱「官渡之戰」。此戰之後，天下遂傾於三分之勢。
+String = 5214,    西元208年。建安十三年。劉備已三顧茅廬得臥龍諸葛孔明，並納荊州。孫權亦繼承兄長孫策衣缽坐領江東。劉備遂與孫權聯合揮軍北上，大敗曹操於赤壁三江口。至此，天下大勢以為三分。
+String = 5215,    西元219年。建安二十四年。劉備入蜀，奪得漢中，自立為漢中王。孫權進佔荊州。次年，曹操亡，子曹丕繼位稱帝，是為魏文帝，漢亡。又次年，劉備稱帝，是為蜀漢昭烈帝。乃至孫權改年號黃龍，是為東吳大帝。後世所稱蜀漢、曹魏、東吳之「三國鼎立」逐告底定。
+String = 5216,    西元263年。諸葛亮之徒姜維輔佐蜀後主劉禪，力抗曹魏王朝大將司馬懿。奈何無力回天，蜀漢滅，劉禪降魏。東吳王國孤掌難鳴，再無力與魏抗衡。三分天下遂趨一統之勢…………………
+String = 5217,    西元???年。不甘天下局勢盡由男子主導，三國女武將紛紛揭竿起義。一時之間，江山萬里，皆入女子掌握，群鳳之戰於焉展開………
+String = 5218,    西元???年。妖星掠空，天現異象。自不同的年代，三國豪傑跨越時空齊聚一堂，各憑文韜武略，爭奪天下霸主之位。且看三國群英浴血千里、譜寫神州大地嶄新傳奇………
+
+
+
+; 選擇時期 comment
+String = 5220,請選擇你要開始的時期
+String = 5221,請選擇欲扮演的君主
+String = 5222,請選擇一名自設武將為新君主
+String = 5223,請選擇最多五名自設武將為從將
+String = 5224,請選擇一個城池為起始根據地
+
+; 遊戲設定
+String = 5225,困難
+String = 5226,一般
+String = 5227,簡單
+String = 5228,是
+String = 5229,否
+
+; 選擇君主
+String = 5230,君主名稱
+String = 5231,建物
+String = 5232,君主
+String = 5233,君主所在地
+String = 5234,關卡
+String = 5235,人口總數
+String = 5236,金錢總數
+String = 5237,選擇自設君主
+String = 5238,返回選擇君主
+String = 5239,返回自設君主
+String = 5240,新君主
+String = 5241,返回選擇從將
+String = 5242,請選擇從將
+String = 5243,請選擇城池
+String = 5244,防禦
+String = 5245,下一步
+String = 5246,代表色
+String = 5247,遊戲難度
+String = 5248,自設武將是否登場
+
+
+; 軍團對戰
+String = 5250,準備作戰
+String = 5251,全軍撤退
+String = 5252,單挑
+String = 5253,馬戰
+String = 5254,武將數
+String = 5255,武將
+
+; 部隊對戰
+String = 5350,開始戰鬥
+String = 5351,更換主將
+String = 5352,更換軍師
+String = 5353,部隊撤退
+String = 5354,武將模式
+String = 5355,陣型模式
+String = 5356,將
+String = 5357,兵
+
+; 戰後結算介面
+;String = 5400,戰後處置
+String = 5400,戰勝處置
+String = 5401,招降
+String = 5402,收押
+String = 5403,斬首
+String = 5404,釋放
+String = 5405,全體招降
+String = 5406,全體收押
+String = 5407,全體斬首
+String = 5408,全體釋放
+String = 5409,遭處置狀況
+
+; 戰後結算介面
+String = 5410,戰敗清點
+String = 5411,平分秋色
+
+
+; 戰後結算介面
+String = 5420,戰後結算
+String = 5421,所得功勳值
+String = 5422,所得經驗值
+String = 5423,此戰戰績
+String = 5424,累積戰績
+String = 5425,學得必殺技
+
+
+; 部隊對戰 即將開始
+String = 5450,進入戰場
+
+; 部隊對戰
+String = 5550,進行單挑
+String = 5551,取消單挑
+String = 5552,進行馬戰
+String = 5553,取消馬戰
+
+String = 5580,離開
+
+; 大地圖
+String = 5600,本國情報
+String = 5601,外交情報
+String = 5602,系統
+String = 5603,% 4d年% 4d月% 4d日
+String = 5604,% 4d年% 4d月% 4d日
+String = 5605,% 4d年% 4d月% 4d日
+String = 5606,% 4d年% 4d月% 4d日
+String = 5607,% 4d年% 4d月% 4d日
+String = 5608,城池
+String = 5609,軍團
+String = 5610,部隊
+String = 5611,武將
+String = 5612,港口
+String = 5613,關卡
+String = 5614,塔
+
+; 武將狀態
+String = 5615,俘虜
+String = 5616,在野0
+String = 5617,在野1
+String = 5618,死亡
+
+
+; List Title
+String = 5620,城名
+String = 5621,部隊數
+String = 5622,武將數
+String = 5623,軍團名
+String = 5624,所在地
+String = 5625,武力
+String = 5626,智力
+String = 5627,部隊名
+String = 5628,武將名
+
+; 外交情報
+String = 5630,國家
+String = 5631,我方俘虜
+String = 5632,敵方俘虜
+String = 5633,預備
+String = 5634,預備
+
+
+; 城池選單
+String = 5640,城池情報
+String = 5641,太守
+String = 5642,開發
+String = 5643,搜查
+String = 5644,築城
+String = 5645,治安
+String = 5646,徵兵
+String = 5647,訓練
+String = 5648,俘虜
+String = 5650,部隊調度
+String = 5651,部隊整備
+String = 5652,軍團出城
+String = 5653,建物指令
+String = 5654,兵力目標
+String = 5655,稅率
+String = 5656,取消徵兵
+
+
+; 軍團選單
+String = 5670,軍團情報
+
+
+
+; 季內政選單
+String = 5700,人才
+String = 5701,物品
+String = 5702,外交
+String = 5703,情報
+
+String = 5710,結束季內政
+
+
+
+; 城池子選單
+String = 5800,任命太守
+String = 5801,商業開發
+String = 5802,搜索探查
+String = 5803,防禦築城
+String = 5804,整頓治安
+String = 5805,徵預備兵
+String = 5806,訓練士氣
+String = 5807,地牢俘虜
+String = 5808,城池情報
+String = 5809,城池情報
+
+; 武將資料用
+
+String = 5811,體力
+String = 5812,士氣
+String = 5813,功勳
+String = 5814,經驗值
+String = 5815,戰績
+String = 5816,技力
+String = 5817,忠誠
+String = 5818,疲勞
+String = 5819,勝
+String = 5820,敗
+String = 5821,整備武將
+String = 5822,武器
+String = 5823,道具
+String = 5824,座騎
+String = 5825,消耗
+String = 5826,武將技
+String = 5827,軍師技
+String = 5828,必殺技
+String = 5829,陣型
+String = 5830,兵種
+String = 5831,武將技名稱
+String = 5832,消耗技力
+String = 5833,所需氣力
+String = 5834,武將技解說
+String = 5835,軍師技名稱
+String = 5836,時機
+String = 5837,軍師技解說
+String = 5838,必殺技名稱
+String = 5839,武器系
+String = 5840,必殺技解說
+String = 5841,攻擊力
+String = 5842,生命力
+String = 5843,移動力
+String = 5844,等  級
+String = 5845,兵種選擇
+String = 5846,相剋性
+String = 5847,兵種
+String = 5848,兵力調整
+String = 5849,武將資料
+String = 5850,全城最大徵兵
+String = 5851,全城兵力撤除
+String = 5852,%s類武器
+
+; 城池用
+
+String = 5900,主將名稱
+String = 5901,武將數
+String = 5902,官職
+String = 5903,總武力
+String = 5904,總智力
+String = 5905,原君主
+String = 5906,君  主
+String = 5907,人  口
+String = 5908,民  心
+String = 5909,金  錢
+String = 5910,預備兵
+String = 5911,防  禦
+String = 5912,開  發
+String = 5913,部隊數
+String = 5914,武將數
+String = 5915,總兵力
+String = 5916,武將名稱
+String = 5917,武力
+String = 5918,智力
+String = 5919,等級
+String = 5920,執行率
+
+; 軍團出城
+String = 5921,部隊名稱
+String = 5922,武將數
+String = 5923,兵力/上限
+String = 5924,部隊選擇
+String = 5925,調整兵力
+String = 5926,押解俘虜
+String = 5927,最大徵兵
+String = 5928,全兵撤除
+String = 5929,出城
+String = 5930,出城紮營
+String = 5931,關閉
+String = 5932,部隊
+String = 5933,武將
+String = 5934,兵力
+String = 5935,俘虜
+String = 5936,金錢
+String = 5937,軍費
+String = 5938,紮營次數
+String = 5939,陣型
+String = 5940,確定
+String = 5941,軍團長
+
+; 部隊調度
+String = 5942,部隊列表
+String = 5943,軍師名稱
+String = 5944,可加入部隊
+String = 5945,部隊合併
+String = 5946,部隊解散
+String = 5947,軍團最大徵兵
+String = 5948,軍團全兵撤除
+String = 5949,我軍即將自 %s 撤離，是否攜出全部金錢及俘虜？
+
+; 戰場用字串
+
+String = 5950,字  
+
+; 季內政 選單 人才
+String = 6000,冊封官職
+String = 6001,說服人才
+String = 6002,招降敵將
+String = 6003,設立儲君
+String = 6004,賞賜武將
+
+
+String = 6006,撤銷官職將失去目前累積的功勳
+String = 6007,撤銷官職後將成為侍郎
+String = 6008,撤銷
+String = 6009,撤銷官職
+String = 6010,冊封官職
+String = 6011,官職一覽
+String = 6012,官職列表
+String = 6013,冊封
+String = 6014,自動冊封高
+String = 6015,自動冊封低
+String = 6016,官職詳解
+String = 6017,全員冊封
+String = 6018,高冊封
+String = 6019,低冊封
+
+; 系統選單
+
+String = 6020,記錄歷史
+String = 6021,讀取歷史
+String = 6022,系統設定
+String = 6023,回主選單
+String = 6024,離開遊戲
+String = 6025,系統選單
+
+String = 6029,雷達效果
+String = 6030,音樂音量
+String = 6031,音效音量
+String = 6032,效果表現
+String = 6033,遊戲速度
+String = 6034,字型選擇
+String = 6035,訊息
+String = 6036,請選擇您的設定項目
+String = 6037,低
+String = 6038,中
+String = 6039,高
+String = 6040,慢
+String = 6041,中
+String = 6042,快
+String = 6043,壹
+String = 6044,貳
+String = 6045,參
+String = 6046,峨眉
+String = 6047,武當
+String = 6048,有
+String = 6049,無
+String = 6050,完整
+String = 6051,簡易
+String = 6052,\n您確定要記錄在這個位置嗎？
+String = 6053,\n您確定要讀取這個位置的紀錄嗎？
+String = 6054,\n您確定要回到主選單嗎？
+String = 6055,\n您確定要離開遊戲嗎？
+String = 6056,\n系統正在進行所有硬碟的格式化，並且只會留下群英傳五代的資料...\n請稍待...
+
+; 季內政 選單 說服人才
+
+String = 6060,人才名單
+String = 6061,展現
+String = 6062,請求
+String = 6063,重利
+String = 6064,說服
+String = 6065,自動說服
+String = 6066,使用對象
+String = 6067,執行武將
+String = 6068,城內金錢
+String = 6069,給予金額
+
+; 季內政 選單 勸降敵降
+
+String = 6070,勸降
+String = 6071,威脅
+String = 6072,酷刑
+String = 6073,利誘
+String = 6074,招降
+String = 6075,自動招降
+String = 6076,俘虜名單
+String = 6077,所屬君主
+String = 6078,自動斬首
+
+; 季內政 選單 冊立儲君
+
+String = 6080,冊立儲君
+String = 6081,目前儲君
+String = 6082,武將列表
+
+
+; 季內政 選單 物品
+String = 6100,商業買賣
+String = 6101,授予物品
+String = 6102,買入
+String = 6103,賣出
+String = 6104,執行武將
+String = 6105,物品清單
+String = 6106,物品名稱
+String = 6107,買價
+String = 6108,持有數
+String = 6109,購買數
+String = 6110,出售數
+String = 6111,購買數量   個
+String = 6112,出售數量   個
+String = 6113,總價
+String = 6114,因
+String = 6115,的威嚴
+String = 6116,買價折價為
+String = 6117,的智慧
+String = 6118,售價提高為
+String = 6119,城內共有
+String = 6120,本次購買金額
+String = 6121,本次出售金額
+String = 6122,賣價
+String = 6123,裝備物品
+String = 6124,使用物品
+String = 6125,裝備物品清單
+String = 6126,使用物品清單
+String = 6127,武將清單
+String = 6128,裝備
+String = 6129,使用
+String = 6130,任務
+String = 6131,日期
+String = 6132,物品
+String = 6133,獲得部隊
+String = 6134,來源
+String = 6135,年
+String = 6136,月
+String = 6137,日
+
+
+; 季內政按鈕 物品方面
+String = 6140,商業買賣
+String = 6141,授予物品
+String = 6142,本季入庫
+String = 6143,國庫清單
+String = 6144,補給運輸
+
+; 武器系說明
+
+String = 6150,劍
+String = 6151,扇
+String = 6152,大刀
+String = 6153,槍
+String = 6154,弓
+String = 6155,全武器
+
+String = 6160,初學
+String = 6161,進階
+String = 6162,精通
+
+
+; 季內政 選單 外交
+String = 6200,贈予金錢
+String = 6201,遊說關說
+String = 6202,散撥謠言
+String = 6203,挑撥國家
+String = 6204,離間武將
+String = 6205,贖回俘虜
+String = 6206,同盟協議
+
+; 季內政 選單 情報
+String = 6300,城池情報
+String = 6301,武將情報
+String = 6302,檢視勢力
+String = 6303,國力方析 
+
+; 季內政 官職
+
+String = 6350,名稱
+String = 6351,類型
+String = 6352,官階
+String = 6353,等級
+String = 6354,功勳
+String = 6355,武將等級
+String = 6356,武力下限
+String = 6357,智力下限
+String = 6358,帶將數
+String = 6359,體力
+String = 6360,技力
+String = 6361,武力
+String = 6362,智力
+String = 6363,速度
+String = 6364,陣型
+String = 6365,附加武將技：
+String = 6366,附加軍師技：
+String = 6367,兵種：
+
+; 補充字串
+String = 6500,主將
+String = 6501,軍師
+String = 6502,離開戰場
+String = 6503,所屬士兵
+String = 6504,全將
+String = 6505,全將士兵
+String = 6506,作戰指令
+String = 6507,組合技
+String = 6508,武將技
+String = 6509,全將出擊
+String = 6510,全兵出擊
+String = 6511,全軍待命
+String = 6512,全軍撤退
+String = 6513,全軍衝鋒
+String = 6514,向上
+String = 6515,後退
+String = 6516,待命
+String = 6517,前進
+String = 6518,向下
+String = 6519,氣力
+String = 6520,攻擊敵將選擇
+String = 6521,施展確認
+String = 6522,施展
+String = 6523,技能解說
+String = 6524,軍師  張張張張
+String = 6525,選擇計策
+String = 6526,說明
+String = 6527,軍師 %s 剩餘技力 %d
+String = 6528,剩餘技力
+String = 6529,狀態
+String = 6530,施展之軍師技
+String = 6531,抵消
+String = 6532,左鍵點選軍團的目的地，右鍵取消
+String = 6533,左鍵點確定此路線，右鍵取消
+String = 6534,地圖縮小
+String = 6535,開關顯示城池
+String = 6536,開關顯示關卡
+String = 6537,開關顯示港口
+String = 6538,開關顯示陸路
+String = 6539,開關顯示水路
+String = 6540,我軍 %s 施展武將技\n%s
+String = 6541,敵軍 %s 施展武將技\n%s
+String = 6542,%d勝/%d敗
+String = 6543,我軍發動軍師技\n%s
+String = 6544,敵軍發動軍師技\n%s
+String = 6545,%s等人
+String = 6546,招降？
+String = 6547,打入監獄？
+String = 6548,斬首？
+String = 6549,釋放？
+String = 6550,是否將
+
+String = 6551,我方軍師 %s 習得 %s 軍師技
+String = 6552,敵方軍師 %s 習得 %s 軍師技
+
+;// 武將技列表 選擇列表 - 子選單 - 確定鈕
+String = 6553,自動選擇
+
+;//軍師技
+String = 6554,我軍 %s 等%s員 施展組合技\n%s
+String = 6555,敵軍 %s 等%s員 施展組合技\n%s
+
+// 補充
+String = 6560,是否對
+
+
+; 季內政情報按鈕
+String = 6590,國家情報
+String = 6591,城池情報
+String = 6592,軍團情報
+String = 6593,部隊情報
+String = 6594,武將情報
+
+; 關係情報
+String = 6600,關係情報
+String = 6601,國家
+String = 6602,人口數
+String = 6603,金錢數
+String = 6604,關係部隊
+String = 6605,關係武將
+String = 6606,所屬關係
+String = 6607,列舉全部
+String = 6608,主  將：
+String = 6609,軍  師：
+String = 6610,陣  型：
+String = 6611,總兵力：
+String = 6612,軍團數
+String = 6613,部隊數
+String = 6614,武將數
+
+; 自設武將
+String = 6700,新增自設武將
+String = 6701,刪除自設武將
+String = 6702,自設武將
+String = 6703,男
+String = 6704,女
+String = 6705,姓
+String = 6706,名
+String = 6707,字
+String = 6708,肖像變更
+String = 6709,分配點數
+String = 6710,生命
+String = 6711,技力
+String = 6712,選擇造型
+String = 6713,技能學習
+String = 6714,技能名稱
+String = 6715,消費點數
+String = 6716,重新配置
+String = 6717,\n您確定要刪除武將嗎？\n\n欲刪除的武將：%s
+String = 6718,請選擇你要使用的肖像
+String = 6719,肖像選擇
+String = 6720,解說
+String = 6721,\n[姓] 或 [名] 的輸入欄位不得為空白！
+String = 6722,\n您的自設武將人數已經到達上限。
+String = 6723,新增武將
+String = 6724,登錄
+String = 6725,重設
+
+
+; 外交
+
+String = 6800,所需贖金
+String = 6801,兩
+String = 6802,金額
+String = 6803,可用金錢
+String = 6804,\n%s 要求為 %s \n付出 %s 兩之贖金。\n\n是否確定支付？
+String = 6805,贈與對象
+String = 6806,君主名稱
+;String = 6807,可用金額
+String = 6807,金額
+String = 6808,贈予金額
+String = 6809,離間對象
+String = 6810,選擇國家
+String = 6811,#a02#的離間之計失敗了\n#b02#對#b04#的忠誠度更加堅定了。\n
+String = 6812,#a02#的離間之計成功了\n#b02#對#b04#的忠誠度下降了。\n
+String = 6813,#b02#拒絕與您見面。
+String = 6814,#b02#決定來降我軍，進駐我軍 %s。
+String = 6815,忠誠度
+String = 6816,%s 已被釋放，並且回到 %s。
+String = 6817,遊說對象
+
+; 戰場戰力評估
+String = 6840,我武將戰力
+String = 6841,敵武將戰力
+String = 6842,我士兵戰力
+String = 6843,敵士兵戰力
+String = 6844,我戰力總和
+String = 6845,我勝利機率
+
+; 自動冊封
+String = 6850,自動冊封
+String = 6851,冊封武將
+String = 6852,本季尚可冊封的武將共 %d 位
+String = 6853,目前選擇冊封的武將共 %d 位
+String = 6854,預覽執行
+String = 6855,官職
+String = 6856,高冊封：自動冊封消耗最多功勳的官職\n低冊封：自動冊封消耗最少功勳的官職
+String = 6857,漢族
+String = 6858,匈奴
+String = 6859,南蠻
+String = 6860,日出
+
+; 其他
+
+String = 6900,預備兵數
+String = 6901,部隊兵數
+String = 6902,俘虜一覽
+String = 6903,總武將數
+String = 6904,總兵力數
+String = 6905,部隊武力
+String = 6906,部隊智力
+String = 6907,部隊等級
+String = 6908,部隊士氣
+String = 6909,部隊戰力
+String = 6910,外交度
+String = 6911,目前裝備
+String = 6912,選擇物品
+String = 6913,價值
+String = 6914,春
+String = 6915,夏
+String = 6916,秋
+String = 6917,冬
+String = 6918,委任
+String = 6919,全員裝備
+String = 6920,自動裝備
+String = 6921,自動卸除
+String = 6922,所有武將
+String = 6923,未裝備武將
+String = 6924,武器名稱
+String = 6925,坐騎名稱
+String = 6926,道具名稱
+String = 6927,國庫清單
+String = 6928,目前類別：
+String = 6929,物品名稱
+String = 6930,裝備名稱
+String = 6931,全 選
+String = 6932,預覽執行
+String = 6933,武將 %d 位
+String = 6934,裝備物 %d 個
+String = 6935,執行武將
+String = 6936,裝備物
+String = 6937,\n尚有技能點數未分配完畢，登錄完成後將無法再做分配。\n是否確定要進行登錄？
+String = 6938,兵數
+String = 6939,勝場
+String = 6940,敗場
+String = 6941,試聽
+String = 6942,您確定要結束季內政的工作嗎？
+String = 6943,狀況
+String = 6944,關係
+String = 6945,全員賞賜
+String = 6946,自動賞賜
+String = 6947,自動賞賜
+String = 6948,賞賜武將
+
+
+; 外交情報
+
+String = 6950,國家名稱
+String = 6951,原國籍
+String = 6952,俘虜國
+
+; 戰場
+String = 7000,體
+String = 7001,技
+String = 7002,武
+String = 7003,智
+String = 7004,忠
+String = 7005,士
+String = 7006,兵
+String = 7007,兵
+String = 7008,兵
+String = 7009,兵
+String = 7010,兵
+
+; 戰場武將資訊
+String = 7011,等級　%d\n姓名　%s\n體力　%d / %d\n技力　%d / %d\n武力　%d\n智力　%d\n忠誠　%d\n士氣　%d\n兵數　%d
+
+
+; 存檔介面
+String = 7100,存檔 %3d
+String = 7101,時期: %s
+String = 7102,遊戲難度: %s
+String = 7103,紀錄時間: %4d/%2d/%2d-%02d:%02d:%02d
+String = 7104,%3d年%2d月%2d日
+String = 7105,君主: %s
+String = 7106,建物數: %3d   武將數: %3d
+String = 7107,自動存檔
+String = 7108,版本不合
+String = 7109,檔案損毀
+
+; 補充
+String = 7110,不願投降
+
+; 存檔介面2
+String = 7200,緊急備份
+String = 7201,預留
+String = 7202,預留
+String = 7203,預留
+String = 7204,預留
+String = 7205,預留
+
+;其他2
+String = 7250,武將 %d 位
+String = 7251,賞賜 %d 位
+String = 7252,賞 賜
+String = 7253,所屬建物金錢不足
+String = 7254,所屬軍團金錢不足
+String = 7255,每次每位武將賞賜三百兩提昇忠誠度五點
+
+;// for Yin
+;按鍵名稱
+String = 7300,快速買入
+String = 7301,快速買入
+;介面標題
+String = 7302,　快速買入
+String = 7303,單價
+String = 7304,販賣地區
+String = 7305,消耗品
+String = 7306,清空
+String = 7307,%s 剩餘資金：%d
+String = 7308,%s 購買 %s
+String = 7309,購買數：%d
+String = 7310,附加武將技
+String = 7311,附加軍師技
+String = 7312,附加陣形
+String = 7313,附加兵種
+String = 7314,部隊資料
+String = 7315,熟練度
+String = 7316,目前經驗值
+String = 7317,下一級經驗值
+String = 7318,進入
+String = 7319,離開
+String = 7320,購買金額
+String = 7321,攜帶金額
+String = 7322,全部
+String = 7323,消耗品
+String = 7324,道具
+String = 7325,座騎
+String = 7326,劍
+String = 7327,扇
+String = 7328,刀
+String = 7329,槍
+String = 7330,弓
+String = 7331,聚寶洞府
+
+
+String = 8000,物品等級：
+String = 8001,敵意
+
+; 補給介面
+String = 8100,太守
+String = 8101,軍團長
+String = 8102,隊長
+String = 8103,武將
+
+String = 8120,地  點
+
+String = 8140,地圖一覽
+String = 8141,顯示名稱
+String = 8142,地點清單
+String = 8143,城名
+
+String = 8144,金錢
+String = 8145,預備兵
+
+String = 8146,補給來源
+String = 8147,補給目的
+
+String = 8148,金錢
+String = 8149,補給金錢
+String = 8150,預備兵
+String = 8151,補給預備兵
+
+String = 8152,實得金錢
+String = 8153,實得預備兵
+String = 8154,最大補給
+String = 8155,執行
+
+String = 8160,地圖全覽
+
+String = 8170,來源
+String = 8171,目的
+
+
+
+
+
+
+
+;// Add by R61
+;// 12000 以下不能使用
